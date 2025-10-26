@@ -1,0 +1,17 @@
+# How were US submarines named in WW2?
+
+!!! help-feedback ""
+    <a href="/feedback/" data-feedback-link>Click here</a>
+    if you can contribute facts, records, images, or context…
+
+<a id="summary"></a>
+=== "Summary"
+    Submarines were named after sea creatures. We can’t just say they were named after fish although most were, such as the Perch, Bullhead, Cod, Flying Fish and Halibut. However, some were named after marine mammals such as the Whale, Porpoise, Finback (a whale), Sea Cat (an otter) and Sealion.
+=== "Detailed Answer"
+    Submarines were named after sea creatures.  We can’t just say they were named after fish although most were, such as the Perch, Bullhead, Cod, Flying Fish and Halibut.  However, some were named after marine mammals such as the Whale, Porpoise, Finback (a whale), Sea Cat (an otter) and Sealion.  Others were named after unusual sea creatures, such as the Seahorse and Skate.  Obviously, not all could be named after ferocious sea creatures such as sharks or piranhas.  We even named subs the Seadragon and the Trepang, which are nudibranchs or sea slugs.
+
+    The Pampanito is named after a smaller version of the pompano fish.  Pampanito, the fish, is about a foot long.  It is a rather mild-mannered fish that is brown or black on top and silver underneath.
+=== "Related Topics"
+    - [Did we use any of the reserve fleet submarines after WW2?](./did-we-use-any-of-the-reserve-fleet-submarines-after-ww2.md#summary)
+    - [Submarines evolved. They didn’t need to be conjured up out of someone’s imagination as fully formed vessels in the 1930s and 40s. These WW2 submarines were the result of a rather lengthy process going back hundreds of years. Here is a quick summary, up…](./submarines-evolved-they-didnt-need-to-be-conjured-up-out-of-someones-imagination.md#summary)
+    - [What is a class of ships or submarines?](./what-is-a-class-of-ships-or-submarines.md#summary)
