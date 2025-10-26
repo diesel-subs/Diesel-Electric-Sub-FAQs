@@ -3,7 +3,7 @@
 <form id="faq-form">
   <div style="margin-bottom: 1rem;">
     <label for="category" style="display: block; margin-bottom: 0.5rem;">Category:</label>
-    <select id="category" required style="width: 100%; padding: 0.5rem;">
+    <select id="category" required style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;">
       <option value="">Select a category...</option>
       <option value="Battles, Small and Large">Battles, Small and Large</option>
       <option value="Crews Aboard US WW2 Subs">Crews Aboard US WW2 Subs</option>
@@ -16,25 +16,25 @@
 
   <div style="margin-bottom: 1rem;">
     <label for="question" style="display: block; margin-bottom: 0.5rem;">Question:</label>
-    <input type="text" id="question" required style="width: 100%; padding: 0.75rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 1rem;" 
+    <input type="text" id="question" required style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
            placeholder="Enter the FAQ question...">
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="short_answer" style="display: block; margin-bottom: 0.5rem;">Short Answer:</label>
-    <textarea id="short_answer" required style="width: 100%; padding: 0.5rem; height: 80px;" 
+    <textarea id="short_answer" required style="width: 100%; padding: 0.5rem; height: 80px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
               placeholder="Brief answer for the Quick Answer tab"></textarea>
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="detailed_answer" style="display: block; margin-bottom: 0.5rem;">Detailed Answer:</label>
-    <textarea id="detailed_answer" required style="width: 100%; padding: 0.5rem; height: 120px;" 
+    <textarea id="detailed_answer" required style="width: 100%; padding: 0.5rem; height: 120px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
               placeholder="Complete detailed explanation"></textarea>
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="author" style="display: block; margin-bottom: 0.5rem;">Author (optional):</label>
-    <input type="text" id="author" style="width: 100%; padding: 0.5rem;" 
+    <input type="text" id="author" style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
            placeholder="Your name">
   </div>
 

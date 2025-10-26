@@ -4,12 +4,10 @@
 
 <a id="summary"></a>
 === "Summary"
-    Force it to the surface
-    Ram
+
 === "Detailed Answer"
-    Force it to the surface
-    Ram
+
 === "Related Topics"
-    [How did they know they were enemy ships?](how-did-they-know-they-were-enemy-ships.md#summary)
+    [What other things can surface ships do to attack a submarine?](what-other-things-can-surface-ships-do-to-attack-a-submarine.md#summary)
+    [Did anyone ever make a mistake in ship identification?](did-anyone-ever-make-a-mistake-in-ship-identification.md#summary)
     [What usually happened after we attacked Japanese ships?](what-usually-happened-after-we-attacked-japanese-ships.md#summary)
-    [How were our submarines detected?](how-were-our-submarines-detected.md#summary)

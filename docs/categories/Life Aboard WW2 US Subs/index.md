@@ -1,6 +1,6 @@
 # Life Aboard WW2 US Subs
 
-Daily routine, watches, living conditions, sleep, noise, food, and what day-to-day life was like on patrol and in port.
+_Questions and answers about Life Aboard WW2 US Subs._
 
 - [Did captains always get credit for ships they sank?](did-captains-always-get-credit-for-ships-they-sank.md)
 - [Did the captain get the fancy room with only one bunk?](did-the-captain-get-the-fancy-room-with-only-one-bunk.md)
@@ -42,10 +42,10 @@ Daily routine, watches, living conditions, sleep, noise, food, and what day-to-d
 - [What privacy was there?](what-privacy-was-there.md)
 - [What was a tracking party?](what-was-a-tracking-party.md)
 - [What was JANAC?](what-was-janac.md)
-- [What was “Leave”?](what-was-leave.md)
-- [What was “Liberty”?](what-was-liberty.md)
 - [What was the food like on a submarine?](what-was-the-food-like-on-a-submarine.md)
 - [What was the largest number of men on a US WW2 submarine?](what-was-the-largest-number-of-men-on-a-us-ww2-submarine.md)
+- [What was “Leave”?](what-was-leave.md)
+- [What was “Liberty”?](what-was-liberty.md)
 - [What were the general living conditions on a submarine like this?](what-were-the-general-living-conditions-on-a-submarine-like-this.md)
 - [When were the meals?](when-were-the-meals.md)
 - [Where are the offices?](where-are-the-offices.md)

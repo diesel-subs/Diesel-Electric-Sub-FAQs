@@ -1,6 +1,6 @@
 # Operating US Subs in WW2
 
-FAQs about Operating US Subs in WW2.
+_Questions and answers about Operating US Subs in WW2._
 
 - [Are there any windows on a submarine?](are-there-any-windows-on-a-submarine.md)
 - [Did American submarines resupply at sea?](did-american-submarines-resupply-at-sea.md)

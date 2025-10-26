@@ -1,6 +1,6 @@
 # Crews Aboard WW2 US Subs
 
-Life, roles, and requirements for the men who served aboard U.S. WWII submarines—crew size, duties, and culture.
+_Questions and answers about Crews Aboard WW2 US Subs._
 
 - [As a result, does that mean there were no surgeries on submarines in WW2?](as-a-result-does-that-mean-there-were-no-surgeries-on-submarines-in-ww2.md)
 - [Did anyone stress out and need to get out of submarines?](did-anyone-stress-out-and-need-to-get-out-of-submarines.md)
@@ -18,6 +18,7 @@ Life, roles, and requirements for the men who served aboard U.S. WWII submarines
 - [Was everyone a volunteer?](was-everyone-a-volunteer.md)
 - [Was there a difference in WW2?](was-there-a-difference-in-ww2.md)
 - [Was there a doctor on board these submarines?](was-there-a-doctor-on-board-these-submarines.md)
+- [Was there an area that could be used for a jail?](was-there-an-area-that-could-be-used-for-a-jail.md)
 - [Were officers all the same?](were-officers-all-the-same.md)
 - [Were the officers on submarines specialists?](were-the-officers-on-submarines-specialists.md)
 - [Were there any women on board submarines in WW2?](were-there-any-women-on-board-submarines-in-ww2.md)
@@ -28,10 +29,10 @@ Life, roles, and requirements for the men who served aboard U.S. WWII submarines
 - [What kind of training did they get for submarine duty?](what-kind-of-training-did-they-get-for-submarine-duty.md)
 - [What roles did they have?](what-roles-did-they-have.md)
 - [What specialists (ratings) were typically assigned to submarines?](what-specialists-ratings-were-typically-assigned-to-submarines.md)
-- [What was “Leave”?](what-was-leave.md)
-- [What was “Liberty”?](what-was-liberty.md)
 - [What was the best part of being on a boat?](what-was-the-best-part-of-being-on-a-boat.md)
 - [What was the worst part of being on a boat?](what-was-the-worst-part-of-being-on-a-boat.md)
+- [What was “Leave”?](what-was-leave.md)
+- [What was “Liberty”?](what-was-liberty.md)
 - [Who are the petty officers who aren’t chiefs?](who-are-the-petty-officers-who-arent-chiefs.md)
 - [Who is the Chief of the Boat, also known as the COB?](who-is-the-chief-of-the-boat-also-known-as-the-cob.md)
 - [Who or what are the Chief Petty Officers?](who-or-what-are-the-chief-petty-officers.md)

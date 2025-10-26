@@ -1,15 +1,13 @@
-# What if you just changed your mind and wanted out of submarines?
-
 !!! help-feedback ""
     <a href="/feedback/" data-feedback-link>Click here</a>
     if you can contribute facts, records, images, or context…
 
 <a id="summary"></a>
 === "Summary"
-    The policy is that you can always “non-vol” and leave submarines. I think it would be reasonable to expect interviews to be sure that is really what you want to do. After all, the Navy has invested time and money in your submarine training.
+    The policy is that you can always “non-vol” and leave submarines. I think it would be reasonable to expect interviews to be sure that is really what you want to do.
 === "Detailed Answer"
-    The policy is that you can always “non-vol” and leave submarines.  I think it would be reasonable to expect interviews to be sure that is really what you want to do.  After all, the Navy has invested time and money in your submarine training.
+    The policy is that you can always “non-vol” and leave submarines. I think it would be reasonable to expect interviews to be sure that is really what you want to do. After all, the Navy has invested time and money in your submarine training.
 === "Related Topics"
-    - [How does one volunteer for submarines?](./how-does-one-volunteer-for-submarines.md#summary)
-    - [What kind of training did they get for submarine duty?](./what-kind-of-training-did-they-get-for-submarine-duty.md#summary)
-    - [Since submarines had limited space, were there height and weight limits?](./since-submarines-had-limited-space-were-there-height-and-weight-limits.md#summary)
+    [Was everyone a volunteer?](was-everyone-a-volunteer.md#summary)
+    [Is ”captain” a rank or a job?](is-captain-a-rank-or-a-job.md#summary)
+    [Were there any women on board submarines in WW2?](were-there-any-women-on-board-submarines-in-ww2.md#summary)
