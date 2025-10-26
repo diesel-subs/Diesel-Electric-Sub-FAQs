@@ -103,7 +103,8 @@
 
 /* ---- Optional fieldset styling (reduced font size) ---- */
 .ds-optional {
-  font-size: 0.75em; /* 75% of normal size */
+  font-size: 0.75em;
+  /* 75% of normal size */
 }
 
 .ds-optional legend {
@@ -156,7 +157,7 @@
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -179,7 +180,7 @@
   background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
   border-color: #4a90e2;
   transform: translateY(-1px);
-  box-shadow: 
+  box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
@@ -190,7 +191,7 @@
 
 .ds-mini-btn:active {
   transform: translateY(0);
-  box-shadow: 
+  box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2),
     inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -198,14 +199,16 @@
 .ds-mini-btn:focus {
   outline: none;
   border-color: #63b3ed;
-  box-shadow: 
+  box-shadow:
     0 0 0 3px rgba(99, 179, 237, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* ---- Submit button (main action) ---- */
-.ds-form button[type="submit"], button[type="submit"], input[type="submit"] {
+.ds-form button[type="submit"],
+button[type="submit"],
+input[type="submit"] {
   background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
   color: #f0fff4 !important;
   border: 2px solid #2f855a !important;
@@ -216,7 +219,7 @@
   margin-top: 20px !important;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 
+  box-shadow:
     0 3px 4px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
@@ -226,7 +229,9 @@
   overflow: hidden;
 }
 
-.ds-form button[type="submit"]:before, button[type="submit"]:before, input[type="submit"]:before {
+.ds-form button[type="submit"]:before,
+button[type="submit"]:before,
+input[type="submit"]:before {
   content: '';
   position: absolute;
   top: 0;
@@ -237,31 +242,39 @@
   transition: left 0.6s ease;
 }
 
-.ds-form button[type="submit"]:hover, button[type="submit"]:hover, input[type="submit"]:hover {
+.ds-form button[type="submit"]:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
   background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
   border-color: #48bb78 !important;
   transform: translateY(-1.4px) !important;
-  box-shadow: 
+  box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
   opacity: 1 !important;
 }
 
-.ds-form button[type="submit"]:hover:before, button[type="submit"]:hover:before, input[type="submit"]:hover:before {
+.ds-form button[type="submit"]:hover:before,
+button[type="submit"]:hover:before,
+input[type="submit"]:hover:before {
   left: 100%;
 }
 
-.ds-form button[type="submit"]:active, button[type="submit"]:active, input[type="submit"]:active {
+.ds-form button[type="submit"]:active,
+button[type="submit"]:active,
+input[type="submit"]:active {
   transform: translateY(-0.7px) !important;
-  box-shadow: 
+  box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.1),
     inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
-.ds-form button[type="submit"]:focus, button[type="submit"]:focus, input[type="submit"]:focus {
+.ds-form button[type="submit"]:focus,
+button[type="submit"]:focus,
+input[type="submit"]:focus {
   outline: none;
   border-color: #68d391 !important;
-  box-shadow: 
+  box-shadow:
     0 0 0 2px rgba(104, 211, 145, 0.3),
     0 3px 4px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
@@ -451,11 +464,13 @@
 
 /* ---- Tighter spacing in optional fieldset ---- */
 .ds-optional .ds-field.ds-inline {
-  gap: 0.15rem; /* Reduced from 0.3rem to 0.15rem */
+  gap: 0.15rem;
+  /* Reduced from 0.3rem to 0.15rem */
 }
 
 .ds-optional .ds-field.ds-inline label {
-  min-width: 3.5rem; /* Reduced from 4.5rem to 3.5rem */
+  min-width: 3.5rem;
+  /* Reduced from 4.5rem to 3.5rem */
 }
 
 /* Responsive: stack on very small screens */
@@ -465,7 +480,7 @@
     align-items: stretch;
     gap: 0.25rem;
   }
-  
+
   .ds-field.ds-inline label {
     min-width: auto;
   }

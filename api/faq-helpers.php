@@ -62,8 +62,11 @@ function parseFaqFile($file_path) {
         return null;
     }
     
+    // Extract question from filename
+    $filename = basename($file_path, '.md');
+    $question = convertFilenameToQuestion($filename);
+    
     $lines = explode("\n", $content);
-    $question = '';
     $author = '';
     $updated = '';
     $short_answer = '';
@@ -101,12 +104,6 @@ function parseFaqFile($file_path) {
             continue;
         }
         
-        // Extract question from first heading
-        if (empty($question) && preg_match('/^#\s+(.+)$/', $trimmed, $matches)) {
-            $question = $matches[1];
-            continue;
-        }
-        
         // Look for tabbed sections
         if (preg_match('/^=== "Summary"/', $trimmed)) {
             $in_summary = true;
@@ -133,18 +130,28 @@ function parseFaqFile($file_path) {
         if ($in_summary && !empty($trimmed) && !preg_match('/^(=== |!!! |<a id=)/', $trimmed)) {
             if (strpos($line, '    ') === 0) {
                 $short_answer .= substr($line, 4) . "\n";
+            } else {
+                $short_answer .= $line . "\n";
             }
         }
         
         if ($in_detailed && !empty($trimmed) && !preg_match('/^(=== |!!! |<a id=)/', $trimmed)) {
             if (strpos($line, '    ') === 0) {
                 $detailed_answer .= substr($line, 4) . "\n";
+            } else {
+                $detailed_answer .= $line . "\n";
             }
         }
         
         if ($in_related && !empty($trimmed) && !preg_match('/^(=== |!!! |<a id=)/', $trimmed)) {
-            if (preg_match('/^\s*-\s+(.+)$/', $line, $matches)) {
+            // Extract links and text from related topics
+            if (preg_match('/\[([^\]]+)\]/', $line, $matches)) {
                 $related_topics[] = trim($matches[1]);
+            } elseif (preg_match('/^\s*-?\s*(.+)$/', $line, $matches)) {
+                $topic = trim($matches[1]);
+                if (!empty($topic) && !preg_match('/^<|^\[/', $topic)) {
+                    $related_topics[] = $topic;
+                }
             }
         }
     }
@@ -157,6 +164,29 @@ function parseFaqFile($file_path) {
         'detailed_answer' => trim($detailed_answer),
         'related_topics' => $related_topics
     ];
+}
+
+/**
+ * Convert filename to readable question format
+ * @param string $filename Filename without extension
+ * @return string Formatted question
+ */
+function convertFilenameToQuestion($filename) {
+    // Remove any leading numbers or prefixes
+    $question = preg_replace('/^(Q-|q-|\d+-?)/', '', $filename);
+    
+    // Replace hyphens with spaces
+    $question = str_replace('-', ' ', $question);
+    
+    // Capitalize first letter of each word
+    $question = ucwords($question);
+    
+    // Add question mark if not present
+    if (!preg_match('/[.!?]$/', $question)) {
+        $question .= '?';
+    }
+    
+    return $question;
 }
 
 /**
