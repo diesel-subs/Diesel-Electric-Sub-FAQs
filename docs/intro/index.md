@@ -1,18 +1,20 @@
-[Open the FAQ Categories :material-arrow-right:](../categories/index.md){ .md-button .md-button--primary }
+#
 
-# Welcome to the Diesel-Electric Submarine FAQs
+[Open the FAQ Categories :material-arrow-right:](categories/index.md){ .md-button .md-button--primary }
 
-The **Diesel-Electric Submarine FAQs** are designed to help visitors, students, and researchers better understand the history, design, and daily life aboard U.S. World War II–era submarines, with special focus on the **USS Pampanito (SS-383)**.  
+# Welcome to the Diesel-Electric Sub FAQs
 
-These questions and answers come from many years of conversations with veterans, volunteers, and museum visitors. They aim to provide both **quick summaries** and **detailed explanations**, so you can choose how deeply you’d like to explore each topic. Related questions are cross-linked to make it easy to follow your curiosity.
+The **Diesel-Electric Sub FAQs** help visitors, students, and researchers better understand the history, design, and daily life aboard U.S. World War II–era submarines, with special focus on the **USS Pampanito (SS-383)**.  
+
+These  questions and answers come from many years of conversations with veterans, volunteers, and museum visitors. They aim to provide both **quick summaries** and **detailed explanations**, so you can choose how deeply you’d like to explore each topic. Related questions are cross-linked to make it easy to follow your curiosity.
 
 ---
 
 ## How to Use This FAQ
 
-  - **Short Answer** – a quick, plain-language response.  
-  - **Detailed Answer** – a more complete explanation, with historical or technical details.  
-  - **Related Topics** – links to other FAQs you might find interesting.  
+- **Short Answer** – a quick, plain-language response.  
+- **Detailed Answer** – a more complete explanation, with historical or technical details.  
+- **Related Topics** – links to other FAQs you might find interesting.  
 
 This format is meant to balance accessibility with depth, so both casual visitors and serious researchers can benefit.
 

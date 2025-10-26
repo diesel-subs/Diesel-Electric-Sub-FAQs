@@ -1,24 +1,28 @@
-site_name: Diesel-Electric Submarine FAQs
+site_name: Diesel-Electric Sub FAQs
 site_description: An open-source knowledge base on U.S. WWII diesel-electric submarines
-site_author: Dwight Naset and Irving Greisman
+site_author: Dwight Naset
 # site_url: https://diesel-subs.github.io/diesel-subs/  # Commented out for local dev
 
-repo_name: diesel-subs/diesel-subs
-repo_url: https://github.com/diesel-subs/diesel-subs
+repo_name: diesel-subs/Diesel-Electric-Submarine-FAQs
+repo_url: https://github.com/diesel-subs/Diesel-Electric-Submarine-FAQs
 edit_uri: edit/main/docs/
 
 extra_css:
   - assets/css/extra.css
 extra_javascript:
   - assets/js/active-branch.js
-  # - assets/js/first-visit-intro.js?v=2
+  - assets/js/first-visit-intro.js?v=2
   - assets/js/feedback-link.js
   - assets/js/open-summary-tab.js
+  # - assets/js/submit.js
 
 plugins:
   - search
   - git-revision-date-localized:
-      enable_git_follow: false
+      fallback_to_build_date: true
+      enabled_if_env: !ENV [CI, false]
+      exclude:
+        - index.md
   - minify:
       minify_html: true
 
@@ -55,10 +59,15 @@ validation:
     omitted_files: ignore
 
 nav:
-  - Introduction: intro/index.md
   - Home: index.md
+  - Introduction: intro/index.md
   - Hull and Compartments: "categories/Hull and Compartments/index.md"
   - US WW2 Subs in General: "categories/US WW2 Subs in General/index.md"
+  - Operating US Subs in WW2: "categories/Operating US WW2 Subs/index.md"
+  - Crews Aboard WW2 US Subs: "categories/Crews Aboard WW2 US Subs/index.md"
+  - Life Aboard WW2 US Subs: "categories/Life Aboard WW2 US Subs/index.md"
+  - Battles, Small and Large: "categories/Battles, Small and Large/index.md"
+  - Create FAQ: create-faq/index.md
 
 markdown_extensions:
   - attr_list
