@@ -20,7 +20,4 @@ Structure, layout, and key components of WWII U.S. fleet submarinesÃÂÃ�
 - [Why are the watertight doors so heavy?](why-are-the-watertight-doors-so-heavy.md)
 - [Why are there so many doorways to go through?](why-are-there-so-many-doorways-to-go-through.md)
 - [Qab](./Q-Qab.md)
-
-## Questions
-
 - [Qaef](./Q-Qaef.md)

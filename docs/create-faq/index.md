@@ -153,23 +153,35 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
     // Add the new FAQ entry
     const newEntry = `- [${question}](./${filename})\n`;
     
-    // Find where to insert the new entry
+    // Find the last bullet point and add after it, or add to the end if no bullets exist
+    const lines = currentContent.split('\n');
+    let lastBulletIndex = -1;
+    
+    // Find the last line that starts with "- ["
+    for (let i = lines.length - 1; i >= 0; i--) {
+      if (lines[i].trim().match(/^- \[/)) {
+        lastBulletIndex = i;
+        break;
+      }
+    }
+    
     let updatedContent;
-    if (currentContent.includes('## Questions')) {
-      // Add after the ## Questions header
-      updatedContent = currentContent.replace(
-        /## Questions\n\n/,
-        `## Questions\n\n${newEntry}`
-      );
-    } else if (currentContent.includes('## Questions')) {
-      // Handle case where there's no double newline
-      updatedContent = currentContent.replace(
-        /## Questions\n/,
-        `## Questions\n\n${newEntry}`
-      );
+    if (lastBulletIndex >= 0) {
+      // Insert after the last bullet point
+      lines.splice(lastBulletIndex + 1, 0, newEntry.trim());
+      updatedContent = lines.join('\n');
     } else {
-      // Add at the end
-      updatedContent = currentContent.trim() + `\n\n## Questions\n\n${newEntry}`;
+      // No existing bullet points found, add after the description
+      // Look for the first blank line after the title and description
+      let insertIndex = 2; // Default after title
+      for (let i = 2; i < lines.length; i++) {
+        if (lines[i].trim() === '') {
+          insertIndex = i + 1;
+          break;
+        }
+      }
+      lines.splice(insertIndex, 0, '', newEntry.trim());
+      updatedContent = lines.join('\n');
     }
     
     console.log('Updated content length:', updatedContent.length);
