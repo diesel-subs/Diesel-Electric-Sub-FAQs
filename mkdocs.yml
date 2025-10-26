@@ -20,7 +20,6 @@ plugins:
   - search
   - git-revision-date-localized:
       fallback_to_build_date: true
-      enabled_if_env: !ENV [CI, false]
       exclude:
         - index.md
   - minify:
@@ -57,17 +56,20 @@ theme:
 validation:
   nav:
     omitted_files: ignore
+  links:
+    unrecognized_links: ignore
 
 nav:
   - Home: index.md
   - Introduction: intro/index.md
   - Hull and Compartments: "categories/Hull and Compartments/index.md"
   - US WW2 Subs in General: "categories/US WW2 Subs in General/index.md"
-  - Operating US Subs in WW2: "categories/Operating US WW2 Subs/index.md"
+  - Operating US Subs in WW2: "categories/Operating US Subs in WW2/index.md"
   - Crews Aboard WW2 US Subs: "categories/Crews Aboard WW2 US Subs/index.md"
   - Life Aboard WW2 US Subs: "categories/Life Aboard WW2 US Subs/index.md"
   - Battles, Small and Large: "categories/Battles, Small and Large/index.md"
   - Create FAQ: create-faq/index.md
+  - Update FAQ: update-faq/index.md
 
 markdown_extensions:
   - attr_list

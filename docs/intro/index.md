@@ -1,6 +1,6 @@
 #
 
-[Open the FAQ Categories :material-arrow-right:](categories/index.md){ .md-button .md-button--primary }
+[Open the FAQ Categories :material-arrow-right:](../categories/index.md){ .md-button .md-button--primary }
 
 # Welcome to the Diesel-Electric Sub FAQs
 
