@@ -180,6 +180,12 @@ function saveFaqEntry($category, $filename, $content, $originalData) {
     $log_file = $base_docs_path . '/submissions.log';
     file_put_contents($log_file, json_encode($log_entry) . "\n", FILE_APPEND | LOCK_EX);
     
+    // Update the category index file
+    $index_updated = updateCategoryIndex($category_path, $filename, $originalData['question']);
+    if (!$index_updated) {
+        error_log("Warning: Failed to update category index for $category/$filename");
+    }
+    
     // Trigger a git commit for the new FAQ
     triggerGitCommit($category, $filename, $originalData);
     
@@ -187,6 +193,52 @@ function saveFaqEntry($category, $filename, $content, $originalData) {
         'success' => true,
         'url' => "/categories/$category/" . urlencode($filename)
     ];
+}
+
+/**
+ * Update the category index file to include the new FAQ
+ */
+function updateCategoryIndex($category_path, $filename, $question) {
+    $index_file = $category_path . '/index.md';
+    
+    // Read existing index file or create basic structure
+    if (file_exists($index_file)) {
+        $content = file_get_contents($index_file);
+    } else {
+        // Create basic index structure
+        $category_name = basename($category_path);
+        $content = "# $category_name\n\n## Questions\n\n";
+    }
+    
+    // Create the new FAQ entry
+    $display_name = pathinfo($filename, PATHINFO_FILENAME);
+    // Remove 'Q-' prefix if present for display
+    if (strpos($display_name, 'Q-') === 0) {
+        $display_name = substr($display_name, 2);
+    }
+    
+    // Convert hyphens to spaces and capitalize for display
+    $display_name = ucwords(str_replace('-', ' ', $display_name));
+    
+    $new_entry = "- [$display_name](./$filename)\n";
+    
+    // Check if entry already exists
+    if (strpos($content, $new_entry) !== false || strpos($content, "./$filename") !== false) {
+        return true; // Already exists, nothing to do
+    }
+    
+    // Find the ## Questions section and add the new entry
+    if (preg_match('/(## Questions\s*\n)(.*?)(\n## |$)/s', $content, $matches)) {
+        $questions_content = $matches[2];
+        $questions_content = trim($questions_content) . "\n" . $new_entry;
+        $content = str_replace($matches[1] . $matches[2], $matches[1] . "\n" . $questions_content, $content);
+    } else {
+        // If no Questions section exists, add it
+        $content .= "\n## Questions\n\n" . $new_entry;
+    }
+    
+    // Write the updated content
+    return file_put_contents($index_file, $content) !== false;
 }
 
 /**
@@ -200,6 +252,7 @@ function triggerGitCommit($category, $filename, $data) {
     $commands = [
         "cd $docs_path",
         "git add docs/categories/" . escapeshellarg($category) . "/" . escapeshellarg($filename),
+        "git add docs/categories/" . escapeshellarg($category) . "/index.md",
         "git commit -m " . escapeshellarg("Add FAQ: $question") . " --author=" . escapeshellarg("$author <faq@dieselsubs.com>"),
         "git push origin main"
     ];
