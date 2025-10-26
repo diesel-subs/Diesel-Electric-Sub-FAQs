@@ -19,7 +19,4 @@ Structure, layout, and key components of WWII U.S. fleet submarinesâpressur
 - [Why are the chiefsâ quarters known as the goat locker?](why-are-the-chiefs-quarters-known-as-the-goat-locker.md)
 - [Why are the watertight doors so heavy?](why-are-the-watertight-doors-so-heavy.md)
 - [Why are there so many doorways to go through?](why-are-there-so-many-doorways-to-go-through.md)
-
-## Questions
-
 - [Qab](./Q-Qab.md)

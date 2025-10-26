@@ -201,41 +201,52 @@ function saveFaqEntry($category, $filename, $content, $originalData) {
 function updateCategoryIndex($category_path, $filename, $question) {
     $index_file = $category_path . '/index.md';
     
-    // Read existing index file or create basic structure
+    // Read existing index file
     if (file_exists($index_file)) {
         $content = file_get_contents($index_file);
     } else {
-        // Create basic index structure
+        // Create basic index structure without "## Questions" header
         $category_name = basename($category_path);
-        $content = "# $category_name\n\n## Questions\n\n";
+        $content = "# $category_name\n\n";
     }
     
-    // Create the new FAQ entry
-    $display_name = pathinfo($filename, PATHINFO_FILENAME);
-    // Remove 'Q-' prefix if present for display
-    if (strpos($display_name, 'Q-') === 0) {
-        $display_name = substr($display_name, 2);
-    }
-    
-    // Convert hyphens to spaces and capitalize for display
-    $display_name = ucwords(str_replace('-', ' ', $display_name));
-    
-    $new_entry = "- [$display_name](./$filename)\n";
+    // Create the new FAQ entry using the actual question as display text
+    $new_entry = "- [$question](./$filename)\n";
     
     // Check if entry already exists
     if (strpos($content, $new_entry) !== false || strpos($content, "./$filename") !== false) {
         return true; // Already exists, nothing to do
     }
     
-    // Find the ## Questions section and add the new entry
-    if (preg_match('/(## Questions\s*\n)(.*?)(\n## |$)/s', $content, $matches)) {
-        $questions_content = $matches[2];
-        $questions_content = trim($questions_content) . "\n" . $new_entry;
-        $content = str_replace($matches[1] . $matches[2], $matches[1] . "\n" . $questions_content, $content);
-    } else {
-        // If no Questions section exists, add it
-        $content .= "\n## Questions\n\n" . $new_entry;
+    // Find the last bullet point line and add the new entry after it
+    $lines = explode("\n", $content);
+    $last_bullet_index = -1;
+    
+    // Find the last line that starts with "- ["
+    for ($i = count($lines) - 1; $i >= 0; $i--) {
+        if (preg_match('/^- \[/', trim($lines[$i]))) {
+            $last_bullet_index = $i;
+            break;
+        }
     }
+    
+    if ($last_bullet_index >= 0) {
+        // Insert after the last bullet point
+        array_splice($lines, $last_bullet_index + 1, 0, trim($new_entry));
+    } else {
+        // No existing bullet points found, add after the header
+        // Find the first non-empty line after the title
+        $insert_index = 1; // Default to after title
+        for ($i = 1; $i < count($lines); $i++) {
+            if (trim($lines[$i]) !== '') {
+                $insert_index = $i + 1;
+                break;
+            }
+        }
+        array_splice($lines, $insert_index, 0, '', trim($new_entry));
+    }
+    
+    $content = implode("\n", $lines);
     
     // Write the updated content
     return file_put_contents($index_file, $content) !== false;
