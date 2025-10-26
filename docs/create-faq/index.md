@@ -16,32 +16,32 @@
 
   <div style="margin-bottom: 1rem;">
     <label for="question" style="display: block; margin-bottom: 0.5rem;">Question:</label>
-    <input type="text" id="question" required style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
+    <input type="text" id="question" required style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;"
            placeholder="Enter the FAQ question...">
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="short_answer" style="display: block; margin-bottom: 0.5rem;">Short Answer:</label>
-    <textarea id="short_answer" required style="width: 100%; padding: 0.5rem; height: 80px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
+    <textarea id="short_answer" required style="width: 100%; padding: 0.5rem; height: 80px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;"
               placeholder="Brief answer for the Quick Answer tab"></textarea>
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="detailed_answer" style="display: block; margin-bottom: 0.5rem;">Detailed Answer:</label>
-    <textarea id="detailed_answer" required style="width: 100%; padding: 0.5rem; height: 120px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
+    <textarea id="detailed_answer" required style="width: 100%; padding: 0.5rem; height: 120px; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;"
               placeholder="Complete detailed explanation"></textarea>
   </div>
 
   <div style="margin-bottom: 1rem;">
     <label for="author" style="display: block; margin-bottom: 0.5rem;">Author (optional):</label>
-    <input type="text" id="author" style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;" 
+    <input type="text" id="author" style="width: 100%; padding: 0.5rem; border: 2px solid #2196F3; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; font-family: inherit;"
            placeholder="Your name">
   </div>
 
   <!-- Honeypot -->
   <input type="text" id="website" style="position: absolute; left: -9999px;" tabindex="-1">
 
-  <button type="submit" style="background: #2196F3; color: white; border: none; padding: 0.75rem 1.5rem; 
+  <button type="submit" style="background: #2196F3; color: white; border: none; padding: 0.75rem 1.5rem;
                                border-radius: 4px; cursor: pointer; font-size: 1rem;">
     Create FAQ
   </button>
@@ -116,20 +116,20 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
     // First, get the current index.md content
     const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${indexPath}`;
     console.log('Getting index file from:', getUrl);
-    
+
     const getResponse = await fetch(getUrl, {
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json'
       }
     });
-    
+
     console.log('Get response status:', getResponse.status);
-    
+
     let currentContent = '';
     let sha = null;
     let fileExists = false;
-    
+
     if (getResponse.ok) {
       console.log('Index file exists, updating...');
       const indexData = await getResponse.json();
@@ -149,14 +149,14 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
       console.error('Unexpected response getting index:', getResponse.status, errorText);
       throw new Error(`Failed to get index file: ${getResponse.status} - ${errorText}`);
     }
-    
+
     // Add the new FAQ entry
     const newEntry = `- [${question}](./${filename})\n`;
-    
+
     // Find the last bullet point and add after it, or add to the end if no bullets exist
     const lines = currentContent.split('\n');
     let lastBulletIndex = -1;
-    
+
     // Find the last line that starts with "- ["
     for (let i = lines.length - 1; i >= 0; i--) {
       if (lines[i].trim().match(/^- \[/)) {
@@ -164,7 +164,7 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
         break;
       }
     }
-    
+
     let updatedContent;
     if (lastBulletIndex >= 0) {
       // Insert after the last bullet point
@@ -183,11 +183,11 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
       lines.splice(insertIndex, 0, '', newEntry.trim());
       updatedContent = lines.join('\n');
     }
-    
+
     console.log('Updated content length:', updatedContent.length);
     console.log('File exists:', fileExists);
     console.log('SHA value:', sha);
-    
+
     // Prepare the update request
     const requestBody = {
       message: `Update ${category} index: add ${question}`,
@@ -198,7 +198,7 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
         email: 'faq@dieselsubs.com'
       }
     };
-    
+
     // Include SHA only if file exists (for updates, not creates)
     if (fileExists && sha) {
       requestBody.sha = sha;
@@ -206,7 +206,7 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
     } else {
       console.log('Creating new file, no SHA needed');
     }
-    
+
     console.log('Request body structure:', {
       message: requestBody.message,
       contentLength: requestBody.content.length,
@@ -214,7 +214,7 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
       hasSha: !!requestBody.sha,
       sha: requestBody.sha
     });
-    
+
     // Update the index file
     const updateResponse = await fetch(getUrl, {
       method: 'PUT',
@@ -225,25 +225,25 @@ async function updateCategoryIndex(owner, repo, branch, token, category, filenam
       },
       body: JSON.stringify(requestBody)
     });
-    
+
     console.log('Update response status:', updateResponse.status);
-    
+
     if (!updateResponse.ok) {
       const errorData = await updateResponse.text();
       console.error('Update failed:', errorData);
-      
+
       // Handle specific GitHub Pages build conflicts
       if (errorData.includes('higher priority waiting request for pages')) {
         throw new Error('GitHub Pages is building. Category index will update automatically after the build completes.');
       }
-      
+
       throw new Error(`Failed to update index: ${updateResponse.status} - ${errorData}`);
     }
-    
+
     const result = await updateResponse.json();
     console.log('Index update successful:', result);
     return result;
-    
+
   } catch (error) {
     console.error('Error updating category index:', error);
     throw error;
@@ -274,30 +274,30 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
       author: document.getElementById('author').value,
       website: document.getElementById('website').value // honeypot
     };
-    
+
     console.log('Form data:', data);
-    
+
     // Validate required fields
     if (!data.category || !data.question || !data.short_answer || !data.detailed_answer) {
       throw new Error('Please fill in all required fields');
     }
-    
+
     // Generate the markdown content and filename
     const content = generateMarkdownContent(data);
     const filename = generateFilename(data.question) + '.md';
     const filePath = `docs/categories/${data.category}/${filename}`;
-    
+
     console.log('Generated filename:', filename);
     console.log('File path:', filePath);
-    
+
     // GitHub API configuration
     const owner = 'diesel-subs';
     const repo = 'Diesel-Electric-Submarine-FAQs';
     const branch = 'main';
-    
+
     // Check for GitHub token
     const githubToken = localStorage.getItem('github_token');
-    
+
     if (!githubToken) {
       status.style.background = '#fff3cd';
       status.style.color = '#856404';
@@ -313,18 +313,18 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
       button.textContent = 'Create FAQ';
       return;
     }
-    
+
     status.textContent = 'Committing to GitHub...';
     console.log('Using GitHub token (first 10 chars):', githubToken.substring(0, 10) + '...');
-    
+
     // Base64 encode the content for GitHub API
     const encodedContent = btoa(unescape(encodeURIComponent(content)));
     console.log('Content encoded, length:', encodedContent.length);
-    
+
     // Check if file already exists first
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
     console.log('Checking if file exists:', apiUrl);
-    
+
     // First, check if the file already exists
     const checkResponse = await fetch(apiUrl, {
       headers: {
@@ -332,7 +332,7 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
         'Accept': 'application/vnd.github.v3+json'
       }
     });
-    
+
     let existingSha = null;
     if (checkResponse.ok) {
       const existingData = await checkResponse.json();
@@ -345,7 +345,7 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
       console.error('Error checking file existence:', checkResponse.status, errorText);
       throw new Error(`Failed to check file existence: ${checkResponse.status}`);
     }
-    
+
     // Prepare the request body
     const requestBody = {
       message: `Add FAQ: ${data.question}`,
@@ -356,7 +356,7 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
         email: 'faq@dieselsubs.com'
       }
     };
-    
+
     // Include SHA only if file already exists
     if (existingSha) {
       requestBody.sha = existingSha;
@@ -364,14 +364,14 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
     } else {
       console.log('Creating new file, no SHA needed');
     }
-    
+
     console.log('Request body structure:', {
       message: requestBody.message,
       contentLength: requestBody.content.length,
       branch: requestBody.branch,
       hasSha: !!requestBody.sha
     });
-    
+
     const response = await fetch(apiUrl, {
       method: 'PUT',
       headers: {
@@ -381,16 +381,16 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
       },
       body: JSON.stringify(requestBody)
     });
-    
+
     console.log('GitHub API response status:', response.status);
-    
+
     if (response.ok) {
       const result = await response.json();
       console.log('Success response:', result);
-      
+
       // Now update the category index.md file
       status.textContent = 'Updating category index...';
-      
+
       try {
         await updateCategoryIndex(owner, repo, branch, githubToken, data.category, filename, data.question);
         console.log('Category index updated successfully');
@@ -398,7 +398,7 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
         console.warn('Failed to update category index:', indexError);
         // Don't fail the whole operation if index update fails
       }
-      
+
       // Success
       status.style.background = '#e8f5e8';
       status.style.color = '#2e7d32';
@@ -414,16 +414,16 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
         <a href="${result.content.html_url}" target="_blank" style="color: #1976d2;">View file on GitHub</a><br>
         <small>GitHub Pages will rebuild your site automatically (may take a few minutes)</small>
       `;
-      
+
       // Reset form
       this.reset();
-      
+
     } else {
       const errorText = await response.text();
       console.error('GitHub API error response:', errorText);
-      
+
       let errorMessage;
-      
+
       // Handle specific GitHub Pages build conflicts
       if (errorText.includes('higher priority waiting request for pages')) {
         errorMessage = 'GitHub Pages is currently building. Please wait a moment and try again.';
@@ -435,13 +435,13 @@ document.getElementById('faq-form').addEventListener('submit', async function(e)
           errorMessage = `GitHub API error: ${response.status} - ${errorText}`;
         }
       }
-      
+
       throw new Error(errorMessage);
     }
-    
+
   } catch (error) {
     console.error('Error creating FAQ:', error);
-    
+
     // Error
     status.style.background = '#ffebee';
     status.style.color = '#c62828';
