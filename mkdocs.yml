@@ -32,8 +32,8 @@ theme:
   name: material
   language: en
   custom_dir: overrides
-  logo: assets/images/logo.png
-  favicon: assets/favicon/favicon.ico
+  logo: assets/images/Dolphins Insignia.png
+  favicon: assets/images/Missiles and Broom Favicon.png
   font:
     text: Merriweather Sans
     code: Red Hat Mono
