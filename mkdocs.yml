@@ -22,6 +22,9 @@ plugins:
       fallback_to_build_date: true
       exclude:
         - index.md
+        - create-faq/index.md
+        - update-faq/index.md
+        - create-faq-local/index.md
   - minify:
       minify_html: true
 
@@ -55,7 +58,7 @@ theme:
 
 validation:
   nav:
-    omitted_files: ignore
+    omitted_files: warn
   links:
     unrecognized_links: ignore
 
@@ -68,8 +71,6 @@ nav:
   - Crews Aboard WW2 US Subs: "categories/Crews Aboard WW2 US Subs/index.md"
   - Life Aboard WW2 US Subs: "categories/Life Aboard WW2 US Subs/index.md"
   - Battles, Small and Large: "categories/Battles, Small and Large/index.md"
-  - Create FAQ: create-faq/index.md
-  - Update FAQ: update-faq/index.md
 
 markdown_extensions:
   - attr_list
