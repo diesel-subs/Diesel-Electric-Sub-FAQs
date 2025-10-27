@@ -58,7 +58,7 @@ theme:
 
 validation:
   nav:
-    omitted_files: warn
+    omitted_files: ignore
   links:
     unrecognized_links: ignore
 
