@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "▶ PHP syntax check"
+find . -type f -name "*.php" -print0 | xargs -0 -n1 php -l
+
+echo "▶ MkDocs build (strict)"
+mkdocs build --strict -q
+
+echo "▶ Unit tests"
+if [ -f vendor/bin/pest ]; then vendor/bin/pest -q; elif [ -f vendor/bin/phpunit ]; then vendor/bin/phpunit --colors=never; fi
+
+echo "✓ Pre-commit checks passed"
+
