@@ -71,6 +71,7 @@ nav:
   - Crews Aboard WW2 US Subs: "categories/Crews Aboard WW2 US Subs/index.md"
   - Life Aboard WW2 US Subs: "categories/Life Aboard WW2 US Subs/index.md"
   - Battles, Small and Large: "categories/Battles, Small and Large/index.md"
+  - Feedback: feedback/index.md
 
 markdown_extensions:
   - attr_list
