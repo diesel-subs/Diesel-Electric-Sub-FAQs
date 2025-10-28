@@ -4,7 +4,7 @@ site_author: Dwight Naset
 # site_url: https://diesel-subs.github.io/diesel-subs/  # Commented out for local dev
 
 repo_name: diesel-subs/Diesel-Electric-Submarine-FAQs
-repo_url: https://github.com/diesel-subs/Diesel-Electric-Submarine-FAQs
+repo_url: https://diesel-subs.github.io/Diesel-Electric-Submarine-FAQs/
 edit_uri: edit/main/docs/
 
 extra_css:
