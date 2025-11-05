@@ -1,487 +1,3022 @@
-/* =========================================================
-   DieselSubs Feedback Form – Consolidated Styles
-   ========================================================= */
+/* --- Custom tab button colors: brown for inactive, green for active (FORCE OVERRIDE) --- */
+.tab-btn {
+  background: #2d1a06 !important;
+  color: #fffbe8 !important;
+  border: 2px solid #6d4c1b !important;
+  border-bottom: 3px solid #6d4c1b !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin-right: 0.3em;
+  margin-bottom: -2em;
+  padding: 0.5em 1.2em 0.45em 1.2em;
+  font-weight: 600;
+  font-size: 1.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  position: relative;
+  top: -2.1em;
+  z-index: 2;
+  box-shadow: 0 2px 6px #0002;
+}
 
-/* ---- Base form layout ---- */
-.ds-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 60rem;
+.tab-btn:not(.active):hover {
+  background: #4e2e0e !important;
+  color: #fffbe8 !important;
+  border-color: #8d6e3a !important;
+}
+
+.tab-btn.active {
+  background: #1a472a !important;
+  color: #eaffea !important;
+  border: 2.5px solid #43a047 !important;
+  border-bottom: 3px solid #181818 !important;
+  z-index: 3;
+}
+
+/* --- Custom tab button colors: brown for inactive, green for active --- */
+.tab-btn {
+  background: #2d1a06 !important;
+  color: #fffbe8 !important;
+  border: 2px solid #6d4c1b !important;
+  border-bottom: 3px solid #6d4c1b !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin-right: 0.3em;
+  margin-bottom: -2em;
+  padding: 0.5em 1.2em 0.45em 1.2em;
+  font-weight: 600;
+  font-size: 1.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  position: relative;
+  top: -2.1em;
+  z-index: 2;
+  box-shadow: 0 2px 6px #0002;
+}
+
+.tab-btn:not(.active):hover {
+  background: #4e2e0e !important;
+  color: #fffbe8 !important;
+  border-color: #8d6e3a !important;
+}
+
+.tab-btn.active {
+  background: #1a472a !important;
+  color: #eaffea !important;
+  border: 2.5px solid #43a047 !important;
+  border-bottom: 3px solid #181818 !important;
+  z-index: 3;
+}
+
+/* Limit contribute.html width to 800px and center on page */
+.ds-contribute-container {
+  max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 2rem;
+  padding: 0 1rem;
 }
 
-/* ---- Field wrapper ---- */
-.ds-field {
+/* Custom header for contribute page styled like Material for MkDocs */
+.ds-md-header {
+  background: var(--md-primary-fg-color, #1565c0);
+  color: #fff;
+  box-shadow: 0 2px 8px #0002;
+  padding: 0.7em 0;
+  margin-bottom: 2.2em;
+}
+
+/* Custom tab box: extend top border line across the full width */
+.tab-box {
+  border-top: 3px solid #6d4c1b;
+  /* brown, matches inactive tab */
+  border-left: 1px solid #bfa77a;
+  border-right: 1px solid #bfa77a;
+  border-bottom: 1px solid #bfa77a;
+  border-radius: 8px 8px 8px 8px;
+  background: #181818;
+  margin-top: 2.2em;
+  margin-bottom: 1.5em;
+  padding: 1.2em 1.2em 1em 1.2em;
+  padding-top: 5em;
+  position: relative;
+  box-shadow: 0 2px 8px #0002;
+}
+
+/* Ensure tab buttons sit above the border */
+.tab-btn {
+  position: relative;
+  top: -2.1em;
+  margin-bottom: -2em;
+  z-index: 2;
+}
+
+/* Optional: Remove double border where tab is active */
+.tab-btn.active {
+  border-bottom: 3px solid #181818 !important;
+}
+
+.ds-md-header .md-header__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5em;
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
 }
 
-/* ---- Labels ---- */
-.ds-field label {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* ---- Inputs & Textareas ---- */
-.ds-field input,
-.ds-field textarea,
-.ds-field select {
-  width: 100%;
-  max-width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--md-default-fg-color--lighter, #444);
-  border-radius: 6px;
-  background-color: var(--md-code-bg-color, #1a1a1a);
-  color: var(--md-default-fg-color, #ddd);
-  font-size: 0.95rem;
-}
-
-.ds-field textarea {
-  resize: vertical;
-  line-height: 1.5;
-  font-family: inherit;
-}
-
-/* ---- Status message ---- */
-#ds-status {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-top: 0.25rem;
-}
-
-/* ---- Submit button ---- */
-.ds-form button[type="submit"] {
-  background: var(--md-accent-fg-color, #7b38f7);
-  color: var(--md-accent-bg-color, #fff);
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
-}
-
-.ds-form button[type="submit"]:hover {
-  background-color: var(--md-accent-fg-color--hover, #945cff);
-  opacity: 0.95;
-}
-
-/* =========================================================
-   Optional Box
-   ========================================================= */
-
-.ds-optional-box {
-  border: 1px solid var(--md-default-fg-color--lighter, #444);
-  border-radius: 16px;
-  padding: 1rem;
-  width: 50%;
-  font-size: 0.7rem;
-  background-color: var(--md-code-bg-color, #1b1b1b);
-  margin-top: 20px;
-}
-
-.ds-optional-box legend {
+.ds-md-header .md-header__title {
+  font-size: 1.7rem;
   font-weight: 700;
-  padding: 0 0.5rem;
-}
-
-.ds-optional-box .ds-field {
-  margin-bottom: 0.5rem;
-}
-
-/* ---- Optional box fields tighter ---- */
-.ds-optional-box input {
-  margin-top: 0.25rem;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.8rem;
-}
-
-/* ---- Optional fieldset styling (reduced font size) ---- */
-.ds-optional {
-  font-size: 0.75em;
-  /* 75% of normal size */
-}
-
-.ds-optional legend {
-  font-size: 0.75em;
-  font-weight: 600;
-}
-
-.ds-optional .ds-field label {
-  font-size: 0.75em;
-}
-
-.ds-optional .ds-field input {
-  font-size: 0.75em;
-}
-
-/* =========================================================
-   "Your Feedback" label and copy button
-   ========================================================= */
-
-.ds-label-with-button {
-  display: inline-flex;
-  align-items: center;
-  /* vertically centers label + button */
-  gap: 0.5rem;
-  /* space between them */
-  margin-bottom: 0.25rem;
-}
-
-.ds-label-with-button label {
-  margin: 0;
-  font-weight: 600;
-  line-height: 1;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
   display: flex;
   align-items: center;
 }
 
-/* =========================================================
-   Submarine-themed Button Styles
-   ========================================================= */
-
-/* ---- Compact copy button (mini) ---- */
-.ds-mini-btn {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 50%, #1e3a5f 100%);
-  color: #e8f4fd;
-  border: 2px solid #34495e;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.35rem 0.8rem;
-  cursor: pointer;
+.ds-md-header .md-header__ellipsis {
   white-space: nowrap;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  position: relative;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.ds-mini-btn:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.5s ease;
+/* Ensure the ds-copy-current button always has a white background */
+#ds-copy-current {
+  background: #fff !important;
 }
 
-.ds-mini-btn:hover {
-  background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
-  border-color: #4a90e2;
-  transform: translateY(-1px);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.ds-optional {
+  width: 50%;
+  min-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.ds-mini-btn:hover:before {
-  left: 100%;
-}
+/* --- Material for MkDocs Consistent Form Styling --- */
+.ds-form {
+  max-width: 560px;
 
-.ds-mini-btn:active {
-  transform: translateY(0);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.ds-mini-btn:focus {
-  outline: none;
-  border-color: #63b3ed;
-  box-shadow:
-    0 0 0 3px rgba(99, 179, 237, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* ---- Submit button (main action) ---- */
-.ds-form button[type="submit"],
-button[type="submit"],
-input[type="submit"] {
-  background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
-  color: #f0fff4 !important;
-  border: 2px solid #2f855a !important;
-  border-radius: 6px !important;
-  font-size: 0.7rem !important;
-  font-weight: 700 !important;
-  padding: 0.525rem 1.4rem !important;
-  margin-top: 20px !important;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow:
-    0 3px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.35px !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.ds-form button[type="submit"]:before,
-button[type="submit"]:before,
-input[type="submit"]:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.6s ease;
-}
-
-.ds-form button[type="submit"]:hover,
-button[type="submit"]:hover,
-input[type="submit"]:hover {
-  background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
-  border-color: #48bb78 !important;
-  transform: translateY(-1.4px) !important;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-  opacity: 1 !important;
-}
-
-.ds-form button[type="submit"]:hover:before,
-button[type="submit"]:hover:before,
-input[type="submit"]:hover:before {
-  left: 100%;
-}
-
-.ds-form button[type="submit"]:active,
-button[type="submit"]:active,
-input[type="submit"]:active {
-  transform: translateY(-0.7px) !important;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-}
-
-.ds-form button[type="submit"]:focus,
-button[type="submit"]:focus,
-input[type="submit"]:focus {
-  outline: none;
-  border-color: #68d391 !important;
-  box-shadow:
-    0 0 0 2px rgba(104, 211, 145, 0.3),
-    0 3px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-}
-
-/* =========================================================
-   Divider line before Optional section
-   ========================================================= */
-
-.ds-divider {
-  border-top: 1px solid var(--md-default-fg-color--lighter, #333);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* =========================================================
-   Layout & Margins Fixes
-   ========================================================= */
-
-/* Remove top padding in main content to align flush with header */
-.md-main__inner {
-  margin-top: 0 !important;
-}
-
-/* Ensure form doesn’t stretch too wide in large layouts */
-@media (min-width: 960px) {
-  .ds-form {
-    width: 80%;
+  /* Ensure table and textarea align flush left */
+  .ds-form table {
+    padding: 2rem 2.5rem;
+    background: var(--md-default-bg-color, #fff);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
   }
-}
 
-/* Subtle refinement for dark mode readability */
-[data-md-color-scheme="slate"] .ds-field input,
-[data-md-color-scheme="slate"] .ds-field textarea {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #333;
-}
+  .ds-form th {
+    text-align: right;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--md-typeset-a-color, #222);
+    padding-right: 1em;
+    vertical-align: top;
+  }
 
-/* Indent and shrink the "Nothing on the left?" info box */
-.md-typeset .admonition.info[title="Nothing on the left?"],
-.md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) {
-  margin-left: 2.5em;
-  /* Indent */
-  width: 60%;
-  /* Shrink to 60% (i.e., reduce size by ~40%) */
-  font-size: 0.9em;
-  /* Slightly smaller text */
-}
+  .ds-form td {
+    font-size: 1.05rem;
+    color: var(--md-typeset-color, #222);
+    padding-bottom: 0.5em;
+  }
 
-.md-typeset .admonition.info[title="Nothing on the left?"] .admonition-title,
-.md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) .admonition-title {
-  font-size: 0.95em;
-}
-
-/* Target only the intro-tip info box */
-.md-typeset .admonition.intro-left-tip {
-  /* visual indent beyond the list’s own indent */
-  margin-left: 2rem;
-
-  /* reduce width by ~40% */
-  width: 60%;
-
-  /* keep it tidy */
-  box-sizing: border-box;
-  font-size: 0.95em;
-  padding: 0.6em 0.9em;
-}
-
-/* Optional: slightly smaller title for that box */
-.md-typeset .admonition.intro-left-tip .admonition-title {
-  font-size: 0.95em;
-}
-
-/* Mobile: don’t over-shrink */
-@media (max-width: 768px) {
-  .md-typeset .admonition.intro-left-tip {
+  .ds-form textarea {
     width: 100%;
-    margin-left: 0;
-  }
-}
+    min-height: 140px;
+    background: #f3f8fd;
+    border: 2px solid #b0b8c1;
+    box-shadow: 0 2px 8px #0002, 0 0 0 2px #e3e8ef inset;
 
-/* Target only the admonition that immediately follows #intro-left-tip */
-.md-typeset a#intro-left-tip+.admonition.info {
-  margin-left: 2rem;
-  /* extra visual indent under the list item */
-  width: 60%;
-  /* ~40% smaller */
-  box-sizing: border-box;
-  font-size: 0.95em;
-  padding: 0.6em 0.9em;
-}
+    .ds-form td,
+    .ds-form th {
+      padding-left: 0;
+    }
 
-/* Optional: slightly smaller title line */
-.md-typeset a#intro-left-tip+.admonition.info .admonition-title {
-  font-size: 0.95em;
-}
+    .ds-form textarea {
+      display: block;
+      margin-left: 0;
+    }
 
-/* Mobile: don't over-shrink */
-@media (max-width: 768px) {
-  .md-typeset a#intro-left-tip+.admonition.info {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-/* Force-indent and shrink the specific "Nothing on the left?" info box */
-.md-typeset a#intro-left-tip+.admonition.info {
-  display: block !important;
-  margin-left: 3rem !important;
-  /* force indentation */
-  width: 60% !important;
-  /* 40% smaller box */
-  box-sizing: border-box;
-  font-size: 0.95em;
-  padding: 0.6em 0.9em;
-  position: relative;
-}
-
-/* Optional: adjust spacing above/below to line up with the list nicely */
-.md-typeset a#intro-left-tip+.admonition.info {
-  margin-top: 0.4em;
-  margin-bottom: 0.8em;
-}
-
-/* Slightly smaller title text */
-.md-typeset a#intro-left-tip+.admonition.info .admonition-title {
-  font-size: 0.95em;
-}
-
-/* Mobile fix */
-@media (max-width: 768px) {
-  .md-typeset a#intro-left-tip+.admonition.info {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-}
-
-/* Indent the wrapper itself */
-.md-typeset .intro-left-tip {
-  margin-left: .2rem !important;
-  /* visual indent under the list item */
-}
-
-/* Shrink only the admonition inside that wrapper */
-.md-typeset .intro-left-tip>.admonition {
-  width: 70% !important;
-  /* ~40% smaller */
-  box-sizing: border-box;
-  font-size: 0.95em;
-  padding: 0.3em 0.9em;
-}
-
-/* Optional: smaller title */
-.md-typeset .intro-left-tip>.admonition .admonition-title {
-  font-size: 0.95em;
-}
-
-/* Mobile: don't over-shrink */
-@media (max-width: 68px) {
-  .md-typeset .intro-left-tip {
-    margin-left: 0 !important;
+    color: var(--md-typeset-color, #222);
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    transition: box-shadow 0.2s;
   }
 
-  .md-typeset .intro-left-tip>.admonition {
-    width: 100% !important;
+  .ds-form textarea:focus {
+    border-color: #4fc3f7;
+    box-shadow: 0 0 0 2px #4fc3f7, 0 2px 8px #0002, 0 0 0 2px #e3e8ef inset;
+    outline: none;
   }
-}
 
-/* ---- Inline form fields (label and input on same line) ---- */
-.ds-field.ds-inline {
-  flex-direction: row;
-  align-items: center;
-  gap: 0.75rem;
-}
+  .ds-label-with-button {
+    margin-bottom: 1em;
+  }
 
-.ds-field.ds-inline label {
-  min-width: 6rem;
-  flex-shrink: 0;
-  margin: 0;
-}
+  .ds-mini-btn {
+    background: #fff;
+    color: var(--md-primary-fg-color, #1565c0);
+    border: 1.5px solid #d0d7de;
+    border-radius: 4px;
+    padding: 0.5em 1.2em;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 1px 4px #0001;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: background 0.2s, color 0.2s;
+  }
 
-.ds-field.ds-inline input {
-  flex: 1;
-  margin: 0;
-}
+  .ds-mini-btn:hover {
+    background: var(--md-accent-fg-color, #43a047);
+  }
 
-/* ---- Tighter spacing in optional fieldset ---- */
-.ds-optional .ds-field.ds-inline {
-  gap: 0.15rem;
-  /* Reduced from 0.3rem to 0.15rem */
-}
+  .ds-separator {
+    border-bottom: 1.5px solid var(--md-default-fg-color--lightest, #e0e0e0);
+    margin: 2em 0 1.5em 0;
+  }
 
-.ds-optional .ds-field.ds-inline label {
-  min-width: 3.5rem;
-  /* Reduced from 4.5rem to 3.5rem */
-}
+  .ds-optional {
+    border: 1.5px solid var(--md-default-fg-color--lightest, #e0e0e0);
+    border-radius: 6px;
+    padding: 1em 1.5em 1.5em 1.5em;
+    margin-bottom: 2em;
+    background: var(--md-code-bg-color, #f5f5f5);
+  }
 
-/* Responsive: stack on very small screens */
-@media (max-width: 480px) {
+  .ds-optional legend {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--md-typeset-a-color, #1565c0);
+    padding: 0 0.5em;
+  }
+
   .ds-field.ds-inline {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.25rem;
+    margin-bottom: 1em;
   }
 
   .ds-field.ds-inline label {
-    min-width: auto;
+    font-size: 1rem;
+    margin-bottom: 0.2em;
+    color: var(--md-typeset-color, #222);
   }
-}
+
+  .ds-field.ds-inline input {
+    background: var(--md-code-bg-color, #f5f5f5);
+    color: var(--md-typeset-color, #222);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    box-shadow: 0 1px 4px #0001;
+  }
+
+  .ds-field.ds-inline input:focus {
+    box-shadow: 0 0 0 2px var(--md-primary-fg-color, #1565c0);
+    outline: none;
+  }
+
+  .ds-form button[type="submit"] {
+    background: var(--md-accent-fg-color, #43a047);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.7em 2.2em;
+    margin-top: 1.5em;
+    box-shadow: 0 2px 8px #0001;
+    cursor: pointer;
+    transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background: var(--md-primary-fg-color, #1565c0);
+  }
+
+  .ds-form #ds-status {
+    margin-top: 1em;
+    font-size: 1.05rem;
+    color: var(--md-accent-fg-color, #43a047);
+  }
+
+  @media (max-width: 700px) {
+    .ds-form {
+      padding: 1em 0.5em;
+    }
+
+    .ds-form th,
+    .ds-form td {
+      font-size: 1rem;
+    }
+
+    .ds-form textarea {
+      font-size: 1rem;
+      min-height: 100px;
+    }
+  }
+
+  /* --- Contribute Form Consistent Styling --- */
+  .ds-form {
+    max-width: 95vw;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    background: var(--md-default-bg-color, #fff);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px #0002;
+  }
+
+  .ds-form th {
+    text-align: right;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-right: 1em;
+    vertical-align: top;
+  }
+
+  .ds-form td {
+    font-size: 1.15rem;
+    padding-bottom: 0.5em;
+  }
+
+  .ds-form textarea {
+    width: 100%;
+    min-height: 216px;
+    /* increased by 20% from 180px */
+    background: #23272e;
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    /* increase font size by 20% from 1rem */
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    box-shadow: 0 2px 8px #0002;
+    transition: border-color 0.2s;
+  }
+
+  .ds-form textarea:focus {
+    border-color: #4fc3f7;
+    outline: none;
+  }
+
+  .ds-label-with-button {
+    margin-bottom: 1em;
+  }
+
+  .ds-mini-btn {
+    background: #263859;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5em 1.2em;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 1px 4px #0002;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: background 0.2s;
+  }
+
+  .ds-mini-btn:hover {
+    background: #1b253b;
+  }
+
+  .ds-separator {
+    border-bottom: 2px solid #e0e0e0;
+    margin: 2em 0 1.5em 0;
+  }
+
+  .ds-optional {
+    border: 2px solid #bbb;
+    border-radius: 8px;
+    padding: 1em 1.5em 1.5em 1.5em;
+    margin-bottom: 2em;
+    background: #fafbfc;
+  }
+
+  .ds-optional legend {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #222;
+    padding: 0 0.5em;
+  }
+
+  .ds-field.ds-inline {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+
+  .ds-field.ds-inline label {
+    font-size: 1rem;
+    margin-bottom: 0.2em;
+  }
+
+  .ds-field.ds-inline input {
+    background: #232323;
+    color: #fff;
+    border: 1.5px solid #444;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+  }
+
+  .ds-field.ds-inline input:focus {
+    border-color: #4fc3f7;
+    outline: none;
+  }
+
+  .ds-form button[type="submit"] {
+    background: #17633a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.7em 2.5em;
+    margin-top: 1.5em;
+    box-shadow: 0 2px 8px #0002;
+    cursor: pointer;
+    transition: background 0.2s;
+    letter-spacing: 0.05em;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background: #0e4025;
+  }
+
+  .ds-form #ds-status {
+    margin-top: 1em;
+    font-size: 1.05rem;
+    color: #17633a;
+  }
+
+  @media (max-width: 700px) {
+    .ds-form {
+      padding: 1em 0.5em;
+    }
+
+    .ds-form th,
+    .ds-form td {
+      font-size: 1rem;
+    }
+
+    .ds-form textarea {
+      font-size: 1rem;
+      min-height: 120px;
+    }
+  }
+
+  /* Improve textarea contrast in dark mode for contribute page */
+  @media (prefers-color-scheme: dark) {
+    .ds-form textarea {
+      background: #23272e !important;
+      color: #fff !important;
+      border: 1.5px solid #4a4a4a !important;
+      box-shadow: 0 1px 4px #0002;
+    }
+
+    .ds-form textarea:focus {
+      border-color: #4fc3f7 !important;
+      outline: none;
+    }
+  }
+
+  /* =========================================================
+   DieselSubs Feedback Form – Consolidated Styles
+   ========================================================= */
+
+  /* ---- Base form layout ---- */
+  .ds-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  /* ---- Field wrapper ---- */
+  .ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* ---- Labels ---- */
+  .ds-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* ---- Inputs & Textareas ---- */
+  .ds-field input,
+  .ds-field textarea,
+  .ds-field select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 6px;
+    background-color: var(--md-code-bg-color, #1a1a1a);
+    color: var(--md-default-fg-color, #ddd);
+    font-size: 0.95rem;
+  }
+
+  #ds-comments {
+    width: 100%;
+    min-height: 140px;
+    background: #fafdff;
+    color: var(--md-typeset-color, #222);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    box-shadow: 0 1px 4px #0001;
+    transition: box-shadow 0.2s;
+  }
+
+  /* ---- Submit button ---- */
+  .ds-form button[type="submit"] {
+    background: var(--md-accent-fg-color, #7b38f7);
+    color: var(--md-accent-bg-color, #fff);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background-color: var(--md-accent-fg-color--hover, #945cff);
+    opacity: 0.95;
+  }
+
+  /* =========================================================
+   Optional Box
+   ========================================================= */
+
+  .ds-optional-box {
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 16px;
+    padding: 1rem;
+    width: 50%;
+    font-size: 0.7rem;
+    background-color: var(--md-code-bg-color, #1b1b1b);
+    margin-top: 20px;
+  }
+
+  .ds-optional-box legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
+
+  .ds-optional-box .ds-field {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- Optional box fields tighter ---- */
+  .ds-optional-box input {
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- Optional fieldset styling (reduced font size) ---- */
+  .ds-optional {
+    font-size: 0.75em;
+    /* 75% of normal size */
+  }
+
+  .ds-optional legend {
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .ds-optional .ds-field label {
+    font-size: 0.75em;
+  }
+
+  .ds-optional .ds-field input {
+    font-size: 0.75em;
+  }
+
+  /* =========================================================
+   "Your Feedback" label and copy button
+   ========================================================= */
+
+  .ds-label-with-button {
+    display: inline-flex;
+    align-items: center;
+    /* vertically centers label + button */
+    gap: 0.5rem;
+    /* space between them */
+    margin-bottom: 0.25rem;
+  }
+
+  .ds-label-with-button label {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  /* =========================================================
+   Submarine-themed Button Styles
+   ========================================================= */
+
+  /* ---- Compact copy button (mini) ---- */
+  .ds-mini-btn {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 50%, #1e3a5f 100%);
+    color: #e8f4fd;
+    border: 2px solid #34495e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-mini-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .ds-mini-btn:hover {
+    background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
+    border-color: #4a90e2;
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .ds-mini-btn:hover:before {
+    left: 100%;
+  }
+
+  .ds-mini-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ds-mini-btn:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow:
+      0 0 0 3px rgba(99, 179, 237, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* ---- Submit button (main action) ---- */
+  .ds-form button[type="submit"],
+  button[type="submit"],
+  input[type="submit"] {
+    background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
+    color: #f0fff4 !important;
+    border: 2px solid #2f855a !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 0.525rem 1.4rem !important;
+    margin-top: 20px !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-form button[type="submit"]:before,
+  button[type="submit"]:before,
+  input[type="submit"]:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .ds-form button[type="submit"]:hover,
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
+    border-color: #48bb78 !important;
+    transform: translateY(-1.4px) !important;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+  }
+
+  .ds-form button[type="submit"]:hover:before,
+  button[type="submit"]:hover:before,
+  input[type="submit"]:hover:before {
+    left: 100%;
+  }
+
+  .ds-form button[type="submit"]:active,
+  button[type="submit"]:active,
+  input[type="submit"]:active {
+    transform: translateY(-0.7px) !important;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .ds-form button[type="submit"]:focus,
+  button[type="submit"]:focus,
+  input[type="submit"]:focus {
+    outline: none;
+    border-color: #68d391 !important;
+    box-shadow:
+      0 0 0 2px rgba(104, 211, 145, 0.3),
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* =========================================================
+   Divider line before Optional section
+   ========================================================= */
+
+  .ds-divider {
+    border-top: 1px solid var(--md-default-fg-color--lighter, #333);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* =========================================================
+   Layout & Margins Fixes
+   ========================================================= */
+
+  /* Remove top padding in main content to align flush with header */
+  .md-main__inner {
+    margin-top: 0 !important;
+  }
+
+  /* Ensure form doesn’t stretch too wide in large layouts */
+  @media (min-width: 960px) {
+    .ds-form {
+      width: 80%;
+    }
+  }
+
+  /* Subtle refinement for dark mode readability */
+  [data-md-color-scheme="slate"] .ds-field input,
+  [data-md-color-scheme="slate"] .ds-field textarea {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-color: #333;
+  }
+
+  /* Indent and shrink the "Nothing on the left?" info box */
+  .md-typeset .admonition.info[title="Nothing on the left?"],
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) {
+    margin-left: 2.5em;
+    /* Indent */
+    width: 60%;
+    /* Shrink to 60% (i.e., reduce size by ~40%) */
+    font-size: 0.9em;
+    /* Slightly smaller text */
+  }
+
+  .md-typeset .admonition.info[title="Nothing on the left?"] .admonition-title,
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Target only the intro-tip info box */
+  .md-typeset .admonition.intro-left-tip {
+    /* visual indent beyond the list’s own indent */
+    margin-left: 2rem;
+
+    /* reduce width by ~40% */
+    width: 60%;
+
+    /* keep it tidy */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title for that box */
+  .md-typeset .admonition.intro-left-tip .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don’t over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset .admonition.intro-left-tip {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Target only the admonition that immediately follows #intro-left-tip */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-left: 2rem;
+    /* extra visual indent under the list item */
+    width: 60%;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title line */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Force-indent and shrink the specific "Nothing on the left?" info box */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    display: block !important;
+    margin-left: 3rem !important;
+    /* force indentation */
+    width: 60% !important;
+    /* 40% smaller box */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+    position: relative;
+  }
+
+  /* Optional: adjust spacing above/below to line up with the list nicely */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Slightly smaller title text */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile fix */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Indent the wrapper itself */
+  .md-typeset .intro-left-tip {
+    margin-left: .2rem !important;
+    /* visual indent under the list item */
+  }
+
+  /* Shrink only the admonition inside that wrapper */
+  .md-typeset .intro-left-tip>.admonition {
+    width: 70% !important;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.3em 0.9em;
+  }
+
+  /* Optional: smaller title */
+  .md-typeset .intro-left-tip>.admonition .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 68px) {
+    .md-typeset .intro-left-tip {
+      margin-left: 0 !important;
+    }
+
+    .md-typeset .intro-left-tip>.admonition {
+      width: 100% !important;
+    }
+  }
+
+  /* ---- Inline form fields (label and input on same line) ---- */
+  .ds-field.ds-inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ds-field.ds-inline label {
+    min-width: 6rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .ds-field.ds-inline input {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ---- Tighter spacing in optional fieldset ---- */
+  .ds-optional .ds-field.ds-inline {
+    gap: 0.15rem;
+    /* Reduced from 0.3rem to 0.15rem */
+  }
+
+  .ds-optional .ds-field.ds-inline label {
+    min-width: 3.5rem;
+    /* Reduced from 4.5rem to 3.5rem */
+  }
+
+  /* Responsive: stack on very small screens */
+  @media (max-width: 480px) {
+    .ds-field.ds-inline {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .ds-field.ds-inline label {
+      min-width: auto;
+    }
+  }
+
+  /* Two-column layout for meta table */
+  .ds-meta-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.1em 0;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .ds-meta-table tr {
+    display: contents;
+  }
+
+  .ds-meta-table th,
+  .ds-meta-table td {
+    padding: 0.2em 0;
+    text-align: left;
+    vertical-align: top;
+    grid-row: auto;
+  }
+
+  .ds-meta-table th {
+    grid-column: 1;
+  }
+
+  .ds-meta-table td {
+    grid-column: 2;
+  }
+
+  .ds-meta-table hr.ds-meta-hr {
+    grid-column: 1 / -1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  /* Two-column header grid for contribute page */
+  .ds-header-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ds-header-logo img {
+    display: block;
+    height: 2.2em;
+    padding-right: 10px;
+  }
+
+  .ds-header-title {
+    text-align: left;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Dolphins logo and brand text on same line */
+  .ds-header-logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ds-header-brand {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Set the textarea width to 80 characters per line using ch units, with a minimum width for usability and horizontal resizing allowed. */
+  .ds-form textarea {
+    min-width: 64ch;
+    max-width: 100%;
+    width: 80ch;
+    resize: horizontal;
+  }
+
+  /* Strong visible box for textarea */
+  .ds-form textarea {
+    border: 2.5px solid #1565c0 !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 2px #b0b8c1, 0 2px 8px #0002 !important;
+    border-radius: 8px !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ds-form textarea:focus {
+    border-color: #43a047 !important;
+    box-shadow: 0 0 0 2.5px #43a047, 0 2px 8px #0002 !important;
+  }
+
+  .ds-meta-hr {
+    border: none;
+    border-top: 2px solid #b0b8c1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  .ds-form {
+    max-width: 700px;
+  }
+
+  .ds-field-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ds-label-with-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.7em;
+    margin-top: 0.5em;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ds-send-btn {
+    margin-left: 0;
+  }
+
+  #ds-copy-current {
+    position: relative;
+    top: 4px;
+  }
+
+  .ds-send-btn:disabled,
+  .ds-send-btn.ds-send-btn-disabled {
+    background: #c0c4cc !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 0.7;
+  }
+
+  /* Responsive Textarea Width */
+  .ds-form textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .ds-form textarea {
+      width: 80ch;
+      min-width: 80ch;
+      max-width: 80ch;
+    }
+  }
+
+  .ds-meta-table th {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 1em;
+    font-weight: 600;
+    color: var(--md-typeset-a-color, #222);
+    vertical-align: top;
+  }
+
+  .ds-meta-table td {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  /* =========================================================
+   DieselSubs Feedback Form – Consolidated Styles
+   ========================================================= */
+
+  /* ---- Base form layout ---- */
+  .ds-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  /* ---- Field wrapper ---- */
+  .ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* ---- Labels ---- */
+  .ds-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* ---- Inputs & Textareas ---- */
+  .ds-field input,
+  .ds-field textarea,
+  .ds-field select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 6px;
+    background-color: var(--md-code-bg-color, #1a1a1a);
+    color: var(--md-default-fg-color, #ddd);
+    font-size: 0.95rem;
+  }
+
+  #ds-comments {
+    width: 100%;
+    min-height: 140px;
+    background: #fafdff;
+    color: var(--md-typeset-color, #222);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    box-shadow: 0 1px 4px #0001;
+    transition: box-shadow 0.2s;
+  }
+
+  /* ---- Submit button ---- */
+  .ds-form button[type="submit"] {
+    background: var(--md-accent-fg-color, #7b38f7);
+    color: var(--md-accent-bg-color, #fff);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background-color: var(--md-accent-fg-color--hover, #945cff);
+    opacity: 0.95;
+  }
+
+  /* =========================================================
+   Optional Box
+   ========================================================= */
+
+  .ds-optional-box {
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 16px;
+    padding: 1rem;
+    width: 50%;
+    font-size: 0.7rem;
+    background-color: var(--md-code-bg-color, #1b1b1b);
+    margin-top: 20px;
+  }
+
+  .ds-optional-box legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
+
+  .ds-optional-box .ds-field {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- Optional box fields tighter ---- */
+  .ds-optional-box input {
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- Optional fieldset styling (reduced font size) ---- */
+  .ds-optional {
+    font-size: 0.75em;
+    /* 75% of normal size */
+  }
+
+  .ds-optional legend {
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .ds-optional .ds-field label {
+    font-size: 0.75em;
+  }
+
+  .ds-optional .ds-field input {
+    font-size: 0.75em;
+  }
+
+  /* =========================================================
+   "Your Feedback" label and copy button
+   ========================================================= */
+
+  .ds-label-with-button {
+    display: inline-flex;
+    align-items: center;
+    /* vertically centers label + button */
+    gap: 0.5rem;
+    /* space between them */
+    margin-bottom: 0.25rem;
+  }
+
+  .ds-label-with-button label {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  /* =========================================================
+   Submarine-themed Button Styles
+   ========================================================= */
+
+  /* ---- Compact copy button (mini) ---- */
+  .ds-mini-btn {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 50%, #1e3a5f 100%);
+    color: #e8f4fd;
+    border: 2px solid #34495e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-mini-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .ds-mini-btn:hover {
+    background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
+    border-color: #4a90e2;
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .ds-mini-btn:hover:before {
+    left: 100%;
+  }
+
+  .ds-mini-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ds-mini-btn:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow:
+      0 0 0 3px rgba(99, 179, 237, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* ---- Submit button (main action) ---- */
+  .ds-form button[type="submit"],
+  button[type="submit"],
+  input[type="submit"] {
+    background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
+    color: #f0fff4 !important;
+    border: 2px solid #2f855a !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 0.525rem 1.4rem !important;
+    margin-top: 20px !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-form button[type="submit"]:before,
+  button[type="submit"]:before,
+  input[type="submit"]:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .ds-form button[type="submit"]:hover,
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
+    border-color: #48bb78 !important;
+    transform: translateY(-1.4px) !important;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+  }
+
+  .ds-form button[type="submit"]:hover:before,
+  button[type="submit"]:hover:before,
+  input[type="submit"]:hover:before {
+    left: 100%;
+  }
+
+  .ds-form button[type="submit"]:active,
+  button[type="submit"]:active,
+  input[type="submit"]:active {
+    transform: translateY(-0.7px) !important;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .ds-form button[type="submit"]:focus,
+  button[type="submit"]:focus,
+  input[type="submit"]:focus {
+    outline: none;
+    border-color: #68d391 !important;
+    box-shadow:
+      0 0 0 2px rgba(104, 211, 145, 0.3),
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* =========================================================
+   Divider line before Optional section
+   ========================================================= */
+
+  .ds-divider {
+    border-top: 1px solid var(--md-default-fg-color--lighter, #333);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* =========================================================
+   Layout & Margins Fixes
+   ========================================================= */
+
+  /* Remove top padding in main content to align flush with header */
+  .md-main__inner {
+    margin-top: 0 !important;
+  }
+
+  /* Ensure form doesn’t stretch too wide in large layouts */
+  @media (min-width: 960px) {
+    .ds-form {
+      width: 80%;
+    }
+  }
+
+  /* Subtle refinement for dark mode readability */
+  [data-md-color-scheme="slate"] .ds-field input,
+  [data-md-color-scheme="slate"] .ds-field textarea {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-color: #333;
+  }
+
+  /* Indent and shrink the "Nothing on the left?" info box */
+  .md-typeset .admonition.info[title="Nothing on the left?"],
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) {
+    margin-left: 2.5em;
+    /* Indent */
+    width: 60%;
+    /* Shrink to 60% (i.e., reduce size by ~40%) */
+    font-size: 0.9em;
+    /* Slightly smaller text */
+  }
+
+  .md-typeset .admonition.info[title="Nothing on the left?"] .admonition-title,
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Target only the intro-tip info box */
+  .md-typeset .admonition.intro-left-tip {
+    /* visual indent beyond the list’s own indent */
+    margin-left: 2rem;
+
+    /* reduce width by ~40% */
+    width: 60%;
+
+    /* keep it tidy */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title for that box */
+  .md-typeset .admonition.intro-left-tip .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don’t over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset .admonition.intro-left-tip {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Target only the admonition that immediately follows #intro-left-tip */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-left: 2rem;
+    /* extra visual indent under the list item */
+    width: 60%;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title line */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Force-indent and shrink the specific "Nothing on the left?" info box */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    display: block !important;
+    margin-left: 3rem !important;
+    /* force indentation */
+    width: 60% !important;
+    /* 40% smaller box */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+    position: relative;
+  }
+
+  /* Optional: adjust spacing above/below to line up with the list nicely */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Slightly smaller title text */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile fix */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Indent the wrapper itself */
+  .md-typeset .intro-left-tip {
+    margin-left: .2rem !important;
+    /* visual indent under the list item */
+  }
+
+  /* Shrink only the admonition inside that wrapper */
+  .md-typeset .intro-left-tip>.admonition {
+    width: 70% !important;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.3em 0.9em;
+  }
+
+  /* Optional: smaller title */
+  .md-typeset .intro-left-tip>.admonition .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 68px) {
+    .md-typeset .intro-left-tip {
+      margin-left: 0 !important;
+    }
+
+    .md-typeset .intro-left-tip>.admonition {
+      width: 100% !important;
+    }
+  }
+
+  /* ---- Inline form fields (label and input on same line) ---- */
+  .ds-field.ds-inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ds-field.ds-inline label {
+    min-width: 6rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .ds-field.ds-inline input {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ---- Tighter spacing in optional fieldset ---- */
+  .ds-optional .ds-field.ds-inline {
+    gap: 0.15rem;
+    /* Reduced from 0.3rem to 0.15rem */
+  }
+
+  .ds-optional .ds-field.ds-inline label {
+    min-width: 3.5rem;
+    /* Reduced from 4.5rem to 3.5rem */
+  }
+
+  /* Responsive: stack on very small screens */
+  @media (max-width: 480px) {
+    .ds-field.ds-inline {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .ds-field.ds-inline label {
+      min-width: auto;
+    }
+  }
+
+  /* Two-column layout for meta table */
+  .ds-meta-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.1em 0;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .ds-meta-table tr {
+    display: contents;
+  }
+
+  .ds-meta-table th,
+  .ds-meta-table td {
+    padding: 0.2em 0;
+    text-align: left;
+    vertical-align: top;
+    grid-row: auto;
+  }
+
+  .ds-meta-table th {
+    grid-column: 1;
+  }
+
+  .ds-meta-table td {
+    grid-column: 2;
+  }
+
+  .ds-meta-table hr.ds-meta-hr {
+    grid-column: 1 / -1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  /* Two-column header grid for contribute page */
+  .ds-header-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ds-header-logo img {
+    display: block;
+    height: 2.2em;
+    padding-right: 10px;
+  }
+
+  .ds-header-title {
+    text-align: left;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Dolphins logo and brand text on same line */
+  .ds-header-logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ds-header-brand {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Set the textarea width to 80 characters per line using ch units, with a minimum width for usability and horizontal resizing allowed. */
+  .ds-form textarea {
+    min-width: 64ch;
+    max-width: 100%;
+    width: 80ch;
+    resize: horizontal;
+  }
+
+  /* Strong visible box for textarea */
+  .ds-form textarea {
+    border: 2.5px solid #1565c0 !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 2px #b0b8c1, 0 2px 8px #0002 !important;
+    border-radius: 8px !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ds-form textarea:focus {
+    border-color: #43a047 !important;
+    box-shadow: 0 0 0 2.5px #43a047, 0 2px 8px #0002 !important;
+  }
+
+  .ds-meta-hr {
+    border: none;
+    border-top: 2px solid #b0b8c1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  .ds-form {
+    max-width: 700px;
+  }
+
+  .ds-field-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ds-label-with-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.7em;
+    margin-top: 0.5em;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ds-send-btn {
+    margin-left: 0;
+  }
+
+  #ds-copy-current {
+    position: relative;
+    top: 4px;
+  }
+
+  .ds-send-btn:disabled,
+  .ds-send-btn.ds-send-btn-disabled {
+    background: #c0c4cc !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 0.7;
+  }
+
+  /* Responsive Textarea Width */
+  .ds-form textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .ds-form textarea {
+      width: 80ch;
+      min-width: 80ch;
+      max-width: 80ch;
+    }
+  }
+
+  .ds-meta-table th {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 1em;
+    font-weight: 600;
+    color: var(--md-typeset-a-color, #222);
+    vertical-align: top;
+  }
+
+  .ds-meta-table td {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  /* =========================================================
+   DieselSubs Feedback Form – Consolidated Styles
+   ========================================================= */
+
+  /* ---- Base form layout ---- */
+  .ds-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  /* ---- Field wrapper ---- */
+  .ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* ---- Labels ---- */
+  .ds-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* ---- Inputs & Textareas ---- */
+  .ds-field input,
+  .ds-field textarea,
+  .ds-field select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 6px;
+    background-color: var(--md-code-bg-color, #1a1a1a);
+    color: var(--md-default-fg-color, #ddd);
+    font-size: 0.95rem;
+  }
+
+  #ds-comments {
+    width: 100%;
+    min-height: 140px;
+    background: #fafdff;
+    color: var(--md-typeset-color, #222);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    box-shadow: 0 1px 4px #0001;
+    transition: box-shadow 0.2s;
+  }
+
+  /* ---- Submit button ---- */
+  .ds-form button[type="submit"] {
+    background: var(--md-accent-fg-color, #7b38f7);
+    color: var(--md-accent-bg-color, #fff);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background-color: var(--md-accent-fg-color--hover, #945cff);
+    opacity: 0.95;
+  }
+
+  /* =========================================================
+   Optional Box
+   ========================================================= */
+
+  .ds-optional-box {
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 16px;
+    padding: 1rem;
+    width: 50%;
+    font-size: 0.7rem;
+    background-color: var(--md-code-bg-color, #1b1b1b);
+    margin-top: 20px;
+  }
+
+  .ds-optional-box legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
+
+  .ds-optional-box .ds-field {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- Optional box fields tighter ---- */
+  .ds-optional-box input {
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- Optional fieldset styling (reduced font size) ---- */
+  .ds-optional {
+    font-size: 0.75em;
+    /* 75% of normal size */
+  }
+
+  .ds-optional legend {
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .ds-optional .ds-field label {
+    font-size: 0.75em;
+  }
+
+  .ds-optional .ds-field input {
+    font-size: 0.75em;
+  }
+
+  /* =========================================================
+   "Your Feedback" label and copy button
+   ========================================================= */
+
+  .ds-label-with-button {
+    display: inline-flex;
+    align-items: center;
+    /* vertically centers label + button */
+    gap: 0.5rem;
+    /* space between them */
+    margin-bottom: 0.25rem;
+  }
+
+  .ds-label-with-button label {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  /* =========================================================
+   Submarine-themed Button Styles
+   ========================================================= */
+
+  /* ---- Compact copy button (mini) ---- */
+  .ds-mini-btn {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 50%, #1e3a5f 100%);
+    color: #e8f4fd;
+    border: 2px solid #34495e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-mini-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .ds-mini-btn:hover {
+    background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
+    border-color: #4a90e2;
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .ds-mini-btn:hover:before {
+    left: 100%;
+  }
+
+  .ds-mini-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ds-mini-btn:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow:
+      0 0 0 3px rgba(99, 179, 237, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* ---- Submit button (main action) ---- */
+  .ds-form button[type="submit"],
+  button[type="submit"],
+  input[type="submit"] {
+    background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
+    color: #f0fff4 !important;
+    border: 2px solid #2f855a !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 0.525rem 1.4rem !important;
+    margin-top: 20px !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-form button[type="submit"]:before,
+  button[type="submit"]:before,
+  input[type="submit"]:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .ds-form button[type="submit"]:hover,
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
+    border-color: #48bb78 !important;
+    transform: translateY(-1.4px) !important;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+  }
+
+  .ds-form button[type="submit"]:hover:before,
+  button[type="submit"]:hover:before,
+  input[type="submit"]:hover:before {
+    left: 100%;
+  }
+
+  .ds-form button[type="submit"]:active,
+  button[type="submit"]:active,
+  input[type="submit"]:active {
+    transform: translateY(-0.7px) !important;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .ds-form button[type="submit"]:focus,
+  button[type="submit"]:focus,
+  input[type="submit"]:focus {
+    outline: none;
+    border-color: #68d391 !important;
+    box-shadow:
+      0 0 0 2px rgba(104, 211, 145, 0.3),
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* =========================================================
+   Divider line before Optional section
+   ========================================================= */
+
+  .ds-divider {
+    border-top: 1px solid var(--md-default-fg-color--lighter, #333);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* =========================================================
+   Layout & Margins Fixes
+   ========================================================= */
+
+  /* Remove top padding in main content to align flush with header */
+  .md-main__inner {
+    margin-top: 0 !important;
+  }
+
+  /* Ensure form doesn’t stretch too wide in large layouts */
+  @media (min-width: 960px) {
+    .ds-form {
+      width: 80%;
+    }
+  }
+
+  /* Subtle refinement for dark mode readability */
+  [data-md-color-scheme="slate"] .ds-field input,
+  [data-md-color-scheme="slate"] .ds-field textarea {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-color: #333;
+  }
+
+  /* Indent and shrink the "Nothing on the left?" info box */
+  .md-typeset .admonition.info[title="Nothing on the left?"],
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) {
+    margin-left: 2.5em;
+    /* Indent */
+    width: 60%;
+    /* Shrink to 60% (i.e., reduce size by ~40%) */
+    font-size: 0.9em;
+    /* Slightly smaller text */
+  }
+
+  .md-typeset .admonition.info[title="Nothing on the left?"] .admonition-title,
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Target only the intro-tip info box */
+  .md-typeset .admonition.intro-left-tip {
+    /* visual indent beyond the list’s own indent */
+    margin-left: 2rem;
+
+    /* reduce width by ~40% */
+    width: 60%;
+
+    /* keep it tidy */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title for that box */
+  .md-typeset .admonition.intro-left-tip .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don’t over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset .admonition.intro-left-tip {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Target only the admonition that immediately follows #intro-left-tip */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-left: 2rem;
+    /* extra visual indent under the list item */
+    width: 60%;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title line */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Force-indent and shrink the specific "Nothing on the left?" info box */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    display: block !important;
+    margin-left: 3rem !important;
+    /* force indentation */
+    width: 60% !important;
+    /* 40% smaller box */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+    position: relative;
+  }
+
+  /* Optional: adjust spacing above/below to line up with the list nicely */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Slightly smaller title text */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile fix */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Indent the wrapper itself */
+  .md-typeset .intro-left-tip {
+    margin-left: .2rem !important;
+    /* visual indent under the list item */
+  }
+
+  /* Shrink only the admonition inside that wrapper */
+  .md-typeset .intro-left-tip>.admonition {
+    width: 70% !important;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.3em 0.9em;
+  }
+
+  /* Optional: smaller title */
+  .md-typeset .intro-left-tip>.admonition .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 68px) {
+    .md-typeset .intro-left-tip {
+      margin-left: 0 !important;
+    }
+
+    .md-typeset .intro-left-tip>.admonition {
+      width: 100% !important;
+    }
+  }
+
+  /* ---- Inline form fields (label and input on same line) ---- */
+  .ds-field.ds-inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ds-field.ds-inline label {
+    min-width: 6rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .ds-field.ds-inline input {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ---- Tighter spacing in optional fieldset ---- */
+  .ds-optional .ds-field.ds-inline {
+    gap: 0.15rem;
+    /* Reduced from 0.3rem to 0.15rem */
+  }
+
+  .ds-optional .ds-field.ds-inline label {
+    min-width: 3.5rem;
+    /* Reduced from 4.5rem to 3.5rem */
+  }
+
+  /* Responsive: stack on very small screens */
+  @media (max-width: 480px) {
+    .ds-field.ds-inline {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .ds-field.ds-inline label {
+      min-width: auto;
+    }
+  }
+
+  /* Two-column layout for meta table */
+  .ds-meta-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.1em 0;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .ds-meta-table tr {
+    display: contents;
+  }
+
+  .ds-meta-table th,
+  .ds-meta-table td {
+    padding: 0.2em 0;
+    text-align: left;
+    vertical-align: top;
+    grid-row: auto;
+  }
+
+  .ds-meta-table th {
+    grid-column: 1;
+  }
+
+  .ds-meta-table td {
+    grid-column: 2;
+  }
+
+  .ds-meta-table hr.ds-meta-hr {
+    grid-column: 1 / -1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  /* Two-column header grid for contribute page */
+  .ds-header-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ds-header-logo img {
+    display: block;
+    height: 2.2em;
+    padding-right: 10px;
+  }
+
+  .ds-header-title {
+    text-align: left;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Dolphins logo and brand text on same line */
+  .ds-header-logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ds-header-brand {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Set the textarea width to 80 characters per line using ch units, with a minimum width for usability and horizontal resizing allowed. */
+  .ds-form textarea {
+    min-width: 64ch;
+    max-width: 100%;
+    width: 80ch;
+    resize: horizontal;
+  }
+
+  /* Strong visible box for textarea */
+  .ds-form textarea {
+    border: 2.5px solid #1565c0 !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 2px #b0b8c1, 0 2px 8px #0002 !important;
+    border-radius: 8px !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ds-form textarea:focus {
+    border-color: #43a047 !important;
+    box-shadow: 0 0 0 2.5px #43a047, 0 2px 8px #0002 !important;
+  }
+
+  .ds-meta-hr {
+    border: none;
+    border-top: 2px solid #b0b8c1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  .ds-form {
+    max-width: 700px;
+  }
+
+  .ds-field-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ds-label-with-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.7em;
+    margin-top: 0.5em;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ds-send-btn {
+    margin-left: 0;
+  }
+
+  #ds-copy-current {
+    position: relative;
+    top: 4px;
+  }
+
+  .ds-send-btn:disabled,
+  .ds-send-btn.ds-send-btn-disabled {
+    background: #c0c4cc !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    border: none !important;
+    opacity: 0.7;
+  }
+
+  /* Responsive Textarea Width */
+  .ds-form textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .ds-form textarea {
+      width: 80ch;
+      min-width: 80ch;
+      max-width: 80ch;
+    }
+  }
+
+  .ds-meta-table th {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 1em;
+    font-weight: 600;
+    color: var(--md-typeset-a-color, #222);
+    vertical-align: top;
+  }
+
+  .ds-meta-table td {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  /* =========================================================
+   DieselSubs Feedback Form – Consolidated Styles
+   ========================================================= */
+
+  /* ---- Base form layout ---- */
+  .ds-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  /* ---- Field wrapper ---- */
+  .ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* ---- Labels ---- */
+  .ds-field label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* ---- Inputs & Textareas ---- */
+  .ds-field input,
+  .ds-field textarea,
+  .ds-field select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 6px;
+    background-color: var(--md-code-bg-color, #1a1a1a);
+    color: var(--md-default-fg-color, #ddd);
+    font-size: 0.95rem;
+  }
+
+  #ds-comments {
+    width: 100%;
+    min-height: 140px;
+    background: #fafdff;
+    color: var(--md-typeset-color, #222);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    box-shadow: 0 1px 4px #0001;
+    transition: box-shadow 0.2s;
+  }
+
+  /* ---- Submit button ---- */
+  .ds-form button[type="submit"] {
+    background: var(--md-accent-fg-color, #7b38f7);
+    color: var(--md-accent-bg-color, #fff);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ds-form button[type="submit"]:hover {
+    background-color: var(--md-accent-fg-color--hover, #945cff);
+    opacity: 0.95;
+  }
+
+  /* =========================================================
+   Optional Box
+   ========================================================= */
+
+  .ds-optional-box {
+    border: 1px solid var(--md-default-fg-color--lighter, #444);
+    border-radius: 16px;
+    padding: 1rem;
+    width: 50%;
+    font-size: 0.7rem;
+    background-color: var(--md-code-bg-color, #1b1b1b);
+    margin-top: 20px;
+  }
+
+  .ds-optional-box legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
+
+  .ds-optional-box .ds-field {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- Optional box fields tighter ---- */
+  .ds-optional-box input {
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---- Optional fieldset styling (reduced font size) ---- */
+  .ds-optional {
+    font-size: 0.75em;
+    /* 75% of normal size */
+  }
+
+  .ds-optional legend {
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .ds-optional .ds-field label {
+    font-size: 0.75em;
+  }
+
+  .ds-optional .ds-field input {
+    font-size: 0.75em;
+  }
+
+  /* =========================================================
+   "Your Feedback" label and copy button
+   ========================================================= */
+
+  .ds-label-with-button {
+    display: inline-flex;
+    align-items: center;
+    /* vertically centers label + button */
+    gap: 0.5rem;
+    /* space between them */
+    margin-bottom: 0.25rem;
+  }
+
+  .ds-label-with-button label {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  /* =========================================================
+   Submarine-themed Button Styles
+   ========================================================= */
+
+  /* ---- Compact copy button (mini) ---- */
+  .ds-mini-btn {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 50%, #1e3a5f 100%);
+    color: #e8f4fd;
+    border: 2px solid #34495e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-mini-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .ds-mini-btn:hover {
+    background: linear-gradient(135deg, #2c5282 0%, #3182ce 50%, #2c5282 100%);
+    border-color: #4a90e2;
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .ds-mini-btn:hover:before {
+    left: 100%;
+  }
+
+  .ds-mini-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .ds-mini-btn:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow:
+      0 0 0 3px rgba(99, 179, 237, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* ---- Submit button (main action) ---- */
+  .ds-form button[type="submit"],
+  button[type="submit"],
+  input[type="submit"] {
+    background: linear-gradient(135deg, #1a472a 0%, #22543d 50%, #1a472a 100%) !important;
+    color: #f0fff4 !important;
+    border: 2px solid #2f855a !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    padding: 0.525rem 1.4rem !important;
+    margin-top: 20px !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow:
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.35px !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ds-form button[type="submit"]:before,
+  button[type="submit"]:before,
+  input[type="submit"]:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .ds-form button[type="submit"]:hover,
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: linear-gradient(135deg, #276749 0%, #38a169 50%, #276749 100%) !important;
+    border-color: #48bb78 !important;
+    transform: translateY(-1.4px) !important;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+  }
+
+  .ds-form button[type="submit"]:hover:before,
+  button[type="submit"]:hover:before,
+  input[type="submit"]:hover:before {
+    left: 100%;
+  }
+
+  .ds-form button[type="submit"]:active,
+  button[type="submit"]:active,
+  input[type="submit"]:active {
+    transform: translateY(-0.7px) !important;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .ds-form button[type="submit"]:focus,
+  button[type="submit"]:focus,
+  input[type="submit"]:focus {
+    outline: none;
+    border-color: #68d391 !important;
+    box-shadow:
+      0 0 0 2px rgba(104, 211, 145, 0.3),
+      0 3px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* =========================================================
+   Divider line before Optional section
+   ========================================================= */
+
+  .ds-divider {
+    border-top: 1px solid var(--md-default-fg-color--lighter, #333);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* =========================================================
+   Layout & Margins Fixes
+   ========================================================= */
+
+  /* Remove top padding in main content to align flush with header */
+  .md-main__inner {
+    margin-top: 0 !important;
+  }
+
+  /* Ensure form doesn’t stretch too wide in large layouts */
+  @media (min-width: 960px) {
+    .ds-form {
+      width: 80%;
+    }
+  }
+
+  /* Subtle refinement for dark mode readability */
+  [data-md-color-scheme="slate"] .ds-field input,
+  [data-md-color-scheme="slate"] .ds-field textarea {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-color: #333;
+  }
+
+  /* Indent and shrink the "Nothing on the left?" info box */
+  .md-typeset .admonition.info[title="Nothing on the left?"],
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) {
+    margin-left: 2.5em;
+    /* Indent */
+    width: 60%;
+    /* Shrink to 60% (i.e., reduce size by ~40%) */
+    font-size: 0.9em;
+    /* Slightly smaller text */
+  }
+
+  .md-typeset .admonition.info[title="Nothing on the left?"] .admonition-title,
+  .md-typeset .admonition.info:has(.admonition-title:contains("Nothing on the left?")) .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Target only the intro-tip info box */
+  .md-typeset .admonition.intro-left-tip {
+    /* visual indent beyond the list’s own indent */
+    margin-left: 2rem;
+
+    /* reduce width by ~40% */
+    width: 60%;
+
+    /* keep it tidy */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title for that box */
+  .md-typeset .admonition.intro-left-tip .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don’t over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset .admonition.intro-left-tip {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Target only the admonition that immediately follows #intro-left-tip */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-left: 2rem;
+    /* extra visual indent under the list item */
+    width: 60%;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+  }
+
+  /* Optional: slightly smaller title line */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Force-indent and shrink the specific "Nothing on the left?" info box */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    display: block !important;
+    margin-left: 3rem !important;
+    /* force indentation */
+    width: 60% !important;
+    /* 40% smaller box */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.6em 0.9em;
+    position: relative;
+  }
+
+  /* Optional: adjust spacing above/below to line up with the list nicely */
+  .md-typeset a#intro-left-tip+.admonition.info {
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Slightly smaller title text */
+  .md-typeset a#intro-left-tip+.admonition.info .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile fix */
+  @media (max-width: 768px) {
+    .md-typeset a#intro-left-tip+.admonition.info {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Indent the wrapper itself */
+  .md-typeset .intro-left-tip {
+    margin-left: .2rem !important;
+    /* visual indent under the list item */
+  }
+
+  /* Shrink only the admonition inside that wrapper */
+  .md-typeset .intro-left-tip>.admonition {
+    width: 70% !important;
+    /* ~40% smaller */
+    box-sizing: border-box;
+    font-size: 0.95em;
+    padding: 0.3em 0.9em;
+  }
+
+  /* Optional: smaller title */
+  .md-typeset .intro-left-tip>.admonition .admonition-title {
+    font-size: 0.95em;
+  }
+
+  /* Mobile: don't over-shrink */
+  @media (max-width: 68px) {
+    .md-typeset .intro-left-tip {
+      margin-left: 0 !important;
+    }
+
+    .md-typeset .intro-left-tip>.admonition {
+      width: 100% !important;
+    }
+  }
+
+  /* ---- Inline form fields (label and input on same line) ---- */
+  .ds-field.ds-inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ds-field.ds-inline label {
+    min-width: 6rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .ds-field.ds-inline input {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ---- Tighter spacing in optional fieldset ---- */
+  .ds-optional .ds-field.ds-inline {
+    gap: 0.15rem;
+    /* Reduced from 0.3rem to 0.15rem */
+  }
+
+  .ds-optional .ds-field.ds-inline label {
+    min-width: 3.5rem;
+    /* Reduced from 4.5rem to 3.5rem */
+  }
+
+  /* Responsive: stack on very small screens */
+  @media (max-width: 480px) {
+    .ds-field.ds-inline {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .ds-field.ds-inline label {
+      min-width: auto;
+    }
+  }
+
+  /* Two-column layout for meta table */
+  .ds-meta-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.1em 0;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .ds-meta-table tr {
+    display: contents;
+  }
+
+  .ds-meta-table th,
+  .ds-meta-table td {
+    padding: 0.2em 0;
+    text-align: left;
+    vertical-align: top;
+    grid-row: auto;
+  }
+
+  .ds-meta-table th {
+    grid-column: 1;
+  }
+
+  .ds-meta-table td {
+    grid-column: 2;
+  }
+
+  .ds-meta-table hr.ds-meta-hr {
+    grid-column: 1 / -1;
+    margin: 0.5em 0 1em 0;
+  }
+
+  /* Two-column header grid for contribute page */
+  .ds-header-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ds-header-logo img {
+    display: block;
+    height: 2.2em;
+    padding-right: 10px;
+  }
+
+  .ds-header-title {
+    text-align: left;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  /* Dolphins logo and brand text on same line */
+  .ds-header-logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ds-header-brand {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }

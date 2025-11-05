@@ -345,7 +345,7 @@ function initSubmitLogic() {
   prefillNameEmailFromLocal();
 
   const existing = getExistingAnswer(prefill);
-  if (comments && existing) comments.placeholder = `Enter your feedback in this area.\n\nClick the button below to start with the existing answer.\n`;
+  // if (comments && existing) comments.placeholder = `Enter your feedback in this area.\n\nClick the button below to start with the existing answer.\n`;
 
   nameEl?.addEventListener('change', saveNameEmail);
   emailEl?.addEventListener('change', saveNameEmail);
@@ -402,12 +402,12 @@ function initSubmitLogic() {
       // Get the existing answer from the same function used for form submission
       const prefill = loadPrefill();
       const existingAnswer = getExistingAnswer(prefill);
-      
+
       if (!existingAnswer) {
         console.log('[submit] No existing answer found to copy');
         return;
       }
-      
+
       console.log('[submit] Copying existing answer to textarea');
       comments.value = existingAnswer.trim();
       comments.focus();

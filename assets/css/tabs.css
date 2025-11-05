@@ -1,0 +1,84 @@
+/* Feedback box styling (no icon, inline text) */
+.feedback-box {
+  border: 3px solid #1976d2;
+  background: #8e8e8e;
+  color: #0d3050;
+  border-radius: 10px;
+  padding: 1.1em 1.4em;
+  margin: 1.5em 0 2em 0;
+  font-size: 1.07em;
+  box-shadow: 0 4px 16px #1976d220, 0 1.5px 4px #0001;
+  display: block;
+}
+
+.feedback-box a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.tab-box {
+  margin: 1em, 0, 5em;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.tab-btn {
+  background: #000000ff !important;
+  /* dark brown for non-active */
+  color: #fff !important;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.2s;
+}
+
+.tab-btn.active {
+  background: #19d235ff !important;
+  color: #fff !important;
+}
+
+.tab-btn:not(.active):hover {
+  background: #7c5a43 !important;
+}
+
+.tab-content {
+  padding: 1em;
+}
+
+.tab-box {
+  margin: 1em 0;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.tab-btn {
+  background: #000000ff !important;
+  /* dark brown for non-active */
+  color: #fff !important;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.2s;
+}
+
+.tab-btn.active {
+  background: #19d235ff !important;
+  color: #fff !important;
+}
+
+.tab-btn:not(.active):hover {
+  background: #7c5a43 !important;
+}
+
+.tab-content {
+  padding: 1em;
+}
