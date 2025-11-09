@@ -1,0 +1,47 @@
+HOSTGATOR UPLOAD INSTRUCTIONS
+=============================
+
+1. UPLOAD FILES TO HOSTGATOR:
+   - Upload ALL files in this directory to your HostGator public_html folder
+   - You can use File Manager in cPanel or FTP client like FileZilla
+
+2. SETUP DATABASE:
+   - Create MySQL database in HostGator cPanel
+   - Import submarine_faqs_backup.sql through phpMyAdmin
+   - Note your database name, username, and password
+
+3. UPDATE DATABASE CONFIG:
+   - Rename database-hostgator-template.php to database.php
+   - Edit database.php with your HostGator database details
+   - Replace YOUR_HOSTGATOR_USERNAME with your actual username
+
+4. TEST YOUR SITE:
+   - Visit your domain to test the homepage
+   - Check category pages, search, and feedback functionality
+   - Verify admin access works
+
+5. ENABLE CONSTRUCTION MODE (OPTIONAL):
+   - If you want to show "under construction" while testing:
+   - Edit .htaccess and uncomment the construction redirect lines
+   - Or upload under-construction.html as your main index.html
+
+HOSTGATOR SUPPORT:
+- 24/7 phone and chat support available
+- Free migration service available on most plans
+- Contact them if you need help with any step
+
+DATABASE INFO YOU'LL NEED:
+- Database Name: (will be prefixed with your username)
+- Database User: (will be prefixed with your username)  
+- Database Password: (you'll set this in cPanel)
+- Database Host: localhost (standard for HostGator)
+
+YOUR SITE FEATURES:
+- 183 FAQs organized in 6 categories
+- Advanced search functionality
+- Community feedback system
+- Admin dashboard for managing content
+- Mobile-responsive design
+- Under construction mode available
+
+Good luck with your migration! 🚀

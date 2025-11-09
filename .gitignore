@@ -1,0 +1,22 @@
+node_modules/
+.env
+*.log
+
+# Railway
+.railway/
+
+# Local development
+.env
+*.log
+vendor/
+
+# Database backups (don't commit large SQL files)
+*.sql
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

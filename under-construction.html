@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction - Diesel-Electric Submarine FAQs</title>
+    <meta name="description" content="The most comprehensive diesel-electric submarine FAQ collection is coming soon. Stay tuned for launch!">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .construction-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .submarine-animation {
+            position: fixed;
+            top: 20%;
+            left: -300px;
+            width: 250px;
+            height: auto;
+            opacity: 0.1;
+            z-index: 1;
+            animation: submarineMove 15s linear infinite;
+        }
+        
+        @keyframes submarineMove {
+            0% { left: -300px; }
+            100% { left: 100vw; }
+        }
+        
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); opacity: 0; }
+            50% { transform: translateY(-100px); opacity: 1; }
+        }
+        
+        .construction-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-bar-custom {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            width: 85%;
+            animation: progressPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .periscope {
+            position: fixed;
+            top: 10px;
+            right: 50px;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+            animation: periscope 4s ease-in-out infinite;
+        }
+        
+        @keyframes periscope {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+        
+        .wave {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"></path></svg>') repeat-x;
+            background-size: 1200px 120px;
+            opacity: 0.1;
+            animation: wave 10s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-200px); }
+        }
+        
+        .btn-custom {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            height: 2.5rem;
+            white-space: nowrap;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            color: white;
+        }
+        
+        .email-input-custom {
+            height: 2.5rem;
+            padding: 6px 12px;
+        }
+        
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Elements -->
+    <div class="submarine-animation">
+        <i class="fas fa-ship" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+    </div>
+    
+    <div class="periscope">
+        <i class="fas fa-binoculars"></i>
+    </div>
+    
+    <div class="bubbles">
+        <!-- Bubbles will be generated by JavaScript -->
+    </div>
+    
+    <div class="wave"></div>
+    
+    <!-- Main Content -->
+    <div class="container construction-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="construction-card p-5 text-center">
+                    <!-- Header -->
+                    <div class="mb-5">
+                        <i class="fas fa-ship fa-4x text-warning mb-3"></i>
+                        <h1 class="display-4 fw-bold mb-3">Diving Deep Into Development</h1>
+                        <p class="lead mb-0">The most comprehensive diesel-electric submarine FAQ collection is surfacing soon!</p>
+                    </div>
+                    
+                    <!-- Progress -->
+                    <div class="mb-5">
+                        <h4 class="mb-3">
+                            <i class="fas fa-cogs"></i> Construction Progress
+                        </h4>
+                        <div class="progress-bar-custom mb-3">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p class="mb-0"><strong>85% Complete</strong> • Expected Launch: <span class="text-warning">December 2025</span></p>
+                    </div>
+                    
+                    <!-- Features Preview -->
+                    <div class="row mb-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h5>Comprehensive FAQs</h5>
+                            <p class="text-light">Hundreds of questions about diesel-electric submarines, with special focus on WWII US submarines.</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h5>Advanced Search</h5>
+                            <p class="text-light">Find exactly what you're looking for with our powerful search and filtering system.</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5>Community Driven</h5>
+                            <p class="text-light">Built by submarine enthusiasts, for submarine enthusiasts. Your expertise helps everyone learn.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Coming Soon Features -->
+                    <div class="mb-5">
+                        <h4 class="mb-4">
+                            <i class="fas fa-anchor"></i> What's Coming
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>183+ Detailed FAQ Answers</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>6 Organized Categories</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Interactive Feedback System</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                    <span>Mobile-Friendly Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter Signup -->
+                    <div class="mb-5">
+                        <h4 class="mb-3">
+                            <i class="fas fa-bell"></i> Get Notified When We Launch
+                        </h4>
+                        <p class="mb-4">Be among the first to explore our comprehensive submarine knowledge base!</p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <form id="notifyForm" class="d-flex gap-2">
+                                    <input type="email" class="form-control email-input-custom" placeholder="Enter your email" required>
+                                    <button type="submit" class="btn btn-custom">
+                                        <i class="fas fa-paper-plane"></i> Notify Me
+                                    </button>
+                                </form>
+                                <small class="text-light mt-2 d-block">We'll only email you once when we launch. No spam, we promise!</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact & Social -->
+                    <div class="border-top border-secondary pt-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope me-2"></i>
+                                    Questions? <a href="mailto:admin@submarinefaqs.com" class="text-warning">Contact Us</a>
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-md-end text-center">
+                                <div class="social-links">
+                                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" title="Reddit"><i class="fab fa-reddit"></i></a>
+                                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fun Fact -->
+                <div class="text-center mt-4">
+                    <small class="text-light">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Fun Fact:</strong> The USS Balao (SS-285) could dive to 400 feet and had a range of 11,000 nautical miles!
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Generate floating bubbles
+        function createBubbles() {
+            const bubblesContainer = document.querySelector('.bubbles');
+            
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 20 + 10;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.top = Math.random() * 100 + '%';
+                bubble.style.animationDelay = Math.random() * 6 + 's';
+                bubble.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                bubblesContainer.appendChild(bubble);
+            }
+        }
+        
+        // Handle newsletter signup
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('button');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                button.classList.remove('btn-custom');
+                button.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-custom');
+                    this.reset();
+                }, 3000);
+            }, 2000);
+        });
+        
+        // Initialize bubbles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createBubbles();
+        });
+        
+        // Add some dynamic submarine facts
+        const submarineFacts = [
+            "The USS Tang (SS-306) was one of the most successful submarines of WWII!",
+            "Diesel-electric submarines could stay submerged for up to 24 hours!",
+            "The Gato-class submarines were the workhorses of the Pacific War!",
+            "Submarines used periscopes that could extend up to 60 feet!",
+            "The USS Wahoo (SS-238) was famous for its aggressive tactics!"
+        ];
+        
+        // Rotate fun facts every 10 seconds
+        let factIndex = 0;
+        const factElement = document.querySelector('.text-center.mt-4 small');
+        
+        setInterval(() => {
+            factIndex = (factIndex + 1) % submarineFacts.length;
+            factElement.innerHTML = `
+                <i class="fas fa-lightbulb me-2"></i>
+                <strong>Fun Fact:</strong> ${submarineFacts[factIndex]}
+            `;
+        }, 10000);
+    </script>
+</body>
+</html>
