@@ -285,7 +285,13 @@
 
                 document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
 
-                const faqsHTML = currentFAQs.map((faq, index) => `
+                // Process FAQs and render markdown for each answer
+                const processedFAQs = currentFAQs.map(faq => ({
+                    ...faq,
+                    renderedAnswer: renderMarkdown(faq.answer)
+                }));
+
+                const faqsHTML = processedFAQs.map((faq, index) => `
                 <div class="faq-item">
                     <div class="card">
                         <div class="card-header faq-question" onclick="toggleFAQ(${index})">
@@ -293,7 +299,7 @@
                         </div>
                         <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
-                                ${renderMarkdown(faq.answer)}
+                                ${faq.renderedAnswer}
                             </div>
                         </div>
                     </div>
@@ -333,7 +339,13 @@
                     </div>
                 `;
                 } else {
-                    const resultsHTML = results.map((faq, index) => `
+                    // Process search results and render markdown for each answer
+                    const processedResults = results.map(faq => ({
+                        ...faq,
+                        renderedAnswer: renderMarkdown(faq.answer)
+                    }));
+
+                    const resultsHTML = processedResults.map((faq, index) => `
                     <div class="faq-item">
                         <div class="card">
                             <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
@@ -342,7 +354,7 @@
                             </div>
                             <div id="search-faq-${index}" class="faq-answer">
                                 <div class="card-body">
-                                    ${renderMarkdown(faq.answer)}
+                                    ${faq.renderedAnswer}
                                 </div>
                             </div>
                         </div>
