@@ -21,7 +21,7 @@ When **surfaced**, submarines used their diesel engines for:
 When **submerged**, submarines switched to:
 
 - **Electric motors** powered by batteries
-- **Silent running** capability 
+- **Silent running** capability
 - **Limited endurance** (typically 24-48 hours at patrol speed)
 
 ### Technical Specifications

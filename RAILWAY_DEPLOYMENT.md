@@ -1,6 +1,7 @@
 # Railway Deployment Guide for Submarine FAQs
 
 ## Prerequisites
+
 - GitHub repository: `diesel-subs/Diesel-Electric-Sub-FAQs` ✅
 - Code committed and pushed ✅
 - Database export ready ✅
@@ -23,8 +24,9 @@
 ## Step 3: Configure Environment Variables
 
 The app will automatically use Railway's MySQL environment variables:
+
 - `MYSQLHOST`
-- `MYSQLPORT` 
+- `MYSQLPORT`
 - `MYSQLDATABASE`
 - `MYSQLUSER`
 - `MYSQLPASSWORD`

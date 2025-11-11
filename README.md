@@ -60,6 +60,7 @@ mysql -u username -p submarine_faqs < database/schema.sql
 Access the application at `http://localhost/your-project-path`
 
 The application includes:
+
 - Dynamic category browsing based on your existing folder structure
 - Full-text search functionality
 - Responsive design with Bootstrap 5

@@ -30,7 +30,8 @@ Here's what your submarine FAQ application now includes:
 ### 🔐 **Admin Access**
 
 To test the editor:
-1. **Login**: Go to `/admin-login.php` 
+
+1. **Login**: Go to `/admin-login.php`
 2. **Password**: `submarine_admin_2024`
 3. **Edit**: Click "Edit" buttons on FAQ pages
 4. **Create**: Click "Add New FAQ" in category pages
@@ -38,6 +39,7 @@ To test the editor:
 ### 🎯 **How to Use**
 
 **Create New FAQ:**
+
 ```
 1. Browse to any category page
 2. Click "Add New FAQ" (admin only)
@@ -47,6 +49,7 @@ To test the editor:
 ```
 
 **Edit Existing FAQ:**
+
 ```
 1. Open any FAQ page
 2. Click "Edit" button (admin only)  
@@ -100,12 +103,14 @@ World War II submarine periscopes were sophisticated optical instruments that al
 ### 🔧 **Technical Details**
 
 **Files Created:**
+
 - `edit-faq.php` - Main editor interface
 - `save-faq.php` - Backend save handler  
 - `render-markdown.php` - Live preview endpoint
 - `admin-login.php` - Simple admin authentication
 
 **Features Implemented:**
+
 - ✅ Real-time Markdown preview
 - ✅ Admin authentication system
 - ✅ Edit buttons on FAQ pages

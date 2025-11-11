@@ -3,12 +3,14 @@
 ## Installation Options
 
 ### Option 1: Parsedown (Lightweight, Recommended)
+
 ```bash
 # Download Parsedown (single file, no dependencies)
 curl -o includes/Parsedown.php https://raw.githubusercontent.com/erusev/parsedown/master/Parsedown.php
 ```
 
 ### Option 2: Composer + PHP Markdown
+
 ```bash
 # If you want to use Composer
 composer require michelf/php-markdown
@@ -19,6 +21,7 @@ composer require michelf/php-markdown
 ### 1. Add Markdown Helper Function
 
 Create: `includes/markdown-helper.php`
+
 ```php
 <?php
 // Markdown rendering helper
@@ -104,33 +107,38 @@ function render_content($text) {
 
 ## Usage Examples
 
-### Before (Plain Text):
+### Before (Plain Text)
+
 ```php
 <?php echo nl2br(htmlspecialchars($faq['answer'])); ?>
 ```
 
-### After (Markdown + Plain Text):
+### After (Markdown + Plain Text)
+
 ```php
 <?php echo render_content($faq['answer']); ?>
 ```
 
 ## Markdown Examples Your App Will Support
 
-### Headers:
+### Headers
+
 ```markdown
 # Main Header
 ## Sub Header  
 ### Section Header
 ```
 
-### Formatting:
+### Formatting
+
 ```markdown
 **Bold text**
 *Italic text*
 `Code snippets`
 ```
 
-### Lists:
+### Lists
+
 ```markdown
 - Bullet point 1
 - Bullet point 2
@@ -139,17 +147,20 @@ function render_content($text) {
 2. Numbered item 2
 ```
 
-### Links:
+### Links
+
 ```markdown
 [Visit our homepage](/)
 [Search FAQs](/search.php)
 ```
 
-### Code Blocks:
+### Code Blocks
+
 ```markdown
 ```php
 echo "Hello submarine!";
 ```
+
 ```
 
 ### Tables:
@@ -163,16 +174,19 @@ echo "Hello submarine!";
 ## Database Considerations
 
 ### Option A: Mixed Content (Recommended)
+
 - Keep existing plain text FAQs as-is
 - Add new Markdown content
 - Auto-detection handles both formats
 
 ### Option B: Markdown-Only
+
 - Convert existing content to Markdown
 - All new content uses Markdown
 - More consistent but requires migration
 
 ### Option C: Content Type Field
+
 - Add `content_type` field to FAQs table
 - Explicitly mark content as 'markdown' or 'text'
 - Most precise control

@@ -1,9 +1,11 @@
 # HostGator Migration Guide
+
 # Complete step-by-step instructions for moving your Submarine FAQ site
 
 ## 🚀 HOSTGATOR MIGRATION CHECKLIST
 
 ### STEP 1: HOSTGATOR ACCOUNT SETUP
+
 □ Purchase HostGator hosting plan (recommended: Business plan for MySQL support)
 □ Set up your domain name (or subdomain for testing)
 □ Access cPanel from HostGator dashboard
@@ -12,13 +14,15 @@
 ### STEP 2: DATABASE SETUP ON HOSTGATOR
 
 **2.1 Create Database:**
+
 - Login to cPanel
-- Go to "MySQL Databases" 
+- Go to "MySQL Databases"
 - Create new database: `submarine_faqs` (or similar)
 - Create database user with full privileges
 - Note: HostGator often prefixes with your username (e.g., `yourusername_submarine_faqs`)
 
 **2.2 Import Database:**
+
 - Go to "phpMyAdmin" in cPanel
 - Select your new database
 - Click "Import" tab
@@ -28,6 +32,7 @@
 ### STEP 3: UPDATE CONFIGURATION FILES
 
 **3.1 Edit database.php for HostGator:**
+
 ```php
 // HostGator Database configuration
 define('DB_HOST', 'localhost');  // Usually localhost on HostGator
@@ -41,6 +46,7 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ```
 
 **3.2 Update .htaccess (if needed):**
+
 - Most HostGator shared hosting works with your current .htaccess
 - May need to adjust file paths for some configurations
 
@@ -49,18 +55,21 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 **4.1 Upload Methods (choose one):**
 
 **Option A: File Manager (cPanel)**
+
 - Login to cPanel
-- Open "File Manager" 
+- Open "File Manager"
 - Navigate to `public_html` folder
 - Upload zip file of your project
 - Extract files in public_html
 
 **Option B: FTP Upload**
+
 - Use FileZilla or similar FTP client
 - Connect with HostGator FTP credentials
 - Upload all files to `/public_html/` directory
 
 **Option C: HostGator Site Migration Tool**
+
 - HostGator offers free site migration service
 - Contact support to migrate your site
 
@@ -104,6 +113,7 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 □ Email notifications (if configured)
 
 **6.3 Database Verification:**
+
 - Check FAQ count: Should show 183 FAQs
 - Verify categories are populated
 - Test feedback system
@@ -151,22 +161,27 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ## 🔧 COMMON HOSTGATOR ISSUES & SOLUTIONS
 
 **Issue 1: Database Connection Errors**
+
 - Solution: Double-check DB credentials, ensure user has all privileges
 - HostGator often uses prefixed database names
 
 **Issue 2: .htaccess Not Working**  
+
 - Solution: Contact HostGator support to enable mod_rewrite
 - Some shared plans have limitations
 
 **Issue 3: File Permission Errors**
+
 - Solution: Set proper permissions via File Manager or FTP
 - Files: 644, Directories: 755, Executables: 755
 
 **Issue 4: PHP Version**
+
 - Solution: Set PHP version to 8.0+ in cPanel
 - Your site requires modern PHP features
 
 **Issue 5: Email Sending Issues**
+
 - Solution: Use HostGator SMTP settings for mail() functions
 - Consider external services like SendGrid for reliability
 
@@ -193,6 +208,7 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ## 📋 BACKUP STRATEGY
 
 **Regular Backups:**
+
 - HostGator provides automatic backups
 - Download manual backups monthly
 - Keep local copies of database exports
@@ -201,6 +217,7 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ## 🚀 GOING LIVE
 
 When ready to launch:
+
 1. Test everything thoroughly
 2. Remove under-construction mode
 3. Update DNS if needed

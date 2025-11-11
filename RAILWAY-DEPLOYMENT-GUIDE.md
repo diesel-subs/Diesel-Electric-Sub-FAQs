@@ -1,4 +1,5 @@
 # Railway Deployment Guide
+
 # Perfect for PHP + MySQL development with Git integration
 
 ## Why Railway is Perfect for Your Project
@@ -16,6 +17,7 @@
 ### 1. Prepare Your Project for Railway
 
 Create `railway.json`:
+
 ```json
 {
   "build": {
@@ -28,11 +30,13 @@ Create `railway.json`:
 ```
 
 Create `Procfile`:
+
 ```
 web: php -S 0.0.0.0:$PORT -t .
 ```
 
 Update `config/database.php`:
+
 ```php
 <?php
 // Railway Database Configuration
@@ -76,6 +80,7 @@ function format_date($date) {
 ### 2. Deploy to Railway
 
 1. **Push to GitHub:**
+
    ```bash
    git add .
    git commit -m "Prepare for Railway deployment"

@@ -1,7 +1,9 @@
 # Railway Custom Domain Setup Guide
+
 # Setting up dieselsubs.com with your submarine FAQ project
 
 ## Prerequisites
+
 ✅ Railway account created
 ✅ GitHub repository uploaded (diesel-subs/Diesel-Electric-Sub-FAQs)
 ✅ Domain dieselsubs.com registered and accessible
@@ -9,7 +11,7 @@
 ## Step 1: Deploy Project to Railway
 
 1. **Login to Railway Dashboard:**
-   - Go to https://railway.app
+   - Go to <https://railway.app>
    - Click "Login" and sign in with GitHub
 
 2. **Create New Project:**
@@ -31,6 +33,7 @@
    - Note the connection details (host, port, user, password, database)
 
 2. **Import Your Data:**
+
    ```bash
    # Option A: Use Railway CLI (recommended)
    railway login
@@ -42,6 +45,7 @@
    ```
 
 3. **Switch to Railway Database Config:**
+
    ```bash
    # Update your repository to use Railway config
    git add .
@@ -52,7 +56,7 @@
 
 ## Step 3: Set Up Custom Domain (dieselsubs.com)
 
-### In Railway Dashboard:
+### In Railway Dashboard
 
 1. **Access Domain Settings:**
    - Go to your project dashboard
@@ -70,11 +74,12 @@
    - **CNAME Record:** `dieselsubs.com` → `[your-project].railway.app`
    - Or **A Records:** IP addresses to point to
 
-### In Your Domain Registrar (GoDaddy, Namecheap, etc.):
+### In Your Domain Registrar (GoDaddy, Namecheap, etc.)
 
 4. **Configure DNS Records:**
-   
+
    **For Root Domain (dieselsubs.com):**
+
    ```
    Type: A
    Name: @
@@ -83,6 +88,7 @@
    ```
 
    **For WWW Subdomain:**
+
    ```
    Type: CNAME
    Name: www
@@ -91,6 +97,7 @@
    ```
 
    **Alternative (if CNAME supported for root):**
+
    ```
    Type: CNAME
    Name: @
@@ -112,7 +119,7 @@ Railway automatically provides SSL certificates for custom domains:
 
 ## Step 5: Configure Redirects (Optional)
 
-To ensure www.dieselsubs.com redirects to dieselsubs.com (or vice versa):
+To ensure <www.dieselsubs.com> redirects to dieselsubs.com (or vice versa):
 
 1. **Add Both Domains in Railway:**
    - Add `dieselsubs.com`
@@ -150,21 +157,25 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ## Common Issues & Solutions
 
 **Issue 1: DNS Not Propagating**
+
 - Wait 24-48 hours for full propagation
 - Use `nslookup dieselsubs.com` to check DNS
 - Clear browser cache
 
 **Issue 2: SSL Certificate Pending**
+
 - Wait 15-30 minutes after DNS propagation
 - Ensure DNS records are correct
 - Contact Railway support if it takes longer
 
 **Issue 3: 404 Errors on Custom Domain**
+
 - Verify the domain is pointing to the correct Railway service
 - Check that your web service is running
 - Ensure your PHP app is properly deployed
 
 **Issue 4: Database Connection Issues**
+
 - Verify your app is using the Railway database config
 - Check environment variables in Railway dashboard
 - Ensure database import was successful
@@ -172,13 +183,15 @@ define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 ## DNS Propagation Check
 
 Use these tools to verify DNS propagation:
-- https://dnschecker.org
-- https://www.whatsmydns.net
+
+- <https://dnschecker.org>
+- <https://www.whatsmydns.net>
 - Command line: `nslookup dieselsubs.com`
 
 ## Railway CLI Commands (Optional)
 
 Install Railway CLI for easier management:
+
 ```bash
 # Install Railway CLI
 npm install -g @railway/cli
@@ -201,7 +214,7 @@ railway run mysql --help
 □ Custom domain added in Railway dashboard
 □ DNS records configured at domain registrar
 □ SSL certificate provisioned (automatic)
-□ Site accessible at https://dieselsubs.com
+□ Site accessible at <https://dieselsubs.com>
 □ All functionality tested and working
 □ Redirects configured (www → non-www or vice versa)
 

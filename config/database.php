@@ -1,9 +1,10 @@
 <?php
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'submarine_user');
-define('DB_PASSWORD', 'submarine2024!');
-define('DB_NAME', 'submarine_faqs');
+// Database configuration - Railway environment variables
+define('DB_HOST', $_ENV['MYSQLHOST'] ?? 'localhost');
+define('DB_PORT', $_ENV['MYSQLPORT'] ?? '3306');
+define('DB_USERNAME', $_ENV['MYSQLUSER'] ?? 'submarine_user');
+define('DB_PASSWORD', $_ENV['MYSQLPASSWORD'] ?? 'submarine2024!');
+define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? 'submarine_faqs');
 define('DB_CHARSET', 'utf8mb4');
 
 // Site configuration
@@ -14,7 +15,7 @@ define('ADMIN_EMAIL', 'admin@example.com');
 // Database connection
 try {
     $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
+        "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
         DB_USERNAME,
         DB_PASSWORD,
         [

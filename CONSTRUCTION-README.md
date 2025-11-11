@@ -5,27 +5,31 @@ This directory contains a complete "Under Construction" system for the Submarine
 ## 🚧 Files Included
 
 ### Main Pages
+
 - `under-construction.html` - Static HTML version with animations and submarine theming
 - `under-construction.php` - PHP version with server-side features (newsletter signup, etc.)
 
 ### Management
+
 - `construction-mode.sh` - Script to easily enable/disable construction mode
 - `.htaccess` - Contains redirect rules (commented by default)
 
 ## 🚀 Quick Setup
 
 ### Option 1: Manual Setup
+
 1. **Enable Construction Mode:**
    - Edit `.htaccess`
    - Uncomment the construction redirect lines (around line 8-12)
    - Save the file
 
 2. **Disable Construction Mode:**
-   - Edit `.htaccess` 
+   - Edit `.htaccess`
    - Comment out the construction redirect lines
    - Save the file
 
 ### Option 2: Script Setup (Recommended)
+
 ```bash
 # Enable construction mode
 ./construction-mode.sh enable
@@ -40,6 +44,7 @@ This directory contains a complete "Under Construction" system for the Submarine
 ## ✨ Features
 
 ### Under Construction Page Features
+
 - **Responsive Design** - Works on all devices
 - **Submarine Theming** - Animated submarine, bubbles, waves
 - **Progress Indicator** - Shows 85% completion status
@@ -51,6 +56,7 @@ This directory contains a complete "Under Construction" system for the Submarine
 - **Professional Design** - Maintains credibility during development
 
 ### Technical Features
+
 - **Smart Redirects** - Preserves admin access during construction mode
 - **Local Development** - Excludes localhost from redirects
 - **Asset Protection** - Allows CSS/JS/image files to load normally
@@ -59,7 +65,9 @@ This directory contains a complete "Under Construction" system for the Submarine
 ## 🔧 Customization
 
 ### Update Site Information
+
 Edit the variables in `under-construction.php`:
+
 ```php
 $site_name = "Your Site Name";
 $launch_date = "Month Year"; 
@@ -68,7 +76,9 @@ $contact_email = "your@email.com";
 ```
 
 ### Change Progress Percentage
+
 In `under-construction.html`, update the CSS:
+
 ```css
 .progress-fill {
     width: 85%; /* Change this percentage */
@@ -76,10 +86,13 @@ In `under-construction.html`, update the CSS:
 ```
 
 ### Add More Submarine Facts
+
 Edit the `submarine_facts` array in either file to add more rotating facts.
 
 ### Modify Colors/Styling
+
 The CSS uses a submarine/ocean theme with:
+
 - Blue gradient background (`#1e3c72` to `#2a5298`)
 - Warning/gold accent color (`#ffd700`)
 - Success green for progress (`#28a745`)
@@ -89,6 +102,7 @@ The CSS uses a submarine/ocean theme with:
 The PHP version includes basic newsletter signup. To integrate with a real service:
 
 1. **Mailchimp Integration:**
+
 ```php
 // Add Mailchimp API call in under-construction.php
 $mailchimp = new MailChimp('your-api-key');
@@ -99,6 +113,7 @@ $result = $mailchimp->post("lists/list-id/members", [
 ```
 
 2. **Simple File Storage:**
+
 ```php
 // Save to file for manual processing
 file_put_contents('subscribers.txt', $email . "\n", FILE_APPEND);
@@ -125,7 +140,7 @@ When ready to launch:
 ## 📱 Browser Compatibility
 
 - ✅ Chrome/Edge/Safari (modern versions)
-- ✅ Firefox (modern versions) 
+- ✅ Firefox (modern versions)
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 - ✅ Tablets and desktop
 - ⚠️ IE11 (basic functionality, no animations)
