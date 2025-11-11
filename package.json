@@ -1,11 +1,15 @@
 {
   "name": "submarine-faqs",
-  "version": "1.0.0", 
-  "main": "simple.js",
+  "version": "1.0.0",
+  "description": "Node.js web server",
+  "main": "simple.js", 
   "scripts": {
-    "start": "node simple.js"
+    "start": "node simple.js",
+    "build": "echo 'No build needed'"
   },
   "engines": {
-    "node": "18.x"
-  }
+    "node": "18.x",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {}
 }
