@@ -1,5 +1,6 @@
 <?php
 require_once 'config/database.php';
+require_once 'includes/markdown-helper.php';
 
 $category_name = $_GET['cat'] ?? '';
 if (empty($category_name)) {
@@ -48,11 +49,22 @@ require_once 'includes/header.php';
 
             <!-- Category Header -->
             <div class="category-header mb-4">
-                <h1>
-                    <i class="<?php echo htmlspecialchars($category['icon']); ?>"></i>
-                    <?php echo htmlspecialchars($category['name']); ?>
-                </h1>
-                <p class="lead"><?php echo htmlspecialchars($category['description']); ?></p>
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h1>
+                            <i class="<?php echo htmlspecialchars($category['icon']); ?>"></i>
+                            <?php echo htmlspecialchars($category['name']); ?>
+                        </h1>
+                        <p class="lead"><?php echo htmlspecialchars($category['description']); ?></p>
+                    </div>
+                    <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']): ?>
+                        <div class="admin-actions">
+                            <a href="edit-faq.php?category_id=<?php echo $category['id']; ?>" class="btn btn-success btn-sm">
+                                <i class="fas fa-plus"></i> Add New FAQ
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <?php if (empty($faqs)): ?>
@@ -144,7 +156,7 @@ require_once 'includes/header.php';
                                      data-bs-parent=".faqs-container">
                                     <div class="card-body">
                                         <div class="faq-content">
-                                            <?php echo nl2br(htmlspecialchars($faq['answer'])); ?>
+                                            <?php echo render_content($faq['answer']); ?>
                                         </div>
                                         <?php if (!empty($faq['tags'])): ?>
                                             <div class="faq-tags mt-3">

@@ -37,8 +37,8 @@
                             <li><a class="dropdown-item" href="category.php?cat=Hull and Compartments">Hull and Compartments</a></li>
                             <li><a class="dropdown-item" href="category.php?cat=Operating US Subs in WW2">Operating US Subs in WW2</a></li>
                             <li><a class="dropdown-item" href="category.php?cat=Life Aboard WW2 US Subs">Life Aboard WW2 US Subs</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Crews Aboard WW2 US Subs">Crews Aboard WW2 US Subs</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Battles Small and Large">Battles Small and Large</a></li>
+                            <li><a class="dropdown-item" href="category.php?cat=Who Were the Crews Aboard WW2 US Subs">Who Were the Crews Aboard WW2 US Subs</a></li>
+                            <li><a class="dropdown-item" href="category.php?cat=Attacks and Battles, Small and Large">Attacks and Battles, Small and Large</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -70,17 +70,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="admin/dashboard.php">Admin</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pma.php" target="_blank" title="Database Management">
-                                <i class="fas fa-database"></i> phpMyAdmin
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dbDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-database"></i> Database
                             </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="simple-db-admin.php">
+                                    <i class="fas fa-table"></i> Database Manager
+                                </a></li>
+                                <li><a class="dropdown-item" href="phpmyadmin-direct.php" target="_blank">
+                                    <i class="fas fa-server"></i> phpMyAdmin
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="test-db-connection.php">
+                                    <i class="fas fa-check-circle"></i> Connection Test
+                                </a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/logout.php">Logout</a>
+                            <a class="nav-link" href="admin-logout.php">Logout</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/login.php">Admin Login</a>
+                            <a class="nav-link" href="admin-login.php">Admin Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pma.php" target="_blank" title="Database Management">

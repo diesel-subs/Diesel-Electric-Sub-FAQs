@@ -28,8 +28,10 @@ try {
     die("Database connection failed. Please check your configuration.");
 }
 
-// Session configuration
-session_start();
+// Session configuration - only start if not already active
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Helper functions
 function sanitize_input($data) {

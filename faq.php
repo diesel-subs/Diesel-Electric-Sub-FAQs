@@ -1,5 +1,6 @@
 <?php
 require_once 'config/database.php';
+require_once 'includes/markdown-helper.php';
 
 // Get FAQ by ID or slug
 $faq_id = $_GET['id'] ?? null;
@@ -83,6 +84,16 @@ require_once 'includes/header.php';
                             </div>
                         </div>
                         <div class="faq-actions">
+                            <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']): ?>
+                                <div class="btn-group me-2">
+                                    <a href="edit-faq-wysiwyg.php?id=<?php echo $faq['id']; ?>" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit"></i> WYSIWYG Edit
+                                    </a>
+                                    <a href="edit-faq.php?id=<?php echo $faq['id']; ?>" class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-code"></i> Markdown
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                             <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard(window.location.href)">
                                 <i class="fas fa-share"></i> Share
                             </button>
@@ -101,14 +112,14 @@ require_once 'includes/header.php';
                     <?php if ($faq['short_answer'] && $faq['short_answer'] !== $faq['answer']): ?>
                         <div class="alert alert-info">
                             <h5>Quick Answer:</h5>
-                            <p class="mb-0"><?php echo nl2br(htmlspecialchars($faq['short_answer'])); ?></p>
+                            <div class="mb-0"><?php echo render_content($faq['short_answer']); ?></div>
                         </div>
                         
                         <h5>Detailed Answer:</h5>
                     <?php endif; ?>
                     
                     <div class="answer-content" id="faq-content">
-                        <?php echo nl2br(htmlspecialchars($faq['answer'])); ?>
+                        <?php echo render_content($faq['answer']); ?>
                     </div>
                 </div>
 

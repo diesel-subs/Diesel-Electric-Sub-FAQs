@@ -38,13 +38,13 @@ require_once 'includes/header.php';
                         'description' => 'Daily life, conditions, and experiences of submarine crews',
                         'icon' => 'fas fa-users'
                     ],
-                    'Crews Aboard WW2 US Subs' => [
-                        'description' => 'Crew composition, roles, and personnel information',
-                        'icon' => 'fas fa-user-friends'
+                                        'Who Were the Crews Aboard WW2 US Subs' => [
+                        'icon' => 'fa-users',
+                        'description' => 'Learn about the brave men who served aboard submarines'
                     ],
-                    'Battles Small and Large' => [
-                        'description' => 'Combat engagements and battle histories',
-                        'icon' => 'fas fa-crosshairs'
+                    'Attacks and Battles, Small and Large' => [
+                        'icon' => 'fa-crosshairs',
+                        'description' => 'Major naval engagements and submarine warfare tactics'
                     ]
                 ];
 
