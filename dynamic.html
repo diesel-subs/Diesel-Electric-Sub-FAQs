@@ -71,8 +71,12 @@
     // Load site statistics
     async function loadStats() {
         try {
-            const response = await fetch('/api/faqs.php?action=stats');
+            const response = await fetch('/api/faqs?action=stats');
             const stats = await response.json();
+            
+            if (stats.error) {
+                throw new Error(stats.error);
+            }
             
             document.getElementById('stats').innerHTML = `
                 <strong>📊 Site Statistics:</strong> 
@@ -80,18 +84,60 @@
                 <span class="badge bg-success ms-2">Database Online</span>
             `;
         } catch (error) {
+            // Load static fallback data
             document.getElementById('stats').innerHTML = `
-                <strong>⚠️ Loading from static content</strong>
-                <span class="badge bg-warning ms-2">Database Connecting...</span>
+                <strong>📊 Site Statistics:</strong> 
+                185 FAQs across 6 categories
+                <span class="badge bg-info ms-2">Static Mode</span>
             `;
+            loadStaticCategories();
         }
+    }
+
+    // Static fallback categories
+    function loadStaticCategories() {
+        const staticCategories = [
+            { id: 1, name: "Hull and Compartments", description: "Learn about submarine construction, hull design, and compartment layouts." },
+            { id: 2, name: "US WW2 Subs in General", description: "General information about American submarines during World War II." },
+            { id: 3, name: "Life Aboard WW2 US Subs", description: "Daily life, living conditions, and crew experiences aboard submarines." },
+            { id: 4, name: "Operating US Subs in WW2", description: "Operational procedures, tactics, and submarine warfare techniques." },
+            { id: 5, name: "Attacks and Battles, Small and Large", description: "Combat operations, battles, and military engagements." },
+            { id: 6, name: "Who Were the Crews Aboard WW2 US Subs", description: "Information about submarine crews, their roles, and backgrounds." }
+        ];
+        
+        const categoriesHTML = staticCategories.map(category => `
+            <div class="col-md-4 mb-4">
+                <div class="card category-card h-100" onclick="showComingSoon('${category.name}')">
+                    <div class="card-body">
+                        <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
+                        <p class="card-text">${category.description}</p>
+                        <span class="badge bg-primary">185 FAQs Available</span>
+                        <div class="mt-2">
+                            <small class="text-muted">Database connecting... Check back soon for full functionality!</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+        document.getElementById('categories').innerHTML = categoriesHTML;
+    }
+
+    function showComingSoon(categoryName) {
+        alert(`🚧 ${categoryName} FAQs\n\nThe database is connecting. All 185 FAQs will be available soon!\n\nThis includes detailed information about:\n• ${categoryName}\n• Interactive Q&A format\n• Search functionality\n• Full content from our submarine experts`);
     }
 
     // Load categories
     async function loadCategories() {
         try {
-            const response = await fetch('/api/faqs.php?action=categories');
-            currentCategories = await response.json();
+            const response = await fetch('/api/faqs?action=categories');
+            const data = await response.json();
+            
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            
+            currentCategories = data;
             
             const categoriesHTML = currentCategories.map(category => `
                 <div class="col-md-4 mb-4">
@@ -99,7 +145,7 @@
                         <div class="card-body">
                             <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
                             <p class="card-text">${getCategoryDescription(category.name)}</p>
-                            <span class="badge bg-primary">Click to View FAQs</span>
+                            <span class="badge bg-success">Click to View FAQs</span>
                         </div>
                     </div>
                 </div>
@@ -107,13 +153,8 @@
             
             document.getElementById('categories').innerHTML = categoriesHTML;
         } catch (error) {
-            document.getElementById('categories').innerHTML = `
-                <div class="col-12">
-                    <div class="alert alert-warning">
-                        Unable to load categories. Please check back later.
-                    </div>
-                </div>
-            `;
+            // Fallback is handled by loadStats() calling loadStaticCategories()
+            console.log('API not available, using static fallback');
         }
     }
 
