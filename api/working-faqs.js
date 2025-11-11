@@ -37,6 +37,27 @@ export default async function handler(req, res) {
       category_name: "Hull and Compartments"
     },
     {
+      id: 9,
+      question: "Pampanito is much bigger than I expected. I thought submarines were crowded.",
+      answer: "The boat is long but narrow. It is almost 312 feet long. However, the pressure hull, where the crew lived and worked, is only 16 feet in diameter and around 280 feet long. The bottom level is all machinery and much more equipment is on the main level such as the tops of the engines and generators, fresh water stills, torpedo tubes, reload torpedoes and the boat's controls. As a result, there isn't much room left for the crew. The submarine looks much bigger from the outside than it does from the inside, particularly with 80 crew members on board.",
+      category_id: 1,
+      category_name: "Hull and Compartments"
+    },
+    {
+      id: 10,
+      question: "Where is the pressure hull? Can I see it from the pier?",
+      answer: "The pressure hull or 'people pipe' is below the main deck and between the sets of ballast and fuel tanks on both sides of the boat. Most of the pressure hull is hidden by the tanks on both sides and the main deck above.",
+      category_id: 1,
+      category_name: "Hull and Compartments"
+    },
+    {
+      id: 11,
+      question: "Where do the torpedoes come out?",
+      answer: "The outer doors for the forward tubes are all the way forward and just below the first row of limber holes. It is a rectangular structure that moves in toward the boat when opened. The same is true of the after tubes although there are no limber holes near the after outer doors. The outer doors for the top tubes, both forward and aft are visible on the Pampanito.",
+      category_id: 1,
+      category_name: "Hull and Compartments"
+    },
+    {
       id: 3,
       question: "How different are modern submarines?",
       answer: "Modern submarines are vastly different. With nuclear power, they can operate underwater for months at a time and do not have to surface except for crew morale and to take on supplies. They are much faster underwater than on the surface, the opposite of World War 2 submarines.",
@@ -59,8 +80,15 @@ export default async function handler(req, res) {
     },
     {
       id: 6,
-      question: "What was life like aboard a WW2 submarine?",
-      answer: "Life aboard WW2 submarines was cramped and challenging. Crews worked in shifts, shared bunks (hot bunking), and dealt with limited fresh water, cramped quarters, and the constant smell of diesel fuel and battery acid. Space was so limited that crew members often shared bunks in rotating shifts.",
+      question: "What did a typical day at sea consist of?",
+      answer: "A typical day consisted of two four-hour shifts on watch plus time spent for maintenance, paperwork, studying and training. The time between 08:00 and 16:00 (8 AM to 4 PM) would usually be a work day, when maintenance, etc. would be completed. Twelve hours would not be unusual for a regular workday, and it could be even longer if the sailor was working toward his submarine qualification or studying for a promotion. Sundays were a day of rest, with only eight hours of watch duty.",
+      category_id: 3,
+      category_name: "Life Aboard WW2 US Subs"
+    },
+    {
+      id: 12,
+      question: "What did a typical day in port consist of?",
+      answer: "The typical workday would be from 08:00 to 16:00. That could be started and ended earlier, called tropical hours, so that the crew isn't working during the hottest part of the day. However, in WW2 it was often longer than eight hours as men trained or got the boat ready for the next patrol. One third of the crew would remain on board overnight for security.",
       category_id: 3,
       category_name: "Life Aboard WW2 US Subs"
     },
