@@ -1,0 +1,1286 @@
+// Real submarine FAQ data extracted from markdown files
+// Generated on 2025-11-11T13:51:38.396Z
+// Total FAQs: 169
+
+const submarineData = {
+  categories: [
+  {
+    "id": 1,
+    "name": "Hull and Compartments",
+    "description": "Learn about submarine construction, hull design, and compartment layouts."
+  },
+  {
+    "id": 2,
+    "name": "US WW2 Subs in General",
+    "description": "General information about American submarines during World War II."
+  },
+  {
+    "id": 3,
+    "name": "Operating US Subs in WW2",
+    "description": "Operational procedures, tactics, and submarine warfare techniques."
+  },
+  {
+    "id": 4,
+    "name": "Who Were the Crews Aboard WW2 US Subs",
+    "description": "Information about submarine crews, their roles, and backgrounds."
+  },
+  {
+    "id": 5,
+    "name": "Life Aboard WW2 US Subs",
+    "description": "Daily life, living conditions, and crew experiences aboard submarines."
+  },
+  {
+    "id": 6,
+    "name": "Attacks and Battles, Small and Large",
+    "description": "Combat operations, battles, and military engagements."
+  }
+],
+  faqs: [
+  {
+    "id": 1,
+    "question": "Is the USS *Pampanito* (SS-383) really a submarine?",
+    "answer": "That is actually a valid question. Modern submarines, even the\nnon-nuclear boats of other navies, don't look anything like the\n*Pampanito* from the outside. They are sleek black shapes and are mostly\nunderwater. Only a little of the hull shows along with the upright sail.\nUnlike the *Pampanito,* they have no guns. But, yes, this is what was\ndescribed as a submarine in World War 2.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 2,
+    "question": "What do you mean when you say this is what we called a submarine?",
+    "answer": "This is as far as the technology could go in the early 1940s. However,\nthese boats, and all others of that era, technically, were just\nsubmersibles. They were surface ships that could submerge for relatively\nbrief periods (usually 16 hours or so), could fight submerged and then\ncould come back to the surface. The first true submarine was the USS\n*Nautilus* (SSN-571) which was commissioned in 1954. With nuclear power\nshe could operate underwater for months at a time and did not have to\nsurface regularly for fresh air or to recharge batteries. She was\ndesigned to operate underwater for the vast majority of the time.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 3,
+    "question": "How different are modern submarines?",
+    "answer": "Visitors who have served on our latest submarines tell us that they are\ncompletely different from the *Pampanito* and exactly the same. They are\ntelling us that the functions are the same -- diving, surfacing, being\nquiet, being sneaky, gathering intelligence, and attacking the ships of\nan enemy in wartime. How those functions are accomplished may be very\ndifferent. Buttons, switches and computers help to accomplish many tasks\nthat were very manual on the *Pampanito*. In addition, modern submarines\nare much larger and cleaner. However, there isn't enough space to play\nbasketball.\n\n***Pampanito* is much bigger than I expected. I thought submarines were\ncrowded.**\n\nThe boat is long but narrow. It is almost 312 feet long. However, the\npressure hull, where the crew lived and worked, is only 16 feet in\ndiameter and around 280 feet long. The bottom level is all machinery and\nmuch more equipment is on the main level such as the tops of the engines\nand generators, fresh water stills, torpedo tubes, reload torpedoes and\nthe boat's controls. As a result, there isn't much room left for the\ncrew.\n\nThe submarine looks much bigger from the outside than it does from the\ninside, particularly with 80 crew members on board.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 4,
+    "question": "Is a submarine a boat or a ship?",
+    "answer": "Most often the difference between boats and ships is based on size and\nwhether the vessel is ocean-going. A boat is generally a smaller vessel\nthat can be carried by a ship. A ship cannot be carried by a boat. Other\nvessels that are generally too large to be carried may also be referred\nto as boats such as ferry boats, tour boats and fishing boats.\n\nBy this definition, submarines such as the *Pampanito* are technically\nships. However, the original submarines were boats by the formal\ndefinition. They were carried to the point of attack and were not\nsuitable for lengthy ocean transits. As a result, by tradition, all\nsubmarines are still referred to as boats even though some of the newer\nones are huge in comparison. Submarines can be referred to both as ships\nand boats, with \"boats\" being far more common.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 5,
+    "question": "Is the submarine a battleship?",
+    "answer": "That depends on your definition of a battleship. These submarines were\ncombatant ships and did go into battle. However, in WW2, there was a\nspecific type of ship called a battleship. Those ships were large, heavy\nvessels with many guns. The biggest of our battleships had nine 16-inch\nguns and as many as 20 five-inch guns, 48 Bofors 40 mm guns in mounts of\nfour, and 52 Oerlikon 20 mm guns each. The battleships we built were 25\ntimes larger, by displacement (or heavier), than the *Pampanito*.\n\nIn WW2, submarines were certainly in battles, but were not referred to\nas battleships.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 6,
+    "question": "Where is the pressure hull? Can I see it from the pier?",
+    "answer": "The pressure hull or \"people pipe\" is below the main deck and between\nthe sets of ballast and fuel tanks on both sides of the boat. Most of\nthe pressure hull is hidden by the tanks on both sides and the main deck\nabove.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 7,
+    "question": "Where do the torpedoes come out?",
+    "answer": "The outer doors for the forward tubes are all the way forward and just\nbelow the first row of limber holes. It is a rectangular structure that\nmoves in toward the boat when opened. The same is true of the after\ntubes although there are no limber holes near the after outer doors.\n\nThe outer doors for the top tubes, both forward and aft are visible on\nthe *Pampanito.* You can see the outline of the rectangular doors. That\nis because the boat is currently much lighter than it was when it was\noperational. It does not have the 100 tons of battery cells, the nearly\n400 tons of fuel, the full complement of torpedoes with live warheads,\nthe food for the crew plus the 80 sailors and their gear. If that were\nall on board, the boat would be sitting deeper in the water and the\ntorpedo doors would be under water.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 8,
+    "question": "What should we know about before discussing what is in the boat?",
+    "answer": "A few definitions for common words and phrases might be helpful, such as\nhatches, heads, ladders and watertight doors.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 9,
+    "question": "What is a \"hatch\"?",
+    "answer": "A hatch is an opening through a deck that allows a sailor to move up or\ndown using a ladder.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 10,
+    "question": "What is a \"head\"?",
+    "answer": "In the Navy, a head is a toilet. There are four heads on board, although\nonly two are visible.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 11,
+    "question": "What is a \"ladder\"?",
+    "answer": "A ladder, in Navy speak, is a set of stairs or steps on a ship. Most of\nthe original ladders on the *Pampanito* actually resemble the almost\nstraight up and down ladders around your home. However, they were not as\neasily moved. Surface ships have ladders that look more like stairs.\nThose are similar to what was added in the torpedo rooms for visitors\nand old docents to enter and exit the *Pampanito* museum.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 12,
+    "question": "What is a \"watertight door\"?",
+    "answer": "A watertight door is the opening between the compartments on a\nsubmarine. The doors are very heavy since they are designed to withstand\nsea pressure. This is so they can prevent flooding from moving from one\ncompartment to the next. At a depth of 400 feet, the outside water\npressure is about 175 PSI. The weight needed to withstand that pressure\nhelps to explain their small size.\n\nThere are no watertight doors on the lower level. To go from one\ncompartment to the next on that level, one would have to go up to the\nmain level, move to the desired compartment, and then go back down.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 13,
+    "question": "Why are there so many doorways to go through?",
+    "answer": "The submarine is divided up into eight compartments on the main level.\n(The Conning Tower is a separate compartment above the pressure hull.)\nThese compartments are designed so that if any one of them were to be\nflooded, the boat could still get back to the surface. (That is a theory\nthat may never have been proven during actual operations.) The\ncompartments are also divided functionally so that noise and light can\nbe suppressed, particularly at night.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 14,
+    "question": "Why are the watertight doors so heavy?",
+    "answer": "See the definition of watertight doors, above.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 15,
+    "question": "What are the compartments on these submarines?",
+    "answer": "We will be starting aft, or at the back of the boat, which is where both\ntours -- online and in person - start. The following are the various\ncompartments, plus the bridge, along with the significant equipment in\neach:",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 16,
+    "question": "The control room has a lot of equipment. Is it the command center?",
+    "answer": "Yes, it has a lot of equipment. No, it is not the command center. That\nwould be either the conning tower, which is above the control room, or\nthe bridge. The conning tower is the command center when the boat is\nsubmerged. It is always manned when at sea by a helmsman and\nquartermaster since steering and navigation are normally done from this\nspace. Radar and sonar are also normally operated from this space. It\nwould be very crowded during general quarters (battle stations) for\nsubmerged attacks with as many as 10 to 12 men in the space.\n\nThe conning tower is only about 20 feet long and 10 feet in diameter. It\nis made of slightly thicker steel due to its vulnerability since it is\ncloser to the surface.\n\nThe bridge is the command center, where the officer of the deck will\nnormally be, when surfaced. When on the surface, the officer of the deck\nis supported by the crewmen in the conning tower and control room. This\nis particularly true when attacking on the surface.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 17,
+    "question": "Are there enough heads on the boat? We only see two.",
+    "answer": "There are four heads on the Pampanito. Two are in the main berthing\narea. They have metal doors and are opposite the washing machine. There\nis one additional head in each of the torpedo rooms. And, yes, four\nheads are normally enough for the 80-man crew.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 18,
+    "question": "Why are the chiefs' quarters known as the goat locker?",
+    "answer": "This is the space where the Chief Petty Officers, the highest-ranking\nenlisted men, sleep. The space is so named because the chiefs are the\n\"old goats\" in the Navy. On a submarine in WW2, they were as \"old\" as 28\nor 30 years old.\n\nIn this case, goat is not necessarily GOAT, as in greatest of all time.\nNor does it imply that the chiefs smelled more like goats than the rest\nof us. After a few days at sea, we all smelled pretty bad.\n\nThe chiefs' quarters are known as the goat locker throughout the Navy,\nnot just on submarines.",
+    "category_id": 1,
+    "category_name": "Hull and Compartments"
+  },
+  {
+    "id": 19,
+    "question": "How many submarines did we have in WW2?",
+    "answer": "We started with about 50 operational submarines. We built 221 and we\nlost 52. We ended the war with 179 boats in service with about 40 more\nin sea trials or still being completed. Definitions vary so it can be\ndifficult to get consistent, definitive numbers. Contracts for many more\nof the Balao and Tench class boats were cancelled when it became\napparent that they would not be needed for the war.\n\nThis refers only to operational boats. At the beginning of the war, we\nstill had some old R-class boats and most of those were being used for\ntraining. Some S-class boats were being used for training while others\nwere still operational boats at that time. (The R-boats go back to the\nearly part of WW1 and the S-boats were built during and right after that\nwar.) However, both classes had shorter range and many other\nlimitations. The operational S-boats would become training boats as new\nconstruction could replace them.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 20,
+    "question": "What was built after the R and S class boats?",
+    "answer": "We had built about 40 \"fleet boats\" in the 1930s. This includes the\nPorpoise, Perch, Salmon, Sargo and Tambor classes. These are the boats\nthat were built as we incorporated new technologies and what we learned\nthrough operational experience. These boats were larger than the\nS-boats, had greater range and carried more torpedoes. They were almost\nthe size of the Gato/Balao/Tench boats we built during the war and had\nsimilar capabilities. A table, below, compares the sizes of our\nsubmarine classes in WW2.\n\nThe fleet boats were operational at the start of WW2 along with some of\nthe S-boats. About 16 of the fleet boats were lost during the war. Many\nof the others were still in active service at the end of the war.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 21,
+    "question": "What did we build during the war?",
+    "answer": "The first of the newest WW2 classes, the Gato boats, were just being\ncommissioned when the Japanese attacked Pearl Harbor. The design had\nbeen set in 1939 and then we started building the new class. This class,\nplus the Balao and Tench classes, were what we built during the war. All\nthree classes were very similar, other than the thickness of the hull,\nand look the same to most observers. Sometimes all three classes are\nreferred to as Gato boats.\n\nThe Balao class boats had a thicker hull, at 7/8 inch rather than 11/16\ninch. The hull was also strengthened to allow the boat to sit on the\nbottom. The Tench class kept those improvements and had some ballast\ntank piping rerouted for safety.\n\nWe completed a total of about 77 Gato class, 119 Balao class and 25\nTench class boats during and shortly after the war.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 22,
+    "question": "What is a class of ships or submarines?",
+    "answer": "A class is a group of ships built to essentially the same design. There\nmay be some small differences, often depending on the shipyard where the\nvessel was built.\n\nClasses are normally named after the first ship in the design that was\nordered. In an oddity, the USS *Drum* (SS-228) was the first Gato\nsubmarine completed and commissioned. However, the USS *Gato* (SS-212)\nwas the first of the design ordered and the class is named after her.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 23,
+    "question": "How do these classes of submarines compare to each other?",
+    "answer": "-----------------------------------------------------------------------------------------------------------",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 24,
+    "question": "How many of each did we have during the war?",
+    "answer": "The number of submarines we had as combat boats, as nearly as we can\ndetermine, is approximately:\n\n+-----------------------------+---------+\n| Pre-WW2 boats               | 50      |\n+=============================+=========+\n| Gato class boats complete   | 77      |\n+-----------------------------+---------+\n| Balao class boats completed | 119     |\n+-----------------------------+---------+\n| Tench class boats completed | 25      |\n+-----------------------------+---------+\n| Built during and right      | 221     |\n| after WW2 --                |         |\n| Gato/Balao/Tench            |         |\n+-----------------------------+---------+\n| Total WW2 boats             | 271     |\n+-----------------------------+---------+\n| Completed too late for      | 40      |\n| combat:                     |         |\n|                             |         |\n| 24 Balaos and 16 Tench      |         |\n+-----------------------------+---------+\n| Total combatant submarines  | 231     |\n+-----------------------------+---------+\n| Lost to all causes          | 52      |\n+-----------------------------+---------+\n| Percentage lost             | 23%     |\n+-----------------------------+---------+\n| Combat ready total at the   | 179     |\n| end of the war              |         |\n+-----------------------------+---------+\n| Total at the end of the war | 219     |\n| plus those still being      |         |\n| tested or completed         |         |\n+-----------------------------+---------+",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 25,
+    "question": "What did we do with our submarines at the end of the war?",
+    "answer": "We had a huge Navy and decided to keep only about half of it active.\nThat included aircraft carriers, cruisers and destroyers as well as\nsubmarines. Many of the ships we didn't keep were added to the reserve\nfleet. Others were used in live weapons tests or sold to friendly\nnations.\n\nThe boats that we kept active after the war would be upgraded starting\nin the early 1950s. Guns were removed; the sail was streamlined and made\nmore efficient. Snorkels were added so that boats did not have to\nsurface to recharge the batteries or get fresh air in the boat. With a\nsnorkel, that could now be done from periscope depth. Later, there would\nbe a GUPPY program to improve battery capacity.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 26,
+    "question": "What was the reserve fleet?",
+    "answer": "The reserve fleet, sometimes called the \"mothball fleet\", were boats\nthat we kept on hand in case of new hostilities. The boats were\nunloaded, covered in protective coatings and then sealed up as much as\npractical. The idea was that it would be cheaper and faster to\nreactivate these boats and upgrade them to current standards than it\nwould be to build new ones. Reserve fleets are being dismantled and the\nships sold for scrap.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 27,
+    "question": "Did we use any of the reserve fleet submarines after WW2?",
+    "answer": "We did. We reactivated and recommissioned a number of these boats for\nservice during the Korean Conflict in the early 1950s. A few of those\nwere kept active after the fighting ended but most went back into the\nreserve fleet.\n\nOther boats were sold to allies and friendly nations. Some of those were\ngiven upgrades first. Other boats from the reserve fleet were used as\ntargets when testing new torpedoes. Still others were used in the atomic\nbomb testing in the Pacific. Lastly, some of the WW2 boats became museum\nsubmarines, such as the USS *Pampanito* (SS-383) here in San Francisco.\n\nBy the late 1950s, we were building nuclear powered submarines. That\nmeant that the WW2 boats were quickly outdated. By the end of 1973\nnearly all of the World War 2 submarines had been decommissioned.\nHowever, some of the new classes of diesel submarines that we had built\nafter the war were still in service in the U. S. Navy as late as 1988.\n\nTwo of our WW2 submarines, the USS *Tusk* (SS-426) and the USS *Cutlass*\n(SS-478) were transferred to Taiwan and are still in service as of 2023.\nHowever, since they are now 80 years old, they are limited in their\ncapabilities. Taiwan is now building new, non-nuclear submarines.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 28,
+    "question": "How many submarines were built in each shipyard?",
+    "answer": "---------------------------------------------------------------------------------",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 29,
+    "question": "How much did these submarines cost?",
+    "answer": "The numbers vary. The typical cost for boats from Portsmouth or Mare\nIsland during WW2 is generally quoted at \\$5 million. The first contract\nfor the boats from Manitowoc was for about \\$3 million and the second\nwas for \\$3.2 million per boat, plus incentives for early completion.\nThat doesn't necessarily mean that the boats built in the civilian yards\nare that much less expensive. It seems unlikely that the accounting is\nconsistent. For example, did the private yards include the costs for the\npropellers, engines and batteries, which the shipyards didn't actually\nbuild? It seems likely that Navy yards included all costs while the\ncontracts with the private yards may have only included the hull,\nwiring, piping, and installation of the engines and other large items.\n\nThese prices are in 1940s dollars. \\$5 million in 1943 would be the\nequivalent of over \\$100 million today.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 30,
+    "question": "How long did it take to build these submarines?",
+    "answer": "in the period between the two world wars, it could take as much as two\nto three years to complete a submarine. There was little urgency and we\nwere likely making changes to the designs as we learned more about how\nprior boats performed. There was also some incentive to take longer in\norder to improve planning and to maintain staffing levels in the\nshipyards. However, by the late 1930s, as the war was on the horizon and\nmore boats were being ordered, the typical time to complete a submarine\nwas down to about a year and a half.\n\nWhen the war had broken out in Europe, contracts were being let to begin\nbuilding ships to either keep us out of the war or to be able to fight\nit effectively. Construction had already begun, but not on a pace that\nwould soon be needed.\n\nBy the time we were in the war, in December of 1941, construction had\nalready started to speed up. Submarine designs had been frozen and soon\nshipyards were operating 24 hours per day, seven days per week.\nShipyards would also have multiple boats under construction at any one\ntime. There would be some boats where the work had just begun and others\nfarther along but still in drydocks. Others may have been launched but\nstill needed a few a few months for more work to be completed. During\nthe war, boats would usually be commissioned less than a year after\nconstruction began.\n\nFor example, construction on the *Pampanito* began on March 15, 1943.\nShe was commissioned on November 6, 1943. The submarine USS *Picuda*\n(SS-382) was started on the same day, in the same drydock. They were\nboth launched on the 12^th^ of July. *Picuda* was commissioned about\nthree weeks before *Pampanito*. The Portsmouth Naval Shipyard\ncommissioned 32 of these submarines in 1944 alone.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 31,
+    "question": "Were all of our newest WW2 submarines identical?",
+    "answer": "As mentioned above, the three classes built during WW2 -- Gato, Balao\nand Tench -- were very similar but not quite identical. The Balao and\nTench classes had thicker hulls and Tench boats had improved piping.\nThis enabled the Balao and Tench boats to have an approved depth limit\n(test depth) of 400 feet or so vs. 300 feet for the Gatos.\n\nIn addition, there could be some slight variation in equipment location.\nOne tall skipper had the forward battery layout changed a bit so he\ncould have a longer bunk and be able to stretch out. These variations\nwere generally minor and were limited by functionality. Some changes\ndepended on the preferences of the captains, most often on the\ncommissioning (first) commanding officer.\n\nOne of the more apparent variations was the location of the large\ncannon. It could be located either forward or aft of the sail. It\ndepended on whether the captain expected it to be used more often\noffensively (usually forward) or defensively (aft of the sail). The gun\ncould get moved after commissioning if the current captain could talk\nthe shipyard into making the change during a refit or overhaul.\n\nIf you knew one of these boats - or even an older fleet boat - and\nqualified on it, you wouldn't need much time at all to qualify on\nanother.\n\nThe differences among these three classes are not usually apparent to\nmost observers.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 32,
+    "question": "How could they build submarines in Manitowoc on the Lake Michigan?",
+    "answer": "The family-owned Manitowoc Shipbuilding Co. was an experienced shipyard.\nThey had built many ships, such as ore carriers, that operated on the\nGreat Lakes. When the war broke out, they wanted to assist in the war\neffort and keep their staff employed. Although they had no experience\nbuilding submarines, and originally turned down the project, they worked\nwith Electric Boat in New London to prepare. They then built 28\nsubmarines as a subsidiary of Electric Boat. The sailors in Manitowoc\nboats really appreciated the high quality of the work.\n\nManitowoc Shipbuilding faced multiple challenges:\n\n- In order to understand how each piping or wiring system fit with the\n  whole and the order of installation for each one, the shipyard first\n  built a full-sized model of a submarine out of wood.\n\n- They were building ocean-going submarines in a fresh water\n  environment. Fresh water weighs less than sea water meaning that it\n  doesn't support as much weight. That, in effect, makes the completed\n  submarine act as if it were tons heavier. They had to compensate for\n  that so the boat wouldn't go straight to the bottom when it submerged\n  the first time.\n\n- Manitowoc submarines had to be launched sideways at commissioning due\n  to the location on a river. That had never been done with these boats.\n  There was concern that the sudden roll would damage some of the\n  battery cells or that the boat would roll over. The engineers decided\n  to launch without the battery cells installed and calculated the\n  expected roll of the boat. The calculations were exactly correct and\n  everything worked out well.\n\n- Winter conditions on the Great Lakes are harsher than in Portsmouth,\n  New London or Mare Island. The submarines undergoing sea trials in\n  winter collected quite a bit of ice when on the surface. Much of that\n  had to be removed before diving because of the added weight. It made\n  the boat top heavy and less stable. This was also an issue, although\n  to a lesser extent, in Portsmouth and New London.\n\n- The boats then had to be sailed or transported to salt water.\n\nIn spite of all the things the Manitowoc shipyard had to do just to be\nable to build these boats, they completed nearly all of them ahead of\nplan and under budget. All but one of the boats were completed ahead of\nschedule, entitling the shipyard to performance bonuses. They accepted\nsome of the bonuses but not all, since they thought it improper to make\ntoo much profit during the war.\n\nThe shipyard was also building landing craft and heavy cranes at the\nsame time. That construction did not interfere with building submarines\nor vice versa.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 33,
+    "question": "How did Manitowoc get the boats to the ocean?",
+    "answer": "Today, that would be straightforward. You would just sail the boats to\nthe Atlantic Ocean using the St. Lawrence Seaway. However, that wasn't\ncompleted until 1959. In 1941, the locks in the Erie Canal could not\naccommodate a ship longer than 300 feet and the locks on the St.\nLawrence River were even shorter. These submarines were nearly 312\nfeetlong. Therefore, the only water route available was through the\nChicago Sanitary Canal to the Illinois River and then the Mississippi\ndown to the Gulf of Mexico. (Yes, the Chicago sewage canal.) The\nsubmarines would be towed through Chicago to Lockport, IL, loaded onto a\nfloating drydock (somewhat similar to a barge) and towed (pushed) down\nthe rivers. The Manitowoc shipyard needed to buy or build the drydocks.\n\nChicago had built drawbridges which would have allowed the drydock to\nnavigate the Sanitary Canal had the they all been finished. The bridges\nwere all functional for road traffic, but some of them didn't open. The\nshipyard needed to complete the rest of the mechanisms to raise the\nbridges.\n\nThe completed submarines on the floating drydocks still would not fit\nunder all the bridges on the Mississippi. To solve that, the periscope\nshears, periscopes and radar masts were all removed before being loaded\non the drydocks before Chicago and were reinstalled in New Orleans.\n\nOne interesting story concerns a delay due to high water in spring on\nthe Mississippi. They had to wait several days for lower levels of water\nin the river in order to get under bridges. There was no alternative\nother than to tie the tug and floating drydock up to trees and wait. At\ntimes, submarine builders needed to be as resourceful as submariners.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 34,
+    "question": "Did \"Rosie the Riveter\" help build submarines?",
+    "answer": "She certainly did. However, just for clarification, submarines were no\nlonger riveted as they had been in World War 1. They were welded. As a\nresult, it might be more accurate to say that \"Wendy the Welder\" helped\nbuild submarines.\n\nIn any case, many women went to work in defense plants during the war.\nSome did administrative work and others did drawing jobs. But many\nothers did the riveting and the welding. In fact, after initially\nresisting having women in the shipyards, management often found that\nwomen were better welders than the men. They were patient and some\nskills, such as sewing, did make the training easier.\n\nTwo of Pampanito's engines were named, somewhat unflatteringly, after\ntwo of the women who worked in the Portsmouth shipyard.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 35,
+    "question": "How big were our submarines in WW2?",
+    "answer": "Most of our submarines were about the same size as the *Pampanito*. The\nboats built during the war were almost 312 feet long (311 feet and 9\ninches) and 27 feet wide at the widest. The pressure hull (sometimes\nreferred to as the people pipe) is 16 feet in diameter in most places,\naround 275 to 280 feet long and is tapered at the ends. The Conning\nTower is about 20 feet long and 10 feet in diameter. Surface\ndisplacement is about 1,550 tons and submerged is about 2,400 tons.\n\nThese newer boats had 10 torpedo tubes -- six forward and four aft --\nand a full complement of torpedoes was 24.\n\nThey had four main engine/generator combinations, plus a smaller diesel\nin the lower flats of the after engine room. The main engines produced\naround 1,500 horsepower each, whether they were built by Fairbanks-Morse\nor General Motors Winton.\n\nThe 40 or so \"fleet boats\" that were most of our submarines at the\noutset of WW2 were about 10 feet shorter than the Pampanito, a bit\nnarrower and lacked the hard bulkhead to divide the engine rooms.\n\nSome fleet boats had only eight torpedo tubes and others had ten.\nGenerally, they only carried 20 torpedoes but some could carry four more\nin external containers. Their speed and range were comparable to the\nGato/Balao/Tench boats. Many of them served throughout the war. These\nolder boats had a higher loss rate than the Gato/Balao/Tench boats, due\nto the length of time they were in service.\n\nInitially, one significant drawback to these pre-war boats was in the\nengines. Some of these boats were outfitted with 9-cylinder\nHooven-Owens-Rentschler (HOR) diesels. These engines turned out not to\nbe reliable. (The sailors thought they lived up to their name --HORs.)\nThe main problem was the failure of the timing chains. After a while,\nthese engines would be removed and replaced with the larger diesels\nbeing used in the Gato boats.\n\nThe few S-class boats still in use at the beginning of the war were\nsignificantly smaller and had less range. That is why they became\ntraining boats as soon as we could afford to do so. They varied in size.\nLength was generally from about 220 ft. to 240 ft. Beam was 21 to 22\nfeet. Displacement was 850 tons to 903 tons on the surface. Submerged\ndisplacement was 1,060 to 1,230 tons. Maximum speed on the surface was\n13 to 15 knots. Range was 5,500 nautical miles at 6.5 knots.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 36,
+    "question": "How were US submarines named in WW2?",
+    "answer": "Submarines were named after sea creatures. We can't just say they were\nnamed after fish although most were, such as the *Perch*, *Bullhead*,\n*Cod*, *Flying* *Fish* and *Halibut*. However, some were named after\nmarine mammals such as the *Whale*, *Porpoise*, *Finback* (a whale),\n*Sea Cat* (an otter) and *Sealion*. Others were named after unusual sea\ncreatures, such as the *Seahorse* and *Skate*. Obviously, not all could\nbe named after ferocious sea creatures such as sharks or piranhas. We\neven named subs the *Seadragon* and the *Trepang*, which are nudibranchs\nor sea slugs.\n\nThe *Pampanito* is named after a smaller version of the pompano fish.\nPampanito, the fish, is about a foot long. It is a rather mild-mannered\nfish that is brown or black on top and silver underneath.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 37,
+    "question": "How many submarines did we lose in WW2?",
+    "answer": "We lost a total of 52 submarines from all causes or about 23%. We lost\nabout 3,500 submarine sailors with their boats. This was the highest\nloss rate of any of the major American services during the war.\n(However, some of the smaller units, such as the Eighth Air Force over\nEurope, may have had a higher loss rate.) As bad as this loss rate was\nfor our boats, most other countries lost a higher percentage of their\nsubmarines",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 38,
+    "question": "How were they lost?",
+    "answer": "The most frequent cause of our submarine losses was enemy action, either\nto aircraft, anti-submarine warship attacks or a combination of the two.\nSome were lost to mines. Over the course of the war, four were lost when\nthey ran aground on reefs although those crews were all rescued. At\nleast two boats were lost when they were struck by their own torpedoes\nrunning in a circle, likely due to gyroscope failures. The first\nsubmarine we lost in WW2, the USS *Sealion* (SS-195), was struck by\nbombs while being repaired in the Philippines on one of the first days\nof the war. In a few cases, we don't know why they were lost. It could\nhave been enemy action, mines, torpedo circular runs or even operational\nerrors.\n\nA few notes about unusual losses:\n\n- When the submarine USS *Pompano* (SS-181) was reported overdue, there\n  was some confusion as to the name of the boat. It was sometimes\n  reported in local papers as the *Pampanito*, which caused unnecessary\n  grief for a few families until the error was corrected.\n\n- Two older boats, the USS *Salmon* (SS-182) and USS *Halibut* (SS-232)\n  were so badly damaged that they had to be taken out of operational\n  service. *Salmon* became a training boat. *Halibut* was just scrapped.\n  However, they are not included in the count of 52 since they did make\n  it home.\n\n- It has not been definitively established but the USS *Dorado* (SS-248)\n  may have been sunk by one of our own PBM flying-boats when in a safe\n  area. Other possible causes have been put forward as well but none\n  have been substantiated.\n\n- The USS *Corvina* (SS-226) is the only US boat known to have been sunk\n  by a Japanese submarine. She was lost in November of 1943.\n\n- The USS *Robalo* (SS-273) was probably sunk by a mine in 1944. 77 men\n  died in the sinking. Apparently, four others survived, were captured\n  and died in captivity.\n\n- The USS *Seawolf* (SS-197) was sunk in late 1944 with 82 crewmen plus\n  17 US Army personnel while en route to Samar. There was apparently a\n  great deal of confusion in the area. In any case, *Seawolf* did not,\n  or could not, respond to interrogation signals and was sunk by US\n  forces.\n\nThe summary of our submarine losses in WW2 is as follows:\n\n  --------------------------\n  Enemy aircraft           5\n  ------------------- ------\n  Enemy ASW               16\n\n  ASW/aircraft             4\n  combined            \n\n  Bombed                   1\n\n  Collision                1\n\n  Friendly fire            1\n\n  Japanese submarine       1\n\n  Mine                     6\n\n  Operational              2\n\n  Own torpedo              2\n\n  Rammed                   1\n\n  Ran aground              4\n\n  Shore battery            1\n\n  Unknown                  7\n  --------------------------",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 39,
+    "question": "Was everyone on board lost when a submarine sank?",
+    "answer": "In WW2, that was often the case but not always. When we lost USS *S-36*\n(SS-141)*,* USS *S-27* (SS-132)*,* USS *S-39* (SS-141) and USS *Darter*\n(SS-227) because they had each run aground, all of the crews survived.\nThe crew of the *Darter* was transferred, *en masse,* to the USS\n*Menhaden* (SS-377), then still under construction.\n\nNine other boats were lost with some, but not all, of the crew\nsurviving:\n\n- The USS *Sealion* (SS-195) was lost at the very beginning of the war\n  in the Philippines. Four men were killed when she was hit by two bombs\n  from an aircraft attack. The boat was in maintenance. (One man from\n  the USS *Seadragon* (SS-194) died from the shrapnel from *Sealion.*)\n  The rest of the crew survived and were evacuated from the Philippines.\n\n- All 62 men of the crew of the USS *Perch* (SS-313) survived the damage\n  to their boat. They also survived the scuttling of the boat but nine\n  died in captivity.\n\n- The USS *Grenadier* (SS-210) was damaged and then scuttled. All 76 men\n  survived the loss of the boat, but four died in captivity.\n\n- The USS *R-12* (SS-89) was recommissioned at the beginning of the war\n  for use as a training boat. She was still being used as a training\n  boat when she was lost in 1943. 42 men died when the boat went down,\n  including two Brazilian Naval Officers. Five men were rescued and,\n  fortunately, 18 others were on liberty that day and were not on board.\n\n- The USS *S-44* (SS-155) was lost in 1943 along with 55 of her crew.\n  Two crewmen survived.\n\n- In a very unusual case, 43 men initially survived the loss of the USS\n  *Sculpin* (SS-191). They were picked up by the Japanese and split into\n  two groups and put aboard Japanese carriers for the trip to Japan. One\n  of those carriers was sunk by the submarine USS *Sailfish* (SS-192)\n  and only one of that group of *Sculpin* sailors survived. A total of\n  just 21 men from the *Sculpin* survived the war. Captain John\n  Cromwell, who was aboard *Sculpin* as wolfpack commander, had opted to\n  go down with the boat rather than taking a chance that he might give\n  away the Ultra secrets under interrogation. He was awarded the Medal\n  of Honor posthumously.\n\n- The USS *Tullibee* (SS-284) was sunk by her own torpedo when it made a\n  circular run. 79 men were lost and just one survived. Approximately 23\n  circular torpedo runs were reported in WW2, although there could have\n  been more.\n\n- 78 men were lost when the USS *Flier* (SS-250) was sunk by a mine.\n  Eight others made it to Mantangula Island where they made contact with\n  friendly natives. They radioed Australia, and the survivors were\n  extracted by the USS *Redfin* (SS-272).\n\n- The USS *Tang* (SS-306) was hit and sunk by a circular run of her own\n  torpedo. It was her last torpedo at the end of the patrol. Nine men\n  survived the sinking and taken prisoner. All nine survived the war\n  including her captain, Richard O'Kane, who was later awarded the Medal\n  of Honor.\n\nIn the other 39 cases, the entire crew went down with the boat.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 40,
+    "question": "How were they able to design such a complex ship?",
+    "answer": "Submarines evolved. They didn't need to be conjured up out of someone's\nimagination as fully formed vessels in the 1930s and 40s. These WW2\nsubmarines were the result of a rather lengthy process going back\nhundreds of years. Here is a quick summary, up to the beginning of WW2.\nA more detailed version of submarine history is included as Appendix 13?\n\nThe idea of a submersible, naval warship appears to go back at least to\nthe reign of Alexander the Great. That was 300 years BCE (before the\ncommon era). Leonardo De Vinci also designed a submarine, although it\ndid not appear to be workable.\n\nThe first attack in American submarine history was on a British ship\nduring our Revolutionary War. It was attempted by David Bushnell's\nsubmarine *Turtle.* Like most of the designs at this time, *Turtle* was\na small, one-man submersible powered by the man inside it. The weapon\nwas called a torpedo but it was what we think of as a mine. It was to be\nattached to the target and detonated after the submersible pulled away\nto a safe distance. Because the speed and endurance were so limited, the\nattempted attack against a British ship failed.\n\nThe *USS Alligator* was the first known U. S. Navy submersible,\npurchased during the Civil War. (The *Turtle*, above, was apparently\noperated by the Continental Army.) It was also small and powered by the\n12 men inside, first with oars, then with a hand-cranked propeller.\n*Alligator* did not contribute to the Civil War effort, and sank off\nCape Hatteras with no loss of life in 1863. (Wikipedia)\n\nThe first successful attack by a submarine was the sinking of the *USS\nHousatonic.* The Confederate submarine *CSS Hunley* successfully\napproached the *Housatonic* and detonated the spar charge. The\n*Housatonic* sank. Unfortunately, the *Hunley* was not able to get far\nenough away and the crew was all killed when the boat sank. This was the\nthird crew of thee *Hunley* to die when the vessel sank.\n\nA breakthrough occurred in the late 1800s. Robert Whitehead had\ndeveloped his motor torpedo, a self-propelled device that was a natural\nfit with the submarines being built. Shortly after that, at about the\nturn of the century, John Holland and Simon Lake were able to create\nworkable submarines here in the US. Their boats had gasoline engines and\nwere no longer dependent on human power. They were larger and Holland's\nboats carried torpedoes.\n\nIt took years but Holland was finally able to get the Navy to approve\nhis designs and buy his submarines. These would be the first\nmechanically-powered attack submarines. When he ran short of capital\nbecause of all the delays, Isaac Rice came to his rescue. Rice had been\nlooking for more applications for his battery business. Submarines were\na logical application for batteries since that was their source of power\nwhen submerged. Rice bought out Holland's patents and the rest of his\nfinancial interests. Holland was eventually squeezed out of the company\naltogether. This was the beginning of the Electric Boat Company which\nstill builds US submarines today. It was also the last of Holland's\ndesigns.\n\nSome nations bought Holland's boats. Others bought the designs and\ndeveloped their own boats. Britain and Germany built their own\nsubmarines based on what they learned from the Holland designs and\nLake's work. Many navies wanted to have their own input into the designs\nof their boats. Holland and Lake did their own designs and offered the\nboats for sale.\n\nBy the time of World War I, there had been many improvements. Boats had\nperiscopes and both bow and stern planes for depth control. They were\nlarger. They were still somewhat primitive but more habitable. Germany,\nin particular, had created very effective boats. This became very\napparent in September of 1914, only about six weeks into WW1, when Otto\nWeddigen in command of the *U-9* attacked three obsolete British\ncruisers in the space of about an hour. All three sank rather quickly\nwith the loss of almost 1,500 men.\n\nGermany then proceeded to show how effective a weapon of war a submarine\ncould be. They almost severed the supply lines to Britain and France.\nBritish ships could find German submarines with ASDIC, which we call\nsonar. However, they were still developing weapons to attack subs in the\ndepths. Escorts could only hope to ram submarines or force them to the\nsurface and attack with guns. Sometimes, it was good enough to just keep\nthe U-boats down and unable to attack while the convoy escaped.\n\nEventually, the Allies managed to defeat the Central Powers on land and\nend the war. As the spoils of war, the Allies received examples of the\nGerman U-boats. After the war, when we compared our new submarines to\nthe German U-boats, we realized how limited our boats were. One analysis\nfound that in every category the German submarines were superior. In\nmany aspects they were far superior. We had no choice but to begin the\nwork of improving our designs.\n\nThe two most basic issues were the need to determine what types of\nsubmarines we should have and then finding an appropriate and effective\nmeans of propulsion for them. Some of the other challenges we had to\naddress were the quality of periscopes, communications, detection gear\n(sonar) and habitability over long distances\n\nPerhaps the most important outcome of the analysis in 1926 was the\ncreation of the Submarine Officers Conference. This was a group of\nexperienced submarine officers that included senior commanders, naval\nengineers and officers who had commanded boats. For the first time,\nAmerican submarine officers would have input into the needs of the\nsubmarine force and the designs of the submarines themselves.\n\nBy 1934, they had settled on a design of approximately 1,500 tons\nsurface displacement. This would provide the range needed to carry the\nfight across the Pacific and Atlantic if needed. The boats needed to be\nlarge enough to carry the fuel for a long journey and to carry enough\ntorpedoes to make the trip worthwhile. This would be the eventual size\nof the Gato/Balao/Tench class boats of WW2, such as the *Pampanito*.\n\nThe propulsion issue wasn't easily solved. The surface navy at the time\nwas primarily steam-driven and had difficulty imagining anything else.\nHowever, steam isn't practical in a submarine dependent on fossil fuels.\nRestarting a steam plant after being submerged takes way too long.\nKeeping a steam plant running while submerged makes the submarine too\nhot for the crew.",
+    "category_id": 2,
+    "category_name": "US WW2 Subs in General"
+  },
+  {
+    "id": 41,
+    "question": "What was the primary mission of our submarines in WW2?",
+    "answer": "The primary mission for our submarines was to sink Japanese shipping of\nall types. The early emphasis was on sinking Japanese warships and\ntroopships, but captains were always happy to sink cargo ships and\ntankers as well.\n\nAs mentioned in the preceding section, the original assumption was that\nsubmarines would operate with the fleet. They would be scouts and they\nwould attack the enemy first and do as much damage as they could before\nthe main battle fleets engaged each other. However, in hindsight, that\nwas rather naïve. At a maximum speed of 20 or 21 knots, submarines\ncouldn't keep up with carriers, new battleships and destroyers. Even if\nthey could keep up, they would have to be on the surface and give away\nstealth, their greatest advantage and defense. Once carrier battles were\nfought with opponents hundreds of miles from each other, there was no\npractical way to have submarines accompany the fleet.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 42,
+    "question": "Did they do anything other than attacking enemy ships?",
+    "answer": "Certainly. Submarines are very versatile ships. The fact that they can\nsubmerge and approach an assignment without being seen makes them the\nbest vessel for many other types of missions.\n\nOne of the more common missions was what was called \"lifeguard duty.\"\nEarly in the war, someone suggested that submarines might be used to\nrescue our airmen whose planes were damaged in attacks on Japanese\nbases. Tests were successful and in 1943 we began to put submarines near\nJapanese bases when we attacked. Submarine captains did not like\nlifeguard duty. They thought they should be out sinking ships rather\nthan hanging around on the surface in dangerous waters for a few days at\na time. Naturally, the pilots had a different view.\n\nPilots were told that, if they could not safely get back to their\ncarriers or bases, they should try to get close to the submarines. There\nthey would have to ditch (crash land in the water) or bail out of the\nplane. If they couldn't get close to the boats, the subs would try to\ncome to them. It was helpful if a wingman could circle over the downed\npilot for protection and to direct the submarine to the aviator.\n\nLifeguard operations were very successful. Over the course of the war in\nthe Pacific, our submarines rescued more than 500 airmen. The most\nfamous rescued airman was a young LTJG torpedo bomber pilot by the name\nof George Herbert Walker Bush. He was rescued by the *USS* *Finback* in\nSeptember of 1944 off the island of Chichi Jima. His crewman had been\nkilled, and Mr. Bush was in the water for about 30 minutes before being\nrescued. The result was that submarines were responsible for two\nAmerican presidents. (George W. Bush wasn't born until 1947.)\n\nPampanito did lifeguard duty on her first war patrol near Yap Island.\nThis was during the build-up to the invasion of the Mariana Islands.\nHowever, no pilots needed assistance from Pampanito on that mission.\n\nOther missions included:\n\n- Intelligence gathering, which is one of the primary missions of our\n  submarines today. In some cases, during WW2, we needed better charts\n  (maps). As part of their patrols, we sent submarines to certain areas\n  to fill in gaps in our knowledge. In other cases, we needed\n  information about the movements of Japanese ships. The most famous\n  examples of these were the Battles of Midway, The Philippine Sea and\n  Leyte Gulf. Submarines were able to provide critical information for\n  the fleet and, sometimes, sink a couple enemy ships before the big\n  battles.\n\n- Rescue of the crews of our four submarines that had run aground.\n\n- Insertion, resupply and extraction of coast watchers or guerillas on\n  isolated islands in the Pacific. In a few instances, submarines\n  inserted raiding parties onto Japanese held islands. Later in the war,\n  this became more common for boats stationed at Perth, Australia.\n  Commandoes there were anxious to carry out these raids, and found a\n  sympathetic ear in Admiral Christie, the commander of submarines in\n  the Southwest Pacific. Caution was the order of the day and there were\n  concerns about intelligence losses. Many of the raids were successful.\n\n- Shelling of Japanese installations. We originally had three older\n  submarines with two six-inch guns each, the *Argonaut*, *Nautilus* and\n  *Narwhal* and they could be more effective on these missions. The USS\n  *Barb* (SS-220), under the command of Gene Fluckey, had rocket\n  launchers installed for one patrol and attacked factories, a\n  communications hub and a shipyard which built wooden transports. The\n  hub was hit and the shipyard was duly set ablaze.\n\n- *Barb* was also responsible for a very creative commando style attack\n  which destroyed a train and did serious damage to the railroad track.\n  The train was added to the *Barb's* battle flag.\n\n- Minelaying. Any submarine could be used for these missions, but the\n  size of the USS *Argonaut* (SS-166), USS *Narwhal* (SS-167) and USS\n  *Nautilus* (SS-168) allowed them to be more effective at this task.\n\n- Shortly after the war started, we sent a couple of submarines to the\n  Philippines with ammunition for MacArthur and his troops. One of the\n  boats, the USS *Trout* (SS-202), then took much of the gold and silver\n  from the Philippine treasury off the islands to safety in the US. This\n  resulted in a humorous story when the inventory at Pearl Harbor came\n  up one g)old brick short. The brick was found in the galley, where the\n  cook was using it as a paperweight holding his cookbooks open. The\n  cook proclaimed his innocence, saying that he didn't realize what the\n  brick was. (Of course, he didn't!)",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 43,
+    "question": "What was \"Ultra\"?",
+    "answer": "For most of the war, we had broken some of the Japanese naval codes.\nThis often allowed us to know Japanese ship movements and we could\ndeploy our submarines -- and other warships -- to attack. (Sometimes\ntheir messages were decoded too late for us to respond.) These messages\nwere classified as top secret or \"ultra\" sensitive. If the Japanese\nlearned that we had broken their codes, they would have changed their\ncoding systems and we would have lost a significant advantage.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 44,
+    "question": "How did we find out that submarines had been sunk?",
+    "answer": "Since submarines were frequently operating alone, it would often take a\nwhile before their loss was recorded. If the boat was part of a\nwolfpack, the other members of the pack would likely figure out\nrelatively soon that something was wrong. However, since there was still\na chance that the problem was a communications issue, we did not\nimmediately give up hope.\n\nThe usual procedure was to identify the submarine as overdue about three\nweeks after it was scheduled to return to a base. After a few months, it\nwould be declared missing and presumed lost. Families would then be\nnotified.\n\nWe might also get confirmation from the Japanese. Both sides were\nrequired to notify the other of the prisoners of war in their custody.\nHowever, the Japanese chose not to notify the U. S. of POWs in their\nworst and most punitive camps. These were the camps where submariners\nand pilots were initially assigned for interrogation and sometimes for\nlengthy detention. We might not know about survivors until they were\ntransferred to less punitive camps. That could take a long time. In the\nworst case, we did not know about most survivors from the USS *Perch*\n(SS-176) until the end of the war, 1,297 days after the boat had been\nsunk in 1942.\n\nA reason that we withheld the information about our losses for some time\nwas so that we were not providing useful information to the enemy. Japan\nclaimed to have sunk more submarines than we actually had. There was no\nreason to provide the actual information any sooner than we had to.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 45,
+    "question": "Is it possible to escape from a sunken U. S. submarine?",
+    "answer": "Yes, it is possible but only in limited circumstances. There are two\nescape trunks on the WW2 era boats, one in each torpedo room. The escape\nprocedure was generally thought to be workable down to 200 feet.\nExperienced divers could escape from as much as 300 feet down. However,\nmost sailors had only had experience in the 100-foot Escape Towers in\nNew London or Pearl Harbor. Even that is in controlled circumstances\nwith Navy divers available in case of problems. In addition, during the\nwar, not all submarine sailors went to Sub School where they would have\ngone through an escape tower.\n\nAnother limitation is that, inconveniently, most of the ocean is far\ndeeper than 200 feet. Only 1 or 2% is less than 250 feet deep. The\naverage depth of the Pacific Ocean is around 13,000 feet deep. The\ngreatest depth is the Challenger Deep in the Mariana Trench at about\n36,000 feet, or seven miles.\n\n**Has anyone escaped from a submarine, of the types we built in WW2,\nthat had sunk?**\n\nThe forward escape trunk has been used twice on boats similar to the\n*Pampanito*. The first time was before the war when the USS *Squalus*\n(SS-192) went down off the East Coast in 1939. She was quickly found by\nher sister ship, the USS *Sculpin* (SS-191), in about 200 feet of water.\nThe *Sculpin* radioed for help and the Navy rushed the submarine rescue\nship *USS Falcon* (ASR-2) to the scene. They then used a McCann rescue\nbell to bring the surviving crew to the surface through the forward\nescape trunk. The crew in the after part of the boat died in the initial\nflooding. It took four trips and, despite a frayed lifting cable on the\nlast trip, everyone else made it out.\n\nIt is unclear how the flooding actually happened. When the boat was\nsalvaged, the main induction valve was found to be open. That would\ncertainly be enough to flood the boat. However, when the *Squalus* dove,\nthe main induction indicator was green, showing a closed valve. In\naddition, in those days, submarines didn't do crash dives as was done\nduring and after WW2. Instead, they closed up everything until they had\na green board on the Christmas tree -- everything was secured. Then they\nwould add a little pressure to the air in the boat. Only after they\nverified that the pressure held, confirming that everything was closed,\nwould they actually open vents and start the dive. The *Squalus* appears\nto have been buttoned up for the dive. No one knows how the main\ninduction on the *Squalus* opened after the pressure test.\n\nBecause of this incident, valves were added to the air induction piping\nin the engine rooms. These were flapper valves that held any unwanted\nwater in that piping and out of the engine rooms. A locking mechanism\nwas added to the main induction to ensure it stayed closed. In addition,\nthe divider between the engine rooms would be a hard bulkhead on future\nboats, instead of a soft divider. That way, flooding could be isolated\nto just one compartment. These upgrades would matter to the *Pampanito*\non her first war patrol.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 46,
+    "question": "How do the escape trunks work?",
+    "answer": "The after escape trunk is one-time use only. The boat must truly be lost\nsince this process makes it almost certain that the submarine will not\nsurface again. In order to use the after escape trunk, the crew must:\n\n- Gather as many crewmen as possible together in the space and close the\n  watertight door to Maneuvering.\n\n- Charge Momsen Hoods with air and distribute them.\n\n- Flood the compartment with water up to the lower lip of the escape\n  trunk.\n\n- Pressurize the compartment to exceed the outside sea pressure if it\n  doesn't already. At 200 feet, this would be about 90 PSI. The higher\n  pressure in the compartment is needed to be able to open the hatch\n  against the sea.\n\n- Launch the marker buoy.\n\n- Someone climbs up into the trunk to open the hatch (Everyone is\n  treading water already, so no ladder is needed.)\n\n- Each man then ducks and goes out and follows the line up to the buoy.\n\n- Each man needs to exhale most of the way up to get the excess air (up\n  to 90 PSI) out of his lungs. Yell \"ho, ho, ho\" most of the way up.\n\n- Stop at each knot in the buoy line for a minute to decompress\n\n- Do not ascend faster than your air bubbles.\n\n- At the surface, stay together, preferably near the buoy.\n\nThis escape trunk has never been used successfully. The two times that\nsailors were able to escape from the forward trunk on a boat like this,\nthe after part of the ship was flooded from the initial accident and\neveryone aft had already died.\n\nThe forward escape trunk works on the same principles but holds far\nfewer people and can be used multiple times. The boat doesn't have to be\nsunk. The different steps are:\n\n- After the trunk is full with just a few men, it is flooded to just\n  above the side door. It is pressurized, as above. That door will be\n  used to leave the boat rather than the hatch at the top.\n\n- Exit out this side door and follow the buoy line up.\n\n- The last person out closes the door behind him. If he fails to do\n  this, there is a long lever in the torpedo room that can be used to\n  close the door.\n\n- The escape trunk is then drained into the torpedo room and\n  depressurized so the next group can begin their escape.\n\nPart of the reason that this escape trunk is designed differently is so\nthat it can be used for both exit and reentry. In WW2 divers and UDTs\n(underwater demolition teams) and, later, Navy SEALs could exit the\nboat, accomplish their missions and be recovered all without the\nsubmarine having to surface. The boat would be much less likely to be\ndiscovered. The boat and the divers are therefore safer.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 47,
+    "question": "How fast could these submarines go on the surface?",
+    "answer": "Top speed on the surface was 20 or 21 knots, about 23 miles per hour.\nHowever, this is an inefficient use of fuel. In WW2, boats departing\nfrom Pearl Harbor, Hawaii would usually run at top speed to locations\nsuch as Midway Island or Johnston Island. There they would top off fuel\nand then proceed at efficient speeds (10 to 12 knots per hour) to their\nassigned patrol area.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 48,
+    "question": "How fast could these submarines go when submerged?",
+    "answer": "Top speed submerged was 9 or 9 ½ knots or a bit over 10 miles per hour.\nHowever, top speed would be limited to less than an hour before the\nbattery is completely drained of power. The usual speed submerged would\nbe 2 to 3 knots. Higher speeds might be used to gain attack position.\nHigher speeds could be used to try to escape being attacked but that\nusually made more noise. Slow, silent and clever might be more\neffective.\n\nThe ship's battery was usually rated at 48 hours if the boat was going 2\nknots. The ratio of speed to power needed was cubic. Generally, if you\ndouble the speed, eight times the power was needed. If the speed was\ndoubled from 2 to 4 knots, the battery would last approximately six\nhours. Double it again, and the battery likely won't last an hour. It is\ncalled the \"one-hour rate.\"",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 49,
+    "question": "How far could these submarines go?",
+    "answer": "The range of the boats built during and shortly before the war was about\n11,000 nautical miles at a speed of 10 knots. They carried over 90,000\ngallons of diesel. That was increased later by converting main ballast\ntank (MBT) four on the later boats to a fuel ballast tank (FBT),\nboosting the total to 110,000 gallons.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 50,
+    "question": "What does that mean? How far could they operate from San Francisco?",
+    "answer": "Our submarines did not operate from the West Coast all the way to Japan\nor to the shipping lanes in the South China Sea. It was too far and\nwould have taken too long just to get to the patrol area and back. There\nwouldn't be very much time left to find and attack Japanese ships. From\nthe approximate mileage chart, below, you can see that it would have\ntaken 36 days just to get from San Francisco to Japan and back. It would\nhave taken 50 days to get to the South China Sea (using the distance to\nHainan Island) and back.\n\nHome port for most of our boats was in Pearl Harbor, Oahu, Hawaii. That\nshortened the transit time significantly. By creating a refueling stop\nat Midway Island, the range of the boats was extended even further. Now,\ninstead of taking 18 days to get to Japan from San Francisco or San\nDiego, it would only take nine from Midway. Instead of 25 days to get to\nthe South China Sea, it would only take 16.\n\nThe numbers in the following table are rounded approximations. Some\nnotes regarding the table:\n\n1.  San Francisco is used as an approximation for the West Coast. The\n    distance to Hawaii from San Diego is actually a bit greater than\n    that from San Francisco.\n\n2.  Hainan Island, China is used as an approximation for the South China\n    Sea. The distances to the Luzon Strait and the Formosa (Taiwan)\n    Strait, where many of our attacks were concentrated, were somewhat\n    shorter.\n\n3.  *Pampanito's* first war patrol was initially to Johnston Island to\n    refuel and then to Yap in the Caroline Islands. Therefore, those\n    distances are included.\n\n4.  On *Pampanito's* third war patrol, she rescued 73 British and\n    Australian soldiers from the South China Sea near Hainan Island. She\n    then proceeded at best surface speed to Saipan in the Mariana\n    Islands where the nearest forward base was located.\n\n5.  The number of days required was estimated using 250 nautical miles\n    per day, traveling at about 10 or 11 knots per hour. The journeys\n    from Hawaii to Johnston Island or to Midway, and from Hainan to\n    Saipan assume 400 miles per day. Those transits were at higher speed\n    and an average of 17 knots per hour was used.\n\n  -----------------------------------------------------------\n  From          To              Miles     Nautical     Days\n                                           Miles     \n  ------------- -------------- -------- ------------ --------\n  San Francisco Tokyo            5140       4450        18\n\n  San Francisco Hainan Island    7175       6250        25\n\n  San Francisco Hawaii           2400       2100        9\n\n  Hawaii        Midway           1300       1150        3\n\n  Midway        Tokyo            2550       2200        9\n\n  Midway        Hainan Island    4525       3900        16\n\n  Hawaii        Johnston         825        725         2\n                Island                               \n\n  Johnston      Yap              3550       3100        13\n  Island                                             \n\n  Hainan Island Saipan           2350       2050        5\n\n  Saipan        Hawaii           3850       3350        14\n  -----------------------------------------------------------",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 51,
+    "question": "What if you ran out of fuel?",
+    "answer": "The boats would be very careful not to. There were no fueling stations\nother than our forward bases and there were few of those early in the\nwar. There was no plan to refuel at sea. Although there is no apparent\ndocumentation of a boat running out of fuel, it would have been possible\nto rig something up to refuel it or even tow it to the nearest base if\nnecessary.\n\nInside the boat, there are clusters of small black valves. Those are\nused to tell how much fuel is left in each of the fuel tanks. The result\nisn't an exact number of gallons remaining, but it is a good indication\nif the crew has been paying attention. They always did. The least bad\nthing to happen if they weren't paying attention to fuel levels, and ran\nout, was serious embarrassment. The worst would be to find themselves\nstranded, adrift and nearly helpless in hostile territory.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 52,
+    "question": "How long were war patrols?",
+    "answer": "These WW2 boats were designed for war patrols of up to 75 days. A few\npatrols even went a bit longer. However, from what we can tell from the\nhistories, most patrols were between 45 and 60 days each. If fuel was\nused quickly, because of the need to run at higher but less efficient\nspeeds, the patrol could be shorter. If you used all your torpedoes or\nsuffered significant damage, you would also return to port sooner.\n\nReturning to port early because you used up your torpedoes didn't always\nget you all of the usual break. There were instances where skippers\nfound abundant targets and fired all their torpedoes fairly quickly.\nOccasionally, when those skippers returned to a base, they opted to just\nreload torpedoes, top off food, fuel and other supplies, and head back\nout quickly to finish the patrol.\n\nWar patrols did appear to get shorter as the war progressed and we\npushed the Japanese back to the west. We established advance bases as we\ndefeated the Japanese. After the Battle of Midway, we could be confident\nenough to do maintenance and resupply at that island rather than just\nrefueling. After defeating the Japanese in the Marianas, we established\nbases at Saipan and at Guam even while some Japanese soldiers were still\nfighting. The same was true of the Philippines. Again, there was still\nfighting in the islands when the tender (support ship) was established\nin Subic Bay. With the reduction in transit time to the combat zones,\nand with more and more submarines in commission, the patrols could be\nshorter.\n\nGenerally, *Pampanito's* war patrols ranged from 42 to 59 days. However,\nher fifth patrol was only a bit over two weeks. (Sources differ on the\nexact length.) She was almost out of torpedoes and had a very short\ntransit to her next port, Subic Bay in the Philippines.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 53,
+    "question": "How long can these submarines stay at sea?",
+    "answer": "The primary limitations are food and fuel. Other things like spare parts\ncan become an issue, but that would be an unusual case. Hopefully,\nrunning out of torpedoes is a good thing, assuming they hit targets, and\naren't part of this question.\n\nFood is loaded out for the expected duration of the patrol, up to 75\ndays. A few patrols went a bit over 80 days. That requires creativity by\nthe cooks and patience by the crew. The menus for the last few days\nwould likely be strange combinations of whatever is still left on board.\n\nFuel is the most frequent limitation. These submarines can carry up to\n110,000 gallons of diesel fuel. The question then is how efficiently is\nit being used. A boat may have to run at higher, inefficient speeds to\nbe in a newly assigned area. A boat may have had targets make an\nunexpected course change and get away. In that case, the boat may choose\nto make a high-speed \"end-around\" to get in front of the targets again.\nThese are all appropriate uses of fuel, but they are less efficient. As\na result, the fuel may not last as long as planned.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 54,
+    "question": "Did American submarines resupply at sea?",
+    "answer": "No, we did not usually refuel submarines or transfer torpedoes at sea.\nIn order to resupply, our submarines returned to a base. Early in the\nwar. this usually meant Hawaii, Midway Island, or in Australia at\nBrisbane or Fremantle. As we pushed the Japanese back to the west, we\nwere able to add bases so that submarines would have shorter journeys\nfor resupply.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 55,
+    "question": "How did submarines receive messages during a patrol?",
+    "answer": "Although submarines couldn't send messages over long distances, messages\ncould be received using a very low frequency which would have a much\nlonger range. The fleet (or Fox) broadcast would be sent from very long\nantennae and could reach submarines thousands of miles away.\n\nMessages in the Fox broadcast were all transmitted in a sequence and\nwere repeated a couple times during the night. This allowed each\nsubmarine to pick off their own messages. Perhaps, they might also\n\npick out messages for other boats in their wolfpack or in the general\narea to gain more information about what was going on around them. They\nwould not attempt to acknowledge receipt unless specifically ordered to\ndo so.\n\nSubmarines did not broadcast messages using the long, low frequency\nantennae running along much of the length of the boat. They could only\nuse the higher frequency, medium range radios. Their messages would\noften have to be relayed in order to reach commanders at Pearl Harbor,\nMidway or Australia.\n\nThere might occasionally be a very limited amount of positive, personal\ninformation in these messages. The ship's office on the *Pampanito*\ndisplays one such message regarding the birth of a child. It appears\nthat *Pampanito* was returning from patrol when the message was\nreceived. Generally, care was taken not to send messages with bad news\nsince the sailor couldn't do anything about it at the time. There was no\nsense in distressing the sailor needlessly.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 56,
+    "question": "What kinds of messages would submarines send during a patrol?",
+    "answer": "Submarines did not often transmit messages because doing so gave away\ntheir presence, and could give away their exact location. However, there\nwas still the need to get the most important messages out.\n\nThe most important messages were those regarding enemy convoys or\nwarships that got past the submarine. This might allow other boats in\nthe area to find the targets and attack. The message would be brief but\nwould need to include the number and types of ships, last known base\ncourse (without zigs and zags) and estimated effective speed.\n\nOther messages could include results of attacks. These would normally be\nsent when the boat was clear of the attack area or in relatively safe\nwaters. Boats would also report when they were headed back to port\nbecause they were out of torpedoes, short of fuel or had serious damage\nand needed to end the patrol.\n\nSubmarines would also communicate with each other. This would normally\nbe done using high frequency radios with limited range so that it would\nbe less likely to be intercepted. Once we started operating in small\nwolfpacks in the fall of 1943, communications between boats became very\nimportant. Boats had to coordinate operations to be more effective. To\nassist with this, a radar was added to one of the periscopes with a\nMorse Code (telegraph) key. The radar transmission would be very\ndirectional, thus reducing the chances of it being intercepted. Another\noption would be to rendezvous and discuss tactics verbally.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 57,
+    "question": "Did they spend most of the time submerged?",
+    "answer": "No. In fact, overall, they spent the majority of their time on the\nsurface.\n\nWhen in their patrol area, they may have been submerged slightly more\nthan they were on the surface. Early in the war, they would be up on the\nsurface when it was dark and submerged when it was light. However, as we\nbecame better at spotting Japanese planes and ships, some captains\ntended to stay on the surface longer. Since we are so much faster on the\nsurface, that would provide a better chance of being able to get in\nfront of targets.\n\nHowever, the transit to and from the patrol areas was done mostly on the\nsurface. There would be a trim dive every day, to get the boat back into\nneutral buoyancy. Since the transit to and from the assigned area could\nbe a few weeks out of each patrol, mostly on the surface, the majority\nof the time for the full patrol is now spent on the surface.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 58,
+    "question": "What is a trim dive?",
+    "answer": "The actual weight of the submarine matters a great deal when it is\nsubmerged. If it is too light, it will tend to rise and broach the\nsurface. If it is too heavy, it will tend to go deeper, possibly to\nunsafe depths. Therefore, we work to keep the boat in neutral trim which\nis safer and makes depth control easier. We want to weigh the same as\nthe water we displace.\n\nThe challenge is that the weight of an operating submarine is constantly\nchanging. Consuming food and using supplies make the boat lighter.\nBurning fuel makes the boat heavier. (See the section on diving and\nsurfacing the submarine.) Changes in the temperature or salinity of the\nwater can make the boat seem heavier or lighter.\n\nAs a result, at least once each day, the submarine will be submerged so\nthat the Diving Officer can get the boat back into neutral trim. That is\nthe trim dive. It probably takes no more than 10 or 15 minutes. Once the\nboat is back in trim, it can be surfaced and previous operations\nresumed. Trim dives were most common during lengthy transits from one\nlocation to another.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 59,
+    "question": "How long were they normally submerged in the patrol area?",
+    "answer": "These submarines wanted to be on the surface every night for multiple\nreasons if that was possible. You might come up to the surface at dusk\nand dive again at dawn. If you are in the tropics, the day/night split\nwould be close to 12 hours each. However, if you were in higher or lower\nlatitudes, the split could be much less even and you might be submerged\na few hours longer in summer. That leaves less time to recharge the\nbattery.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 60,
+    "question": "Why was it important to be on the surface at night?",
+    "answer": "It was about filling the boat with fresh air, charging the battery,\nreceiving messages and updating the ship's position -- knowing the\nship's location.\n\nThe air on the submarine was only intended to last 16 to 18 hours. Since\nmost of the crew smoked, the air was probably only good for about 16\nhours. (Cigarettes were given away free to servicemen in WW2.) A primary\nneed, therefore, was to get fresh air in the boat.\n\nThe battery also needed to be recharged. Fortunately, running the\nengines to recharge the battery pulls fresh air into the boat. Most of\nthe air from the main induction goes directly to the engine rooms.\nHowever, some of the fresh air is fed to the ends of the boat and is\npulled toward the engine rooms. That way, all compartments would get\nfresh air.\n\nAnother task to be completed is to listen for messages on the fleet\nbroadcast. This broadcast is sent to all submarines, and is repeated\nduring the night. It may contain orders for the boat. It may also\nprovide messages to other boats that would be useful for your submarine\nto know about.\n\nFinally, the boat would want to get a position fix. In WW2 this would be\nvery dependent on the weather. If it were cloudy, there were no stars to\nshoot, and therefore no updated position fix. Ideally, there would be a\nclear enough sky at dawn and dusk to see the horizon and find the\nbrightest stars as they appear. The elevations of those stars would be\nmeasured with a sextant. The resulting numbers could then be translated\ninto your position.\n\nSun lines at local apparent noon could help update the boat's position\nbut wouldn't usually be as accurate as a star fix. Sun lines could be\ndone through the periscope.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 61,
+    "question": "How long could these submarines stay submerged?",
+    "answer": "It depends. Submarines could stay submerged for more than the 16 hours\nthat the fresh air would last, as indicated above, but it takes some\nextra steps. The short answer is that the practical limit would be\naround 30 hours. However, the record in WW2 was just short of 38 hours\nby the USS *Puffer* (SS-268). At that point both the battery and the\ncrew were pretty messed up. (Technical term!) The boat was being depth\ncharged and tracked, and they had no choice. Fortunately, they were\neventually able to get away and return to base.\n\nThere are two limitations at play here, battery power and air quality.\nThe limits on both depend on how fast you use them.\n\nAs discussed above, battery duration depends very much on the speed. At\ntwo knots (about 2.3 miles per hour), the battery is rated at 48 hours.\nNote that you probably walk faster than that. If you double the speed to\nfour knots, you need to divide the time the battery would last by about\neight. (The ratio of speed to battery power is cubic, two times two\ntimes two.) If you double the speed again to eight knots, you divide the\ntime by eight again and the battery will last less than an hour, and\nthis is called the \"one-hour rate\". At maximum speed submerged, about 9\n½ knots, the battery may only last about 30 to 40 minutes. As a result,\ncaptains tended to use the battery very conservatively.\n\nAir quality also depends somewhat on how fast you use it, although the\ndifferences aren't as drastic. Again, the air in the boat was intended\nto last 16 to 18 hours. However, since most of the crew in WW2 smoked,\nthe air would likely last 16 hours. How can you use it more slowly? One\nway is to put everyone not actively operating the boat in their bunks.\nExpending less energy uses less oxygen. Another way would be to put the\nsmoking lamp out. That didn't usually turn out to be practical due to\nnicotine addiction. Still, it could be done in a real emergency.\n\nFortunately, there are some other options to extend the air limitation.\nThere are six oxygen bottles on the *Pampanito*, and they could be bled\ninto the boat to drive up the O2 percentage. There are also many\ncannisters in the overhead marked \"Do Not Paint.\" These contain lithium\nhydroxide, soda lime, which is a CO2 absorbent. The cannisters would be\nopened and spread on bunks or decks. However, the chemicals are caustic.\nThese steps will add a couple hours of habitable air to the boat.\n\nIf more time is needed after the above steps, it is possible to bleed\nair into the boat from the high-pressure air banks. It seems unlikely\nthat any boat had to go to this extreme but it is possible to safely\ndouble the air pressure in the boat. The oxygen and CO2 percentages are\nabout half way back to normal and the pressure is not extreme. The\npressure would be about the same as swimming at about 25 feet. This\nwouldn't be terribly uncomfortable and wouldn't require decompression.\n\nHowever, now another challenge arises due to the increased pressure.\nWhen the boat surfaces, we want eyes on the bridge as soon as possible.\nWe need to know for sure that there isn't anything up there that we\nmissed on sonar and periscope sweeps. Although there isn't a great\noverpressure in the boat, that increased pressure is in all of the\npressure hull that is 16 feet in diameter and about 275 feet long. It\nall wants to go out the Bridge hatch at once. If you put a man in that\nsmall hatch, he could be pushed out much the way a bullet is pushed down\nthe barrel of a gun, albeit more slowly. To keep him from being\nlaunched, they would have a big sailor hang on to his ankles as he opens\nthe hatch. Really! The procedure was not uncommon. The overpressure\ncould be an issue just from launching multiple torpedoes which brings\nmore air and water into the boat.\n\nThere are some other steps that could be taken to reduce the pressure in\nthe boat such as running the low-pressure blower or the air compressors.\nHowever, that would usually take too much time and you don't want to\nintroduce a vacuum.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 62,
+    "question": "How do you know that oxygen is getting low?",
+    "answer": "Even without a gauge of some sort, there are signs that oxygen is\ngetting low. Probably the first would be labored breathing. Men would\nhave to breathe deep in order to get enough oxygen into their lungs.\nThis gets to be the feeling that there is an elephant sitting on your\nchest. Added to that would be headaches among the crew. They can be\npretty intense and painful when oxygen is very low.\n\nAnother indicator is that the air no longer supports combustion. It\nbecomes impossible to light a cigarette because the match or lighter\ncan't burn. This puts the \"smoking lamp\" out and slows the rate of\noxygen consumption ever so slightly. There is still free oxygen in the\nair, but the level has definitely decreased. It would certainly be time\nto do something about the poor air in the boat.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 63,
+    "question": "Are there any windows on a submarine?",
+    "answer": "This may seem to be a laughable question. However, it isn't like asking\nabout screen doors on a submarine, which there obviously aren't. After\nall, it looks to many people as though there are a whole series of\nwindows along the side of the boat. Those are actually limber holes, not\nwindows, and they are discussed under \"Diving, Surfacing and Buoyancy.\"\n\nIn fact, there is just one small window on the Pampanito. (This is in\naddition to the periscopes.) It is located in the control room at the\nChief of the Watch station. Near the Christmas tree, in the forward port\ncorner, there is a safe and a ladder above it leading up to a hatch.\nThat hatch has a small window in it, about two inches in diameter. The\npurpose of the window is to let the gun crews know when the water has\ncleared enough to be able to open the hatch safely and head up on deck.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 64,
+    "question": "Did these submarines always have a window in the Control Room hatch?",
+    "answer": "During the war, they did. However, in the early 1950s, most WW2 boats\nstill in service had the guns removed. At that point, there was no need\nfor the window. It would have been removed to make the hatch stronger.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 65,
+    "question": "Were our submarines successful during the war?",
+    "answer": "Our submarines were very successful by the end of the war. They\ncomprised only three percent of our ships yet they sank 55% of all the\nJapanese shipping sunk during the war. By the end of the war, Japan was\nnearly starved of fuel and short of food and many other supplies.\n\nHowever, the war didn't start out that way. There were many issues with\nsubmarines that limited our effectiveness. Some of these were specific\nto submarines and others applied to the Navy in general.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 66,
+    "question": "What were the Navy's problems at the beginning of the war?",
+    "answer": "In no particular order, some of the issues for submarines were a\nshortage of combat-ready ships; submarine captains who had been trained\nto be too conservative; significant torpedo problems; a faulty\nassumption that submarines would sail with the fleet; and the need to\nlearn how to fight a modern war. In more detail:",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 67,
+    "question": "Why did submarines limit the use of active sonar and radar?",
+    "answer": "The main reason is that they give away your presence and location long\nbefore they provide information that is useful to you. For example, let\nus assume that the effective range of radar was no more than seven miles\nearly in the war. That means that the radar pulse is strong enough to\ntravel 14 miles -- to the enemy ship or plane and back. The issue is\nthat all of the radar pulses being sent out, that don't hit a target and\nreturn, are going to travel out 14 miles. That means that the enemy can\nbe aware of your presence when they are still 14 miles away but you\nwon't be aware of them until are within seven miles.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 68,
+    "question": "Does that mean submarines never used active sonar and radar?",
+    "answer": "Not necessarily. It meant that they used it sparingly and cautiously.\nYou would always be listening on sonar, but it has always been very rare\nto use the active mode, to send out search pulses. That may be even more\ntrue today as passive sonar has improved so much. For reference, recall\nthe scene in \"The Hunt for Red October\" where the captain asks his\nsecond in command to send out a second \"single ping\". The second in\ncommand looks at the captain in total disbelief. The movie is fiction,\nbut that part of it, and much more, is quite accurate.\n\nIn WW2, active radar was used by submarines more often than active\nsonar. Aircraft were a main concern. An air search radar was available\nearly in the war. It didn't provide much information beyond the presence\nof an aircraft. It was also on a frequency that the Japanese could\neasily detect. Since the information was still important, captains would\nuse the air search radar very sparingly. When a new surface search radar\nbecame available, and it included some aircraft detection, it was used\nmore often. However, it was still used sparingly and often wasn't\ntrusted to locate aircraft in the area. (Refer to section 65 on\nelectronics for more information.)\n\nLate in the war, a radar was added to the search periscope to provide\naccurate range information. This would be a narrow beam and a single\npulse making it hard to determine the location of the source. More\nimportantly, it was a different frequency, making it that much less\nlikely that the enemy was listening for it.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 69,
+    "question": "Did loose lips really sink ships?",
+    "answer": "There was a saying and many posters during WW2 that \"Loose Lips Sink\nShips.\" It reminded everyone that intelligence matters a great deal\nduring war, and you never know who might be listening. Certainly,\ninformation about major fleet and troop movements mattered a great deal.\nHowever, does that mean that we may have actually lost ships due to\n\"loose lips?\" Admiral Lockwood, commander of submarines in the Central\nPacific, believed there was at least one time when we did.\n\nIn June of 1943, US Congressman Andrew Jackson May of Kentucky was Chair\nof the House Military Affairs Committee. He held a press conference on\nreturning from a war zone junket. He let it be known that our boats were\nable to evade Japanese depth charges because they would explode at\nshallow depths. Early in the war, the Japanese depth charges had only\ntwo settings, 30 meters (98 feet) and 60 meters (197 feet.) Even our\npre-war classes, which were 250-foot (depth) boats, could get far enough\nbelow that to avoid major damage.\n\nThe Japanese weren't nearly as stupid as we wanted to believe early in\nWW2. They did pick up this information from Congressman May. Then they\nmodified their depth charges to add depth settings for 90 and 120 meters\nas well. In the next few months, we lost more boats than usual. Admiral\nLockwood believed that Congressman May's \"loose lips\" cost us as many as\nten boats and 800 men.\n\nRepresentative May did not suffer any serious consequences for his\nsecurity breach. However, he failed to win reelection in 1946 and spent\nnine months in prison for unrelated bribery charges. He was pardoned by\nPresident Truman in 1952 but was unable to revive his political career.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 70,
+    "question": "How is the trash and sewage removed from the boat?",
+    "answer": "In WW2, trash and garbage were usually thrown over the side when at sea\nfor an extended time. The trash would be bagged and weighted so that it\nwould sink to the bottom. The objective was to be sure that the trash\ndidn't give away the boat's identity or location. This also meant that\nsomeone had to come up on deck the throw the trash over the side. That\ncould be dangerous and in heavy seas the trash would be retained in the\nboat until the seas calmed.\n\nFor sewage, we are talking about the human waste that goes through the\nheads (toilets). The sanitary tanks for three of the heads were emptied\noverboard each morning, usually between 05:00 and 06:00. High pressure\nair is used to blow the tanks dry. This is done by the auxiliaryman who\nis part of the engineering department. It is critical that the sanitary\ntanks then be vented to eliminate air pressure. Failure to do so results\nin a very nasty surprise to the next person flushing the head.\n\nThe head in the after torpedo room is different. This head flushes\ndirectly overboard since there is no room for a sanitary tank below the\ndeck. (The propellor shafts are below that space.) The challenge is that\nthe water level outside the boat is above the top of the torpedo tubes\nwhile the toilet is maybe a foot and a half off the deck. The toilet\nsits well below the outside water level. The issue then is: how do you\nflush a head uphill without the contents and seawater coming back into\nthe boat? You do that by first moving the contents to a small\nintermediate tank.\n\nIt is a multi-step process to flush this head. And if you get it wrong,",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 71,
+    "question": "When would the signal tube in the after torpedo room be used?",
+    "answer": "If it were needed for signaling, we would launch flares from that tube.\nThis would be used mostly when doing training exercises with other U. S.\nships and planes. The color of the flare contains the message. For\nexample:\n\n- A green flare is fired by the submarine when the boat would have\n  launched torpedoes if this weren't an exercise. That would mean that\n  the boat had sunk the carrier or tanker, etc.\n\n- A red flare is fired by the submarine when it is in trouble and needs\n  to surface quickly. All surface ships need to get clear of the area as\n  soon as possible.\n\nThe signal tube can also be used to launch decoys. Modern decoys are\nsophisticated and complex. In submarines like the *Pampanito*, the\ncountermeasure is fairly basic. It consists of a bubble generator, much\nlike the German *pillenwerfer*, made of calcium hydride. When it\ncontacts water, it generates a large volume of bubbles. Air bubbles\nreflect sound (sonar) just as the submarine's hull would. It is the\nchange in density that reflects the sound. If you are familiar with Alka\nSeltzer, you know that it reacts with water and creates fizz or bubbles.\nThe countermeasures are similar. (However, Alka Seltzer uses different\nchemicals, bicarbonates.) A fictional example can be seen in the movie\n\"The Hunt for Red October.\" When the Russian aircraft drops a torpedo to\ntry to sink \"Red October,\" the boat releases a pair of decoys that\ntumble and generate bubbles in an attempt to confuse the torpedo's\nsonar.\n\nSome modern decoys can be much more sophisticated. They would be\nlaunched from a torpedo tube and generate noises just like another\nsubmarine. That includes the power plant noises as well as propellors,\npumps and other sounds that submarines normally make. They do a much\nbetter job of providing another \"target\" and confusing the other guys\nsonar.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 72,
+    "question": "Was there a specific paint color for submarines?",
+    "answer": "There were specific colors and patterns for most Navy ships. For surface\nships, this can be fairly complex. Patterns can act as camouflage and\ncan even confuse the eye about which direction the ship is going.\n\nPaint colors also mattered to submarines. They wanted to be less visible\non the surface. Initially, submarines were all black. This was thought\nto be the best color when on the surface at night as well as when\nsubmerged. That turned out not to be the case.\n\nBlack was the best color for horizontal surfaces. Seen from above, the\ndeck and other surfaces can blend in with the depths of the ocean. Those\nsurfaces remained black in the new paint schemes.\n\nThe vertical surfaces of the submarine were a different matter. Someone\npointed out that black is actually too dark at night. Submarine captains\nwere skeptical, but experiments were done to determine which shade of\ndark grey would be less visible. Captains were convinced when they saw\nthat a dark grey submarine was actually harder to spot than a black one.\n\nSubmarines were painted all black again once snorkels were added and\nboats could be submerged most of the time.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 73,
+    "question": "Do submarines leak?",
+    "answer": "It may be a bit unnerving to learn that submarines do leak and that is\nintentional. Some parts of the boat that need to extend through the hull\nmay need to move. These include the propellors, the bow and stern planes\nand the periscopes. It is possible to tighten the packing around these\nstructures so that the leak is stopped entirely. Unfortunately, the\ndevices would be stopped as well; they would no longer rotate. The small\namount of water that is leaking into the boat also acts as a lubricant.\n\nThe rate of the leak is normally not a concern. It is easy to pump the\nwater out periodically.",
+    "category_id": 3,
+    "category_name": "Operating US Subs in WW2"
+  },
+  {
+    "id": 74,
+    "question": "What is a \"bubblehead\"?",
+    "answer": "\"Bubblehead\" was probably intended to be a derogatory nickname for\nsubmariners. The name comes from the \"bubble\" in the inclinometer used\nto maintain depth. Even though it may have been intended to be somewhat\nderogatory, most sub sailors wear the label with pride. It is far better\nthan being a \"zoomie\" (Naval Aviation) or a \"skimmer\", a surface sailor.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 75,
+    "question": "How many men were assigned to a submarine in WW2?",
+    "answer": "The typical complement of boats like the Pampanito during the war was 80\nmen. This includes all of the submarines we built from 1940 and forward.\nDuring the last year or so of the war, that number gradually increased\nto 85.\n\nThe fleet boats from the 1930s had slightly fewer than 80 crewmen on\nboard. The earlier S-boats had far fewer men on board. However, they\nwere generally no longer in active combat by the last year of the war.\n\n**Why weren't the Gato/Balao/Tench boats designed for the number of men\nassigned?**\n\nActually, they had been. These submarines were originally expected have\n70 men on board to operate the equipment available when they were\ndesigned. However, new equipment -- often electronics - was added even\nbefore the war. Then we realized that we would require more than 70 men\nin a crew. Soon after the war started, a crew of 80 men became the\nstandard.\n\nAlthough the number of men in the crew increased, the basic design of\nthe boats didn't change. At that point, there was simply no place to put\nadditional bunks. It was the equipment added later, and the men needed\nto operate it, that caused the shortage of bunks.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 76,
+    "question": "Why did the number increase in the last year?",
+    "answer": "The best estimates are that it was due to the addition of the second 40\nmm Bofors gun or possibly because of added electronics or other\nequipment. However, confirmation of these reasons is hard to find.\n\nWe expected to have to invade Japan in order to force a surrender. After\nwhat we saw in the Pacific island-hopping campaign, we couldn't expect\nJapan to surrender without a desperate, even suicidal, fight. We knew\nthat an invasion would be a very costly undertaking in both men and\nships. We expected that the fleet would be harassed constantly by\n*Kamikaze* aircraft and suicide boats. Our submarines were likely to be\nassigned as pickets to warn and help defend the fleet. Therefore, a\nsecond 40 mm Bofors was added to many boats. The increased staffing may\nhave been for that gun. Fortunately, Japan surrendered after the second\natomic bomb was dropped and we no longer needed to invade.\n\nThroughout the war, new equipment was added to the boats to make them\nmore effective. That new gear often needed more operators and\nmaintenance. That was particularly true of the new radars and sonars as\nwell as navigation equipment such as the new LORAN.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 77,
+    "question": "Why does it take so many men to staff the submarine?",
+    "answer": "On the surface at sea, there were a number of jobs to do and there would\nbe one person awake in each compartment to monitor the space for\nproblems or danger. For example, on the surface there would be\n\n- The officer of the deck with three or four lookouts on the bridge.\n\n- A helmsman, quartermaster (navigation) along with the sonar and radar\n  operators in the conning tower.\n\n- The Chief of the Watch plus an IC electrician and a messenger in the\n  control room.\n\n- A radar operator for the air search and IFF equipment.\n\n- A radioman on watch in the radio room.\n\n- Two electrician mates in maneuvering.\n\n- A motor machinist mate (engineman) and an oiler in each engine room.\n\n- Normally there would be a cook in the crew's mess. There would often\n  be a mess cook there too.\n\n- A steward mate in the forward battery.\n\n- A torpedoman on watch in each torpedo room.\n\n- There are other duties, such as an electrician monitoring the battery,\n  particularly during a charge.\n\n- A gunner's mate to maintain the guns\n\nThis is a total of about 24 per shift, and there are three shifts.\n\nWhen submerged, the duties for some of these men would change. For\nexample, the officer of the deck (OOD) will become the diving officer\nand there would be a new OOD in the conning tower. The oilers in the\nengine rooms will man the trim manifold and air manifold in the control\nroom. The lookouts would man the bow and stern planes. In total, you\nwill need about the same number of men when submerged as on the surface.\n\nYou need to have additional personnel on board to allow for trainees,\ninjuries and illness. Gun crews will also need to be staffed during\nbattle stations. In addition to these functions, there are the captain,\nthe XO, the yeoman and pharmacist mate who generally aren't on the watch\nlist. The yeoman and the pharmacist mate might stand some watches as\ntheir primary duties permit.\n\n**Since submarines had limited space, were there height and weight\nlimits?**\n\nThere was a height limit on these boats. During WW2, it was six feet,\nfour inches or 1.93 meters. That means two things. First, if you are six\nfeet or taller, you probably won't be able to stretch out on your bunk.\nYou will sleep on your side curled up a bit. Second, it means there are\nmultiple obstructions available for you to locate with your head. In\nthat case, some important medical advice applies: if it hurts when you\ndo that, don't do that. A tall crew member who has been on a submarine\neven for a short while may appear to pay no attention to those painful\nobstacles, but he has already located them all - and not all the hard\nway. Submariners tend to be reasonably bright.\n\nLocation memory helps. In the dark in your home, you know where the\nfurniture is and you avoid it. Unless, of course, someone has just added\nsomething or rearranged everything.\n\nWeight was a different issue. There were weight limits, adjusted for\nheight, to be met when joining the Navy. During WW2, there were no\nofficial limits after that. However, there might be informal pressure if\nyou carried too much weight. You might not want to struggle through the\nwatertight doors if you were seriously overweight. There have also been\nreports that the stench on the boats tended to suppress appetites.\n\nAt some point after the war, the rules changed. You then had to under\nthe weight limits each time you reenlisted.\n\nThose were the maximums. The minimum height and weight limits applied to\neveryone in the Navy when enlisting. There were no separate requirements\nfor submarine service.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 78,
+    "question": "Does that mean you wanted all smaller sailors on a submarine?",
+    "answer": "Not really. It might be helpful to have some smaller sailors who could\nget into tight spaces to do some of the maintenance work. However, you\nneeded some bigger men to push (technically to pull with pulleys and\nropes) the 3,200-pound torpedoes into the tubes. You may also need\nsomeone to lift the heavy cylinder liners for the engines into place.\nThe shells for the 5-inch gun weighed over 70 pounds. In short, you do\nwant a number of good-sized sailors in the crew to do some of the heavy\nlifting and pulling.\n\nThe result is that you would have men of various sizes in the crew. It\nprobably reflected the variety of the population in general, although\nwith fewer basketball players.\n\n**With all the negatives, why would anyone want to be on a submarine in\nWW2?**\n\nCertainly, life on a diesel submarine can be primitive. The boats stink,\nthey are cramped, they don't ride on the ocean well and you may not get\na full shower during the entire patrol. You may not see the sky for\nweeks at a time. Even if you were a lookout, you still may not see the\nsun for weeks since the boats were often submerged during daylight while\nin the patrol area. Diesel boats can be pretty unpleasant.\n\nStill, sub sailors did think it was good duty. There were many\nadvantages in being aboard a submarine. Those advantages are different\nin peacetime than they were in WW2, but there were and still are many\nreasons to volunteer.\n\nDuring WW2, the main advantages appear to have been:\n\n- In many cases, the biggest attraction was probably the extra submarine\n  pay. That appears to be about 50% added to the base pay for sub\n  sailors, at least for the junior ranks. This was very important to\n  sailors when the country was just coming out of the Great Depression.\n  This extra pay would often be sent home and could be very helpful to\n  their families.\n\n- Submarines were the only ships that could take the fight back to the\n  Japanese early in the war. Even as the war progressed, it would take a\n  while for the rest of the Navy to take the fight to Japanese waters.\n  There was a real desire to avenge the attack on Pearl Harbor, and\n  service on submarines was the quickest way to start getting even.\n  There were the occasional attacks on the Japanese islands, such as the\n  Doolittle/Halsey air raid on Tokyo. However, submarines could provide\n  a more sustained attack.\n\n- This may seem a bit morbid, but some men thought that the worst thing\n  that could happen to them was to come home maimed. Submariners, on the\n  other hand, were less likely to lose an arm or a leg. The odds were\n  greater that they wouldn't come home at all, but they weren't likely\n  to come home maimed. For some sailors, that was preferable.\n\nSome advantages still apply:\n\n- The crews are better. There were usually more volunteers for\n  submarines than there were billets (positions) available. Naturally,\n  the submarine service took the best available. Currently, reports are\n  that you have to be in the top 15 to 20% of the Navy to be considered\n  for submarines. That is true even for non-nuclear positions such as\n  storekeepers, yeomen (admin) and cooks.\n\n- Submariners were -- and are -- an elite group. It was a chance to be\n  part of something special.\n\n- The work is more interesting. You often operate independently and\n  without much direction from above or afar. Sailors on our current\n  submarines commonly cannot talk about much of what they did. Even the\n  old boats could be doing interesting work such as training with Navy\n  SEALS or Recon Marines, or just practicing intelligence gathering and\n  photo reconnaissance.\n\n- You can learn something new nearly every day. Sailing a submarine in\n  three dimensions is more complex, challenging and interesting.\n\n- Submarines are generally less formal than surface ships.\n\n- Submarine duty could be a faster route for promotions. For officers,\n  it could be a faster route to commanding your own ship. (This is no\n  longer true since the advent of nuclear power.)",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 79,
+    "question": "What was the best part of being on a boat?",
+    "answer": "This will vary for each individual. Having a greater impact than many\nothers, the continued learning, the responsibility, having higher\nquality shipmates, an atmosphere of less formality, doing much more\ninteresting work, or professional satisfaction -- what's your personal\npreference? Better pay and better food help morale but aren't usually\nthe primary motivators in the long run.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 80,
+    "question": "How was a submarine less formal?",
+    "answer": "The main factor is that there isn't enough room for formality. Uniforms\nmight be less uniform. On long patrols in the tropics, \"uniforms\" became\nvery relaxed. In WW2 submarines, shaving generally wasn't required.\nThere was more banter and informal conversations. In quiet times, there\nwould be verbal rehearsals for equipment failures or casualties. All of\nthis was usually acceptable as long as everyone was also paying\nattention to their tasks and doing them well.\n\nAnother example is that \"officers' country\" can't be avoided as it can\non a surface ship. There is only one level that can be used to get\nthrough the boat. The crew has work to do or meals to eat that require\npassing through the officers' and chiefs' berthing in the forward\nbattery.\n\nHowever, being less formal did not mean that the officers or crew were\ndisrespectful or less precise when doing their jobs.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 81,
+    "question": "What was the worst part of being on a boat?",
+    "answer": "During WW2, the worst thing was, obviously, being attacked by depth\ncharges, bombs or guns. It is impossible to truly explain what it was\nlike to someone who didn't experience it first-hand. Depth charging has\nbeen described as like being in a drum that is being hit by a large\nhammer. The difference is that your life is in immediate danger, and\nyour job is to be still and be quiet. The crew could hear the attacking\nship -- even without the aid of sonar -- and could often hear the depth\ncharges as they hit the water. If the depth charges were close enough,\nthey would hear the click of the detonators right before they exploded.\n\nAfter that, the worst part could be the smell, inability to shower often\nenough, close quarters, lack of exercise or lack of sunshine. It depends\non what is most important to you.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 82,
+    "question": "How long were you assigned to a submarine in WW2?",
+    "answer": "There is a fair amount of variation here, but it appears that a man\nwould typically be assigned to the same boat for about 15 to 18 months\nof combat. The *Pampanito's* war patrols covered a period of 13 months\nand just 30 of her original crew made all six patrols. That would be\nconsistent with about 15% of the crew rotating off after each patrol.\n\nIn peacetime, men and women are typically assigned to the same ship for\ntwo to three years. Again, there can be a fair amount of variation.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 83,
+    "question": "How often did sub sailors get home during WW2?",
+    "answer": "Not very often. The needs of the war came first. Sailors might get a\nchance for leave and travel home when reassigned to another boat,\nparticularly if it was to new construction. They would also get some\nleave during shipyard overhauls. During an overhaul, captains would try\nto give half the crew off at a time, usually starting with the married\nmen whose wives were not nearby. Then the rest of the crew would get\ntheir chance to go home for a while.\n\nAll of this was true of the rest of the Navy as well.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 84,
+    "question": "How were submarine sailors selected?",
+    "answer": "Normally, the first requirement is that you have to volunteer. You have\nto be odd enough to want to be on a submarine. (We like to say that\nsubmariners' brains are wired differently.) When someone offered you an\nopportunity to be stuffed into a 16-foot diameter pipe with 79 of your\nclosest friends and then go down 400 feet or more below the surface of\nthe ocean, that had to sound like a good idea. In fact, you usually had\nto ask to be a submariner.\n\nThe next step is that you have to be selected as a candidate. There are\nactually more volunteers than there are billets (positions or spaces) in\nsubmarines. As a result, the submarine force gets their pick of\ncandidates. This is one of the reasons that submarine crews tend to be\nbetter than the average in the rest of the Navy.\n\nFinally, the selected candidates are screened for even temperaments.\nThere would be psychological testing if the Navy hasn't already had a\nlengthy opportunity to observe you. The Submarine Force is looking for\nmen (and now women) who are even tempered, who will \"take an even\nstrain.\" Which candidates get along well with others and pitch in when\nthere is extra work to do? Who will be a strong part of the team when a\nchallenge, emergency or crisis arises.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 85,
+    "question": "Was everyone a volunteer?",
+    "answer": "Traditionally, everyone aboard a U. S. submarine is a volunteer. That\nhas almost always been the case. The exception was early in WW2 when the\nsubmarine force needed to expand quickly. Some sub sailors at that time\ndidn't remember when they volunteered. (We like to say that they didn't\nback up quickly enough when volunteers were asked for or that they were\n\"voluntold.\")\n\nHowever, if you don't want to be on a submarine, you don't have to. We\nprobably don't want you to be aboard if you aren't comfortable there.\nYou can always request to \"non-vol\", even if you volunteered in the\nfirst place. Being at sea in such close quarters and submerged for so\nmuch time can be very different from just a training dive or two. It\nmight be much more uncomfortable than you imagined. The Navy can always\nfind another place for a quality, competent sailor to serve.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 86,
+    "question": "How does one volunteer for submarines?",
+    "answer": "Prior to WW2, an officer had to serve for two years on a surface ship\nbefore he could volunteer at all. However, that requirement ended during\nthe war.\n\nThe first requirement is still that you have to be odd enough to think\nthat you will enjoy being confined in a small space and underwater for\nsignificant periods of time. If so, then you submit your request for\nsubmarine service normally through your superiors and then your\ncommanding officer.\n\nThe next step is to pass the preliminary selection. There are more\nvolunteers than billets (spaces) available, so the submarine force gets\ntheir choice. Selection depends your demonstrated skills and maybe on\nyour specialty.\n\nThe next step is to determine your ability to get along. For volunteers\nnew to the Navy, this consists of psychological screening. The submarine\nservice is looking for sailors who can be a teammate with an \"even\nstrain.\" Someone who is in your face (either angry or happy) or too\nretiring will not qualify. You need to be able to enjoy the banter and\nmild pranks of your shipmates while working hard as a team when needed.\n\nOfficers who come through the Naval Academy or Navy Reserve Officer\nTraining Corps (NROTC) programs are already well known to the Navy and\nare not normally screened again for sub duty. However, screening for\nnuclear power billets in submarines or carriers is done and is even more\nrigorous.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 87,
+    "question": "What kind of training did they get for submarine duty?",
+    "answer": "The usual program for diesel submarines was three months of sub school\nin New London for enlisted crew and six months for officers. This was in\naddition to any training for the enlisted crew in their ratings\n(specialties.) Once you got to your submarine, the training began in\nearnest.\n\nDuring WW2, the training in sub school was condensed and sometimes\nskipped completely. If you went to sub school, it would be about half\nthe normal time or about six weeks for enlisted men and three months for\nofficers. For experienced sailors, sub school may be skipped altogether.\n\nNOTE: The process for submarine school has changed, particularly for\nthose who have been nuclear-trained. They will likely be sent to their\nboats after nuclear power school but without sub school so that the\nnuclear training doesn't erode before they can use it.\n\nWhen you got to your submarine, it was assumed that you actually knew\nvery little. In fact, that was correct in that you had little practical\nexperience. Your first job would be to become a qualified watchstander\nso you could start to carry your share of the workload. The next thing\nwould be to earn your dolphins, to qualify for duty in submarines.\n\nQualifying usually required at least six months for enlisted men and at\nleast a year for officers. You had to demonstrate your knowledge of all\nthe basic systems on the boat. For an enlisted sailor, this would mean\npassing an oral exam while going through the boat with the Chief of the\nboat (COB) and then with the commanding officer or executive officer. An\nofficer would qualify on another, similar submarine. The process would\ninclude rigging the boat for dive, diving the boat and conducting a\npractice attack.\n\nThe key thing about submarines is that you need to be able to respond\nquickly to any emergency. There are no damage control parties on a boat.\nIt is up to whoever is in the space to respond and resolve an emergency.\nIn order to do that, you need to know the systems in any space.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 88,
+    "question": "Did anyone stress out and need to get out of submarines?",
+    "answer": "During the war, there are a few instances of sailors stressing out when\nunder attack. However, they were surprisingly few considering the stress\nof being depth charged.\n\nIn a few cases, the sailor might start yelling or trying to open a hatch\nto get out. In these cases, he would be forcibly subdued and then\nsedated. He might have to be knocked unconscious to render him quiet. He\nwould usually remain sedated until returning to port. In a few other\ncases, the sailors froze and became very withdrawn, almost catatonic. In\nthose cases, they might simply be relieved of their duties and replaced.\n\nSailors almost never stressed out just by being submerged. There are\nvery few, if any, cases like this in the literature. After all, you had\nvolunteered to be under water. If you thought there was any chance you\nmight be claustrophobic, you weren't likely to volunteer for submarines.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 89,
+    "question": "What if you just changed your mind and wanted out of submarines?",
+    "answer": "The policy is that you can always \"non-vol\" and leave submarines. I\nthink it would be reasonable to expect interviews to be sure that is\nreally what you want to do. After all, the Navy has invested time and\nmoney in your submarine training.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 90,
+    "question": "Was there a doctor on board these submarines?",
+    "answer": "No, there were no doctors on our submarines in WW2. The \"docs\", as they\nwere always called, were medics. These medics, called pharmacist mates\nat the time, were specially trained and qualified for independent duty\nand they were very good. They understood the art of medicine as well as\nthe science. They were very good at diagnosis and treatment.\n\n*Pampanito* did have a doctor on board briefly. On her third war patrol,\nwhen she was headed to Saipan with the rescued British and Australian\nsoldiers, she was met by a destroyer. A doctor and another pharmacist\nmate were transferred to the boat to help with the weaker soldiers.\nUnfortunately, the doctor appears to have spent most of his time doing\npaperwork and complaining that *Pampanito* didn't have enough fresh\ncitrus fruit on board to prevent scurvy.\n\nThere are still no doctors on our attack submarines. The large missile\nboats are the only US subs with doctors on board at this time.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 91,
+    "question": "What did the pharmacist mates treat?",
+    "answer": "The main things that WW2 medics would treat would be minor injuries, a\nfew broken bones, skin rashes, etc. A few needed to treat bullet wounds\nfrom surface attacks with guns; the enemy did tend to shoot back. There\nwould probably be a few cases of venereal disease as well.\n\nColds and flu were relatively uncommon on submarines during WW2. Most\nsailors hadn't had a chance to go home and be exposed to children who\ntend to spread such illnesses. If there was a cold or flu on board, it\nwould probably spread rapidly because of the close living conditions and\nthen die out.\n\nThey did not expect to treat men with tropical diseases like those of\nthe rescued POWs.\n\n**As a result, does that mean there were no surgeries on submarines in\nWW2?**\n\nNot completely true. In addition to the cuts, bruises, broken bones and\nroutine illnesses, the medics handled many emergency issues that came\nup. For example, there were three known appendectomies done on boats so\nthey could stay on patrol. The first one was done on the *Seadragon* in\n1942. The patient was in great pain and the medic thought he could do\nthe surgery. The patient gave his consent. The operation took two and a\nhalf hours was done \"by the book\" with the medic following the\ndescriptions and diagrams in his medical books. The patient recovered\nfully. A few notes:\n\n- The surgery was done submerged, at 120 feet, to provide a steady\n  platform.\n\n- It was done on the wardroom table with the Executive Officer as the\n  chief assistant.\n\n- Ether was used as the anesthetic which can be dangerous in the closed\n  spaces of a submerged submarine with no access to fresh air.\n\n- Some instruments had to be devised from wardroom silverware. For\n  example, a tea strainer was used as a mask to administer the ether and\n  bent spoons were retractors.\n\nIn late 1942, successful appendectomies were also performed on the\n*Grayback* and on the *Silversides*. After that, the Navy issued orders\nthat pharmacist mates were not to perform any further appendectomies. It\nwould seem unlikely that there were no more cases of appendicitis on\nboard submarines, but there do not appear to be any records of other\nsurgeries.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 92,
+    "question": "Were there any women on board submarines in WW2?",
+    "answer": "There no women serving as crew on a submarine in WW2. There simply\nwasn't any privacy. However, there were a few women as passengers when\nsubmarines rescued them or extracted coast watchers and other key\npersonnel from islands in the war zone. The same was likely true for\nother ships, not just submarines. Hospital ships did have nurses aboard.\n\nAlthough women have served in the Navy since 1917, when Loretta Walsh\nbecame the first women to enlist, they couldn't serve on ships or in\ncombat in WW2. Fully integrating women into the Navy took time with\nwomen unable to join the Naval Academy until 1976 and couldn't serve in\ncombat until 1994. This was true of all our military services.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 93,
+    "question": "Was there an area that could be used for a jail?",
+    "answer": "There was no such place on an operating submarine. There was rarely a\nneed for one and, if there were, it wouldn't usually be for the crew.\nOffenses that were serious might warrant confinement rarely, if ever,\nhappened on a submarine during WW2. Besides, how could you physically\npunish someone worse than putting him on a submarine in combat -- where\nhe already was?\n\nHowever, there was an occasional need to confine someone. That would\nusually be a Japanese POW, although that didn't happen very often.\nJapanese soldiers and sailors would usually swim away from a rescue. It\nwas too dishonorable to be captured. The few that were taken aboard, for\nintelligence purposes, would just be handcuffed to a bunk. Sometimes,\nthe captured POW would want to contribute to the boat by helping with\nthe cleaning. If the captain and crew believed that the POW was reliable\nenough, they would remove the handcuffs and let him help.\n\nThe assumption would be that if a crewmember needed to be confined, it\nwould be easy enough to cuff him to a bunk for the rest of the patrol.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 94,
+    "question": "Who were the officers?",
+    "answer": "Officers were the managers on the submarine. They managed the\ndepartments for purposes of maintenance and training. They also led the\nwatch sections, directing the operation of the ship under the guidance\nof the commanding officer.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 95,
+    "question": "Were officers all the same?",
+    "answer": "Yes and no. An ensign is an ensign and a lieutenant is a lieutenant.\nHowever, some were regular officers and some were reserves.\n\nRegular officers enter the Navy through the Naval Academy or through the\nscholarship program of the Naval Reserve Officers Training Corps. (In\nspite of the name, the NROTC program graduates both regular and reserve\nofficers.) Regular officers have a minimum service obligation but no\ndefinite end date. They serve at the pleasure of the president and\nrequest to resign.\n\nReserve officers enter the Navy through the non-scholarship part of the\nNROTC program or through various other reserve programs. They may also\ncome through the Officer Candidate School (OCS). Reserve officers have a\ncontract of a determined length but can be released early. They may also\napply to become regular officers.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 96,
+    "question": "Was there a difference in WW2?",
+    "answer": "The biggest difference was that there were few reserve officers at the\nbeginning of the war. Reserve officers were looked upon with some\nskepticism, particularly early on. However, they proved themselves to be\ncapable officers and the submarine war would have been much less\neffective without them. It appears that nearly all submarine commanders\nwere regular officers with most being Naval Academy graduates. It was\nlate 1944 before the first reserve officer would command a submarine in\nWW2",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 97,
+    "question": "Were the officers on submarines specialists?",
+    "answer": "Usually not, other than specializing in submarines. They were\ngeneralists who rotated through various assignments on the boats. If\nthey remained in submarines for a career, they would probably hold most\nof the officers' shipboard positions at some point. However, there were\nsome exceptions. There were Engineering Duty Only (EDO) officers who\nwere sometimes assigned to ships and the boats. There were also, at\ntimes, warrant officers (WO) or limited duty officers (LDO) who were\nspecialists, usually formerly enlisted, who were commissioned and part\nof the wardroom.\n\nIt should be noted that officers who are submarine qualified do have a\nspecial designation in their personnel records. This does not, however,\nlimit their opportunities for assignments or command on other ships.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 98,
+    "question": "What roles did they have?",
+    "answer": "The captain and the executive officer were designated and assigned by\nthe Navy.\n\n- The captain or commanding officer (CO) is the most senior officer\n  assigned to the boat. He is responsible for the entire ship and all of\n  its actions.\n\n<!-- --- The executive officer (XO) is second in line to command. He supports\n  the captain during critical actions. He is usually responsible,\n  subject to the captain's approval, for personnel assignments and most\n  other administrative matters. He would normally be qualified for\n  command and able to assume command in case the captain is disabled or\n  dies.\n\nMost of the rest of the assignments would change at the discretion of\nthe captain and XO. The most common roles, in general order of\nseniority, would be:\n\n- The operations officer is responsible for navigation and preparing\n  patrol and other operational plans. He may also manage other officers\n  such as communications and electronics.\n\n- The engineer is responsible for propulsion, the battery and other\n  mechanical equipment such as pumps and compressors. The engineer was\n  often the battle stations diving officer.\n\n- The weapons officer was responsible for torpedoes, guns and related\n  equipment.\n\n- The electronics officer would be responsible for radar, sonar and\n  electronic counter measures (ECM) equipment.\n\n- The communications officer was responsible for the radio room, keeping\n  the secret library current, drawing communications codes from base,\n  issuing daily crypto codes and destroying them when no longer needed.\n\n- The supply officer was responsible for ordering needed equipment,\n  supplies and spare parts. He also worked with the lead cook to develop\n  menus and order the needed food.\n\n- The assistant engineer would support the engineer, usually by being\n  responsible for the non-propulsion equipment such as the pumps and\n  compressors.\n\nThese officers, with the likely exception of the CO and XO, would also\nbe standing watches as the Officer of the Deck (OOD) or diving officer.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 99,
+    "question": "Is \"captain\" a rank or a job?",
+    "answer": "It can be both. The commanding officer of any ship, such as a submarine,\nis referred to as the captain. Captain is also a naval rank just below\nadmiral. Commanding officers of large ships may be captain of that ship\nand also hold the rank of captain. In WW2, captains (commanding\nofficers) of submarines almost never held the rank of captain. They were\nusually commanders or lieutenant commanders. However, they were always\naddressed as captain since they were the commanding officers.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 100,
+    "question": "Who or what are the Chief Petty Officers?",
+    "answer": "Chiefs, as they are known and addressed, are the senior enlisted on the\nboat. They are specialists in their ratings and are experienced leaders.\nThey are often referred to as the backbone of the Navy and are generally\nacknowledged to be the people who enable its functioning. There would be\nfive or six chiefs assigned to the boat.\n\nThe chiefs' quarters are in the forward battery compartment, across from\nthe ship's office. This space is referred to as the goat locker. (This\nnaming is true of the entire Navy, not just submarines.) The space is so\nnamed because the chiefs are the \"old goats\" of the Navy. In WW2, they\nwere as old as 28 or 30 years old.\n\nIn modern parlance, GOAT means the greatest of all time. Most chiefs\nrecognize that would be a bit of an exaggeration when referring to the\ngoat locker.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 101,
+    "question": "Who is the Chief of the Boat, also known as the COB?",
+    "answer": "This is a senior enlisted man (or woman) who has a special assignment on\nthe boat. The COB was often, but not always, the most senior chief on\nboard. The Chief of the Boat, or COB, is the go-between for the captain\nand XO and the enlisted crew. Although the COB is not an officer, he or\nshe is treated as the third most senior person on board. The COB\nmonitors morale and is a key part of training the crew in submarine\nqualifications. The COB defuses situations before they require formal\npunishment and may impose modest, informal punishment to keep issues off\nthe record. This position has a long history on submarines and, in the\nearly 1970's, was implemented throughout the military as command master\nchiefs or command master sergeants.\n\nIn WW2, the COB was appointed by the CO and XO. They would select the\nchief who had the best leadership qualities. Currently, being a COB is a\ncareer track. The Navy offers specific training and qualifications. The\nCOB is now appointed by the Navy, similar to the way the CO and XO are\nassigned. The COB is part of the command team and reaps the rewards for\nthe success of the whole boat, as well as the discipline for significant\nfailures.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 102,
+    "question": "Who are the petty officers who aren't chiefs?",
+    "answer": "These are the specialists who are assigned to submarines and are\nproficient in a certain area of expertise. Petty officers in increasing\nseniority are third class, second class and first class. As they rise in\nrank, they will have qualified as having increasing technical knowledge\nand leadership ability. That also means they will have positions of\ngreater responsibility, such as being responsible for a torpedo room or\nan engine room.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 103,
+    "question": "What specialists (ratings) were typically assigned to submarines?",
+    "answer": "These are the typical ratings for these submarines in WW2. Since then,\nthe names of some ratings have changed. For example, motor machinist\nmates became enginemen. Pharmacist mates became hospital corpsmen.\nAnother rating, gunner's mate, became no longer applicable to submarines\nwhen the guns were removed in the early '50s. However, missile techs\nhave been added to submarines with Tomahawk or Polaris/Poseidon/Trident\nmissiles.\n\n- Cook -- prepares and cooks the meals. The overnight cook is the baker\n  who makes bread, rolls, cakes and pies. The senior cook works with the\n  supply officer to plan meals and order the necessary foods.\n\n- Electrician mate -- responsible for maintaining electrical circuits\n  and operating the cubicle in the maneuvering room. Also responsible\n  for maintaining the battery cells, checking the specific gravity\n  (estimating the power remaining) and adding pure water when needed.\n\n- Fireman -- not yet a specialist, but a young sailor who is assigned to\n  engineering and will eventually pursue a specific rating in that area.\n\n- Gunner's mate -- responsible for maintaining and operating the guns.\n  Some of this work regarding the guns would be done by the torpedomen.\n\n- IC electrician -- responsible for interior communications equipment\n  including signaling systems.\n\n- Machinist mate - responsible for mechanical systems other than the\n  engines, such as the air conditioning, pumps, motors and mechanical\n  systems other than the main engines.\n\n- Motor mac -- a motor machinist mate, responsible for the operation,\n  maintenance and repair of the four main engines and the smaller\n  \"donkey\" diesel which is in the lower level of the after engine room.\n\n- Pharmacists mate -- the \"medic\" who cares for his shipmates' illnesses\n  and injuries. These men were specially selected and trained for\n  independent duty since there was no physician aboard the boats.\n\n- Quartermaster -- responsible for navigation and signaling between\n  ships. Since submarines were often operating independently, signaling\n  wasn't often required. Assists the navigator and tracks the ship's\n  position between fixes.\n\n- Radioman -- responsible for sending and receiving messages as well as\n  maintaining and repairing the radio equipment. Routes messages to the\n  captain and other officers as appropriate. Alerts the Communications\n  officer when highly classified messages need additional decoding.\n  Responsible for keeping the crypto codes secure while in use.\n\n- Seaman -- similar to a fireman, not yet a specialist, but a young\n  sailor who is assigned to an operations department and will eventually\n  pursue a specific rating in that area.\n\n- Sonarman -- responsible for operating, maintaining and repairing the\n  sonar equipment. Listens for the sounds of other ships in the area and\n  alerts the Officer of the deck (OOD) to any unusual or unexpected\n  sounds.\n\n- Stewards mate -- supports the officers; staffs the serving galley;\n  provides the captain with coffee; etc.\n\n- Storekeeper -- works with the supply officer to submit the forms to\n  obtain the food, spare parts and other materials needed by the boat.\n\n- Torpedoman -- responsible for maintaining and repairing the torpedoes\n  on the boat. May have been part of the gun crews. Maintained the\n  charge in the electric torpedoes. Maintained the torpedo tubes and\n  associated equipment.\n\n- Yeoman -- administrative assistant. Maintained the records for\n  assigned personnel and for other records for the boat. An example\n  would be the patrol reports as directed by the captain.\n\n- Mess cooks -- these would normally be the newest and most junior\n  members of the crew assigned to assist the cooks. They were most often\n  seamen or firemen who have not yet been assigned to departments. (Mess\n  cook is not a specialty or rating.) Mess cooks help with meal\n  preparation and with cleanup. It is equivalent to KP duty in the Army.\n  However, on submarines this is not usually a punitive assignment.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 104,
+    "question": "Were these the only responsibilities?",
+    "answer": "No. Everyone was responsible for their submarine qualifications,\nincluding the basics about the entire boat. This was particularly true\nof younger sailors reporting aboard their first boat. It was also true\nwhen reporting to a new assignment. Boats could be slightly different\nand the new command had to ensure that sailors new to the command knew\nwhat they said they did. Obviously, requalifying on a different boat\nwould be fairly quick and easy.\n\nThere may be training across similar ratings such as electronics or\nmechanicals. In addition, it was the responsibility of everyone on board\nto help train and to mentor the newest submariners.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 105,
+    "question": "What was \"Liberty\"?",
+    "answer": "Liberty was, and still is, time off for sailors when not on duty\novernight or when visiting a port. Usually, one third of the crew will\nremain on board at any time so that the ship can get underway if needed\nduring an emergency. The other two thirds may have liberty. Liberty is\nusually just overnight or over a weekend assuming the sailor isn't part\nof a duty section. It is not time off counted against leave.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 106,
+    "question": "What was \"Leave\"?",
+    "answer": "Leave is extended time off, similar to vacations in the civilian world.\nIt was earned at a consistent rate and an individual's leave balance was\ntracked. During peacetime, there was a limit as to how much leave could\nbe accrued without losing the days over the limit. Leave not taken would\nbe paid out when the sailor leaves the Navy.",
+    "category_id": 4,
+    "category_name": "Who Were the Crews Aboard WW2 US Subs"
+  },
+  {
+    "id": 107,
+    "question": "What did a typical day at sea consist of?",
+    "answer": "A typical day consisted of two four-hour shifts on watch plus time spent\nfor maintenance, paperwork, studying and training. The time between\n08:00 and 16:00 (8 AM to 4 PM) would usually be a work day, when\nmaintenance, etc. would be completed. Twelve hours would not be unusual\nfor a regular workday, and it could be even longer if the sailor was\nworking toward his submarine qualification or studying for a promotion.\n\nSundays were a day of rest. As long as there were no attacks in progress\nand no essential repairs, there would often be no routine work on those\ndays. In other words, on your day off you \"only\" stood eight hours of\nwatch.\n\nThis assumes that there were three watch sections and the crew would be\nstanding watches four hours on and then have eight hours off. If there\nweren't three qualified watchstanders for a specific position, then\nwatches would be \"port and starboard\", meaning something like four hours\non and just four off duty. That would last until a third watchstander\ncould pass qualifications. The routine would also be adjusted a bit by\ndogging the watch about once per week.\n\nDuring the war, the routine would be changed by the need to carry out\nlong attacks on enemy ships or by attacks on the boat by enemy ships and\naircraft. Either of those could last many hours and would involve the\nwhole crew. That would naturally require changes to the normal schedule\nand the boats would make whatever adjustments were needed for rest and\nfood.\n\nThere were a few instances of captains reversing the day so that the\ncrew would be working at night when the engines were running (and noisy)\nand pulling fresh and, hopefully, cooler air into the boat. This would\nalso mean that the boat could be submerged - quieter and calmer - while\nthe crew is sleeping. This was usually done only when in the tropics. In\nthese cases, the workday would be from 20:00 to 04:00 (8 PM to 4 AM) and\nmeals would be offset by 12 hours. For example, breakfast would be\naround 20:00 rather than at 08:00. The crew would then sleep during\ndaylight hours from 08:00 to 20:00.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 108,
+    "question": "What did a typical day in port consist of?",
+    "answer": "The typical workday would be from 08:00 to 16:00. That could be started\nand ended earlier, called tropical hours, so that the crew isn't working\nduring the hottest part of the day. However, in WW2 it was often longer\nthan eight hours as men trained or got the boat ready for the next\npatrol.\n\nOne third of the crew would remain on board overnight. This was so that\nthere were enough men on board in case of emergencies and so the boat\ncould get underway and change locations as needed. The duty section\nwould likely have some work to do to continue repairs or to clean up\nafter shipyard workers.\n\nThis assumes that there are no major problems to be corrected. If, for\nexample, engines needed to be overhauled, then the enginemen (motor macs\nin WW2) would work more hours. Others in the crew might be assigned to\nassist. The key thing is to get the boat ready for the next patrol. It\nis important to remember that sailors in the Pacific area did not go\nhome at night. They may not see their families for a year or more at a\ntime.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 109,
+    "question": "What is a \"watch\"?",
+    "answer": "A watch is a normal shift for the routine operation the submarine. In\nWW2, that was normally four hours in length with eight hours off before\nthe next watch. There would normally be three watch sections.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 110,
+    "question": "How does dogging the watch work?",
+    "answer": "It means that one watch, usually the 12:00 to 16:00 is split into two\nshifts of two hours each. This has the effect of changing everyone's\nwatch forward by four hours so no one stands the same watches all the\ntime. This would be done about once per week.\n\nFor example, the schedule for watch sections could be:\n\n  -----------------------------------------------------------------------------\n            08:00",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 111,
+    "question": "What were the general living conditions on a submarine like this?",
+    "answer": "Living conditions were fairly poor, including the following, some of\nwhich are discussed further below:\n\n- A shortage of bunks\n\n- A lack of fresh air\n\n- Possible temperature extremes\n\n- Close quarters\n\n- Limited fresh water\n\n- A strong smell\n\n- Little dedicated food storage space\n\n- A lack of much personal storage\n\n- A lack of privacy\n\n**Since the crew size grew, but not the number of bunks, where did they\nall sleep?**\n\nThere are enough bunks. There just aren't enough bunks for everyone to\nhave a bunk to themselves. The numbers vary a little based on the actual\nnumber of men aboard for the patrol and the actual number of bunks\navailable. However, assume there were about 70 bunks and 80 men. In that\nsituation, 50 men would have their own bunks. The other 30 men would be\nassigned with three men to two bunks. They were assigned so that one of\nthe three would be on watch at any time. That meant that if you were one\nof the 30 junior men and you had an opportunity to sleep - your work was\ndone and your qualifications were current -- there was a bunk available.\n\nThat was the good news. The less good news, for these 30 junior men, was\nthat when they came off watch at midnight or 04:00 (AM) they would be\ngetting into the same bunk that their relief had just gotten out of. It\nwas called hot bunking for a reason. To further put that in context, we\nthink the boats rarely were cooler than 90 degrees Fahrenheit if they\nwere in the tropics as most of them were.\n\nThere was the possibility of some good news. If the captain had an\nopportunity and fired torpedoes from the after torpedo tubes, bunking\ncould improve. Reload torpedoes would be moved into the tubes, which\nwere always kept full if possible. Now, for every torpedo fired, you\ncould make two or three bunks on each empty skid. For every bunk that is\ncreated in this way, three sailors would no longer be hot bunking.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 112,
+    "question": "Is there a best place to sleep?",
+    "answer": "Submarines are relatively noisy at night. Engines are running and\nbatteries are being charged. The boat is on the surface plowing through\nwaves. People are on watch, operating the submarine. All of that makes\nnoise. Red lights help to make it easier to sleep, but the boat can't go\ncompletely dark. As a result, nothing will be as quiet and dark as your\nbedroom at home.\n\nMost areas seem to have advantages and drawbacks. The forward torpedo\nroom is farthest from the engines, so that noise is at the lowest level\nhere. However, you do hear the bow crashing through the waves. In\naddition, the bow, as well as the stern, experience the most vertical\nmotion - up and down - due to the swells of the ocean.\n\nThe after torpedo room has a little separation from the engines but does\nhave the propellor shafts running under it with the screws not far\nbehind. That does generate noise while on the surface.\n\nThe after battery -- crews' berthing -- will probably have the least\nvertical motion. However, it is next to the forward engine room which\nwill normally have at least one engine running at night. It also has a\nlarge fan pulling air out of the battery well during the battery charge.\nWith 36 bunks in this space, the chances of at least one sailor snoring\nlike a chain saw are close to 100%.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 113,
+    "question": "Is it ever truly quiet for sleeping?",
+    "answer": "Finding a truly quiet place to sleep is very unlikely. There is constant\nactivity on the boat. The engines are probably running at night and you\ncan hear them, perhaps at a low noise level, anywhere on the boat. The\nbattery is being charged. The electricians will go in and out of the\nbattery wells to check on the specific gravity, to monitor progress of\nthe charge. The boat is also on the surface which adds the noise of the\nboat cutting through the waves. If the swells are small, the rocking of\nthe boat can help you get to sleep. If the swells are large, you may\nfind yourself sleeping in odd positions so you can stay in your bunk.\n\nThe key here is to get used to the noise and light quickly. It also\nhelps to be tired after a long workday.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 114,
+    "question": "What kept you from falling out of your bunk in heavy seas?",
+    "answer": "This was mostly up to you. Find a sleeping position that was spread out\nenough so that you wouldn't be as likely to roll over unintentionally.\nYou may not get a very good night's sleep but it is possible to sleep\nthis way.\n\nIn big storms, captains would sometimes go deep for 12 hours or so. This\nwould get the boat below most of the wave motion. Then the crew would\nhave some time to eat a meal and get some sleep before going back up on\nthe surface to fight the storm.\n\nIn very heavy seas, you may have to strap yourself into your bunk in\norder to stay put.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 115,
+    "question": "How deep do you have to go to get below the effect of waves?",
+    "answer": "Naturally, this depends on the size of the waves. However, it quickly\nbecomes calmer than being on the surface. Even periscope depth is\nsomewhat calmer than the surface. A depth of 100 feet makes a\nsignificant difference. Going to 150 or 200 feet would be below most\nwave action. Captains would go down to 300 or 400 feet in big storms and\nthat would usually be calm enough. This would allow the crew to eat,\ndigest their food and get some rest.\n\nModern submarines need to be at 200 feet frequently to pick up any\nmessages addressed to them. They have reported being bounced around\nquite a bit at 200 feet when they were in typhoons. Remember that waves\nin typhoons can be as high as 50 to 90 feet.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 116,
+    "question": "What was the largest number of men on a US WW2 submarine?",
+    "answer": "Again, the Gato/Balao/Tench boats generally had 80 to 85 men aboard. For\nthe normal crew size, the largest number was likely the *Narwhal* and\n*Nautilus*, which were large, slow submarines built in the late '20s.\n(These boats were about 35 feet longer, 6 feet wider and almost twice\nthe displacement of the Gato/Balao/Tench boats.) They usually had crews\nof about 90 men. That increased briefly to nearly 100 in the middle of\nthe war and then returned to about 90. These submarines had two six-inch\nguns and were often used for minelaying and transport of small units of\nguerillas and regular troops.\n\nHowever, there were cases when boats had extra passengers as the result\nof special operations, rescues or lifeguard duty. A small sampling\nincludes:\n\n- USS *Seawolf* (SS-1977) was lost in1944 with 82 crew and 17 US Army\n  personnel aboard.\n\n- At one point, USS *Narwhal* (SS-167) picked up 32 evacuees, including\n  eight women and two children.\n\n- Overall, submarines rescued 504 downed aviators during the war with\n  USS *Tigrone* (SS-419)-rescuing 31 in a single patrol to break the\n  record of 22 by USS *Tang* (SS-306). Some rescued airmen stood watches\n  while on the boats.\n\n- USS *Gato* (SS-212), in 1943, evacuated 27 children, nine mothers and\n  three nuns from Bougainville.\n\n- In September of 1944, USS *Pampanito* (SS-383) rescued 73 British and\n  Australian soldiers in the South China Sea. The rescued soldiers were\n  aboard for about five days. *Sealion* (SS-315) participated in the\n  same rescue, picking up 52 soldiers.\n\n- When the USS *Darter* (SS-227) ran aground on a coral reef in late\n  1944, her crew was rescued by the USS *Dace* (SS-247). With two full\n  crews aboard. there were likely about 160 sailors aboard the *Dace*\n  for approximately one week.\n\n- In February, 1942, the USS *S-38* (SS-143) picked up 58 survivors from\n  the British destroyer HMS *Electra*, sunk the day before at the Battle\n  of the Java Sea. This is particularly noteworthy because the normal\n  crew size is only about 42 men.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 117,
+    "question": "How could you all move quickly when going to battle stations?",
+    "answer": "Submarine sailors quickly learn to get past each other in the narrow\npassageways. However, there wasn't necessarily all that much movement\ngoing to battle stations, particularly during WW2. First, you often\nworked and slept near your battle station. For example, torpedomen\nusually stood watch, worked, slept and had their battle stations in the\ntorpedo rooms.\n\nIn addition, sailors typically had plenty of warning during the war that\nthe captain was planning to attack. Smoke from potential targets could\nbe spotted at least ten or fifteen miles away. Smoke would be seen well\nbefore the ships themselves. If the target would be cargo ships or\ntankers, which usually proceeded at 10 to 12 knots, the tracking party\nwould be called away first. That could be an hour or more before going\nto battle stations.\n\nIn addition, there are very few secrets on a submarine. There is barely\nenough room for a private thought, much less a secret. Word about a\npossible attack would spread through the crew quickly. Sailors would\nthen have plenty of opportunity to drift toward their battle stations\nbefore the alarm would be sounded.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 118,
+    "question": "What is \"battle stations\"?",
+    "answer": "Battle stations is the condition when the ship is expected to go into\nbattle. Every position is manned, usually by the best operators\navailable. Crew members not at a specific battle station would be\navailable as reserves or for damage control.\n\nOn submarines, there could be different assignments for battle stations\nsurfaced, battle stations guns or just battle stations (which assumes\nattacking while submerged.)",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 119,
+    "question": "What is a \"battle station\"?",
+    "answer": "It is an individual's job when the submarine went into combat. Some of\nthe crew had different stations depending on whether the boat was\nattacking on the surface, preparing to use the deck guns, or submerged.\nThis would normally be related to one's rating or specialty. It could be\nas one of the primary operators or as a back-up or available for damage\ncontrol.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 120,
+    "question": "Who was responsible for damage control?",
+    "answer": "Most large Navy ships have dedicated sailors for what is known as damage\ncontrol parties. This is in addition to their regular assignments. Their\nrole, in the event of a mechanical casualty or drill, is to report to\nthe assigned damage control locker. From there, they will grab the\nappropriate gear and proceed to combat the problem.\n\nThese submarines did not have assigned damage control parties. The\nsailors who happen to be in the compartment where the problem occurs are\nthe damage control party. That is why every submarine sailor has to\nlearn damage control techniques. And that is why every submarine sailor\nneeds to know the basics of every system on the boat. They have to know\nhow to isolate the problem and combat it effectively. This is all a part\nof submarine qualification and earning their dolphins.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 121,
+    "question": "What was a tracking party?",
+    "answer": "The tracking party is the part of the battle stations crew that is\ndetermining the location and direction of the potential targets while\nstill a distance away. This could be an hour or more before the rest of\nthe crew went to battle stations, depending on the speed of the targets.\nThe information gathered at this time would eventually be the basis for\nthe attack and the final course of the torpedoes.\n\nThe captain and executive officer were key members, of course. You would\nalso want the sonar and radar stations manned by your best people. The\ntorpedo data computer (TDC) would be used to track the targets' progress\nand to begin to develop the firing solution for the torpedoes.\nTherefore, the TDC operator(s) would be included, along with anyone else\nthe captain deemed relevant.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 122,
+    "question": "Where did they store all the oxygen for so many people?",
+    "answer": "They didn't. These submarines did not have the capability to make or\nstore large quantities of oxygen or to remove CO2. (Modern submarines\ndo, and that's why they can be submerged for two or three months at a\ntime.) In the WW2 boats, the air that they were breathing was the same\nair they had been breathing since they submerged. That air was intended\nto last 16 to 18 hours. Since most of the crew smoked, let's call it 16\nhours. The normal procedure would be to surface every night to get fresh\nair in the boat.\n\n**How do you get fresh air into the boat? Where does the oxygen come\nfrom?**\n\nThe best way to get breathable air in the boat is to run the engines to\ncharge the battery. (To say it is *fresh* air may be a bit of a\nstretch.) The air system is set up so that most of the air for the\nengines goes straight to the engine rooms. However, some of it goes to\nthe ends of the boat and gets pulled toward the engine rooms, refreshing\nthe air in all the spaces. Running the low-pressure blower to push the\nlast of the water out of the ballast tanks would use the air in the\nmiddle of the boat, also pulling fresh air in, this time through the\nconning tower hatch. The same thing would happen if the air compressors\nin the pump room were running to recharge the air banks.\n\nThe routine was to be on the surface every night. This would hopefully\ntop off the battery for the next day while freshening the air in the\nboat. Being on the surface each night also allowed the boats get their\nmessages and, if the skies were cooperative, get a position fix using\nstars at dusk and again at dawn.\n\nIf the boat had to remain submerged more than 16 hours - usually because\nit was being attacked - there were one-time measures that could be used.\nThe first of those were the six green oxygen bottles and the many CO2\nabsorbent cans in the overheads. The silver-colored cans in the\noverhead, labeled \"DO NOT PAINT\", are the CO2 absorbent, typically\nlithium hydroxide. These will give you a couple more hours of breathable\nair.\n\nAfter that, the main option was to bleed air from the high-pressure air\nbanks into the boat. This would pressurize the boat somewhat, but would\nimprove the O2 and CO2 percentages. Even if the air in the boat were\ndoubled, to two atmospheres, decompression would not be an issue. It\nwould about the same as swimming and diving down to about 25 feet. To be\nclear, this air from the air banks isn't to be confused with fresh air,\nbut it is air that allows the crew to survive.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 123,
+    "question": "Were these submarines hot inside?",
+    "answer": "Most of them were, but that depended on where they were. If they were in\nthe tropics, we suspect that the boats were rarely if ever below 90\ndegrees. And most of our boats were in the tropics for the majority of\nthe time. The first issue is that the water temperature is 80 to 85\ndegrees. The next one is that the boat is constantly generating heat\nmainly from cooking, the engines and from charging or discharging the\nbattery. In the tropics, the engine rooms would easily reach 100\ndegrees.\n\nWhen the engines were shut down when submerging, the cooling water to\nthe engines would also shut down. Then the engine rooms could reach 120\ndegrees and the rest of the boat could be 110. It would take some time\nfor the warm ocean waters to cool the boat back down.\n\nThere is air conditioning, but it was really little more than a\ndehumidifier. Freidman, Page 200. It helped but didn't really cool the\nboat that much.\n\nIf the boats were in northern or southern latitudes, the temperatures\ncould be more moderate. This was particularly true in spring and fall.\n\nIf the boats were operating off Alaska, they might actually be rather\ncold. The Japanese occupied the last two islands in the Aleutian chain\nat the time of the Battle of Midway. After that, we often had a\nsubmarine in the area monitoring any Japanese activity. In that area,\nthe air and water temperatures may well be in the low 30s. If so, the\nboat would be cool or cold. The crew might be wishing for some of that\nexcess tropical heat. It would also be cold in the boats during the\nwinter if they were being tested during sea trials off Manitowoc, WI;\nPortsmouth, NH; or New London, CT.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 124,
+    "question": "Weren't the boats crowded?",
+    "answer": "Submariners didn't usually think so. No one thought a submarine would be\nspacious when they volunteered. They knew it was small and would be all\nclosed up when submerged. (The non-submarine admirals who complained\nthat the new designs were too plush seemed to think otherwise.)\nTherefore, the boats did not seem that crowded to the crews.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 125,
+    "question": "There are showers on board. How often could the crew take showers?",
+    "answer": "Rarely, if ever. On a submarine, there isn't enough fresh water for\neveryone to take showers regularly. This varied from boat to boat, but\nthe stills only produced so much fresh water. They were also famously\nunreliable. If both stills were working at full capacity, they would\nproduce about 5,000 gallons per week each. They were rarely both working\nat capacity and, in the patrol area, you would not use the stills when\nsubmerged. They use too much power and make too much noise.\n\nThe first 500 gallons each week has to be distilled twice for the\nbattery. The next claim for fresh water is the internal cooling systems\nfor the engines. However, the engines don't normally require much water\neach week. The next claim would be by the cooks. Water is needed for\ncoffee or bug juice (a sort of Kool-Aid), to cook your food and to wash\nthe dishes. That leaves only a few gallons per day for the crew to brush\ntheir teeth, shave if they want to, and wash up a bit.\n\nWe would like to have the cooks and the pharmacist mate (medic) shower\nabout once a week. With so little water left after that, the rest of the\ncrew would not normally take showers. They might only get a bucket of\nwater periodically from the air conditioning condensate to wash out\nskivvies and then take a sponge bath. Since that water is extracted from\nthe air in the boat, it will almost certainly have a thin sheen of oil\non top.\n\nAny showers would be \"navy showers\". Fresh water is precious throughout\nthe fleet, even where it is more plentiful than it was on submarines. A\nnavy shower means that the sailor wets down and then turns the water\noff. He or she then soaps and lathers up. Then the water is turned back\non to rinse off. Ideally, the total water usage is no more than three\nminutes.\n\nSan Francisco residents tend to use water efficiently and that is still\nabout 60 gallons per day. That would be over 5,000 gallons",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 126,
+    "question": "Why not take salt water showers?",
+    "answer": "An occasional salt water shower wouldn't be a problem. However, regular\nshowers with sea water irritates the skin. Soon the sailors would be\nscratching themselves and raising welts with infections possible. Since\nthis isn't a terribly good idea, the boat is not plumbed to have salt\nwater in the showers.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 127,
+    "question": "If no one could take showers, didn't the submarine smell bad?",
+    "answer": "Absolutely. Diesel submarines stank, especially when at sea.\n\nTo clarify, it was true that most of the crew did not take showers. It\nwould vary from boat to boat, but there just wasn't enough fresh water\nfor everyone to take showers regularly. For obvious reasons, it was\npreferable that the cooks and the pharmacist mate (medic) be able to\ntake showers, perhaps weekly. The rest of the crew may have gotten a\nbucket of water occasionally from the air conditioning condensate. They\ncould use that to wash out skivvies and then take a sponge bath. Humans\ncontributed significantly to the smell.\n\nBut human bodies were not the only source of odors on submarines. There\nwas the all-pervasive smell of diesel, other oils and engine exhaust\ngasses. Paint smells linger too. Paint might be the largest component of\nthe odors on the *Pampanito* today. Most of the crew smoked since\ncigarettes were given away free to servicemen in WW2. (To be more\naccurate, most of the crew were active smokers and all the rest were\nsecond hand smokers.) Yes, you could smoke in these confined spaces even\nwhen submerged.\n\nFinally, three of the four heads (toilets) drained to sanitary tanks.\nThe good news here is that these heads could usually be used when\nsubmerged. The less good news is that when you drain something into the\nsanitary tanks, you need to vent an equal amount of air. That would go\nthrough charcoal filters before venting back into the boat, but that\nonly helped a little.\n\nYes, diesel submarines smelled bad.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 128,
+    "question": "How could the sub sailors put up with the smell?",
+    "answer": "There is some good news here. Diesel submarines are like gardenias,\nnight-blooming jasmine, tuberose and hydrogen sulfide. (Hydrogen sulfide\nis a poisonous gas that smells like rotten eggs. However, submarines\naren't usually poisonous.) What all these things, and many others, have\nin common with submarines is that after 15 to 30 minutes you stop\nsmelling it. Olfactory nerves get saturated and stop sending signals to\nyour brain. The nerves give up. You don't get used to the smell; you\nstop smelling it. You only notice the new smells, like fresh-baked bread\nand rolls at night.\n\nThis is what makes hydrogen sulfide so dangerous. You no longer smell it\nbut it can still kill you. The good news is that it is very rare to have\nhydrogen sulfide on an operating boat since it develops in closed\nspaces. We have very few of those and almost never go into them when at\nsea.\n\nEven if you are up on the bridge for a watch, the olfactory nerves don't\nnormally reset. You are still mostly \"protected\" when you come down off\nthe bridge.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 129,
+    "question": "How much food could these boats carry?",
+    "answer": "The boats were designed for patrols of about 75 days. Therefore, you\nwould carry at least as much food as the planned patrol would last.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 130,
+    "question": "What kinds of food would it be?",
+    "answer": "The menu was fairly basic. You were trying to keep 80 men happy even\nthough they were from different regions of the country with different\ncuisines. Meat, potatoes and vegetable were the basic menus. That would\nvary some with pasta and rice being on the menu at times. Fresh bread or\nrolls were normal. In addition, the overnight baker may have made pies\nor cakes.\n\nAfter the first week at sea, there would be little fresh fruit,\nvegetables or salads. Fresh food doesn't last that long, particularly\nwith limited cold storage. Cheese and fresh eggs didn't last long\neither. Eggs would then be powdered after that. Much of the meat would\nbe frozen or canned.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 131,
+    "question": "Where would it be stored? Where is the storage space?",
+    "answer": "If we are talking about a patrol planned for 60 days or more, the simple\nanswer is: everywhere. Naturally, the limited pantry and cold storage\nspaces are full. Large cans of coffee, sugar and flour would be stored\noutboard of the engines. Eggs, butter and cheese would be stored in the\nforward escape trunk for as long as they lasted. As warm as it might be,\nit was likely the coolest place on the boat.\n\nCanned goods would be stored wherever there was room as long as they\ncould be tied down securely and weren't in the way of operating\nequipment. One logical place would be the berthing spaces in the battery\ncompartments. You would then be walking on your food -- the cases of\ncanned goods covered by cardboard or wood -- until the crew ate the food\ndown to the deck.\n\nSailors were often taking cans of peaches with them on patrol, as long\nas the cans fit in their individual storage.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 132,
+    "question": "What was the food like on a submarine?",
+    "answer": "Since it has to be palatable to everyone aboard, it would tend to be\nbasic. Perhaps it could be best described as basic American food --\nmeat, vegetables and potatoes or perhaps rice or pasta.\n\nMuch of the food was canned although there was some freezer and\nrefrigerated space aboard. Fresh vegetables and fruit didn't last long.\nNeither did fresh milk. Eggs and butter would be stored in the forward\nescape trunk and might last a bit longer. (The escape trunk might be the\ncoolest place on a submarine but, if you are in the tropics, it wasn't\nreally very cool.) Bread, rolls and perhaps pies or cakes were baked\nfresh each evening. Much of this is also true of surface ships. Food on\nsubmarines was not much more limited than it was on surface ships.\n\nTo be fair, the crews might still grumble about the food. It has been\nsaid that a sailor isn't happy unless he (or she) is complaining about\nsomething. Sometimes the crew would drive the cooks crazy. On one\npatrol, the main request might be for strawberries. The cooks would then\norder more strawberries for the next patrol. Of course, the crew would\nnow want more peaches on that next patrol and would complain about being\nstuck with all those stupid strawberries.\n\nThere was one overnight baker on a submarine who asked his shipmates to\nwrite home for the recipe for his favorite cake. Get the recipe from his\nshipmates' wives, girlfriends or mothers. Then, on that sailor's\nbirthday, he would bake that cake for dessert. This may not seem to be a\nbig deal, but it mattered for morale. Scaling up the recipe may not have\nbeen as simple as it might seem since some ingredients, such as spices,\ncan require different proportions.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 133,
+    "question": "Was the food really better than the rest of the Navy?",
+    "answer": "Surprisingly, the food on submarines was the best food in the seagoing\nNavy. That goes back to the earliest days on subs. President Theodore\nRoosevelt visited one of our first submarines in 1901 or 1902. It was\napparent that there needed to be some added incentives to get sailors to\nserve on those primitive boats. The answers were to increase the pay and\nto increase the food allowance.\n\nThe food incentive was to increase the allowance per sailor on board.\nThe Navy provides a certain amount per enlisted sailor for meals each\nday when assigned to a ship. The Navy provides a larger amount for those\nsailors assigned to submarines. Therefore, the Supply Officer and the\ncooks can order the special things from the standard stores list a\nlittle more often. Examples might be that they could order more frozen\nshrimp for shrimp cocktails or they could order better cuts of steaks\nmore often.\n\nAs a result of this incentive, the quality of the food on submarines\nbecame a fairly big deal. There are stories of captains fighting over\ngood cooks, perhaps even physically. And you certainly didn't want to be\na bad cook on a submarine. You may not last long on the boats.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 134,
+    "question": "How could everyone fit in that small space?",
+    "answer": "There are four tables with three seats on each side. That means the\nCrew's Mess seats 24, comfortably. The crew eats in sections, one third\nat a time. Given the crew size of 80 sailors, minus the officers who eat\nin the wardroom and the cook and mess cooks, that leaves 22 or so who\nneed to be fed at each seating.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 135,
+    "question": "When were the meals?",
+    "answer": "Meals were tied to the changes of the watch. That means breakfast was at\n08:00, lunch was at noon, soup down was at 16:00 and dinner at 20:00.\nThis is done so that no one needs to miss a meal. The watch section\nwhich will be going on duty eats first. During the time that the watch\nchanges, the section not involved eats next. (The change of the watch is\nnot instantaneous. The section coming on watch needs to be told about\nthe current situation and any upcoming changes or expected operations.)\nThe section coming off watch eats last.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 136,
+    "question": "Is that an ice cream machine in the crew's berthing?",
+    "answer": "Yes, it is. Early in the war, there was no capacity to make ice cream on\nsubmarines. The boats may have been able to take small amounts with them\non patrol, but there is little freezer space for up to 75 days at sea.\nIce cream and oranges were the first things that sailors wanted when\nthey returned from patrol.\n\nHowever, *Pampanito* has an ice cream machine. It is not clear when it\nwas installed, but it doesn't seem likely that she had one when she was\nfirst built. The first machine wasn't installed on any submarine until\nthe last half of '43 and probably didn't become standard equipment until\n'44.\n\nThe first ice cream machine on a US submarine was stolen. It wasn't\nstolen from the submarine. It was stolen by the submarine. While the USS\n*Tang* (SS-306) was in Mare Island Naval Shipyard, Dick O'Kane, the\ncaptain, let it be known that he wanted an ice cream machine. It was not\nthen standard equipment for submarines. His comment was probably code\nfor \"make it happen and I probably don't want to know how you did it.\"\nThe crew found an ice cream machine, on a pier, due to be installed in\nthe wardroom of the battleship USS *Tennessee*. The crew \"acquired\" it\nand installed it in the pump room of the *Tang*.\n\nThis story should sound too good to be true, a veritable \"sea story\".\nHowever, O'Kane made a reference to it in his book \"Clear the Bridge\"\nwhen he mentioned a forged receipt that was left for the *Tennessee*.\n\nAfter a war patrol, Admiral Lockwood, commander of submarines in the\nCentral Pacific, came aboard for the usual patrol debrief. When he was\nserved ice cream, he commented that the *Tang* had gotten the ice cream\naboard quickly. O'Kane confessed that they had made the ice cream on\nboard and showed Lockwood the machine. The admiral thought that was a\ngood idea, and ice cream machines became standard equipment on\nsubmarines.\n\nWhat flavors were available? It seemed to be that you could have any\nflavor you wanted as long as it was white.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 137,
+    "question": "How much personal storage was there?",
+    "answer": "Not much. For the individual enlisted sailor, there was about one square\nfoot of storage, plus whatever could fit between the springs and the\nmattress. Uniforms and cigarettes can be stored under the mattress.\nOfficers had a bit more storage, but they also had to store some\npaperwork for themselves.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 138,
+    "question": "What privacy was there?",
+    "answer": "Obviously very little. Even the captain, who had a stateroom to himself,\ndidn't have a door to close. It isn't too much of a stretch to say that\nthere wasn't room for a private thought. However, everyone was in the\nsame situation. If you expected to have what privacy was possible, you\nhad to respect the privacy of others. Most often, that did work out\npretty well. If you needed to be left alone for a bit, you normally\nwould be.\n\n**If the war patrols were 45 to 60 days, how much time off did the crew\nget between them?**\n\nGenerally speaking, the crew was in port for about four weeks after\ncompleting a full patrol. For the first two weeks, the crew had no\nresponsibilities for the boat and were on liberty the whole time. A\nrelief crew was responsible for the boat. (See below.) After that, the\ncrew returned to duty for specialized training, finishing any work on\nrepairs or upgrades on the boat, loading supplies and cleaning. Then\nthey would spend about a week training as a crew.\n\nIt was important to train as a full crew because there would be many new\nfaces on board for the next patrol. Many of these newcomers were new to\nsubmarines and a few would be experienced hands returning to submarine\nduty. About 15 to 20% of the crew would be replaced at the end of each\npatrol. This was done to give some of the men a break after a series of\nwar patrols.\n\n**Where would sailors be assigned when it was time for them to get a\nlonger break?**\n\nThe crewmen who were being rotated off the boat could be assigned to any\nnumber of duties. One of the most common would be to new construction.\nSubmarines in the latter stages of being finished needed many\nexperienced crewmen. The men coming off combat would help finish the new\nboat and provide the experienced core of the new crew. This way, they\nwould also get a few months break from combat while the new boat is\ncompleted and then undergoes sea trials, post-construction repairs,\ntraining and then the transit to their new homeport.\n\nOther possibilities for assignments included training billets, division\nor squadron staff or relief crews. Relief crews were the experienced\nsailors who would take over for the first two weeks for boats coming off\npatrol. They started or assisted with repairs and upgrading equipment as\nneeded. They were fully responsible for the boat so that the crew could\nget the full two weeks off. However, the commanding officer, executive\nofficer and senior department heads would often monitor the work being\ndone on the boat even during that two-week-off period.\n\nAfter about six war patrols, submarines were given an overhaul.\nOverhauls were extended maintenance periods for larger repairs and the\ninstallation training for new equipment. The hull might be cleaned for\nbetter speed. It could also be repainted. This would often be back on\nthe West Coast so the added transit time is also part of the longer\nbreak between patrols.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 139,
+    "question": "How are things different before a sailor is qualified?",
+    "answer": "When you report aboard your first submarine you are a non-qualified puke\n(NQP), a life form just below pond scum. Another version of this is that\nyou are a useless food-consuming being (UFB).\n\nThe main point is that you have a great deal of work to do before you\nare a qualified submariner. You are expected to spend your spare time\nworking on your quals. During that time, you are not allowed to watch\nmovies or play games. Your spare time, such as it may be, is supposed to\nbe spent on your qualifications.\n\n**What did they do for entertainment once they completed\nqualifications?**\n\nThe most common thing would be playing cards chess, or checkers. Acey\ndeucey was a Navy version of backgammon. Cribbage was a frequent card\ngame along with Bridge in the wardroom. There were also books and the\nradio. There were also movies, although not all were recent and they\nwould often be shown multiple times.\n\nPlaying cards had to be specially made or adjusted to be used under red\nlights. The hearts, diamonds and red numbers disappear in red light.\n(See below for information about the red lights.)\n\nWhen out in the Western Pacific, the radio would pick up Tokyo Rose, who\nwas actually different persons at various times. The sailors would laugh\nat the propaganda -- it was interesting to find out you had been sunk\nmultiple times -- but the music was surprisingly current.\n\nIn addition, there would be the normal jumping to conclusions and the\ngood-natured harassment of each other.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 140,
+    "question": "What does it feel like to be submerged?",
+    "answer": "As long as you are OK being in small space, it doesn't feel much\ndifferent. You are inside the pressure hull, meaning that the pressure\nyou feel personally isn't very different. It is sort of like being in a\npassenger plane. The change in pressure isn't very noticeable. The\ndifference, of course, is that in airplanes, the outside pressure is\nless. In submarines, it is greater but it is still outside the pressure\nhull. In short, it was no big deal. Depending on the weather and the sea\nstate topside, being submerged might be preferable\n\nThe hull will compress a little when you go deep. However, at least on\nthese WW2 boats, it isn't enough to notice a pressure change. It may\nstill be enough to mess with the new crew members. You can tie a string\nfrom one side of the hull to the other and pull it tight when on or near\nthe surface. Then, as you go deeper and the hull compresses, the string\nwill sag all out of proportion to the actual compression. It looks far\nmore significant than it is.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 141,
+    "question": "Does the hull creak when you go deep?",
+    "answer": "It does, a little, on these WW2 boats. However, it isn't a big deal.\nSoon you will barely notice it because it has become a normal noise. You\nmight even forget that it made noise.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 142,
+    "question": "Do you feel the motion when you are submerged?",
+    "answer": "Yes, but it quickly gets to be at a lesser amount. Down at 100 to 150\nfeet, the wave motion from the typical swells is mostly or completely\ngone. The boat is much steadier. However, you probably will be aware of\nup and down angles during larger changes in depth. Those are due to\noperation of the boat and are separate from wave action.\n\nShortly after leaving port, the captain will usually do \"angles and\ndangles.\" This is normally announced in advance. The captain would then\norder depth changes with larger up and down angles. This is done to\nshake loose any equipment and supplies that aren't stored properly. This\nprovides an opportunity to store everything properly before it can\nbecome a problem.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 143,
+    "question": "Why was there red lighting in some spaces?",
+    "answer": "The primary purpose was to protect night vision. When going from white\nlights to darkness -- in this case up on the Bridge or looking through\nthe periscope -- we are practically blind for 15 seconds or more. We\nwere sending men up to the Bridge in darkness. We would prefer that they\ndidn't hurt themselves getting there. When going from red lights to\ndarkness, we usually avoid the time that we are completely blind.\n\nIt also reduces the time to get full night vision. Although some people\nclaim that it takes hours to get our full night vision, we can get most\nof it in about 20 minutes if we come from white lights. If, however, we\ncome from red lights we get most of our night vision back in about 10\nminutes.\n\nThe lookouts in WW2 were looking for smoke on the horizon, usually the\nfirst indication of enemy ships. There may not have been a moon up yet,\nor maybe the sky was clouded over. They were looking for smoke in a\ndark, grey night. We needed to give the lookouts the best chance of\nseeing enemy activity that we could.\n\nWhen getting ready for a watch on the Bridge, sailors would usually be\ngiven red glasses or goggles to help preserve their night vision. This\nwould prevent a stray flashlight or match from doing any damage to\nsomeone's night vision. However, all flashlights used in red-light\nspaces should have a red lens for the same reason.\n\nIt also prevents white lights from giving away our location. White\nlights can show a beam for a great distance. If you remember the first\n9/11 memorials in New York City, you know what this means. The memorials\nwere just lights shining up to the sky from where the towers had stood.\nThose beams of light were visible for miles all around. Submarines don't\nwant to show something like that.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 144,
+    "question": "How much of the boat was \"rigged for red\"?",
+    "answer": "Most of the boat would be rigged for red. Only Maneuvering and the\nengine rooms would still be using white lights. The After Torpedo Room\nwould be rigged for red for sleeping purposes. Crew there would have to\ngo through the machinery spaces to get to the bridge where they are\nexposed to white lights unless they are wearing red glasses.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 145,
+    "question": "Did the red lights cause any difficulties?",
+    "answer": "No serious difficulties. It is a bit harder to see gauges and labels in\nred lights, but we get used to that quickly. The most famous issue is\nthat it was briefly impossible to play cards. If you have a deck in true\nred light, the red numbers and spots (hearts and diamonds) completely\ndisappear. Sub sailors are quite resourceful and quickly solved the\nproblem. They outlined the hearts and diamonds, and repeated the\nnumbers, in black. Soon there was a deck of cards printed for\nsubmarines. Google \"submarine playing cards\" at [Submarine Cards ---\nSubmarine Playing Cards --- The World of Playing Cards\n(wopc.co.uk)](https://www.wopc.co.uk/usa/brown-and-bigelow/submarine)\nfor examples of how they solved the problem.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 146,
+    "question": "How can I avoid an issue like this at home?",
+    "answer": "We experience this most commonly when coming out of the bathroom at\nnight. We turn off the lights and open the door, and we see nothing for\n15 seconds or so. One solution would be to install red lights in the\nbathroom. However, that's not likely to happen.\n\nAnother option is to do the \"pirate thing.\" (What on earth are we\ntalking about here? Is this person nuts?) You have probably noticed that\nnearly all depictions of pirates include an eye patch. Certainly, you\ndidn't think that",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 147,
+    "question": "What messages did the crew get from home?",
+    "answer": "Very few, if any. Unlike today, there was no way to call or text the\nfamily back at home. There were also significant concerns about\nsecurity. Finally, there were concerns about servicemen getting bad news\nwhen they couldn't do anything about it. There was no sense letting\nsomeone know about serious problems at home when he couldn't do anything\nat all about it.\n\nLetters were the obvious means of communications with families. Sailors\nmight write regularly, but there was no incoming or outgoing mail when\nat sea. Large surface ships might get or send mail occasionally using\nreplenishment ships. Since submarines operated separately or in small\ngroups, there were no postal deliveries. As a result, sailors would\nreceive mail from home and friends in batches. They would also mail\ntheir letters out in batches.\n\nOutgoing mail would be censored. It would normally be read by one of the\nofficers and there might be some holes where sensitive information was\ncut out. Naturally, some sailors would develop code words or phrases\nthat would provide some very basic information about what was happening.\nHowever, orders were secret before departure and the crew would not\nnormally know where they would be patrolling next. There wasn't much\nthey could give away.\n\nThis is still mostly true today. There are family grams, a limited\nnumber of messages that could be sent from home to the crew,\nparticularly for the missile boats. However, they are screened for\nsecurity and to make sure they wouldn't upset a sailor who couldn't do\nanything about a problem.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 148,
+    "question": "How do you get exercise when on a submarine?",
+    "answer": "On the WW2 boats, it is often claimed that the only exercise the men got\nwas jumping to conclusions or playfully harassing each other. The fact\nis that there wasn't the room, and often not the time, for regular\nexercise. There was usually some work going on during the day in the few\ncompartments with space. As a result, the only real exercise would come\nfrom whatever manual work you had to do or going up and down ladders.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 149,
+    "question": "Where are the offices?",
+    "answer": "There are only the two offices on the boat. There is the Log Office,\nwhich is the tiny space in the Maneuvering Room for the Engineering\nDepartment. The ship's office, for the Yeoman, is a bit larger and is\nlocated across from the Goat Locker in the Forward Battery. The\ncaptain's cabin has a desk and a bit more storage, but isn't really an\noffice.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 150,
+    "question": "Did the captain get the fancy room with only one bunk?",
+    "answer": "The captain did get the separate cabin all to himself, although it isn't\nthat fancy. It did allow a minimum of privacy, although there was only a\ncurtain instead of a door. He did have his own desk as well as course\nand depth indicators. It should also be noted that he would probably be\nawakened often, in accordance with his night orders. He would want to\nknow of any potential enemy contacts as soon as possible. He would also\nwant to know when the battery charge was completed and when the boat was\nprepared for the activities of the next day. In peacetime, the captain\nwould also want to know whenever any ship was expected to come within\nfive miles of the boat. He would expect to know what the OOD was doing\nto stay clear of the other ship.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 151,
+    "question": "Did captains always get credit for ships they sank?",
+    "answer": "They didn't always think so. The first issue is that captains often\noverestimated the type of ship that was attacked, the damage done and\nthe tonnage sunk. This estimate would be more accurate if the target was\npositively identified and then sunk. It helped if some of the wreckage\nwith the ship's identification could be recovered.\n\nThen there were reviews of the claims by the individual captains by the\nsubmarine commanders for the area -- the Central Pacific and the\nSouthwest Pacific. Monitoring Japanese radio traffic could often confirm\nsinkings and the identities of those ships. That could increase the\ncaptains' claims but most often reduced them\n\nThe final review, after the war, was by the Joint Army--Navy Assessment\nCommittee (JANAC) which audited Japanese naval losses in WW2. This\nalmost always resulted in captains losing credit for some ships sunk.\nJapanese records may not have been complete, particularly with regard to\nsmaller vessels, those under 500 tons. Many submarine captains believed\nthat they did not get full credit for the ships they sank.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 152,
+    "question": "What was JANAC?",
+    "answer": "JANAC -- \"Joint Army--Navy Assessment Committee was a United States\ninter-service agency set up to analyze and assess Japanese naval and\nmerchant marine shipping losses caused by U.S. and Allied forces during\nWorld War II.\" (From Wikipedia.) This committee reconciled American and\nJapanese records to try to confirm sinkings.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 153,
+    "question": "What was \"Liberty\"?",
+    "answer": "Liberty was, and still is, time off for sailors when not on duty\novernight or when visiting a port. Usually, one third of the crew will\nremain on board at all times so that the ship can get underway if needed\nduring an emergency. The other two thirds may have liberty. Liberty is\nusually just overnight or over a weekend assuming the sailor isn't part\nof a duty section. It is not time off counted against leave.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 154,
+    "question": "What was \"Leave\"?",
+    "answer": "Leave is extended time off, similar to vacations in the civilian world.\nIt was earned at a consistent rate and an individual's leave balance was\ntracked. There was a limit during peacetime as to how much leave could\nbe accrued without losing the days over the limit. Leave not taken would\nbe paid out when the sailor leaves the Navy.",
+    "category_id": 5,
+    "category_name": "Life Aboard WW2 US Subs"
+  },
+  {
+    "id": 155,
+    "question": "In what battles were submarines involved?",
+    "answer": "This question usually is asking about the major naval battles of WW2\nsuch as Coral Sea, Midway, The Philippine Sea and Leyte Gulf. Submarines\nwere involved in most of the major battles of the war, but usually\nindirectly or at the edges. It makes sense that submarines did not want\nto be in the middle of a major gun battle. That would be too much like\nbeing dog in the middle of a bison stampede. It would be too easy to be\nrun over while no one noticed.\n\nSubmarines did provide important intelligence. The most important\ninformation would be the location, composition and heading (sailing\ndirection) of enemy forces. They sometimes had the opportunity to attack\nthose forces before or after the big battles and, at times, were very\nsuccessful. In other cases, our submarines contributed by destroying\nsupplies, destroying troop ships or providing lifeguard duty for our\naviators. They did contribute even without being in the middle of the\nbattle.\n\nThe history of submarines participating around the great naval battles\nof WW2 will be described further below.\n\nHowever, submarines were in many smaller battles. Nearly every time a\nsubmarine attacked Japanese ships, they found themselves in a battle.\nThe Japanese did not take kindly to having their ships attacked and they\nfought back. The intensity and duration of the battles varied. Sometimes\nthe Japanese had trouble finding our submarines and they would just drop\ndepth charges to try to deter another attack. Sometimes there was a\nlimited number of escorts and it was more important to guard the\nremaining ships than to find and sink the submarine. At other times the\nattacks were ferocious and prolonged.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 156,
+    "question": "What were some examples of the worst attacks?",
+    "answer": "Here are four examples of the most effective attacks, plus some\ninformation about the strongest attack on the *Pampanito* on her first\nwar patrol.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 157,
+    "question": "How did submarines find targets?",
+    "answer": "Submarines had various ways to find targets during WW2. One was just to\nsearch in the area they were given to patrol. It would be up to the\ncaptain to try to determine the most likely areas for successful\nhunting. That would be based on their own experience, information from\nother captains in patrol reports and general intelligence information.\n\nIf enemy shipping had gotten past another American submarine, that boat\nwould broadcast the location and best estimate of base course and speed.\nThat would hopefully allow other boats to get into position to attack.\n\nWe began to formally use wolfpacks in the fall of 1943",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 158,
+    "question": "Could they go anywhere they wanted to find targets?",
+    "answer": "Definitely not. Boats were assigned to specific areas, both for safety\nand coverage. If you were outside your assigned area, you might be\nattacked by friendly forces who weren't very good at distinguishing our\nsubmarines from the Japanese. Or you might incorrectly identify another\nof our submarines and attack. You might also miss shipping that was\nproceeding through your assigned area that the higher commanders assumed\nyou would intercept.\n\nThis was likely frustrating for some captains. The most successful\ncaptains were often assigned to the most promising areas. That might\nmean that the less successful captains might have a difficult time\nfinding the targets to become successful, and to then get the better\nassignments.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 159,
+    "question": "What did they do if they found a possible target?",
+    "answer": "The first thing the Officer of the Deck (OOD) would do would be to order\na course to point the submarine at the target. Then the OOD would\nimmediately alert the captain. Once the boat was pointed at the target,\nthe captain could determine which way it was moving relative to the\nboat. He could then decide what course to take to get in front of the\ntarget to be able to attack.\n\nAt some point, if there was a chance of getting close enough for an\nattack, the captain would call for the tracking party. It would help\nprovide confirmation of the captain's estimates and allows him to make\nneeded adjustments. Eventually, if it appears that the submarine can get\nwithin firing range of the target, the captain will call the full crew\nto battle stations and attack.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 160,
+    "question": "How did they know they were enemy ships?",
+    "answer": "The first indication would be a lack of information about any friendly\nships in the area. In WW2, submarines were operating deep into enemy\nareas and could start with the assumption that any ship was likely to be\nhostile. If there were friendly ships in the area, did the potential\ntargets match any of that information?\n\nThen it was a matter of identification. The US had books that described\nthe known Japanese warships, merchant ships and tankers. Captains would\nuse features such as the type of bow and stern, the types of masts and\nfunnels to compare what was seen in the periscopes to what could be\nfound in the book. Captains would be very familiar with the outlines of\nthe Japanese warships, and that made identification faster and easier.\n\nOne could also be more confident that it was an enemy ship if it was\nshooting at you.\n\nHowever, by the end of the war, we had sunk most of the Japanese\nmerchant fleet. It then became easier to find another American submarine\nthan it was a Japanese ship to attack. (The joke was that you could\ncross the South China Sea just stepping from one American periscope to\nanother.) Obviously, more caution was needed then.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 161,
+    "question": "Did anyone ever make a mistake in ship identification?",
+    "answer": "Definitely, although most of those were mistakes in confusing one\nJapanese ship for another. Captains might identify a cruiser as a\nbattleship or a destroyer as a cruiser. They might overestimate the size\nof the cargo ship or tanker that they attacked.\n\nIn other cases, our submarines were attacked by friendly aircraft or\nships, particularly early in the war. As a result, submarines quickly\nlearned to never trust any airplanes except, perhaps, those planes that\nwould escort the boat into port. It isn't completely clear, but we may\nhave lost one or two submarines to our own aircraft.\n\nIn one of the saddest incidents in the war, an American submarine sank a\nRussian hospital ship. It was misidentified in the fog as an enemy\ncombatant, and the captain had not seen the notice that the hospital\nship would be transiting the area. It was a diplomatic disaster. The\ncaptain lost his command.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 162,
+    "question": "What is the tracking party?",
+    "answer": "This is the group of sailors who would help the captain track the\nprogress of the target. It would include the personnel to log events,\nplot the target's movements relative to the boat, and to man the Torpedo\nData Computer or TDC. This is the device that calculates the final\ncourse for any torpedoes. However, at this early stage, the TDC is\nimportant because it provides a running estimate of the target's\nlocation and movement. It helps the captain assess the status of his\nattack plan.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 163,
+    "question": "What is fire control?",
+    "answer": "Fire control is the equipment and process of aiming the appropriate\nweapons at a target. In the case of WW2 submarines, this usually meant\nthe Torpedo Data Computer (TDC) which sent the final course, to collide\nwith the target, to the torpedo. The torpedo stored that information in\na gyroscope.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 164,
+    "question": "How many torpedoes would be fired at a target?",
+    "answer": "This would depend on what type of ship the target is. Generally, the\nlarger the ship, the more torpedoes that would be used. The more armored\nthe ship, the more torpedoes that would be needed. If the target is\npointed right at you, such as a destroyer or other escort, you would\nlikely only fire one at a time if you dared the shot at all.\n\nCarriers and battleships would rate all six torpedoes if firing from the\nForward Torpedo Room or all four from the After Torpedo Room. Destroyers\nmight rate two or three. Cruisers and large cargo ships and tankers\nmight rate three or four. Smaller cargo ships might rate only two.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 165,
+    "question": "How many torpedo hits would it take to sink a ship?",
+    "answer": "That also depends on a variety of factors. What type of ship is it? Is\nit in good condition? What is it carrying? Is it fully loaded or nearly\nempty? What part of the target did you hit? Here are some examples:\n\n- US submarines sank only one Japanese battleship. The *Sealion* sank\n  the battleship *Kongo* in November of 1944. That required three hits\n  from a salvo of six fired.\n\n- Carriers normally required multiple hits because of their size.\n  However, *Albacore* managed to sink the Japanese carrier *Taiho* with\n  a single torpedo. *Albacore* had help from a fatal mistake by Japanese\n  damage control. More details are below in the Battle of the Philippine\n  Sea.\n\n- Sam Dealey, captain of the *Harder*, was the destroyer killer. He was\n  sometimes using \"down the throat\" shots which meant the destroyer was\n  coming directly at him to attack. Dealey would fire torpedoes and the\n  destroyer would try to turn away. That actually presented a wider\n  target. Typically, only one torpedo would hit the destroyer. It was a\n  very dangerous method unless it worked. Few other captains used this\n  method.\n\n- Hitting an ammunition ship could easily result in a huge explosion and\n  a quick sinking.\n\n- Tankers could explode with one torpedo hit if it carried gasoline. In\n  that case, the explosion could be a blinding flash and the ship would\n  just be gone when the smoke cleared. However, if it were carrying\n  crude oil, it might not sink unless a fire was started. (Crude doesn't\n  start burning easily.)\n\n- An empty tanker could be very difficult to sink unless it was hit in\n  the engineering spaces. Since the tanks were designed to be full of\n  fuel or ballast water, a torpedo might only fill them with seawater.\n  Such damage would need to be repaired, but might have only slowed the\n  ship a little.\n\n- The *Salmon* actually sank a ship with a torpedo that didn't explode.\n  It was an old ship and the dud torpedo punched right through its side.\n  That was enough to flood and sink the target.\n\n- The *Rakuyo Maru*, the ship from which the Pampanito rescued the 73\n  British and Australian soldiers, who were POWs, was carrying raw\n  rubber. Although rubber is too dense to float, the fact that it filled\n  that hold and absorbed most of the explosion, left the *Rakuyo Maru*\n  sinking very slowly. It allowed the soldiers time to climb back aboard\n  and to find a little food, water and materials for rafts.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 166,
+    "question": "What usually happened after we attacked Japanese ships?",
+    "answer": "For some reason, that seemed to make the Japanese angry and they would\nrespond. Sometimes we were fortunate and, in the chaos that followed,\nthe Japanese would drop depth charges indiscriminately. They might not\nbe anywhere near the attacking boat. In those cases, they seemed to be\nhoping mostly just discourage another attack or to scare the submarines\naway.\n\nOther times, the counter attacks were very effective. Remember that we\ndid lose 52 submarines during the war and at least 27 were due to\nJapanese anti-submarine warfare forces.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 167,
+    "question": "How were our submarines detected?",
+    "answer": "If our captains were lucky or very good, the first indication of one of\nour submarines would be a torpedo exploding against the side of a\nJapanese ship. Note, however, that our captains would often be firing\nfrom inside the Japanese escorts. In addition, the steam torpedoes that\nwe used during WW2 left a trail of bubbles and smoke that pointed back\nto where the submarine fired them. It wasn't always difficult to figure\nout where the submarine had been.\n\nThe Japanese did have electronics such as radar and sonar. However, they\ndid not seem to place as much importance on them as we did. Some ships\ndid not have radar until late in the war. It also appears that we and\nthe British were making far more upgrades to our equipment. Still, the\nJapanese electronics were good enough that they were sometimes able to\ndetect our submarines. They could also detect our radio and radar\ntransmissions. That is a large part of the reason why American\nsubmarines used radar sparingly and transmitted few messages.\n\nJapanese aircraft would patrol the routes that their ships used most\noften. Another good place to look for submarines is around their\nconvoys. Sometimes they were able to catch our boats on the surface.\nThat would still be useful information even if the plane was not able to\nattack.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 168,
+    "question": "How did submarines escape?",
+    "answer": "If the submarine was submerged, the most important thing would be to be\nvery quiet so that the Japanese sonar didn't pick us up. Most often,\nthat also meant moving very slowly.\n\nOnce an attack run was started by a Japanese ASW ship, they would\napproach at high speed. They too have to get clear of the explosion.\nWhen they are running at high speed their sonar would be overwhelmed by\ntheir own ship noises and the flow of water over their equipment. That\nallows the submarine captain a brief opportunity for evasion tactics\nsuch as turning or changing depth or speed. However, if there are\nmultiple ships attacking the submarine, the others can move slowly\nenough for their sonars to still be effective.\n\nGenerally, it was a cat and mouse game. It would be the wits and\ningenuity of the submarine captain against his attacker(s). The\nsubmarine also had the advantage of using all three dimensions. The\nattackers had to estimate not just where the submarine was but also how\ndeep it was. Depth charges had to get pretty close - probably within 25\nfeet or so - to the submarine to breach the hull and sink it.\n\nOur submarines were rather sturdy and could absorb a fair amount of\ndamage. Sometimes the key was to contain and repair the damage long\nenough so that the Japanese would just assume that they must have been\nsuccessful.\n\nOutlast them %%%%\n\nThere is also an ejection tube in the After Torpedo Room. That tube can\nbe used to launch a countermeasure. The most primitive version is a\ncompound that generates bubbles when it is ejected into water. (It\nbehaves very much like a giant Alka Seltzer.) This provides two targets\nfor the Japanese sonar since any change in density will reflect sonar,\neither the steel hull or the empty bubbles. This only a temporary decoy\nsince the bubbles will disburse and rise to the surface.\n\n%%%% Was this available to US boats in WW2. It was to the Germans.\n\nCaptains would also be looking for a \"layer.\" That is a sudden change in\ntemperature as the boat goes deeper. The change in temperature can\ndistort sonar, bending it to confuse the pulse, or even reflect it\nallowing the submarine to hide. Such a layer is called a thermocline.\nThere is a bathythermograph in the Control Room. It is a small box that\nrecords the water temperature at various depths.\n\nIf the submarine is on the surface, other factors come into play. Of\ncourse, one choice is to submerge quickly and then turn or go deep\nbefore the attacker comes close.\n\nAssuming that it is in the hours of darkness, there are things that can\nhelp make the submarine less visible to an attacker.\n\nPoint away for lowest profile.\n\nExperimented with colors to be least visible.\n\nMight be able to outrun the attacker if it is small enough.\n\nFog or rain squalls\n\nHope no bioluminescence\n\nUp moon or down?",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  },
+  {
+    "id": 169,
+    "question": "What other things can surface ships do to attack a submarine?",
+    "answer": "Force it to the surface\n\nRam\n\nTorpedo?\n\nCavitate -- Cavitation is the collapsing of bubbles along the edge of\nthe propellor blades. The bubbles are created by operating at higher\nspeeds. The collapsing noise can usually be heard by the sonar of\nanti-submarine vessels.\n\nASW -- anti-submarine warfare. Vessels and aircraft designed to locate\nand destroy submarines. What submariners consider to be the other guys.",
+    "category_id": 6,
+    "category_name": "Attacks and Battles, Small and Large"
+  }
+]
+};
+
+export default async function handler(req, res) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  const { action, category_id, q } = req.query;
+
+  try {
+    switch (action) {
+      case 'categories':
+        return res.json(submarineData.categories);
+        
+      case 'faqs':
+        if (category_id) {
+          const categoryFaqs = submarineData.faqs.filter(faq => 
+            faq.category_id === parseInt(category_id)
+          );
+          return res.json(categoryFaqs);
+        } else {
+          return res.json(submarineData.faqs);
+        }
+        
+      case 'search':
+        if (q) {
+          const searchResults = submarineData.faqs.filter(faq =>
+            faq.question.toLowerCase().includes(q.toLowerCase()) ||
+            faq.answer.toLowerCase().includes(q.toLowerCase())
+          );
+          return res.json(searchResults);
+        } else {
+          return res.json([]);
+        }
+        
+      case 'stats':
+        return res.json({
+          total_faqs: submarineData.faqs.length,
+          total_categories: submarineData.categories.length,
+          status: 'online'
+        });
+        
+      case 'init':
+        return res.json({ 
+          message: 'Real submarine FAQ API ready!', 
+          categories: submarineData.categories.length,
+          faqs: submarineData.faqs.length,
+          source: 'Extracted from markdown files'
+        });
+        
+      default:
+        return res.status(400).json({ error: 'Invalid action' });
+    }
+    
+  } catch (error) {
+    console.error('API error:', error);
+    return res.status(500).json({ error: 'API error: ' + error.message });
+  }
+}

@@ -1,14 +1,28 @@
-// Submarine FAQ data - self-contained, no external dependencies
-const submarineData = {
-  categories: [
-    { id: 1, name: "Hull and Compartments", description: "Learn about submarine construction, hull design, and compartment layouts." },
-    { id: 2, name: "US WW2 Subs in General", description: "General information about American submarines during World War II." },
-    { id: 3, name: "Life Aboard WW2 US Subs", description: "Daily life, living conditions, and crew experiences aboard submarines." },
-    { id: 4, name: "Operating US Subs in WW2", description: "Operational procedures, tactics, and submarine warfare techniques." },
-    { id: 5, name: "Attacks and Battles, Small and Large", description: "Combat operations, battles, and military engagements." },
-    { id: 6, name: "Who Were the Crews Aboard WW2 US Subs", description: "Information about submarine crews, their roles, and backgrounds." }
-  ],
-  faqs: [
+// Import real submarine FAQ data from markdown files
+import { submarineData } from '../submarine-faq-data.js';
+
+// Add descriptions to categories
+const categoriesWithDescriptions = submarineData.categories.map(category => ({
+  ...category,
+  description: getCategoryDescription(category.name)
+}));
+
+function getCategoryDescription(name) {
+  const descriptions = {
+    'Hull and Compartments': 'Learn about submarine construction, hull design, and compartment layouts.',
+    'US WW2 Subs in General': 'General information about American submarines during World War II.',
+    'Life Aboard WW2 US Subs': 'Daily life, living conditions, and crew experiences aboard submarines.',
+    'Operating US Subs in WW2': 'Operational procedures, tactics, and submarine warfare techniques.',
+    'Attacks and Battles, Small and Large': 'Combat operations, battles, and military engagements.',
+    'Who Were the Crews Aboard WW2 US Subs': 'Information about submarine crews, their roles, and backgrounds.'
+  };
+  return descriptions[name] || 'Detailed information about submarine operations and technology.';
+}
+
+// Use the real data
+const fullSubmarineData = {
+  categories: categoriesWithDescriptions,
+  faqs: submarineData.faqs.slice(0, 5) // Remove this line - this was for sample data
     {
       id: 1,
       question: "Is a submarine a boat or a ship?",

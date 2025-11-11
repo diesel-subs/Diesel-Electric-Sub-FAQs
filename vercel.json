@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/postgres-faqs.js",
+      "src": "api/real-faqs.js",
       "use": "@vercel/node"
     },
     {
@@ -13,15 +13,11 @@
   "routes": [
     {
       "src": "/api/faqs",
-      "dest": "/api/postgres-faqs.js"
+      "dest": "/api/real-faqs.js"
     },
     {
-      "src": "/api/setup",
-      "dest": "/api/postgres-faqs.js"
-    },
-    {
-      "src": "/api/test",
-      "dest": "/api/test.js"
+      "src": "/api/init",
+      "dest": "/api/real-submarine-faqs.js"
     },
     {
       "src": "/(.*)",
