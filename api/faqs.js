@@ -20,7 +20,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
+
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     switch (action) {
       case 'categories':
         return res.json(staticData.categories);
-        
+
       case 'faqs':
         // Return sample FAQs for testing
         const sampleFAQs = [
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
           }
         ];
         return res.json(sampleFAQs);
-        
+
       case 'search':
         if (q) {
           // Return search results based on query
@@ -67,14 +67,14 @@ export default async function handler(req, res) {
         } else {
           return res.json([]);
         }
-        
+
       case 'stats':
         return res.json(staticData.stats);
-        
+
       default:
         return res.status(400).json({ error: 'Invalid action' });
     }
-    
+
   } catch (error) {
     console.error('API error:', error);
     return res.status(500).json({ error: 'API error: ' + error.message });

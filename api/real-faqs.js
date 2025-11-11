@@ -20,9 +20,9 @@ async function parseMarkdownFAQs(filePath, categoryId, categoryName) {
     let inQuestion = false;
     let inAnswer = false;
     let faqId = 1;
-    
+
     const lines = content.split('\n');
-    
+
     for (const line of lines) {
       if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
         // Save previous FAQ if exists
@@ -35,7 +35,7 @@ async function parseMarkdownFAQs(filePath, categoryId, categoryName) {
             category_name: categoryName
           });
         }
-        
+
         // Start new question
         currentQuestion = line.slice(2, -2); // Remove ** markers
         currentAnswer = '';
@@ -50,7 +50,7 @@ async function parseMarkdownFAQs(filePath, categoryId, categoryName) {
         currentAnswer += line + '\n';
       }
     }
-    
+
     // Don't forget the last FAQ
     if (currentQuestion && currentAnswer.trim()) {
       faqs.push({
@@ -61,7 +61,7 @@ async function parseMarkdownFAQs(filePath, categoryId, categoryName) {
         category_name: categoryName
       });
     }
-    
+
     return faqs;
   } catch (error) {
     console.error(`Error reading ${filePath}:`, error);
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
+
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -88,14 +88,14 @@ export default async function handler(req, res) {
           name: cat.name,
           description: getCategoryDescription(cat.name)
         })));
-        
+
       case 'faqs':
         if (category_id) {
           const category = categories.find(cat => cat.id === parseInt(category_id));
           if (!category) {
             return res.json([]);
           }
-          
+
           const filePath = path.join(process.cwd(), category.file);
           const faqs = await parseMarkdownFAQs(filePath, category.id, category.name);
           return res.json(faqs);
@@ -109,7 +109,7 @@ export default async function handler(req, res) {
           }
           return res.json(allFaqs);
         }
-        
+
       case 'search':
         if (q) {
           let allFaqs = [];
@@ -118,7 +118,7 @@ export default async function handler(req, res) {
             const faqs = await parseMarkdownFAQs(filePath, category.id, category.name);
             allFaqs = allFaqs.concat(faqs);
           }
-          
+
           const searchResults = allFaqs.filter(faq =>
             faq.question.toLowerCase().includes(q.toLowerCase()) ||
             faq.answer.toLowerCase().includes(q.toLowerCase())
@@ -127,7 +127,7 @@ export default async function handler(req, res) {
         } else {
           return res.json([]);
         }
-        
+
       case 'stats':
         let totalFaqs = 0;
         for (const category of categories) {
@@ -135,13 +135,13 @@ export default async function handler(req, res) {
           const faqs = await parseMarkdownFAQs(filePath, category.id, category.name);
           totalFaqs += faqs.length;
         }
-        
+
         return res.json({
           total_faqs: totalFaqs,
           total_categories: categories.length,
           status: 'online'
         });
-        
+
       default:
         return res.status(400).json({ error: 'Invalid action' });
     }

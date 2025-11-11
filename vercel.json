@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/complete-faqs.js",
+      "src": "api/formatted-faqs.js",
       "use": "@vercel/node"
     },
     {
@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/api/faqs",
-      "dest": "/api/complete-faqs.js"
+      "dest": "/api/formatted-faqs.js"
     },
     {
       "src": "/api/init",

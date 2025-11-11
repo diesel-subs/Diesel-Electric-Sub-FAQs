@@ -11,51 +11,62 @@ const categories = [
   { id: 6, name: "Attacks and Battles, Small and Large", file: "20-Attacks-and-Battles-Small-and-Large.md" }
 ];
 
-function parseMarkdownFAQs(content, categoryId, categoryName) {
+function parseMarkdownFAQsPreserveFormatting(content, categoryId, categoryName) {
   const faqs = [];
   const lines = content.split('\n');
-  let currentQuestion = '';
-  let currentAnswer = '';
   let faqId = 1;
+  let currentQuestion = '';
+  let currentAnswer = [];
   let inAnswer = false;
-
+  
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-
+    
     // Check if this is a question (starts and ends with **)
-    if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
+    if (line.match(/^\*\*.*\*\*$/)) {
       // Save previous FAQ if exists
-      if (currentQuestion && currentAnswer.trim()) {
+      if (currentQuestion && currentAnswer.length > 0) {
+        // Join answer paragraphs, preserving markdown formatting and paragraph breaks
+        const formattedAnswer = currentAnswer
+          .join('\n')
+          .replace(/\n{3,}/g, '\n\n')  // Replace multiple line breaks with double breaks
+          .trim();
+          
         faqs.push({
           id: faqId++,
           question: currentQuestion.trim(),
-          answer: currentAnswer.trim().replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+          answer: formattedAnswer,
           category_id: categoryId,
           category_name: categoryName
         });
       }
-
-      // Start new question
-      currentQuestion = line.slice(2, -2); // Remove ** markers
-      currentAnswer = '';
+      
+      // Start new question - remove ** markers but preserve internal formatting
+      currentQuestion = line.slice(2, -2);
+      currentAnswer = [];
       inAnswer = true;
-    } else if (inAnswer && line.trim() && !line.startsWith('#')) {
-      // This is part of the answer - collect all lines until next question
-      currentAnswer += line + '\n';
+    } else if (inAnswer && !line.startsWith('#')) {
+      // This is part of the answer - preserve all formatting and structure
+      currentAnswer.push(line);
     }
   }
-
+  
   // Don't forget the last FAQ
-  if (currentQuestion && currentAnswer.trim()) {
+  if (currentQuestion && currentAnswer.length > 0) {
+    const formattedAnswer = currentAnswer
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+      
     faqs.push({
       id: faqId++,
       question: currentQuestion.trim(),
-      answer: currentAnswer.trim().replace(/\n+/g, ' ').replace(/\s+/g, ' '),
+      answer: formattedAnswer,
       category_id: categoryId,
       category_name: categoryName
     });
   }
-
+  
   return faqs;
 }
 
@@ -71,25 +82,25 @@ function getCategoryDescription(name) {
   return descriptions[name] || 'Detailed submarine information and answers.';
 }
 
-// Extract all FAQs
+// Extract all FAQs with preserved formatting
 let allFAQs = [];
 categories.forEach(category => {
   try {
     const filePath = path.join(__dirname, category.file);
     const content = fs.readFileSync(filePath, 'utf-8');
-    const faqs = parseMarkdownFAQs(content, category.id, category.name);
+    const faqs = parseMarkdownFAQsPreserveFormatting(content, category.id, category.name);
     allFAQs = allFAQs.concat(faqs);
-    console.log(`${category.name}: ${faqs.length} FAQs`);
+    console.log(`${category.name}: ${faqs.length} FAQs (with formatting preserved)`);
   } catch (error) {
     console.error(`Error reading ${category.file}:`, error.message);
   }
 });
 
-console.log(`\nTotal FAQs extracted: ${allFAQs.length}`);
+console.log(`\nTotal FAQs extracted: ${allFAQs.length} with preserved markdown formatting`);
 
-// Generate the complete API file
-const apiContent = `// Complete submarine FAQ data - ALL ${allFAQs.length} FAQs from markdown files
-export default async function handler(req, res) {
+// Generate the complete API file with markdown support
+const apiContent = `// Complete submarine FAQ data - ALL ${allFAQs.length} FAQs with preserved markdown formatting
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -102,10 +113,10 @@ export default async function handler(req, res) {
   const { action, category_id, q } = req.query;
 
   const categories = ${JSON.stringify(categories.map(cat => ({
-  id: cat.id,
-  name: cat.name,
-  description: getCategoryDescription(cat.name)
-})), null, 2)};
+    id: cat.id,
+    name: cat.name,
+    description: getCategoryDescription(cat.name)
+  })), null, 2)};
 
   const faqs = ${JSON.stringify(allFAQs, null, 2)};
 
@@ -152,6 +163,6 @@ export default async function handler(req, res) {
   }
 }`;
 
-// Write the complete API file
-fs.writeFileSync(path.join(__dirname, 'api/complete-faqs.js'), apiContent);
-console.log(`\n✅ Generated complete-faqs.js with ${allFAQs.length} FAQs!`);
+// Write the improved API file
+fs.writeFileSync(path.join(__dirname, 'api/formatted-faqs.js'), apiContent);
+console.log(`\n✅ Generated formatted-faqs.js with ${allFAQs.length} FAQs and preserved markdown formatting!`);

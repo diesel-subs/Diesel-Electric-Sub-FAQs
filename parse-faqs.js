@@ -20,7 +20,7 @@ function parseMarkdownFAQs(content, category) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    
+
     // Check if this line is a question (starts and ends with **)
     if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
       // Save previous FAQ if exists
@@ -33,7 +33,7 @@ function parseMarkdownFAQs(content, category) {
           category_name: category.name
         });
       }
-      
+
       // Start new question
       currentQuestion = line.replace(/^\*\*/, '').replace(/\*\*$/, '').trim();
       currentAnswer = [];
@@ -45,7 +45,7 @@ function parseMarkdownFAQs(content, category) {
       continue;
     }
   }
-  
+
   // Don't forget the last FAQ
   if (currentQuestion && currentAnswer.length > 0) {
     faqs.push({
@@ -63,23 +63,23 @@ function parseMarkdownFAQs(content, category) {
 function generateFAQData() {
   const allFAQs = [];
   let globalId = 1;
-  
+
   // Process each markdown file
   Object.keys(categoryMap).forEach(filename => {
     const filePath = path.join(__dirname, filename);
-    
+
     if (fs.existsSync(filePath)) {
       console.log(`Processing ${filename}...`);
       const content = fs.readFileSync(filePath, 'utf8');
       const category = categoryMap[filename];
       const faqs = parseMarkdownFAQs(content, category);
-      
+
       // Assign global IDs
       faqs.forEach(faq => {
         faq.id = globalId++;
         allFAQs.push(faq);
       });
-      
+
       console.log(`Found ${faqs.length} FAQs in ${category.name}`);
     } else {
       console.log(`File not found: ${filename}`);

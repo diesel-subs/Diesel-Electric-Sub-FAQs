@@ -38,14 +38,14 @@ const categoryMap = {
 function extractFAQsFromMarkdown(content, categoryInfo) {
   const faqs = [];
   let faqId = 1;
-  
+
   // Split content by ** patterns to find questions
   const sections = content.split(/\*\*(.*?)\*\*/g);
-  
+
   for (let i = 1; i < sections.length; i += 2) {
     const question = sections[i].trim();
     const answer = sections[i + 1] ? sections[i + 1].trim() : '';
-    
+
     if (question && answer && question.includes('?')) {
       // Clean up the answer - remove markdown formatting and extra whitespace
       const cleanAnswer = answer
@@ -53,7 +53,7 @@ function extractFAQsFromMarkdown(content, categoryInfo) {
         .replace(/>\s*\*\*NOTE:\*\*/g, 'NOTE:')
         .replace(/>\s*/g, '')
         .trim();
-      
+
       if (cleanAnswer.length > 10) { // Only include substantial answers
         faqs.push({
           id: faqId++,
@@ -65,7 +65,7 @@ function extractFAQsFromMarkdown(content, categoryInfo) {
       }
     }
   }
-  
+
   return faqs;
 }
 
@@ -76,20 +76,20 @@ let totalFAQId = 1;
 
 Object.entries(categoryMap).forEach(([filename, categoryInfo]) => {
   const filePath = path.join(__dirname, filename);
-  
+
   if (fs.existsSync(filePath)) {
     console.log(`Processing ${filename}...`);
     const content = fs.readFileSync(filePath, 'utf8');
     const faqs = extractFAQsFromMarkdown(content, categoryInfo);
-    
+
     // Update FAQ IDs to be globally unique
     faqs.forEach(faq => {
       faq.id = totalFAQId++;
     });
-    
+
     allFAQs.push(...faqs);
     categories.push(categoryInfo);
-    
+
     console.log(`  Extracted ${faqs.length} FAQs`);
   } else {
     console.log(`File not found: ${filename}`);
