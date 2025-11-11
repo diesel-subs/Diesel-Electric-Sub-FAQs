@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/faqs.php",
-      "use": "vercel-php@0.6.0"
+      "src": "api/faqs.js",
+      "use": "@vercel/node"
     },
     {
       "src": "dynamic.html",
