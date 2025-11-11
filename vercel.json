@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/faqs.js",
+      "src": "api/postgres-faqs.js",
       "use": "@vercel/node"
     },
     {
@@ -13,7 +13,11 @@
   "routes": [
     {
       "src": "/api/faqs",
-      "dest": "/api/faqs.js"
+      "dest": "/api/postgres-faqs.js"
+    },
+    {
+      "src": "/api/setup",
+      "dest": "/api/postgres-faqs.js"
     },
     {
       "src": "/api/test",

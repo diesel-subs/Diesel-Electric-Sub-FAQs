@@ -24,6 +24,7 @@
   "homepage": "https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs#readme",
   "dependencies": {
     "express": "^5.1.0",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "@vercel/postgres": "^0.5.1"
   }
 }
