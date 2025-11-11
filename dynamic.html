@@ -208,8 +208,20 @@
     // Load FAQs for a specific category
     async function loadCategoryFAQs(categoryId, categoryName) {
         try {
-            const response = await fetch(`/api/faqs.php?action=faqs&category_id=${categoryId}`);
+            console.log(`Loading FAQs for category ${categoryId}: ${categoryName}`);
+            const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
+            console.log('FAQ Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
             currentFAQs = await response.json();
+            console.log('FAQ Data received:', currentFAQs);
+            
+            if (currentFAQs.error) {
+                throw new Error(currentFAQs.error);
+            }
             
             document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
             
@@ -230,8 +242,10 @@
             
             document.getElementById('faqs').innerHTML = faqsHTML;
             showSection('faqsSection');
+            console.log(`Successfully loaded ${currentFAQs.length} FAQs`);
         } catch (error) {
-            alert('Error loading FAQs. Please try again.');
+            console.error('FAQ loading error:', error);
+            alert(`Error loading FAQs: ${error.message}. Please try again.`);
         }
     }
 
@@ -247,7 +261,7 @@
         if (!query) return;
         
         try {
-            const response = await fetch(`/api/faqs.php?action=search&q=${encodeURIComponent(query)}`);
+            const response = await fetch(`/api/faqs?action=search&q=${encodeURIComponent(query)}`);
             const results = await response.json();
             
             document.getElementById('searchTitle').textContent = `🔍 Search Results for "${query}"`;
