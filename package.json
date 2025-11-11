@@ -1,10 +1,9 @@
 {
-  "name": "diesel-electric-submarine-faqs",
+  "name": "submarine-faqs",
   "version": "1.0.0", 
-  "description": "Submarine FAQ website - Railway deployment test",
-  "main": "app.js",
+  "main": "simple.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node simple.js"
   },
   "engines": {
     "node": "18.x"
