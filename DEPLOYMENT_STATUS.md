@@ -1,10 +1,11 @@
-# Railway Deployment Status
+# Deployment Status - Updated for Vercel
 
-## Latest Fix Applied (Build Issue Fix)
-- REMOVED problematic nixpacks.toml file that was causing build failures
-- Added composer.json to help Railway auto-detect PHP
-- Database configuration updated to use Railway environment variables
-- Railway will now use default PHP buildpack instead of custom Nix configuration
+## Latest Status: Deploying to Vercel
+- Railway had persistent deployment issues despite multiple fixes
+- Switched to Vercel for more reliable Node.js hosting
+- Updated Node.js from 18.x to 20.x (current LTS)
+- Added vercel.json configuration for proper routing
+- Vercel should handle the Express server deployment smoothly
 
 ## Test URLs
 - Health check: /health.php  
