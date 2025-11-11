@@ -2,7 +2,7 @@
   "name": "submarine-faqs",
   "version": "1.0.0",
   "description": "Node.js web server",
-  "main": "simple.js", 
+  "main": "simple.js",
   "scripts": {
     "start": "node simple.js",
     "build": "echo 'No build needed'"
@@ -11,5 +11,18 @@
     "node": "18.x",
     "npm": ">=8.0.0"
   },
-  "dependencies": {}
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs/issues"
+  },
+  "homepage": "https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
