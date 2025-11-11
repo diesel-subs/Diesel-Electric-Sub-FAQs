@@ -1,9 +1,11 @@
 {
   "name": "diesel-electric-submarine-faqs",
   "version": "1.0.0",
-  "description": "Submarine FAQ website with PHP backend",
+  "description": "Submarine FAQ website",
+  "main": "index.html",
   "scripts": {
-    "start": "php -S 0.0.0.0:$PORT -t ."
+    "start": "php -S 0.0.0.0:$PORT",
+    "build": "echo 'Static build complete'"
   },
   "engines": {
     "node": "18.x"
