@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="test"></div>
+    <script>
+        // Test markdown rendering
+        const testText = "This is **bold** and this is *italic* text.";
+        
+        console.log("Testing markdown rendering...");
+        console.log("Original text:", testText);
+        
+        // Test 1: Basic replacement
+        function basicMarkdownRender(text) {
+            return text
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>');               
+        }
+        
+        const basicResult = basicMarkdownRender(testText);
+        console.log("Basic result:", basicResult);
+        
+        // Test 2: Check if marked library exists
+        console.log("Marked available:", typeof marked !== 'undefined');
+        
+        if (typeof marked !== 'undefined') {
+            try {
+                const markedResult = marked.parse ? marked.parse(testText) : marked(testText);
+                console.log("Marked result:", markedResult);
+            } catch (e) {
+                console.error("Marked error:", e);
+            }
+        }
+        
+        // Display result
+        document.getElementById('test').innerHTML = basicResult;
+    </script>
+</body>
+</html>
