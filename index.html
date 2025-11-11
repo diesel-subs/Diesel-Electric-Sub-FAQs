@@ -222,7 +222,7 @@
 
                 const categoriesHTML = currentCategories.map(category => `
                 <div class="col-md-4 mb-4">
-                    <div class="card category-card h-100" onclick="loadCategoryFAQs(${category.id}, '${category.name}')">
+                    <div class="card category-card h-100" onclick="testClick(${category.id})">
                         <div class="card-body">
                             <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
                             <p class="card-text">${getCategoryDescription(category.name)}</p>
@@ -275,8 +275,16 @@
             return descriptions[name] || 'Detailed information about submarine operations and technology.';
         }
 
+        // Simple test function to see if clicks work at all
+        function testClick(categoryId) {
+            alert('Click detected! Category ID: ' + categoryId);
+            const categoryName = currentCategories.find(cat => cat.id === categoryId)?.name || 'Unknown';
+            loadCategoryFAQs(categoryId, categoryName);
+        }
+
         // Load FAQs for a specific category
         async function loadCategoryFAQs(categoryId, categoryName) {
+            alert('FAQ function called! Category: ' + categoryName);
             console.log('=== STARTING FAQ LOAD ===');
             console.log(`Category ID: ${categoryId}, Name: ${categoryName}`);
             
