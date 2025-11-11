@@ -2,15 +2,11 @@
   "name": "diesel-electric-submarine-faqs",
   "version": "1.0.0",
   "description": "Submarine FAQ website",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "npx serve -s . -p $PORT",
-    "build": "echo 'Static site ready'"
+    "start": "node server.js"
   },
   "engines": {
     "node": "18.x"
-  },
-  "devDependencies": {
-    "serve": "^14.0.0"
   }
 }
