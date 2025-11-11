@@ -4,10 +4,13 @@
   "description": "Submarine FAQ website",
   "main": "index.html",
   "scripts": {
-    "start": "php -S 0.0.0.0:$PORT",
-    "build": "echo 'Static build complete'"
+    "start": "npx serve -s . -p $PORT",
+    "build": "echo 'Static site ready'"
   },
   "engines": {
     "node": "18.x"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
   }
 }
