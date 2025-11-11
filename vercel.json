@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/api/faqs",
-      "dest": "/api/working-faqs.js"
+      "dest": "/api/complete-faqs.js"
     },
     {
       "src": "/api/init",
