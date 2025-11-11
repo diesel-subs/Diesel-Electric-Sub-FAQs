@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.html",
+      "src": "api/faqs.php",
+      "use": "vercel-php@0.6.0"
+    },
+    {
+      "src": "dynamic.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/dynamic.html"
     }
   ]
 }
