@@ -84,13 +84,16 @@
                 <span class="badge bg-success ms-2">Database Online</span>
             `;
         } catch (error) {
-            // Load static fallback data
+            // Load static fallback data but don't override categories
             document.getElementById('stats').innerHTML = `
                 <strong>📊 Site Statistics:</strong> 
                 185 FAQs across 6 categories
-                <span class="badge bg-info ms-2">Static Mode</span>
+                <span class="badge bg-warning ms-2">API Testing Mode</span>
             `;
-            loadStaticCategories();
+            // Only load static categories if categories haven't been loaded yet
+            if (currentCategories.length === 0) {
+                loadStaticCategories();
+            }
         }
     }
 
@@ -288,9 +291,9 @@
             }
         });
         
-        // Load initial data
-        loadStats();
+        // Load initial data - categories first, then stats
         loadCategories();
+        loadStats();
     });
     </script>
 
