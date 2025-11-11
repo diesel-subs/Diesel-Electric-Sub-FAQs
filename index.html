@@ -10,15 +10,22 @@
     <script>
         // Simple markdown renderer function
         function renderMarkdown(text) {
+            console.log('renderMarkdown called with:', typeof text, text ? text.substring(0, 50) : 'empty');
+            
+            if (!text) return '';
+            
             // Use marked library if available, otherwise fall back to basic replacements
             if (typeof marked !== 'undefined') {
                 try {
-                    return marked.parse ? marked.parse(text) : marked(text);
+                    const result = marked.parse ? marked.parse(text) : marked(text);
+                    console.log('Marked success, result length:', result.length);
+                    return result;
                 } catch (e) {
                     console.error('Marked error:', e);
                     return basicMarkdownRender(text);
                 }
             }
+            console.log('Using basic markdown renderer');
             return basicMarkdownRender(text);
         }
         
@@ -290,16 +297,28 @@
 
                 // Process FAQs and render markdown for each answer
                 console.log('Processing FAQs for markdown rendering...');
+                console.log('Number of FAQs:', currentFAQs.length);
+                
                 const processedFAQs = currentFAQs.map((faq, i) => {
-                    const rendered = renderMarkdown(faq.answer);
-                    if (i === 0) {
-                        console.log('First FAQ original:', faq.answer.substring(0, 100));
-                        console.log('First FAQ rendered:', rendered.substring(0, 100));
+                    try {
+                        console.log(`Processing FAQ ${i}: question = "${faq.question}"`);
+                        const answer = faq.answer || 'No answer';
+                        const rendered = renderMarkdown(answer);
+                        if (i === 0) {
+                            console.log('First FAQ original:', answer);
+                            console.log('First FAQ rendered:', rendered);
+                        }
+                        return {
+                            ...faq,
+                            renderedAnswer: rendered
+                        };
+                    } catch (error) {
+                        console.error(`Error processing FAQ ${i}:`, error);
+                        return {
+                            ...faq,
+                            renderedAnswer: 'Error processing answer'
+                        };
                     }
-                    return {
-                        ...faq,
-                        renderedAnswer: rendered
-                    };
                 });
 
                 const faqsHTML = processedFAQs.map((faq, index) => `
@@ -311,8 +330,8 @@
                         <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
                                 ${index === 0 ? 
-                                    'TEST: This is <strong>bold</strong> and this is <em>italic</em> text. Original: ' + faq.renderedAnswer.substring(0, 100) : 
-                                    faq.renderedAnswer}
+                                    'TEST: This is <strong>bold</strong> and this is <em>italic</em> text.' : 
+                                    (faq.renderedAnswer || 'No answer available')}
                             </div>
                         </div>
                     </div>
