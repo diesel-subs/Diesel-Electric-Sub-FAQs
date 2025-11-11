@@ -24,13 +24,16 @@
         
         // Basic markdown rendering fallback
         function basicMarkdownRender(text) {
-            return text
+            console.log('Basic markdown input:', text.substring(0, 50));
+            const result = text
                 .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  // Bold
                 .replace(/\*([^*]+)\*/g, '<em>$1</em>')               // Italic
                 .replace(/\n\n/g, '</p><p>')                        // Paragraphs
                 .replace(/\n/g, '<br>')                             // Line breaks
                 .replace(/^/, '<p>')                                // Start paragraph
                 .replace(/$/, '</p>');                              // End paragraph
+            console.log('Basic markdown output:', result.substring(0, 50));
+            return result;
         }
     </script>
     <style>
@@ -286,10 +289,18 @@
                 document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
 
                 // Process FAQs and render markdown for each answer
-                const processedFAQs = currentFAQs.map(faq => ({
-                    ...faq,
-                    renderedAnswer: renderMarkdown(faq.answer)
-                }));
+                console.log('Processing FAQs for markdown rendering...');
+                const processedFAQs = currentFAQs.map((faq, i) => {
+                    const rendered = renderMarkdown(faq.answer);
+                    if (i === 0) {
+                        console.log('First FAQ original:', faq.answer.substring(0, 100));
+                        console.log('First FAQ rendered:', rendered.substring(0, 100));
+                    }
+                    return {
+                        ...faq,
+                        renderedAnswer: rendered
+                    };
+                });
 
                 const faqsHTML = processedFAQs.map((faq, index) => `
                 <div class="faq-item">
@@ -299,7 +310,9 @@
                         </div>
                         <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
-                                ${faq.renderedAnswer}
+                                ${index === 0 ? 
+                                    'TEST: This is <strong>bold</strong> and this is <em>italic</em> text. Original: ' + faq.renderedAnswer.substring(0, 100) : 
+                                    faq.renderedAnswer}
                             </div>
                         </div>
                     </div>
