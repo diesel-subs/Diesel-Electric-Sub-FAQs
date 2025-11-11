@@ -277,73 +277,45 @@
 
         // Load FAQs for a specific category
         async function loadCategoryFAQs(categoryId, categoryName) {
-            try {
-                console.log(`Loading FAQs for category ${categoryId}: ${categoryName}`);
-                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
-                console.log('FAQ Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                currentFAQs = await response.json();
-                console.log('FAQ Data received:', currentFAQs);
-
-                if (currentFAQs.error) {
-                    throw new Error(currentFAQs.error);
-                }
-
-                document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
-
-                // Process FAQs and render markdown for each answer
-                console.log('Processing FAQs for markdown rendering...');
-                console.log('Number of FAQs:', currentFAQs.length);
-                
-                const processedFAQs = currentFAQs.map((faq, i) => {
-                    try {
-                        console.log(`Processing FAQ ${i}: question = "${faq.question}"`);
-                        const answer = faq.answer || 'No answer';
-                        const rendered = renderMarkdown(answer);
-                        if (i === 0) {
-                            console.log('First FAQ original:', answer);
-                            console.log('First FAQ rendered:', rendered);
-                        }
-                        return {
-                            ...faq,
-                            renderedAnswer: rendered
-                        };
-                    } catch (error) {
-                        console.error(`Error processing FAQ ${i}:`, error);
-                        return {
-                            ...faq,
-                            renderedAnswer: 'Error processing answer'
-                        };
-                    }
-                });
-
-                const faqsHTML = processedFAQs.map((faq, index) => `
+            console.log('=== STARTING FAQ LOAD ===');
+            console.log(`Category ID: ${categoryId}, Name: ${categoryName}`);
+            
+            // SIMPLE TEST: Just show a hardcoded FAQ first
+            document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
+            document.getElementById('faqs').innerHTML = `
                 <div class="faq-item">
                     <div class="card">
-                        <div class="card-header faq-question" onclick="toggleFAQ(${index})">
-                            <h6 class="mb-0">❓ ${faq.question}</h6>
+                        <div class="card-header faq-question" onclick="toggleFAQ(0)">
+                            <h6 class="mb-0">❓ SIMPLE TEST FAQ</h6>
                         </div>
-                        <div id="faq-${index}" class="faq-answer">
+                        <div id="faq-0" class="faq-answer">
                             <div class="card-body">
-                                ${index === 0 ? 
-                                    'TEST: This is <strong>bold</strong> and this is <em>italic</em> text.' : 
-                                    (faq.renderedAnswer || 'No answer available')}
+                                <p>This is a <strong>BOLD TEST</strong> and <em>italic test</em>.</p>
+                                <p>If you see this with formatting, HTML rendering works!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            `).join('');
-
-                document.getElementById('faqs').innerHTML = faqsHTML;
-                showSection('faqsSection');
-                console.log(`Successfully loaded ${currentFAQs.length} FAQs`);
-            } catch (error) {
-                console.error('FAQ loading error:', error);
-                alert(`Error loading FAQs: ${error.message}. Please try again.`);
+            `;
+            showSection('faqsSection');
+            console.log('Simple test FAQ displayed');
+            
+            // Now try the actual API call
+            try {
+                console.log('Now trying actual API call...');
+                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
+                console.log('API Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('API returned', data.length, 'FAQs');
+                    console.log('First FAQ question:', data[0]?.question);
+                    console.log('First FAQ answer preview:', data[0]?.answer?.substring(0, 100));
+                } else {
+                    console.error('API response not OK:', response.status);
+                }
+            } catch (apiError) {
+                console.error('API call failed:', apiError);
             }
         }
 
