@@ -19,10 +19,5 @@
       "src": "/(.*)",
       "dest": "/dynamic.html"
     }
-  ],
-  "functions": {
-    "api/faqs.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
