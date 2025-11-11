@@ -403,15 +403,31 @@
 
         // Allow Enter key for search
         document.addEventListener('DOMContentLoaded', function () {
+            alert('Page loaded! JavaScript is working.');
+            
             document.getElementById('searchInput').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     searchFAQs();
                 }
             });
 
+            // Test if categories div exists
+            const categoriesDiv = document.getElementById('categories');
+            if (categoriesDiv) {
+                alert('Categories div found');
+                // Add a simple test
+                categoriesDiv.innerHTML = '<div class="col-12"><button onclick="alert(\'Button clicked!\')">TEST BUTTON - CLICK ME</button></div>';
+            } else {
+                alert('Categories div NOT found');
+            }
+
             // Load initial data - categories first, then stats
-            loadCategories();
-            loadStats();
+            try {
+                loadCategories();
+                loadStats();
+            } catch (error) {
+                alert('Error loading categories: ' + error.message);
+            }
         });
     </script>
 
