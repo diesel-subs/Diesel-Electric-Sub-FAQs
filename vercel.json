@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/working-faqs.js",
+      "src": "api/complete-faqs.js",
       "use": "@vercel/node"
     },
     {
