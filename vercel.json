@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/real-faqs.js",
+      "src": "api/working-faqs.js",
       "use": "@vercel/node"
     },
     {
@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/api/faqs",
-      "dest": "/api/real-faqs.js"
+      "dest": "/api/working-faqs.js"
     },
     {
       "src": "/api/init",
