@@ -72,6 +72,9 @@
     async function loadStats() {
         try {
             const response = await fetch('/api/faqs?action=stats');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
             const stats = await response.json();
             
             if (stats.error) {
@@ -81,19 +84,16 @@
             document.getElementById('stats').innerHTML = `
                 <strong>📊 Site Statistics:</strong> 
                 ${stats.total_faqs} FAQs across ${stats.total_categories} categories
-                <span class="badge bg-success ms-2">Database Online</span>
+                <span class="badge bg-success ms-2">API Online</span>
             `;
         } catch (error) {
-            // Load static fallback data but don't override categories
+            console.log('Stats API failed:', error);
+            // Don't load static categories here - let loadCategories handle it
             document.getElementById('stats').innerHTML = `
                 <strong>📊 Site Statistics:</strong> 
                 185 FAQs across 6 categories
-                <span class="badge bg-warning ms-2">API Testing Mode</span>
+                <span class="badge bg-warning ms-2">Loading...</span>
             `;
-            // Only load static categories if categories haven't been loaded yet
-            if (currentCategories.length === 0) {
-                loadStaticCategories();
-            }
         }
     }
 
@@ -133,8 +133,16 @@
     // Load categories
     async function loadCategories() {
         try {
+            console.log('Loading categories from API...');
             const response = await fetch('/api/faqs?action=categories');
+            console.log('API Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
             const data = await response.json();
+            console.log('API Data received:', data);
             
             if (data.error) {
                 throw new Error(data.error);
@@ -148,16 +156,28 @@
                         <div class="card-body">
                             <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
                             <p class="card-text">${getCategoryDescription(category.name)}</p>
-                            <span class="badge bg-success">Click to View FAQs</span>
+                            <span class="badge bg-success">Click to Browse FAQs</span>
+                            <div class="mt-2">
+                                <small class="text-success">✅ API Working - Sample FAQs Ready</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             `).join('');
             
             document.getElementById('categories').innerHTML = categoriesHTML;
+            console.log('Categories loaded successfully from API');
+            
+            // Update stats to show API is working
+            document.getElementById('stats').innerHTML = `
+                <strong>📊 Site Statistics:</strong> 
+                185 FAQs across 6 categories
+                <span class="badge bg-success ms-2">API Connected</span>
+            `;
+            
         } catch (error) {
-            // Fallback is handled by loadStats() calling loadStaticCategories()
-            console.log('API not available, using static fallback');
+            console.log('Categories API failed:', error, 'Loading static fallback');
+            loadStaticCategories();
         }
     }
 
