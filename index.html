@@ -6,43 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diesel-Electric Submarine FAQs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        // Simple markdown renderer function
-        function renderMarkdown(text) {
-            console.log('renderMarkdown called with:', typeof text, text ? text.substring(0, 50) : 'empty');
-            
-            if (!text) return '';
-            
-            // Use marked library if available, otherwise fall back to basic replacements
-            if (typeof marked !== 'undefined') {
-                try {
-                    const result = marked.parse ? marked.parse(text) : marked(text);
-                    console.log('Marked success, result length:', result.length);
-                    return result;
-                } catch (e) {
-                    console.error('Marked error:', e);
-                    return basicMarkdownRender(text);
-                }
-            }
-            console.log('Using basic markdown renderer');
-            return basicMarkdownRender(text);
-        }
-        
-        // Basic markdown rendering fallback
-        function basicMarkdownRender(text) {
-            console.log('Basic markdown input:', text.substring(0, 50));
-            const result = text
-                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  // Bold
-                .replace(/\*([^*]+)\*/g, '<em>$1</em>')               // Italic
-                .replace(/\n\n/g, '</p><p>')                        // Paragraphs
-                .replace(/\n/g, '<br>')                             // Line breaks
-                .replace(/^/, '<p>')                                // Start paragraph
-                .replace(/$/, '</p>');                              // End paragraph
-            console.log('Basic markdown output:', result.substring(0, 50));
-            return result;
-        }
-    </script>
     <style>
         .hero {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -222,7 +185,7 @@
 
                 const categoriesHTML = currentCategories.map(category => `
                 <div class="col-md-4 mb-4">
-                    <div class="card category-card h-100" onclick="testClick(${category.id})">
+                    <div class="card category-card h-100" onclick="loadCategoryFAQs(${category.id}, '${category.name}')">
                         <div class="card-body">
                             <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
                             <p class="card-text">${getCategoryDescription(category.name)}</p>
@@ -275,55 +238,47 @@
             return descriptions[name] || 'Detailed information about submarine operations and technology.';
         }
 
-        // Simple test function to see if clicks work at all
-        function testClick(categoryId) {
-            alert('Click detected! Category ID: ' + categoryId);
-            const categoryName = currentCategories.find(cat => cat.id === categoryId)?.name || 'Unknown';
-            loadCategoryFAQs(categoryId, categoryName);
-        }
-
         // Load FAQs for a specific category
         async function loadCategoryFAQs(categoryId, categoryName) {
-            alert('FAQ function called! Category: ' + categoryName);
-            console.log('=== STARTING FAQ LOAD ===');
-            console.log(`Category ID: ${categoryId}, Name: ${categoryName}`);
-            
-            // SIMPLE TEST: Just show a hardcoded FAQ first
-            document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
-            document.getElementById('faqs').innerHTML = `
+            try {
+                console.log(`Loading FAQs for category ${categoryId}: ${categoryName}`);
+                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
+                console.log('FAQ Response status:', response.status);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                currentFAQs = await response.json();
+                console.log('FAQ Data received:', currentFAQs);
+
+                if (currentFAQs.error) {
+                    throw new Error(currentFAQs.error);
+                }
+
+                document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
+
+                const faqsHTML = currentFAQs.map((faq, index) => `
                 <div class="faq-item">
                     <div class="card">
-                        <div class="card-header faq-question" onclick="toggleFAQ(0)">
-                            <h6 class="mb-0">❓ SIMPLE TEST FAQ</h6>
+                        <div class="card-header faq-question" onclick="toggleFAQ(${index})">
+                            <h6 class="mb-0">❓ ${faq.question}</h6>
                         </div>
-                        <div id="faq-0" class="faq-answer">
+                                                <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
-                                <p>This is a <strong>BOLD TEST</strong> and <em>italic test</em>.</p>
-                                <p>If you see this with formatting, HTML rendering works!</p>
+                                ${faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
                             </div>
                         </div>
                     </div>
                 </div>
-            `;
-            showSection('faqsSection');
-            console.log('Simple test FAQ displayed');
-            
-            // Now try the actual API call
-            try {
-                console.log('Now trying actual API call...');
-                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
-                console.log('API Response status:', response.status);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('API returned', data.length, 'FAQs');
-                    console.log('First FAQ question:', data[0]?.question);
-                    console.log('First FAQ answer preview:', data[0]?.answer?.substring(0, 100));
-                } else {
-                    console.error('API response not OK:', response.status);
-                }
-            } catch (apiError) {
-                console.error('API call failed:', apiError);
+            `).join('');
+
+                document.getElementById('faqs').innerHTML = faqsHTML;
+                showSection('faqsSection');
+                console.log(`Successfully loaded ${currentFAQs.length} FAQs`);
+            } catch (error) {
+                console.error('FAQ loading error:', error);
+                alert(`Error loading FAQs: ${error.message}. Please try again.`);
             }
         }
 
@@ -351,13 +306,7 @@
                     </div>
                 `;
                 } else {
-                    // Process search results and render markdown for each answer
-                    const processedResults = results.map(faq => ({
-                        ...faq,
-                        renderedAnswer: renderMarkdown(faq.answer)
-                    }));
-
-                    const resultsHTML = processedResults.map((faq, index) => `
+                    const resultsHTML = results.map((faq, index) => `
                     <div class="faq-item">
                         <div class="card">
                             <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
@@ -366,7 +315,7 @@
                             </div>
                             <div id="search-faq-${index}" class="faq-answer">
                                 <div class="card-body">
-                                    ${faq.renderedAnswer}
+                                    ${faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
                                 </div>
                             </div>
                         </div>
@@ -403,31 +352,15 @@
 
         // Allow Enter key for search
         document.addEventListener('DOMContentLoaded', function () {
-            alert('Page loaded! JavaScript is working.');
-            
             document.getElementById('searchInput').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     searchFAQs();
                 }
             });
 
-            // Test if categories div exists
-            const categoriesDiv = document.getElementById('categories');
-            if (categoriesDiv) {
-                alert('Categories div found');
-                // Add a simple test
-                categoriesDiv.innerHTML = '<div class="col-12"><button onclick="alert(\'Button clicked!\')">TEST BUTTON - CLICK ME</button></div>';
-            } else {
-                alert('Categories div NOT found');
-            }
-
             // Load initial data - categories first, then stats
-            try {
-                loadCategories();
-                loadStats();
-            } catch (error) {
-                alert('Error loading categories: ' + error.message);
-            }
+            loadCategories();
+            loadStats();
         });
     </script>
 
