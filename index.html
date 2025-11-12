@@ -266,7 +266,9 @@
                         </div>
                                                 <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
-                                ${faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
+                                ${index === 1 ? 
+                                    'TEST: <strong>BOLD</strong> and <em>ITALIC</em> - Original: ' + faq.answer.substring(0, 100) : 
+                                    faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
                             </div>
                         </div>
                     </div>
