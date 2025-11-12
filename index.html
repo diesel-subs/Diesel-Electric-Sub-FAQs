@@ -116,7 +116,14 @@
             return text
                 .replace(/\*\*([^*]+)\*\*/g, '$1')  // Remove bold markers
                 .replace(/\*([^*]+)\*/g, '$1')      // Remove italic markers
+                .replace(/\{\.underline\}/g, '')    // Remove {.underline} markers
+                .replace(/\{[^}]*\}/g, '')         // Remove any other {attribute} markers
+                .replace(/~~([^~]+)~~/g, '$1')     // Remove strikethrough markers
+                .replace(/`([^`]+)`/g, '$1')       // Remove code markers
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // Remove links, keep text
+                .replace(/#{1,6}\s*/g, '')         // Remove heading markers
                 .replace(/\n/g, ' ')               // Replace newlines with spaces
+                .replace(/\s+/g, ' ')              // Normalize multiple spaces
                 .trim();
         }
 
