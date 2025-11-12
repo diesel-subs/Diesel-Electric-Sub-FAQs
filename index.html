@@ -252,6 +252,7 @@
 
         // Load FAQs for a specific category
         async function loadCategoryFAQs(categoryId, categoryName) {
+            alert('loadCategoryFAQs function called! Category: ' + categoryName);
             try {
                 console.log(`Loading FAQs for category ${categoryId}: ${categoryName}`);
                 const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
@@ -392,6 +393,8 @@
 
         // Allow Enter key for search
         document.addEventListener('DOMContentLoaded', function () {
+            alert('Page JavaScript loaded successfully!');
+            
             document.getElementById('searchInput').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     searchFAQs();
@@ -399,8 +402,12 @@
             });
 
             // Load initial data - categories first, then stats
-            loadCategories();
-            loadStats();
+            try {
+                loadCategories();
+                loadStats();
+            } catch (error) {
+                alert('Error loading categories: ' + error.message);
+            }
         });
     </script>
 
