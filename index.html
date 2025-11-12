@@ -75,15 +75,30 @@
     <div class="hero">
         <div class="container text-center">
             <h1>
-                <svg class="dolphins-insignia" width="50" height="24" viewBox="0 0 50 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Left Dolphin -->
-                    <path d="M2 12 C2 8, 6 6, 12 8 C16 9, 18 11, 20 12 C18 13, 16 15, 12 16 C6 18, 2 16, 2 12 Z" fill="white" opacity="0.9"/>
-                    <!-- Right Dolphin -->
-                    <path d="M48 12 C48 8, 44 6, 38 8 C34 9, 32 11, 30 12 C32 13, 34 15, 38 16 C44 18, 48 16, 48 12 Z" fill="white" opacity="0.9"/>
-                    <!-- Submarine -->
-                    <rect x="20" y="10" width="10" height="4" rx="2" fill="white" opacity="0.9"/>
-                    <!-- Conning Tower -->
-                    <rect x="23" y="8" width="4" height="4" rx="1" fill="white" opacity="0.9"/>
+                <svg class="dolphins-insignia" width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left Dolphin - graceful arc -->
+                    <path d="M5 20 Q8 12, 15 10 Q20 9, 25 12 Q30 15, 35 16 Q32 18, 28 20 Q22 22, 15 22 Q8 22, 5 20 Z" fill="white" opacity="0.95"/>
+                    <!-- Left Dolphin details -->
+                    <circle cx="12" cy="15" r="1" fill="rgba(30,60,114,0.8)"/>
+                    <path d="M8 18 Q10 17, 12 18" stroke="rgba(30,60,114,0.6)" stroke-width="0.5" fill="none"/>
+                    
+                    <!-- Right Dolphin - graceful arc (mirrored) -->
+                    <path d="M75 20 Q72 12, 65 10 Q60 9, 55 12 Q50 15, 45 16 Q48 18, 52 20 Q58 22, 65 22 Q72 22, 75 20 Z" fill="white" opacity="0.95"/>
+                    <!-- Right Dolphin details -->
+                    <circle cx="68" cy="15" r="1" fill="rgba(30,60,114,0.8)"/>
+                    <path d="M72 18 Q70 17, 68 18" stroke="rgba(30,60,114,0.6)" stroke-width="0.5" fill="none"/>
+                    
+                    <!-- Submarine hull -->
+                    <ellipse cx="40" cy="16" rx="12" ry="3" fill="white" opacity="0.95"/>
+                    <!-- Conning tower -->
+                    <rect x="37" y="10" width="6" height="8" rx="1" fill="white" opacity="0.95"/>
+                    <!-- Periscope -->
+                    <line x1="40" y1="10" x2="40" y2="6" stroke="white" stroke-width="0.8" opacity="0.9"/>
+                    <!-- Propeller -->
+                    <g transform="translate(52, 16)">
+                        <circle r="1.5" fill="white" opacity="0.9"/>
+                        <path d="M-1.5 0 L1.5 0 M0 -1.5 L0 1.5" stroke="rgba(30,60,114,0.8)" stroke-width="0.3"/>
+                    </g>
                 </svg>
                 Diesel-Electric Submarine FAQs
             </h1>
@@ -111,15 +126,15 @@
     <div class="container mb-4">
         <nav>
             <button class="btn btn-outline-primary me-2" onclick="showCategories()">
-                <svg width="20" height="12" viewBox="0 0 50 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px; vertical-align: middle;">
+                <svg width="32" height="16" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px; vertical-align: middle;">
                     <!-- Left Dolphin -->
-                    <path d="M2 12 C2 8, 6 6, 12 8 C16 9, 18 11, 20 12 C18 13, 16 15, 12 16 C6 18, 2 16, 2 12 Z" fill="currentColor" opacity="0.8"/>
+                    <path d="M5 20 Q8 12, 15 10 Q20 9, 25 12 Q30 15, 35 16 Q32 18, 28 20 Q22 22, 15 22 Q8 22, 5 20 Z" fill="currentColor" opacity="0.8"/>
                     <!-- Right Dolphin -->
-                    <path d="M48 12 C48 8, 44 6, 38 8 C34 9, 32 11, 30 12 C32 13, 34 15, 38 16 C44 18, 48 16, 48 12 Z" fill="currentColor" opacity="0.8"/>
+                    <path d="M75 20 Q72 12, 65 10 Q60 9, 55 12 Q50 15, 45 16 Q48 18, 52 20 Q58 22, 65 22 Q72 22, 75 20 Z" fill="currentColor" opacity="0.8"/>
                     <!-- Submarine -->
-                    <rect x="20" y="10" width="10" height="4" rx="2" fill="currentColor" opacity="0.8"/>
-                    <!-- Conning Tower -->
-                    <rect x="23" y="8" width="4" height="4" rx="1" fill="currentColor" opacity="0.8"/>
+                    <ellipse cx="40" cy="16" rx="8" ry="2" fill="currentColor" opacity="0.8"/>
+                    <!-- Conning tower -->
+                    <rect x="37" y="12" width="6" height="6" rx="1" fill="currentColor" opacity="0.8"/>
                 </svg>
                 Browse Categories
             </button>
