@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,36 +11,29 @@
             color: white;
             padding: 60px 0;
         }
-
         .category-card {
             transition: transform 0.3s;
             cursor: pointer;
         }
-
         .category-card:hover {
             transform: translateY(-5px);
         }
-
         .faq-item {
             margin-bottom: 20px;
         }
-
         .faq-question {
             cursor: pointer;
         }
-
         .faq-answer {
             display: none;
             padding: 15px;
             background: #f8f9fa;
             border-left: 4px solid #007bff;
         }
-
         .search-box {
             max-width: 500px;
             margin: 20px auto;
         }
-
         .loading {
             text-align: center;
             padding: 40px;
@@ -50,50 +42,58 @@
 </head>
 
 <body>
+    <!-- Hero Section -->
     <div class="hero">
         <div class="container text-center">
-            <h1 class="display-4">🔱 Diesel-Electric Submarine FAQs</h1>
-            <p class="lead">Your comprehensive guide to submarine knowledge</p>
-            <div id="stats" class="alert alert-info mt-4">
-                <strong>📊 Loading site statistics...</strong>
+            <h1>🚢 Diesel-Electric Submarine FAQs</h1>
+            <p class="lead">Expert answers about World War II submarines</p>
+            <div id="stats" class="mt-3">
+                <strong>📊 Loading statistics...</strong>
             </div>
+        </div>
+    </div>
 
-            <!-- Search Box -->
-            <div class="search-box">
-                <div class="input-group">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Search FAQs...">
-                    <button class="btn btn-light" onclick="searchFAQs()">🔍 Search</button>
+    <!-- Search Section -->
+    <div class="container mt-4">
+        <div class="search-box">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search submarine FAQs...">
+                <button class="btn btn-primary" onclick="searchFAQs()">🔍 Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container mb-4">
+        <nav>
+            <button class="btn btn-outline-primary me-2" onclick="showCategories()">📋 Browse Categories</button>
+        </nav>
+    </div>
+
+    <!-- Categories Section -->
+    <div id="categoriesSection" class="container">
+        <h2>Browse FAQ Categories</h2>
+        <div id="categories" class="row">
+            <div class="col-12 text-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading categories...</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container my-5">
-        <!-- Categories Section -->
-        <div id="categoriesSection">
-            <h2>📚 Browse by Category</h2>
-            <div id="categories" class="row">
-                <div class="loading">Loading categories...</div>
-            </div>
-        </div>
+    <!-- FAQs Section -->
+    <div id="faqsSection" class="container" style="display: none;">
+        <button class="btn btn-secondary mb-3" onclick="showCategories()">← Back to Categories</button>
+        <h2 id="faqsTitle">FAQs</h2>
+        <div id="faqs"></div>
+    </div>
 
-        <!-- FAQs Section (hidden by default) -->
-        <div id="faqsSection" style="display: none;">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 id="faqsTitle">FAQs</h2>
-                <button class="btn btn-secondary" onclick="showCategories()">← Back to Categories</button>
-            </div>
-            <div id="faqs"></div>
-        </div>
-
-        <!-- Search Results Section -->
-        <div id="searchSection" style="display: none;">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 id="searchTitle">Search Results</h2>
-                <button class="btn btn-secondary" onclick="showCategories()">← Back to Categories</button>
-            </div>
-            <div id="searchResults"></div>
-        </div>
+    <!-- Search Results Section -->
+    <div id="searchSection" class="container" style="display: none;">
+        <button class="btn btn-secondary mb-3" onclick="showCategories()">← Back to Categories</button>
+        <h2 id="searchTitle">Search Results</h2>
+        <div id="searchResults"></div>
     </div>
 
     <script>
@@ -101,219 +101,93 @@
         let currentCategories = [];
         let currentFAQs = [];
 
-        // Load site statistics
-        async function loadStats() {
-            try {
-                const response = await fetch('/api/faqs?action=stats');
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                const stats = await response.json();
-
-                if (stats.error) {
-                    throw new Error(stats.error);
-                }
-
-                document.getElementById('stats').innerHTML = `
-                <strong>📊 Site Statistics:</strong> 
-                ${stats.total_faqs} FAQs across ${stats.total_categories} categories
-                <span class="badge bg-success ms-2">API Online</span>
-            `;
-            } catch (error) {
-                console.log('Stats API failed:', error);
-                // Don't load static categories here - let loadCategories handle it
-                document.getElementById('stats').innerHTML = `
-                <strong>📊 Site Statistics:</strong> 
-                185 FAQs across 6 categories
-                <span class="badge bg-warning ms-2">Loading...</span>
-            `;
-            }
-        }
-
-        // Static fallback categories
-        function loadStaticCategories() {
-            const staticCategories = [
-                { id: 1, name: "Hull and Compartments", description: "Learn about submarine construction, hull design, and compartment layouts." },
-                { id: 2, name: "US WW2 Subs in General", description: "General information about American submarines during World War II." },
-                { id: 3, name: "Life Aboard WW2 US Subs", description: "Daily life, living conditions, and crew experiences aboard submarines." },
-                { id: 4, name: "Operating US Subs in WW2", description: "Operational procedures, tactics, and submarine warfare techniques." },
-                { id: 5, name: "Attacks and Battles, Small and Large", description: "Combat operations, battles, and military engagements." },
-                { id: 6, name: "Who Were the Crews Aboard WW2 US Subs", description: "Information about submarine crews, their roles, and backgrounds." }
-            ];
-
-            const categoriesHTML = staticCategories.map(category => `
-            <div class="col-md-4 mb-4">
-                <div class="card category-card h-100" onclick="showComingSoon('${category.name}')">
-                    <div class="card-body">
-                        <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
-                        <p class="card-text">${category.description}</p>
-                        <span class="badge bg-primary">185 FAQs Available</span>
-                        <div class="mt-2">
-                            <small class="text-muted">Database connecting... Check back soon for full functionality!</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-            document.getElementById('categories').innerHTML = categoriesHTML;
-        }
-
-        function showComingSoon(categoryName) {
-            alert(`🚧 ${categoryName} FAQs\n\nThe database is connecting. All 185 FAQs will be available soon!\n\nThis includes detailed information about:\n• ${categoryName}\n• Interactive Q&A format\n• Search functionality\n• Full content from our submarine experts`);
-        }
-
-        // Load categories
-        async function loadCategories() {
-            try {
-                console.log('Loading categories from API...');
-                const response = await fetch('/api/faqs?action=categories');
-                console.log('API Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                const data = await response.json();
-                console.log('API Data received:', data);
-
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                currentCategories = data;
-
-                const categoriesHTML = currentCategories.map(category => `
-                <div class="col-md-4 mb-4">
-                    <div class="card category-card h-100" onclick="loadCategoryFAQs(${category.id}, '${category.name}')">
-                        <div class="card-body">
-                            <h5 class="card-title">${getCategoryIcon(category.name)} ${category.name}</h5>
-                            <p class="card-text">${getCategoryDescription(category.name)}</p>
-                            <span class="badge bg-success">Click to Browse FAQs</span>
-                            <div class="mt-2">
-                                <small class="text-success">✅ API Working - Sample FAQs Ready</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-                document.getElementById('categories').innerHTML = categoriesHTML;
-                console.log('Categories loaded successfully from API');
-
-                // Update stats to show API is working
-                document.getElementById('stats').innerHTML = `
-                <strong>📊 Site Statistics:</strong> 
-                185 FAQs across 6 categories
-                <span class="badge bg-success ms-2">API Connected</span>
-            `;
-
-            } catch (error) {
-                console.error('Categories API failed:', error);
-                alert('API Error: ' + error.message + '. Check the browser console for details.');
-            }
-        }
-
-        // Get category icon
-        function getCategoryIcon(name) {
-            if (name.includes('Hull')) return '🔧';
-            if (name.includes('General')) return '🇺🇸';
-            if (name.includes('Life')) return '👥';
-            if (name.includes('Operating')) return '⚙️';
-            if (name.includes('Attacks')) return '💥';
-            if (name.includes('Crews')) return '👨‍✈️';
-            return '📋';
-        }
-
-        // Get category description
-        function getCategoryDescription(name) {
-            const descriptions = {
-                'Hull and Compartments': 'Learn about submarine construction, hull design, and compartment layouts.',
-                'US WW2 Subs in General': 'General information about American submarines during World War II.',
-                'Life Aboard WW2 US Subs': 'Daily life, living conditions, and crew experiences aboard submarines.',
-                'Operating US Subs in WW2': 'Operational procedures, tactics, and submarine warfare techniques.',
-                'Attacks and Battles, Small and Large': 'Combat operations, battles, and military engagements.',
-                'Who Were the Crews Aboard WW2 US Subs': 'Information about submarine crews, their roles, and backgrounds.'
-            };
-            return descriptions[name] || 'Detailed information about submarine operations and technology.';
-        }
-
         // Simple markdown renderer
         function renderMarkdown(text) {
-            console.log('renderMarkdown called with:', text ? text.substring(0, 50) : 'empty');
             if (!text) return '';
-            const result = text
-                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  // Bold
-                .replace(/\*([^*]+)\*/g, '<em>$1</em>')               // Italic
-                .replace(/\n/g, '<br>');                             // Line breaks
-            console.log('renderMarkdown result:', result.substring(0, 50));
-            return result;
+            return text
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                .replace(/\n/g, '<br>');
         }
 
-        // Load FAQs for a specific category
-        async function loadCategoryFAQs(categoryId, categoryName) {
-            alert('loadCategoryFAQs function called! Category: ' + categoryName);
+        // Show specific section
+        function showSection(sectionId) {
+            document.getElementById('categoriesSection').style.display = 'none';
+            document.getElementById('faqsSection').style.display = 'none';
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Show categories
+        function showCategories() {
+            showSection('categoriesSection');
+            document.getElementById('searchInput').value = '';
+        }
+
+        // Load categories from API
+        async function loadCategories() {
             try {
-                console.log(`Loading FAQs for category ${categoryId}: ${categoryName}`);
-                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
-                console.log('FAQ Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                currentFAQs = await response.json();
-                console.log('FAQ Data received:', currentFAQs);
-
-                if (currentFAQs.error) {
-                    throw new Error(currentFAQs.error);
-                }
-
-                document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
-
-                // Process FAQs first to render markdown
-                const processedFAQs = currentFAQs.map((faq, index) => {
-                    if (index === 0) {
-                        return {
-                            ...faq,
-                            processedAnswer: 'HARDCODED TEST: This should be <strong>BOLD</strong> and this should be <em>ITALIC</em>. Does it work?'
-                        };
-                    } else if (index === 1) {
-                        return {
-                            ...faq,
-                            processedAnswer: 'SIMPLE REPLACEMENT TEST: *Pampanito* should become <em>Pampanito</em>'
-                        };
-                    } else {
-                        const processed = renderMarkdown(faq.answer);
-                        console.log(`FAQ ${index} processed:`, processed.substring(0, 100));
-                        return {
-                            ...faq,
-                            processedAnswer: processed
-                        };
-                    }
-                });
-
-                const faqsHTML = processedFAQs.map((faq, index) => `
-                <div class="faq-item">
-                    <div class="card">
-                        <div class="card-header faq-question" onclick="toggleFAQ(${index})">
-                            <h6 class="mb-0">❓ ${faq.question}</h6>
-                        </div>
-                        <div id="faq-${index}" class="faq-answer">
-                            <div class="card-body">
-                                ${faq.processedAnswer}
+                const response = await fetch('/api/faqs?action=categories');
+                if (!response.ok) throw new Error('API failed');
+                
+                const categories = await response.json();
+                currentCategories = categories;
+                
+                let html = '';
+                categories.forEach(category => {
+                    html += `
+                        <div class="col-md-4 mb-4">
+                            <div class="card category-card h-100" onclick="loadFAQs(${category.id}, '${category.name}')">
+                                <div class="card-body">
+                                    <h5 class="card-title">${category.name}</h5>
+                                    <p class="card-text">${category.description}</p>
+                                    <span class="badge bg-success">Click to Browse FAQs</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `).join('');
-
-                document.getElementById('faqs').innerHTML = faqsHTML;
-                showSection('faqsSection');
-                console.log(`Successfully loaded ${currentFAQs.length} FAQs`);
+                    `;
+                });
+                
+                document.getElementById('categories').innerHTML = html;
+                document.getElementById('stats').innerHTML = 'Ready! 190 FAQs across 6 categories';
             } catch (error) {
-                console.error('FAQ loading error:', error);
-                alert(`Error loading FAQs: ${error.message}. Please try again.`);
+                document.getElementById('categories').innerHTML = '<div class="col-12"><div class="alert alert-danger">Failed to load categories</div></div>';
+            }
+        }
+
+        // Load FAQs for category
+        async function loadFAQs(categoryId, categoryName) {
+            alert('Loading FAQs for: ' + categoryName);
+            
+            try {
+                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
+                const faqs = await response.json();
+                
+                document.getElementById('faqsTitle').textContent = categoryName;
+                
+                let html = '';
+                faqs.forEach((faq, index) => {
+                    if (faq.answer) {
+                        const processedAnswer = renderMarkdown(faq.answer);
+                        html += `
+                            <div class="faq-item">
+                                <div class="card">
+                                    <div class="card-header faq-question" onclick="toggleFAQ(${index})">
+                                        <h6 class="mb-0">❓ ${faq.question}</h6>
+                                    </div>
+                                    <div id="faq-${index}" class="faq-answer">
+                                        <div class="card-body">${processedAnswer}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+                
+                document.getElementById('faqs').innerHTML = html;
+                showSection('faqsSection');
+            } catch (error) {
+                alert('Error loading FAQs: ' + error.message);
             }
         }
 
@@ -327,90 +201,60 @@
         async function searchFAQs() {
             const query = document.getElementById('searchInput').value.trim();
             if (!query) return;
-
+            
             try {
                 const response = await fetch(`/api/faqs?action=search&q=${encodeURIComponent(query)}`);
                 const results = await response.json();
-
-                document.getElementById('searchTitle').textContent = `🔍 Search Results for "${query}"`;
-
+                
+                document.getElementById('searchTitle').textContent = `Search Results for "${query}"`;
+                
                 if (results.length === 0) {
-                    document.getElementById('searchResults').innerHTML = `
-                    <div class="alert alert-info">
-                        No FAQs found matching "${query}". Try different keywords.
-                    </div>
-                `;
+                    document.getElementById('searchResults').innerHTML = '<div class="alert alert-info">No results found</div>';
                 } else {
-                    // Process search results for markdown
-                    const processedResults = results.map(faq => ({
-                        ...faq,
-                        processedAnswer: renderMarkdown(faq.answer)
-                    }));
-
-                    const resultsHTML = processedResults.map((faq, index) => `
-                    <div class="faq-item">
-                        <div class="card">
-                            <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
-                                <h6 class="mb-0">❓ ${faq.question}</h6>
-                                <small class="text-muted">${getCategoryIcon(faq.category_name)} ${faq.category_name}</small>
-                            </div>
-                            <div id="search-faq-${index}" class="faq-answer">
-                                <div class="card-body">
-                                    ${faq.processedAnswer}
+                    let html = '';
+                    results.forEach((faq, index) => {
+                        if (faq.answer) {
+                            const processedAnswer = renderMarkdown(faq.answer);
+                            html += `
+                                <div class="faq-item">
+                                    <div class="card">
+                                        <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
+                                            <h6 class="mb-0">❓ ${faq.question}</h6>
+                                            <small class="text-muted">${faq.category_name}</small>
+                                        </div>
+                                        <div id="search-faq-${index}" class="faq-answer">
+                                            <div class="card-body">${processedAnswer}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-
-                    document.getElementById('searchResults').innerHTML = resultsHTML;
+                            `;
+                        }
+                    });
+                    document.getElementById('searchResults').innerHTML = html;
                 }
-
+                
                 showSection('searchSection');
             } catch (error) {
-                alert('Error searching FAQs. Please try again.');
+                alert('Search error: ' + error.message);
             }
         }
 
-        // Toggle search FAQ answer
+        // Toggle search FAQ answer visibility
         function toggleSearchFAQ(index) {
             const answer = document.getElementById(`search-faq-${index}`);
             answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Show specific section
-        function showSection(sectionId) {
-            ['categoriesSection', 'faqsSection', 'searchSection'].forEach(id => {
-                document.getElementById(id).style.display = id === sectionId ? 'block' : 'none';
-            });
-        }
-
-        // Show categories (back button)
-        function showCategories() {
-            showSection('categoriesSection');
-            document.getElementById('searchInput').value = '';
-        }
-
-        // Allow Enter key for search
-        document.addEventListener('DOMContentLoaded', function () {
-            alert('Page JavaScript loaded successfully!');
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('Clean page loaded successfully!');
             
-            document.getElementById('searchInput').addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') {
-                    searchFAQs();
-                }
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') searchFAQs();
             });
-
-            // Load initial data - categories first, then stats
-            try {
-                loadCategories();
-                loadStats();
-            } catch (error) {
-                alert('Error loading categories: ' + error.message);
-            }
+            
+            loadCategories();
         });
     </script>
-
 </body>
-
 </html>
