@@ -145,10 +145,18 @@
         // Load categories from API
         async function loadCategories() {
             try {
+                console.log('Loading categories...');
                 const response = await fetch('/api/corrected-faqs?action=categories');
-                if (!response.ok) throw new Error('API failed');
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                
+                if (!response.ok) {
+                    console.error('API response not ok:', response.status, response.statusText);
+                    throw new Error(`API failed: ${response.status} ${response.statusText}`);
+                }
                 
                 const categories = await response.json();
+                console.log('Categories loaded:', categories);
                 currentCategories = categories;
                 
                 let html = '';
@@ -168,8 +176,10 @@
                 
                 document.getElementById('categories').innerHTML = html;
                 document.getElementById('stats').innerHTML = 'Ready! 166 FAQs across 6 categories';
+                console.log('Categories rendered successfully');
             } catch (error) {
-                document.getElementById('categories').innerHTML = '<div class="col-12"><div class="alert alert-danger">Failed to load categories</div></div>';
+                console.error('Error loading categories:', error);
+                document.getElementById('categories').innerHTML = '<div class="col-12"><div class="alert alert-danger">Failed to load categories: ' + error.message + '</div></div>';
             }
         }
 
