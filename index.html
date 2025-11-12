@@ -394,6 +394,22 @@
             answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
         }
 
+        // Admin panel function
+        function openAdmin() {
+            // Try multiple methods to open admin panel
+            try {
+                // Method 1: window.open
+                const adminWindow = window.open('admin.html', '_blank');
+                if (!adminWindow) {
+                    // Method 2: direct navigation
+                    window.location.href = 'admin.html';
+                }
+            } catch (error) {
+                // Method 3: fallback
+                alert('Please navigate to: ' + window.location.origin + '/admin.html');
+            }
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             
@@ -407,9 +423,11 @@
 
     <!-- Admin Access -->
     <div class="container text-center mt-4">
-        <button class="btn btn-outline-secondary btn-sm" onclick="window.open('./admin.html', '_blank')">
+        <button class="btn btn-outline-secondary btn-sm" onclick="openAdmin()">
             ⚙️ Admin Panel
         </button>
+        <br><br>
+        <p><small>Or try this direct link: <a href="admin.html" target="_blank">Admin Panel Direct Link</a></small></p>
     </div>
 
     <!-- Footer -->
