@@ -101,13 +101,23 @@
         let currentCategories = [];
         let currentFAQs = [];
 
-        // Simple markdown renderer
+        // Simple markdown renderer for answers
         function renderMarkdown(text) {
             if (!text) return '';
             return text
                 .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*([^*]+)\*/g, '<em>$1</em>')
                 .replace(/\n/g, '<br>');
+        }
+
+        // Strip markdown from questions to make them plain text
+        function stripMarkdown(text) {
+            if (!text) return '';
+            return text
+                .replace(/\*\*([^*]+)\*\*/g, '$1')  // Remove bold markers
+                .replace(/\*([^*]+)\*/g, '$1')      // Remove italic markers
+                .replace(/\n/g, ' ')               // Replace newlines with spaces
+                .trim();
         }
 
         // Show specific section
@@ -169,11 +179,12 @@
                 faqs.forEach((faq, index) => {
                     if (faq.answer) {
                         const processedAnswer = renderMarkdown(faq.answer);
+                        const cleanQuestion = stripMarkdown(faq.question);
                         html += `
                             <div class="faq-item">
                                 <div class="card">
                                     <div class="card-header faq-question" onclick="toggleFAQ(${index})">
-                                        <h6 class="mb-0">❓ ${faq.question}</h6>
+                                        <h6 class="mb-0">❓ ${cleanQuestion}</h6>
                                     </div>
                                     <div id="faq-${index}" class="faq-answer">
                                         <div class="card-body">${processedAnswer}</div>
@@ -215,11 +226,12 @@
                     results.forEach((faq, index) => {
                         if (faq.answer) {
                             const processedAnswer = renderMarkdown(faq.answer);
+                            const cleanQuestion = stripMarkdown(faq.question);
                             html += `
                                 <div class="faq-item">
                                     <div class="card">
                                         <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
-                                            <h6 class="mb-0">❓ ${faq.question}</h6>
+                                            <h6 class="mb-0">❓ ${cleanQuestion}</h6>
                                             <small class="text-muted">${faq.category_name}</small>
                                         </div>
                                         <div id="search-faq-${index}" class="faq-answer">
