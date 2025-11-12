@@ -240,11 +240,14 @@
 
         // Simple markdown renderer
         function renderMarkdown(text) {
+            console.log('renderMarkdown called with:', text ? text.substring(0, 50) : 'empty');
             if (!text) return '';
-            return text
+            const result = text
                 .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  // Bold
                 .replace(/\*([^*]+)\*/g, '<em>$1</em>')               // Italic
                 .replace(/\n/g, '<br>');                             // Line breaks
+            console.log('renderMarkdown result:', result.substring(0, 50));
+            return result;
         }
 
         // Load FAQs for a specific category
@@ -268,12 +271,26 @@
                 document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
 
                 // Process FAQs first to render markdown
-                const processedFAQs = currentFAQs.map((faq, index) => ({
-                    ...faq,
-                    processedAnswer: index === 1 ? 
-                        'TEST: <strong>BOLD</strong> and <em>ITALIC</em> - Original: ' + faq.answer.substring(0, 100) : 
-                        renderMarkdown(faq.answer)
-                }));
+                const processedFAQs = currentFAQs.map((faq, index) => {
+                    if (index === 0) {
+                        return {
+                            ...faq,
+                            processedAnswer: 'HARDCODED TEST: This should be <strong>BOLD</strong> and this should be <em>ITALIC</em>. Does it work?'
+                        };
+                    } else if (index === 1) {
+                        return {
+                            ...faq,
+                            processedAnswer: 'SIMPLE REPLACEMENT TEST: *Pampanito* should become <em>Pampanito</em>'
+                        };
+                    } else {
+                        const processed = renderMarkdown(faq.answer);
+                        console.log(`FAQ ${index} processed:`, processed.substring(0, 100));
+                        return {
+                            ...faq,
+                            processedAnswer: processed
+                        };
+                    }
+                });
 
                 const faqsHTML = processedFAQs.map((faq, index) => `
                 <div class="faq-item">
