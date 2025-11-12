@@ -6,6 +6,10 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/corrected-faqs.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "index.html",
       "use": "@vercel/static"
     }
@@ -14,6 +18,10 @@
     {
       "src": "/api/faqs",
       "dest": "/api/formatted-faqs.js"
+    },
+    {
+      "src": "/api/corrected-faqs",
+      "dest": "/api/corrected-faqs.js"
     },
     {
       "src": "/(.*)",
