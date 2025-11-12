@@ -238,6 +238,15 @@
             return descriptions[name] || 'Detailed information about submarine operations and technology.';
         }
 
+        // Simple markdown renderer
+        function renderMarkdown(text) {
+            if (!text) return '';
+            return text
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')  // Bold
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')               // Italic
+                .replace(/\n/g, '<br>');                             // Line breaks
+        }
+
         // Load FAQs for a specific category
         async function loadCategoryFAQs(categoryId, categoryName) {
             try {
@@ -258,17 +267,23 @@
 
                 document.getElementById('faqsTitle').textContent = `${getCategoryIcon(categoryName)} ${categoryName}`;
 
-                const faqsHTML = currentFAQs.map((faq, index) => `
+                // Process FAQs first to render markdown
+                const processedFAQs = currentFAQs.map((faq, index) => ({
+                    ...faq,
+                    processedAnswer: index === 1 ? 
+                        'TEST: <strong>BOLD</strong> and <em>ITALIC</em> - Original: ' + faq.answer.substring(0, 100) : 
+                        renderMarkdown(faq.answer)
+                }));
+
+                const faqsHTML = processedFAQs.map((faq, index) => `
                 <div class="faq-item">
                     <div class="card">
                         <div class="card-header faq-question" onclick="toggleFAQ(${index})">
                             <h6 class="mb-0">❓ ${faq.question}</h6>
                         </div>
-                                                <div id="faq-${index}" class="faq-answer">
+                        <div id="faq-${index}" class="faq-answer">
                             <div class="card-body">
-                                ${index === 1 ? 
-                                    'TEST: <strong>BOLD</strong> and <em>ITALIC</em> - Original: ' + faq.answer.substring(0, 100) : 
-                                    faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
+                                ${faq.processedAnswer}
                             </div>
                         </div>
                     </div>
@@ -308,7 +323,13 @@
                     </div>
                 `;
                 } else {
-                    const resultsHTML = results.map((faq, index) => `
+                    // Process search results for markdown
+                    const processedResults = results.map(faq => ({
+                        ...faq,
+                        processedAnswer: renderMarkdown(faq.answer)
+                    }));
+
+                    const resultsHTML = processedResults.map((faq, index) => `
                     <div class="faq-item">
                         <div class="card">
                             <div class="card-header faq-question" onclick="toggleSearchFAQ(${index})">
@@ -317,7 +338,7 @@
                             </div>
                             <div id="search-faq-${index}" class="faq-answer">
                                 <div class="card-body">
-                                    ${faq.answer.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}
+                                    ${faq.processedAnswer}
                                 </div>
                             </div>
                         </div>
