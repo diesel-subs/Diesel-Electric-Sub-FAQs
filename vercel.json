@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "dynamic.html",
+      "src": "index.html",
       "use": "@vercel/static"
     }
   ],
@@ -16,12 +16,8 @@
       "dest": "/api/formatted-faqs.js"
     },
     {
-      "src": "/api/init",
-      "dest": "/api/real-submarine-faqs.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/dynamic.html"
+      "dest": "/index.html"
     }
   ]
 }
