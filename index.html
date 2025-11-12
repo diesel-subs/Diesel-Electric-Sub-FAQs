@@ -219,9 +219,7 @@
         }
 
         // Load FAQs for category
-        async function loadFAQs(categoryId, categoryName) {
-            alert('Loading FAQs for: ' + categoryName);
-            
+        async function loadFAQs(categoryId, categoryName) {            
             try {
                 const response = await fetch(`/api/corrected-faqs?action=faqs&category_id=${categoryId}`);
                 const faqs = await response.json();
