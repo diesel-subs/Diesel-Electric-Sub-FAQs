@@ -10,7 +10,19 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/auth.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/manage-faqs.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "admin.html",
       "use": "@vercel/static"
     },
     {
@@ -28,11 +40,23 @@
       "dest": "/api/corrected-faqs.js"
     },
     {
+      "src": "/api/auth",
+      "dest": "/api/auth.js"
+    },
+    {
+      "src": "/api/manage-faqs",
+      "dest": "/api/manage-faqs.js"
+    },
+    {
+      "src": "/admin.html",
+      "dest": "/admin.html"
+    },
+    {
       "src": "/dolphins-insignia.png",
       "dest": "/public/dolphins-insignia.png"
     },
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "/index.html"
     }
   ]
