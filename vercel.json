@@ -14,7 +14,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "images/**",
+      "src": "public/**",
       "use": "@vercel/static"
     }
   ],
@@ -26,6 +26,10 @@
     {
       "src": "/api/corrected-faqs",
       "dest": "/api/corrected-faqs.js"
+    },
+    {
+      "src": "/dolphins-insignia.png",
+      "dest": "/public/dolphins-insignia.png"
     },
     {
       "src": "/(.*)",
