@@ -57,14 +57,8 @@
             cursor: pointer;
         }
         .faq-feedback {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-        .faq-feedback .btn {
-            margin-right: 8px;
-            margin-bottom: 8px;
+            border-top: 1px solid #e9ecef;
+            padding-top: 10px;
         }
         .faq-answer {
             display: none;
@@ -298,22 +292,11 @@
                                     <div id="faq-${index}" class="faq-answer">
                                         <div class="card-body">
                                             ${processedAnswer}
-                                            <hr class="mt-4 mb-3">
-                                            <div class="faq-feedback">
-                                                <h6 class="text-muted mb-2">
-                                                    <small>💡 Have additional information or corrections for this FAQ?</small>
-                                                </h6>
-                                                <div class="d-flex flex-wrap gap-2">
-                                                    <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding the question: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0AYour feedback:%0D%0A" 
-                                                       class="btn btn-outline-primary btn-sm">
-                                                        📧 Email Correction
-                                                    </a>
-                                                    <a href="https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs/issues/new?title=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=**Question:** ${encodeURIComponent(cleanQuestion)}%0A%0A**Your feedback:**%0A" 
-                                                       target="_blank" 
-                                                       class="btn btn-outline-secondary btn-sm">
-                                                        🐙 GitHub Issue
-                                                    </a>
-                                                </div>
+                                            <div class="faq-feedback mt-3">
+                                                <small class="text-muted">
+                                                    Have additional info or corrections? 
+                                                    <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0A" class="text-decoration-none">📧 Send feedback</a>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
@@ -365,22 +348,11 @@
                                         <div id="search-faq-${index}" class="faq-answer">
                                             <div class="card-body">
                                                 ${processedAnswer}
-                                                <hr class="mt-4 mb-3">
-                                                <div class="faq-feedback">
-                                                    <h6 class="text-muted mb-2">
-                                                        <small>💡 Have additional information or corrections for this FAQ?</small>
-                                                    </h6>
-                                                    <div class="d-flex flex-wrap gap-2">
-                                                        <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding the question: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0AYour feedback:%0D%0A" 
-                                                           class="btn btn-outline-primary btn-sm">
-                                                            📧 Email Correction
-                                                        </a>
-                                                        <a href="https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs/issues/new?title=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=**Question:** ${encodeURIComponent(cleanQuestion)}%0A%0A**Your feedback:**%0A" 
-                                                           target="_blank" 
-                                                           class="btn btn-outline-secondary btn-sm">
-                                                            🐙 GitHub Issue
-                                                        </a>
-                                                    </div>
+                                                <div class="faq-feedback mt-3">
+                                                    <small class="text-muted">
+                                                        Have additional info or corrections? 
+                                                        <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0A" class="text-decoration-none">📧 Send feedback</a>
+                                                    </small>
                                                 </div>
                                             </div>
                                         </div>
