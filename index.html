@@ -145,7 +145,7 @@
         // Load categories from API
         async function loadCategories() {
             try {
-                const response = await fetch('/api/faqs?action=categories');
+                const response = await fetch('/api/corrected-faqs?action=categories');
                 if (!response.ok) throw new Error('API failed');
                 
                 const categories = await response.json();
@@ -167,7 +167,7 @@
                 });
                 
                 document.getElementById('categories').innerHTML = html;
-                document.getElementById('stats').innerHTML = 'Ready! 190 FAQs across 6 categories';
+                document.getElementById('stats').innerHTML = 'Ready! 166 FAQs across 6 categories';
             } catch (error) {
                 document.getElementById('categories').innerHTML = '<div class="col-12"><div class="alert alert-danger">Failed to load categories</div></div>';
             }
@@ -178,7 +178,7 @@
             alert('Loading FAQs for: ' + categoryName);
             
             try {
-                const response = await fetch(`/api/faqs?action=faqs&category_id=${categoryId}`);
+                const response = await fetch(`/api/corrected-faqs?action=faqs&category_id=${categoryId}`);
                 const faqs = await response.json();
                 
                 document.getElementById('faqsTitle').textContent = categoryName;
@@ -222,7 +222,7 @@
             if (!query) return;
             
             try {
-                const response = await fetch(`/api/faqs?action=search&q=${encodeURIComponent(query)}`);
+                const response = await fetch(`/api/corrected-faqs?action=search&q=${encodeURIComponent(query)}`);
                 const results = await response.json();
                 
                 document.getElementById('searchTitle').textContent = `Search Results for "${query}"`;
