@@ -22,29 +22,50 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API Routes - dynamically load all API endpoints
+// API Routes - dynamically load all API endpoints with safe error handling
 const apiDir = path.join(__dirname, 'api');
+const loadedRoutes = [];
+const failedRoutes = [];
+
 if (fs.existsSync(apiDir)) {
-  fs.readdirSync(apiDir).forEach(file => {
-    if (file.endsWith('.js')) {
-      const routeName = file.replace('.js', '');
-      const routePath = `/api/${routeName}`;
-      
-      try {
-        const handler = require(path.join(__dirname, 'api', file));
-        
-        // Support both default export and module.exports
-        const routeHandler = handler.default || handler;
-        
-        if (typeof routeHandler === 'function') {
-          app.all(routePath, routeHandler);
-          console.log(`📡 Loaded API route: ${routePath}`);
-        }
-      } catch (error) {
-        console.warn(`⚠️  Failed to load API route ${routePath}:`, error.message);
+  const files = fs.readdirSync(apiDir).filter(file => file.endsWith('.js'));
+  
+  files.forEach(file => {
+    const routeName = file.replace('.js', '');
+    const routePath = `/api/${routeName}`;
+    const filePath = path.join(__dirname, 'api', file);
+    
+    try {
+      // Check if file contains ES6 imports (which cause crashes)
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      if (fileContent.includes('import ') && fileContent.includes('from ')) {
+        console.warn(`⏭️  Skipping ES6 module: ${routePath} (contains import statements)`);
+        failedRoutes.push({ route: routePath, reason: 'ES6 imports not supported' });
+        return;
       }
+      
+      const handler = require(filePath);
+      
+      // Support both default export and module.exports
+      const routeHandler = handler.default || handler;
+      
+      if (typeof routeHandler === 'function') {
+        app.all(routePath, routeHandler);
+        console.log(`✅ Loaded API route: ${routePath}`);
+        loadedRoutes.push(routePath);
+      } else {
+        console.warn(`⚠️  Invalid handler for ${routePath}: not a function`);
+        failedRoutes.push({ route: routePath, reason: 'Handler is not a function' });
+      }
+    } catch (error) {
+      console.warn(`❌ Failed to load API route ${routePath}: ${error.message}`);
+      failedRoutes.push({ route: routePath, reason: error.message });
     }
   });
+  
+  console.log(`\n📊 API Routes Summary:`);
+  console.log(`   ✅ Loaded: ${loadedRoutes.length} routes`);
+  console.log(`   ❌ Failed: ${failedRoutes.length} routes`);
 }
 
 // Serve main pages
