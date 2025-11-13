@@ -2,9 +2,10 @@ const http = require('http');
 
 const port = process.env.PORT || 3000;
 
-console.log('🚀 BASIC HTTP SERVER - No Express, No Dependencies');
-console.log('PORT:', port);
-console.log('NODE_ENV:', process.env.NODE_ENV || 'not set');
+console.log('🚀 RAILWAY BASIC HTTP SERVER - Zero Dependencies');
+console.log('🎯 PORT from Railway:', port);
+console.log('📋 NODE_ENV:', process.env.NODE_ENV || 'not set');
+console.log('⚡ This should definitely work on Railway!');
 
 const server = http.createServer((req, res) => {
   const url = req.url;
