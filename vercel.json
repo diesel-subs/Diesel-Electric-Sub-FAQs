@@ -26,6 +26,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "welcome.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "public/**",
       "use": "@vercel/static"
     }
@@ -50,6 +54,10 @@
     {
       "src": "/admin.html",
       "dest": "/admin.html"
+    },
+    {
+      "src": "/welcome.html",
+      "dest": "/welcome.html"
     },
     {
       "src": "/dolphins-insignia.png",

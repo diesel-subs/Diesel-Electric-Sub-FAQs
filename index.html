@@ -94,6 +94,15 @@
 </head>
 
 <body>
+    <!-- First-time visitor check -->
+    <script>
+        // Check if this is a first-time visitor
+        if (!localStorage.getItem('submarineFAQ_hasVisited')) {
+            // Redirect to welcome page for first-time visitors
+            window.location.href = 'welcome.html';
+        }
+    </script>
+
     <!-- Hero Section -->
     <div class="hero">
         <div class="container text-center">
