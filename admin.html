@@ -257,14 +257,22 @@
                     <h5>${faq.question}</h5>
                     <p>${faq.answer.substring(0, 200)}${faq.answer.length > 200 ? '...' : ''}</p>
                     <div class="faq-actions">
-                        <button class="btn btn-sm btn-outline-primary" onclick="editFaq(${faq.id})">
+                        <button class="btn btn-sm btn-outline-primary edit-btn" data-faq-id="${faq.id}">
                             ✏️ Edit
                         </button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="deleteFaq(${faq.id}, '${faq.question.replace(/'/g, "\\'")}')">
+                        <button class="btn btn-sm btn-outline-danger delete-btn" data-faq-id="${faq.id}" data-faq-question="${faq.question}">
                             🗑️ Delete
                         </button>
                     </div>
                 `;
+                
+                // Add event listeners for the buttons
+                const editBtn = faqDiv.querySelector('.edit-btn');
+                const deleteBtn = faqDiv.querySelector('.delete-btn');
+                
+                editBtn.addEventListener('click', () => editFaq(faq.id));
+                deleteBtn.addEventListener('click', () => deleteFaq(faq.id, faq.question));
+                
                 listContainer.appendChild(faqDiv);
             });
         }
