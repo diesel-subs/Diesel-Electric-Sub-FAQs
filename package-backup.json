@@ -1,0 +1,29 @@
+{
+  "name": "submarine-faqs",
+  "version": "1.0.0",
+  "description": "Node.js web server",
+  "main": "health-debug.js",
+  "scripts": {
+    "start": "node railway-diagnostic.js",
+    "dev": "node minimal.js",
+    "build": "echo 'No build step required for Node.js server'",
+    "railway": "node railway-diagnostic.js"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs/issues"
+  },
+  "homepage": "https://github.com/diesel-subs/Diesel-Electric-Sub-FAQs#readme",
+  "dependencies": {
+  }
+}
