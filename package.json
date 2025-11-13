@@ -2,9 +2,9 @@
   "name": "submarine-faqs",
   "version": "1.0.0",
   "description": "Node.js web server",
-  "main": "railway-enhanced-server.js",
+  "main": "basic-http.js",
   "scripts": {
-    "start": "node railway-enhanced-server.js"
+    "start": "node basic-http.js"
   },
   "engines": {
     "node": "20.x",
