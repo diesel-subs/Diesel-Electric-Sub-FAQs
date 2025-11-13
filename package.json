@@ -4,8 +4,8 @@
   "description": "Node.js web server",
   "main": "express-server.js",
   "scripts": {
-    "start": "node simple-server.js",
-    "dev": "NODE_ENV=development node simple-server.js",
+    "start": "node minimal-server.js",
+    "dev": "NODE_ENV=development node minimal-server.js",
     "build": "echo 'No build needed - static files served directly'",
     "railway:deploy": "npm start"
   },
