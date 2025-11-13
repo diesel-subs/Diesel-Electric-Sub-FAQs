@@ -2,12 +2,12 @@
   "name": "submarine-faqs",
   "version": "1.0.0",
   "description": "Node.js web server",
-  "main": "minimal.js",
+  "main": "port-debug.js",
   "scripts": {
-    "start": "node minimal.js",
+    "start": "node port-debug.js",
     "dev": "node minimal.js",
     "build": "echo 'No build step required for Node.js server'",
-    "railway": "node minimal.js"
+    "railway": "node port-debug.js"
   },
   "engines": {
     "node": "20.x",
