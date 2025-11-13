@@ -64,6 +64,10 @@
       "dest": "/public/dolphins-insignia.png"
     },
     {
+      "src": "/nps-arrowhead.svg",
+      "dest": "/public/nps-arrowhead.svg"
+    },
+    {
       "src": "/",
       "dest": "/index.html"
     }

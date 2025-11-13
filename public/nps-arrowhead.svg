@@ -1,0 +1,24 @@
+<svg width="40" height="48" viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- NPS Arrowhead Background -->
+  <path d="M20 2 L38 18 L32 46 L8 46 L2 18 Z" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+  
+  <!-- Mountain silhouette -->
+  <path d="M6 20 L12 12 L18 16 L24 10 L30 14 L34 20 L34 42 L6 42 Z" fill="#2F4F2F"/>
+  
+  <!-- Tree -->
+  <ellipse cx="14" cy="24" rx="3" ry="5" fill="#228B22"/>
+  <rect x="13" y="28" width="2" height="6" fill="#8B4513"/>
+  
+  <!-- Bison silhouette -->
+  <ellipse cx="26" cy="35" rx="6" ry="3" fill="#FFFFFF"/>
+  <circle cx="24" cy="34" r="2" fill="#FFFFFF"/>
+  <rect x="22" y="36" width="1" height="2" fill="#FFFFFF"/>
+  <rect x="24" y="36" width="1" height="2" fill="#FFFFFF"/>
+  <rect x="26" y="36" width="1" height="2" fill="#FFFFFF"/>
+  <rect x="28" y="36" width="1" height="2" fill="#FFFFFF"/>
+  
+  <!-- "NATIONAL PARK SERVICE" text -->
+  <text x="20" y="44" text-anchor="middle" font-family="Arial" font-size="3" fill="#FFFFFF" font-weight="bold">NATIONAL</text>
+  <text x="12" y="47" text-anchor="middle" font-family="Arial" font-size="3" fill="#FFFFFF" font-weight="bold">PARK</text>
+  <text x="28" y="47" text-anchor="middle" font-family="Arial" font-size="3" fill="#FFFFFF" font-weight="bold">SERVICE</text>
+</svg>
