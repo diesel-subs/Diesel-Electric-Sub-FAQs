@@ -18,6 +18,22 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/database-faqs.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/database-manage-faqs.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/correspondence.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/migrate-faqs.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "index.html",
       "use": "@vercel/static"
     },
@@ -50,6 +66,22 @@
     {
       "src": "/api/manage-faqs",
       "dest": "/api/manage-faqs.js"
+    },
+    {
+      "src": "/api/database-faqs",
+      "dest": "/api/database-faqs.js"
+    },
+    {
+      "src": "/api/database-manage-faqs",
+      "dest": "/api/database-manage-faqs.js"
+    },
+    {
+      "src": "/api/correspondence",
+      "dest": "/api/correspondence.js"
+    },
+    {
+      "src": "/api/migrate-faqs",
+      "dest": "/api/migrate-faqs.js"
     },
     {
       "src": "/admin.html",
