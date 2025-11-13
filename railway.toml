@@ -1,0 +1,26 @@
+# Railway Deployment Configuration
+# This file tells Railway how to deploy your submarine FAQs site
+
+# Use Node.js 20
+[build]
+  builder = "NIXPACKS"
+
+[deploy]
+  startCommand = "npm start"
+  restartPolicyType = "ON_FAILURE"
+  restartPolicyMaxRetries = 10
+
+# Health check endpoint
+[healthcheck]
+  enabled = true
+  path = "/health"
+  interval = 30
+  timeout = 10
+  
+# Environment variables needed
+[env]
+  NODE_ENV = "production"
+  PORT = { default = "3000" }
+  
+# Database will be automatically configured by Railway
+# DATABASE_URL will be injected when you add MySQL service
