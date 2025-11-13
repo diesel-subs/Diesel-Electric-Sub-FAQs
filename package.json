@@ -4,10 +4,9 @@
   "description": "Node.js web server",
   "main": "express-server.js",
   "scripts": {
-    "start": "node minimal-server.js",
-    "dev": "NODE_ENV=development node minimal-server.js",
-    "build": "echo 'No build needed - static files served directly'",
-    "railway:deploy": "npm start"
+    "start": "node railway-server.js",
+    "dev": "node railway-server.js",
+    "build": "echo 'Railway deployment ready'"
   },
   "engines": {
     "node": "20.x",
