@@ -4,7 +4,7 @@
   "description": "Node.js web server",
   "main": "express-server.js",
   "scripts": {
-    "start": "node express-server.js",
+    "start": "node express-server.js"
   },
   "engines": {
     "node": "20.x",
