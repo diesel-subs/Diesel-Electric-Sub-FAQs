@@ -1,7 +1,7 @@
 // Auto-generated submarine FAQ data from markdown files
 // Generated on 2025-11-11T13:39:18.921Z
 
-export const submarineData = {
+const submarineData = {
   "categories": [
     {
       "id": 1,
@@ -1340,3 +1340,5 @@ export const submarineData = {
     }
   ]
 };
+
+module.exports = { submarineData };

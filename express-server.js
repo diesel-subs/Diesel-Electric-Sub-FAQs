@@ -1,11 +1,6 @@
-import express from 'express';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// ES module compatibility
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -28,36 +23,29 @@ app.get('/health', (req, res) => {
 });
 
 // API Routes - dynamically load all API endpoints
-async function loadApiRoutes() {
-  const apiDir = path.join(__dirname, 'api');
-  if (fs.existsSync(apiDir)) {
-    const files = fs.readdirSync(apiDir);
-    
-    for (const file of files) {
-      if (file.endsWith('.js')) {
-        const routeName = file.replace('.js', '');
-        const routePath = `/api/${routeName}`;
+const apiDir = path.join(__dirname, 'api');
+if (fs.existsSync(apiDir)) {
+  fs.readdirSync(apiDir).forEach(file => {
+    if (file.endsWith('.js')) {
+      const routeName = file.replace('.js', '');
+      const routePath = `/api/${routeName}`;
+      
+      try {
+        const handler = require(path.join(__dirname, 'api', file));
         
-        try {
-          const handler = await import(path.join(__dirname, 'api', file));
-          
-          // Support both default export and named exports
-          const routeHandler = handler.default || handler;
-          
-          if (typeof routeHandler === 'function') {
-            app.all(routePath, routeHandler);
-            console.log(`📡 Loaded API route: ${routePath}`);
-          }
-        } catch (error) {
-          console.warn(`⚠️  Failed to load API route ${routePath}:`, error.message);
+        // Support both default export and module.exports
+        const routeHandler = handler.default || handler;
+        
+        if (typeof routeHandler === 'function') {
+          app.all(routePath, routeHandler);
+          console.log(`📡 Loaded API route: ${routePath}`);
         }
+      } catch (error) {
+        console.warn(`⚠️  Failed to load API route ${routePath}:`, error.message);
       }
     }
-  }
+  });
 }
-
-// Load API routes asynchronously
-await loadApiRoutes();
 
 // Serve main pages
 app.get('/', (req, res) => {

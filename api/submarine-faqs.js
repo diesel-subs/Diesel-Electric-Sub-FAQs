@@ -1,5 +1,5 @@
 // Import real submarine FAQ data from markdown files
-import { submarineData } from '../submarine-faq-data.js';
+const { submarineData } = require('../submarine-faq-data.js');
 
 // Add descriptions to categories
 const categoriesWithDescriptions = submarineData.categories.map(category => ({

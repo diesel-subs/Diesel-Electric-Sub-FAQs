@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Node.js web server",
   "main": "express-server.js",
-  "type": "module",
   "scripts": {
     "start": "node express-server.js",
     "dev": "NODE_ENV=development node express-server.js",
