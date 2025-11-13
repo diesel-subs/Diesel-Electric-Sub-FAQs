@@ -5,19 +5,34 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Railway debugging - log environment
+console.log('🚀 Starting Submarine FAQ Server...');
+console.log('📋 Environment Variables:');
+console.log(`   NODE_ENV: ${process.env.NODE_ENV || 'not set'}`);
+console.log(`   PORT: ${process.env.PORT || 'not set (using 3000)'}`);
+console.log(`   DATABASE_URL: ${process.env.DATABASE_URL ? 'configured' : 'not set'}`);
+console.log(`🎯 Server will listen on: 0.0.0.0:${port}`);
+
 // Basic middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static('.'));
 
-// Health check for Railway
+// Health check for Railway - essential endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
+  res.status(200).json({ 
     status: 'healthy', 
     timestamp: new Date().toISOString(),
     service: 'submarine-faqs',
-    database: process.env.DATABASE_URL ? 'connected' : 'fallback'
+    port: port,
+    host: '0.0.0.0',
+    database: process.env.DATABASE_URL ? 'connected' : 'fallback',
+    uptime: process.uptime()
   });
 });
+
+// Alternative health check paths
+app.get('/healthz', (req, res) => res.status(200).json({ status: 'ok' }));
+app.get('/ping', (req, res) => res.status(200).send('pong'));
 
 // Serve main page
 app.get('/', (req, res) => {
@@ -82,12 +97,12 @@ app.use((error, req, res, next) => {
   });
 });
 
-// Start server
-app.listen(port, '0.0.0.0', () => {
+// Start server - Railway requires listening on 0.0.0.0 and PORT env var
+app.listen(port, "0.0.0.0", function () {
   console.log(`🔱 Submarine FAQ server running on port ${port}`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`🗄️  Database: ${process.env.DATABASE_URL ? 'Railway MySQL' : 'File fallback'}`);
-  console.log(`✅ Server ready for connections`);
+  console.log(`✅ Server ready for connections on 0.0.0.0:${port}`);
 });
 
 // Graceful shutdown
