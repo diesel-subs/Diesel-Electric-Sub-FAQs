@@ -2,9 +2,9 @@
   "name": "submarine-faqs",
   "version": "1.0.0",
   "description": "Node.js web server",
-  "main": "basic-http.js",
+  "main": "minimal.js",
   "scripts": {
-    "start": "node basic-http.js"
+    "start": "node minimal.js"
   },
   "engines": {
     "node": "20.x",
