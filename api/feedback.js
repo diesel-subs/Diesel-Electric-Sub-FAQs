@@ -14,10 +14,14 @@ module.exports = async (req, res) => {
     
     try {
         // Check if database is configured
+        console.log('Environment check - DATABASE_URL exists:', !!process.env.DATABASE_URL);
+        console.log('All env vars:', Object.keys(process.env).filter(k => k.includes('DATABASE') || k.includes('POSTGRES') || k.includes('PG')));
+        
         if (!process.env.DATABASE_URL) {
             return res.status(503).json({ 
                 success: false, 
                 message: 'Database not configured. DATABASE_URL environment variable is required.',
+                env_info: Object.keys(process.env).filter(k => k.includes('DATABASE') || k.includes('POSTGRES') || k.includes('PG'))
             });
         }
 
