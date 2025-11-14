@@ -311,8 +311,14 @@
 
         // Edit FAQ
         function editFaq(id) {
-            const faq = allFaqs.find(f => f.id === id);
-            if (!faq) return;
+            // Ensure id is a number for proper comparison
+            const numId = parseInt(id);
+            const faq = allFaqs.find(f => f.id === numId);
+            if (!faq) {
+                console.error('FAQ not found with ID:', id, 'Converted to:', numId);
+                console.log('Available FAQs:', allFaqs.map(f => ({id: f.id, question: f.question.substring(0, 50) + '...'})));
+                return;
+            }
 
             document.getElementById('editId').value = faq.id;
             document.getElementById('editCategory').value = faq.category_id;
@@ -357,12 +363,14 @@
 
         // Delete FAQ
         async function deleteFaq(id, question) {
+            // Ensure id is a number for proper comparison
+            const numId = parseInt(id);
             if (!confirm(`Are you sure you want to delete this FAQ?\n\n"${question}"`)) {
                 return;
             }
             
             try {
-                const response = await fetch(`/api/manage-faqs?id=${id}`, {
+                const response = await fetch(`/api/manage-faqs?id=${numId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${authToken}`
