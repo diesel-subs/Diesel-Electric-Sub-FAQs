@@ -13,6 +13,20 @@ module.exports = async (req, res) => {
     let connection = null;
     
     try {
+        // Check if database is configured
+        const hasDatabase = process.env.DATABASE_URL || 
+                          (process.env.MYSQLHOST && process.env.MYSQLUSER && process.env.MYSQLPASSWORD && process.env.MYSQLDATABASE);
+        
+        if (!hasDatabase) {
+            // No database configured - return helpful message
+            console.log('No database configured. Available env vars:', Object.keys(process.env).filter(k => k.includes('MYSQL') || k.includes('DATABASE')));
+            return res.status(503).json({ 
+                success: false, 
+                message: 'Database not configured. Please set up MySQL service in Railway.',
+                available_env: Object.keys(process.env).filter(k => k.includes('MYSQL') || k.includes('DATABASE'))
+            });
+        }
+
         // Create database connection
         let connectionConfig;
         
@@ -22,11 +36,11 @@ module.exports = async (req, res) => {
         } else {
             // Fallback to individual environment variables
             connectionConfig = {
-                host: process.env.MYSQLHOST || process.env.DB_HOST || 'localhost',
-                port: process.env.MYSQLPORT || process.env.DB_PORT || 3306,
-                user: process.env.MYSQLUSER || process.env.DB_USER || 'root',
-                password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD,
-                database: process.env.MYSQLDATABASE || process.env.DB_NAME
+                host: process.env.MYSQLHOST,
+                port: process.env.MYSQLPORT || 3306,
+                user: process.env.MYSQLUSER,
+                password: process.env.MYSQLPASSWORD,
+                database: process.env.MYSQLDATABASE
             };
         }
         
