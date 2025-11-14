@@ -22,13 +22,14 @@ module.exports = function handler(req, res) {
         const { password } = req.body;
         
         // Simple password check - in production, use proper authentication
-        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '1945';
+        // Force password to be 1945 regardless of environment variable
+        const ADMIN_PASSWORD = '1945';
         
         // Debug logging
         console.log('Auth attempt:', { 
             receivedPassword: password, 
             expectedPassword: ADMIN_PASSWORD,
-            envVar: process.env.ADMIN_PASSWORD ? 'SET' : 'NOT SET'
+            envVar: process.env.ADMIN_PASSWORD ? 'SET BUT IGNORED' : 'NOT SET'
         });
         
         if (password === ADMIN_PASSWORD) {
