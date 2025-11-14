@@ -14,13 +14,23 @@ module.exports = async (req, res) => {
     
     try {
         // Create database connection
-        connection = await mysql.createConnection({
-            host: process.env.MYSQLHOST,
-            port: process.env.MYSQLPORT || 3306,
-            user: process.env.MYSQLUSER,
-            password: process.env.MYSQLPASSWORD,
-            database: process.env.MYSQLDATABASE
-        });
+        let connectionConfig;
+        
+        if (process.env.DATABASE_URL) {
+            // Railway uses DATABASE_URL format
+            connectionConfig = process.env.DATABASE_URL;
+        } else {
+            // Fallback to individual environment variables
+            connectionConfig = {
+                host: process.env.MYSQLHOST || process.env.DB_HOST || 'localhost',
+                port: process.env.MYSQLPORT || process.env.DB_PORT || 3306,
+                user: process.env.MYSQLUSER || process.env.DB_USER || 'root',
+                password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD,
+                database: process.env.MYSQLDATABASE || process.env.DB_NAME
+            };
+        }
+        
+        connection = await mysql.createConnection(connectionConfig);
 
         if (req.method === 'POST') {
             // Submit feedback
