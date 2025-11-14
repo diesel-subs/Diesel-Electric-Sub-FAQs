@@ -1,14 +1,5 @@
 const mysql = require('mysql2/promise');
 
-// Database connection
-const connection = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT || 3306,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE
-});
-
 module.exports = async (req, res) => {
     // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,8 +10,16 @@ module.exports = async (req, res) => {
         return res.status(200).end();
     }
 
+    let connection;
     try {
-        await connection.connect().catch(() => {}); // Ignore if already connected
+        // Create database connection
+        connection = await mysql.createConnection({
+            host: process.env.MYSQLHOST,
+            port: process.env.MYSQLPORT || 3306,
+            user: process.env.MYSQLUSER,
+            password: process.env.MYSQLPASSWORD,
+            database: process.env.MYSQLDATABASE
+        });
 
         if (req.method === 'POST') {
             // Submit feedback
@@ -113,5 +112,14 @@ module.exports = async (req, res) => {
             success: false, 
             message: 'Internal server error' 
         });
+    } finally {
+        // Clean up database connection
+        if (connection) {
+            try {
+                await connection.end();
+            } catch (err) {
+                console.error('Error closing database connection:', err);
+            }
+        }
     }
 };
