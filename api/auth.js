@@ -13,7 +13,7 @@ module.exports = function handler(req, res) {
         const { password } = req.body;
         
         // Simple password check - in production, use proper authentication
-        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'submarine123';
+        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '1945';
         
         if (password === ADMIN_PASSWORD) {
             // Generate simple session token
