@@ -307,46 +307,46 @@
         }
 
         // Load FAQs
-        async function loadFaqs() {
-            try {
-                const response = await fetch('/api/manage-faqs', {
-                    headers: authToken ? { 'Authorization': `Bearer ${authToken}` } : {}
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    allFaqs = data.faqs;
-                    displayFaqs(allFaqs);
-                }
-            } catch (error) {
-                console.error('Failed to load FAQs:', error);
+        function editFaq(id) {
+            const numId = parseInt(id);
+            const faq = allFaqs.find(f => f.id === numId);
+            // DEBUG: Log full FAQ object and answer value (after faq is defined)
+            console.log('editFaq called with id:', id, 'faq object:', faq, 'faq.answer:', faq ? faq.answer : undefined);
+            alert('editFaq called with id: ' + id + '\nfaq.answer: ' + (faq ? faq.answer : 'undefined'));
+            if (!faq) {
+                console.error('FAQ not found with ID:', id, 'Converted to:', numId);
+                console.log('Available FAQs:', allFaqs.map(f => ({id: f.id, question: f.question.substring(0, 50) + '...'})));
+                return;
             }
-        }
 
-        // Display FAQs
-        function displayFaqs(faqs) {
-            const listContainer = document.getElementById('faqList');
-            listContainer.innerHTML = '';
+            document.getElementById('editId').value = faq.id;
+            document.getElementById('editCategory').value = faq.category_id;
+            document.getElementById('editQuestion').value = faq.question;
 
-            faqs.forEach(faq => {
-                const faqDiv = document.createElement('div');
-                faqDiv.className = 'faq-item';
-                faqDiv.innerHTML = `
-                    <div class="category-badge">${faq.category_name}</div>
-                    <h5>${faq.question}</h5>
-                    <p>${faq.answer.substring(0, 200)}${faq.answer.length > 200 ? '...' : ''}</p>
-                    <div class="faq-actions">
-                        <button class="btn btn-sm btn-outline-primary edit-btn" data-faq-id="${faq.id}">
-                            ✏️ Edit
-                        </button>
-                        <button class="btn btn-sm btn-outline-danger delete-btn" data-faq-id="${faq.id}" data-faq-question="${faq.question}">
-                            🗑️ Delete
-                        </button>
-                    </div>
-                `;
-                
-                // Add event listeners for the buttons
+            // Debug: log the answer value
+            console.log('Populating answer for FAQ', faq.id, 'with:', faq.answer);
+
+            // Add a visible fallback textarea for debugging
+            let fallback = document.getElementById('debugAnswerFallback');
+            if (!fallback) {
+                fallback = document.createElement('textarea');
+                fallback.id = 'debugAnswerFallback';
+                fallback.rows = 4;
+                fallback.style.width = '100%';
+                fallback.style.margin = '8px 0';
+                fallback.readOnly = true;
+                fallback.placeholder = 'DEBUG: This is the raw answer value.';
+                const editAnswerEl = document.getElementById('editAnswer');
+                editAnswerEl.parentNode.insertBefore(fallback, editAnswerEl);
+            }
+            fallback.value = faq.answer || '';
+
+            // Always remove TinyMCE editor if it exists
+            if (tinymce.get('editAnswer')) {
+                tinymce.get('editAnswer').remove();
+            }
+            // Set the textarea value directly
+            document.getElementById('editAnswer').value = faq.answer;
                 const editBtn = faqDiv.querySelector('.edit-btn');
                 const deleteBtn = faqDiv.querySelector('.delete-btn');
                 
@@ -395,9 +395,16 @@
 
         // Edit FAQ
         function editFaq(id) {
-            // DEBUG: Log full FAQ object and answer value
+            const numId = parseInt(id);
+            const faq = allFaqs.find(f => f.id === numId);
+            // DEBUG: Log full FAQ object and answer value (after faq is defined)
             console.log('editFaq called with id:', id, 'faq object:', faq, 'faq.answer:', faq ? faq.answer : undefined);
             alert('editFaq called with id: ' + id + '\nfaq.answer: ' + (faq ? faq.answer : 'undefined'));
+            if (!faq) {
+                console.error('FAQ not found with ID:', id, 'Converted to:', numId);
+                console.log('Available FAQs:', allFaqs.map(f => ({id: f.id, question: f.question.substring(0, 50) + '...'})));
+                return;
+            }
             // Ensure id is a number for proper comparison
             const numId = parseInt(id);
             const faq = allFaqs.find(f => f.id === numId);
