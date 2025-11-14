@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 
 module.exports = async (req, res) => {
     // Set CORS headers
@@ -10,41 +10,24 @@ module.exports = async (req, res) => {
         return res.status(200).end();
     }
 
-    let connection = null;
+    let client = null;
     
     try {
         // Check if database is configured
-        const hasDatabase = process.env.DATABASE_URL || 
-                          (process.env.MYSQLHOST && process.env.MYSQLUSER && process.env.MYSQLPASSWORD && process.env.MYSQLDATABASE);
-        
-        if (!hasDatabase) {
-            // No database configured - return helpful message
-            console.log('No database configured. Available env vars:', Object.keys(process.env).filter(k => k.includes('MYSQL') || k.includes('DATABASE')));
+        if (!process.env.DATABASE_URL) {
             return res.status(503).json({ 
                 success: false, 
-                message: 'Database not configured. Please set up MySQL service in Railway.',
-                available_env: Object.keys(process.env).filter(k => k.includes('MYSQL') || k.includes('DATABASE'))
+                message: 'Database not configured. DATABASE_URL environment variable is required.',
             });
         }
 
-        // Create database connection
-        let connectionConfig;
+        // Create database connection pool
+        const pool = new Pool({
+            connectionString: process.env.DATABASE_URL,
+            ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+        });
         
-        if (process.env.DATABASE_URL) {
-            // Railway uses DATABASE_URL format
-            connectionConfig = process.env.DATABASE_URL;
-        } else {
-            // Fallback to individual environment variables
-            connectionConfig = {
-                host: process.env.MYSQLHOST,
-                port: process.env.MYSQLPORT || 3306,
-                user: process.env.MYSQLUSER,
-                password: process.env.MYSQLPASSWORD,
-                database: process.env.MYSQLDATABASE
-            };
-        }
-        
-        connection = await mysql.createConnection(connectionConfig);
+        client = await pool.connect();
 
         if (req.method === 'POST') {
             // Submit feedback
@@ -60,28 +43,28 @@ module.exports = async (req, res) => {
             // Create feedback table if it doesn't exist
             const createTableQuery = `
                 CREATE TABLE IF NOT EXISTS feedback (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    faq_id INT NOT NULL,
+                    id SERIAL PRIMARY KEY,
+                    faq_id INTEGER NOT NULL,
                     faq_question TEXT NOT NULL,
                     feedback_text TEXT NOT NULL,
                     user_email VARCHAR(255),
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    status ENUM('new', 'reviewed', 'implemented') DEFAULT 'new'
+                    status VARCHAR(20) DEFAULT 'new' CHECK (status IN ('new', 'reviewed', 'implemented'))
                 )
             `;
             
-            await connection.execute(createTableQuery);
+            await client.query(createTableQuery);
 
             // Insert feedback
-            const [result] = await connection.execute(
-                'INSERT INTO feedback (faq_id, faq_question, feedback_text, user_email) VALUES (?, ?, ?, ?)',
+            const result = await client.query(
+                'INSERT INTO feedback (faq_id, faq_question, feedback_text, user_email) VALUES ($1, $2, $3, $4) RETURNING id',
                 [faq_id, faq_question, feedback_text, user_email || null]
             );
 
             return res.json({ 
                 success: true, 
                 message: 'Feedback submitted successfully!',
-                feedback_id: result.insertId
+                feedback_id: result.rows[0].id
             });
 
         } else if (req.method === 'GET') {
@@ -92,17 +75,17 @@ module.exports = async (req, res) => {
             let params = [];
 
             if (status) {
-                query += ' WHERE status = ?';
+                query += ' WHERE status = $1';
                 params.push(status);
             }
 
             query += ' ORDER BY created_at DESC';
 
-            const [rows] = await connection.execute(query, params);
+            const result = await client.query(query, params);
 
             return res.json({ 
                 success: true, 
-                feedback: rows 
+                feedback: result.rows 
             });
 
         } else if (req.method === 'PUT') {
@@ -116,8 +99,8 @@ module.exports = async (req, res) => {
                 });
             }
 
-            await connection.execute(
-                'UPDATE feedback SET status = ? WHERE id = ?',
+            await client.query(
+                'UPDATE feedback SET status = $1 WHERE id = $2',
                 [status, id]
             );
 
@@ -140,12 +123,12 @@ module.exports = async (req, res) => {
             message: 'Internal server error: ' + error.message
         });
     } finally {
-        // Always close the connection
-        if (connection) {
+        // Always release the client back to the pool
+        if (client) {
             try {
-                await connection.end();
+                client.release();
             } catch (closeError) {
-                console.error('Error closing database connection:', closeError);
+                console.error('Error releasing database client:', closeError);
             }
         }
     }
