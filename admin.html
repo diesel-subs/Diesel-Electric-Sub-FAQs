@@ -407,18 +407,28 @@
             document.getElementById('editId').value = faq.id;
             document.getElementById('editCategory').value = faq.category_id;
             document.getElementById('editQuestion').value = faq.question;
-            
-            // First, set the content in the textarea (fallback)
+
+            // Always remove TinyMCE editor if it exists
+            if (tinymce.get('editAnswer')) {
+                tinymce.get('editAnswer').remove();
+            }
+            // Set the textarea value directly
             document.getElementById('editAnswer').value = faq.answer;
-            
-            // Initialize/reinitialize TinyMCE for the edit modal
-            const initializeEditEditor = () => {
-                // Remove existing editor if it exists
+
+            // Show modal
+            const modalEl = document.getElementById('editModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+
+            // Guarantee TinyMCE is initialized after modal is fully shown
+            const onModalShown = function () {
+                // Remove any lingering editor (paranoia)
                 if (tinymce.get('editAnswer')) {
                     tinymce.get('editAnswer').remove();
                 }
-                
-                // Initialize fresh editor for the modal
+                // Set textarea value again (paranoia)
+                document.getElementById('editAnswer').value = faq.answer;
+                // Now initialize TinyMCE and set content in init event
                 tinymce.init({
                     selector: '#editAnswer',
                     height: 300,
@@ -437,19 +447,14 @@
                     promotion: false,
                     setup: function (editor) {
                         editor.on('init', function () {
-                            // Set content after editor is fully initialized
-                            editor.setContent(faq.answer);
+                            editor.setContent(faq.answer || '');
                         });
                     }
                 });
+                // Remove event listener after running once
+                modalEl.removeEventListener('shown.bs.modal', onModalShown);
             };
-
-            // Show modal and initialize editor
-            const modal = new bootstrap.Modal(document.getElementById('editModal'));
-            modal.show();
-            
-            // Initialize editor after modal is shown
-            setTimeout(initializeEditEditor, 100);
+            modalEl.addEventListener('shown.bs.modal', onModalShown);
         }
 
         // Update FAQ
