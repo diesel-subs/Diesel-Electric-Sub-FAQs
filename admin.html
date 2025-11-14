@@ -249,9 +249,17 @@
                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
                 branding: false,
                 promotion: false,
+                // Better modal handling
+                inline: false,
+                relative_urls: false,
                 setup: function (editor) {
                     editor.on('change', function () {
                         editor.save();
+                    });
+                    
+                    // Ensure editor is ready before allowing modal operations
+                    editor.on('init', function () {
+                        console.log('TinyMCE editor initialized:', editor.id);
                     });
                 }
             });
@@ -400,14 +408,48 @@
             document.getElementById('editCategory').value = faq.category_id;
             document.getElementById('editQuestion').value = faq.question;
             
-            // Set content in TinyMCE editor
-            if (tinymce.get('editAnswer')) {
-                tinymce.get('editAnswer').setContent(faq.answer);
-            } else {
-                document.getElementById('editAnswer').value = faq.answer;
-            }
+            // First, set the content in the textarea (fallback)
+            document.getElementById('editAnswer').value = faq.answer;
+            
+            // Initialize/reinitialize TinyMCE for the edit modal
+            const initializeEditEditor = () => {
+                // Remove existing editor if it exists
+                if (tinymce.get('editAnswer')) {
+                    tinymce.get('editAnswer').remove();
+                }
+                
+                // Initialize fresh editor for the modal
+                tinymce.init({
+                    selector: '#editAnswer',
+                    height: 300,
+                    menubar: false,
+                    plugins: [
+                        'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
+                        'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                        'media', 'table', 'help', 'wordcount'
+                    ],
+                    toolbar: 'undo redo | blocks | ' +
+                             'bold italic forecolor | alignleft aligncenter ' +
+                             'alignright alignjustify | bullist numlist outdent indent | ' +
+                             'removeformat | help',
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                    branding: false,
+                    promotion: false,
+                    setup: function (editor) {
+                        editor.on('init', function () {
+                            // Set content after editor is fully initialized
+                            editor.setContent(faq.answer);
+                        });
+                    }
+                });
+            };
 
-            new bootstrap.Modal(document.getElementById('editModal')).show();
+            // Show modal and initialize editor
+            const modal = new bootstrap.Modal(document.getElementById('editModal'));
+            modal.show();
+            
+            // Initialize editor after modal is shown
+            setTimeout(initializeEditEditor, 100);
         }
 
         // Update FAQ
