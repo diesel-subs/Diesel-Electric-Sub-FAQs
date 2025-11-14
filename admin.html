@@ -347,14 +347,6 @@
             }
             // Set the textarea value directly
             document.getElementById('editAnswer').value = faq.answer;
-                const editBtn = faqDiv.querySelector('.edit-btn');
-                const deleteBtn = faqDiv.querySelector('.delete-btn');
-                
-                editBtn.addEventListener('click', () => editFaq(faq.id));
-                deleteBtn.addEventListener('click', () => deleteFaq(faq.id, faq.question));
-                
-                listContainer.appendChild(faqDiv);
-            });
         }
 
         // Add FAQ
