@@ -404,9 +404,28 @@
                 return;
             }
 
+
             document.getElementById('editId').value = faq.id;
             document.getElementById('editCategory').value = faq.category_id;
             document.getElementById('editQuestion').value = faq.question;
+
+            // Debug: log the answer value
+            console.log('Populating answer for FAQ', faq.id, 'with:', faq.answer);
+
+            // Add a visible fallback textarea for debugging
+            let fallback = document.getElementById('debugAnswerFallback');
+            if (!fallback) {
+                fallback = document.createElement('textarea');
+                fallback.id = 'debugAnswerFallback';
+                fallback.rows = 4;
+                fallback.style.width = '100%';
+                fallback.style.margin = '8px 0';
+                fallback.readOnly = true;
+                fallback.placeholder = 'DEBUG: This is the raw answer value.';
+                const editAnswerEl = document.getElementById('editAnswer');
+                editAnswerEl.parentNode.insertBefore(fallback, editAnswerEl);
+            }
+            fallback.value = faq.answer || '';
 
             // Always remove TinyMCE editor if it exists
             if (tinymce.get('editAnswer')) {
@@ -448,6 +467,10 @@
                     setup: function (editor) {
                         editor.on('init', function () {
                             editor.setContent(faq.answer || '');
+                            // Fallback: set content again after a short delay
+                            setTimeout(() => {
+                                editor.setContent(faq.answer || '');
+                            }, 200);
                         });
                     }
                 });
