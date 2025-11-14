@@ -395,9 +395,9 @@
 
         // Edit FAQ
         function editFaq(id) {
-            // DEBUG: Confirm function is called
-            console.log('editFaq called with id:', id);
-            alert('editFaq called with id: ' + id);
+            // DEBUG: Log full FAQ object and answer value
+            console.log('editFaq called with id:', id, 'faq object:', faq, 'faq.answer:', faq ? faq.answer : undefined);
+            alert('editFaq called with id: ' + id + '\nfaq.answer: ' + (faq ? faq.answer : 'undefined'));
             // Ensure id is a number for proper comparison
             const numId = parseInt(id);
             const faq = allFaqs.find(f => f.id === numId);
