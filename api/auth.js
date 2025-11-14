@@ -9,11 +9,27 @@ module.exports = function handler(req, res) {
         return;
     }
 
+    if (req.method === 'GET') {
+        // Debug endpoint to check password configuration (remove in production)
+        return res.json({
+            hasEnvPassword: !!process.env.ADMIN_PASSWORD,
+            defaultPassword: process.env.ADMIN_PASSWORD ? '[HIDDEN]' : '1945',
+            envKeys: Object.keys(process.env).filter(k => k.includes('ADMIN') || k.includes('PASSWORD'))
+        });
+    }
+    
     if (req.method === 'POST') {
         const { password } = req.body;
         
         // Simple password check - in production, use proper authentication
         const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '1945';
+        
+        // Debug logging
+        console.log('Auth attempt:', { 
+            receivedPassword: password, 
+            expectedPassword: ADMIN_PASSWORD,
+            envVar: process.env.ADMIN_PASSWORD ? 'SET' : 'NOT SET'
+        });
         
         if (password === ADMIN_PASSWORD) {
             // Generate simple session token
