@@ -79,6 +79,18 @@
         </div>
 
         <div class="container mt-4">
+            <!-- Navigation Tabs -->
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <button class="nav-link active" onclick="showTab('faqsTab')">📚 FAQ Management</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" onclick="showTab('feedbackTab')">💬 User Feedback</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container" id="faqsTab">
             <!-- Add New FAQ Section -->
             <div class="card mb-4">
                 <div class="card-header">
@@ -142,6 +154,38 @@
 
             <!-- FAQ List -->
             <div id="faqList"></div>
+        </div>
+
+        <!-- Feedback Management Tab -->
+        <div class="container" id="feedbackTab" style="display: none;">
+            <div class="row">
+                <div class="col-12">
+                    <h3>💬 User Feedback</h3>
+                    <p class="text-muted">Manage and review user-submitted feedback on FAQs</p>
+                </div>
+            </div>
+
+            <!-- Feedback Filter -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="form-control" id="feedbackStatusFilter">
+                                <option value="">All Feedback</option>
+                                <option value="new">New</option>
+                                <option value="reviewed">Reviewed</option>
+                                <option value="implemented">Implemented</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary" onclick="loadFeedback()">Refresh Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback List -->
+            <div id="feedbackList"></div>
         </div>
     </div>
 
@@ -431,6 +475,26 @@
         // Search and filter functionality
         document.getElementById('searchFaqs').addEventListener('input', filterFaqs);
         document.getElementById('filterCategory').addEventListener('change', filterFaqs);
+        document.getElementById('feedbackStatusFilter').addEventListener('change', loadFeedback);
+
+        // Tab switching
+        function showTab(tabId) {
+            // Hide all tabs
+            document.getElementById('faqsTab').style.display = 'none';
+            document.getElementById('feedbackTab').style.display = 'none';
+            
+            // Show selected tab
+            document.getElementById(tabId).style.display = 'block';
+            
+            // Update active tab
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Load appropriate data
+            if (tabId === 'feedbackTab') {
+                loadFeedback();
+            }
+        }
 
         function filterFaqs() {
             const searchTerm = document.getElementById('searchFaqs').value.toLowerCase();
@@ -450,6 +514,110 @@
             }
             
             displayFaqs(filtered);
+        }
+
+        // Load feedback
+        async function loadFeedback() {
+            try {
+                const status = document.getElementById('feedbackStatusFilter').value;
+                let url = '/api/feedback';
+                if (status) {
+                    url += `?status=${status}`;
+                }
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayFeedback(data.feedback);
+                } else {
+                    console.error('Failed to load feedback:', data.message);
+                }
+            } catch (error) {
+                console.error('Failed to load feedback:', error);
+            }
+        }
+
+        // Display feedback
+        function displayFeedback(feedback) {
+            const listContainer = document.getElementById('feedbackList');
+            listContainer.innerHTML = '';
+
+            if (feedback.length === 0) {
+                listContainer.innerHTML = '<div class="alert alert-info">No feedback found.</div>';
+                return;
+            }
+
+            feedback.forEach(item => {
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.className = 'card mb-3';
+                
+                const statusBadge = getStatusBadge(item.status);
+                const createdAt = new Date(item.created_at).toLocaleString();
+                
+                feedbackDiv.innerHTML = `
+                    <div class="card-header d-flex justify-content-between align-items-start">
+                        <div>
+                            <strong>FAQ:</strong> ${item.faq_question}
+                            ${statusBadge}
+                        </div>
+                        <small class="text-muted">${createdAt}</small>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Feedback:</strong></p>
+                        <p>${item.feedback_text}</p>
+                        ${item.user_email ? `<p class="text-muted"><small><strong>Email:</strong> ${item.user_email}</small></p>` : ''}
+                        <div class="mt-3">
+                            <label class="form-label">Status:</label>
+                            <select class="form-select form-select-sm d-inline-block w-auto" onchange="updateFeedbackStatus(${item.id}, this.value)">
+                                <option value="new" ${item.status === 'new' ? 'selected' : ''}>New</option>
+                                <option value="reviewed" ${item.status === 'reviewed' ? 'selected' : ''}>Reviewed</option>
+                                <option value="implemented" ${item.status === 'implemented' ? 'selected' : ''}>Implemented</option>
+                            </select>
+                        </div>
+                    </div>
+                `;
+                
+                listContainer.appendChild(feedbackDiv);
+            });
+        }
+
+        // Get status badge
+        function getStatusBadge(status) {
+            const badges = {
+                'new': '<span class="badge bg-primary ms-2">New</span>',
+                'reviewed': '<span class="badge bg-warning ms-2">Reviewed</span>',
+                'implemented': '<span class="badge bg-success ms-2">Implemented</span>'
+            };
+            return badges[status] || '';
+        }
+
+        // Update feedback status
+        async function updateFeedbackStatus(feedbackId, newStatus) {
+            try {
+                const response = await fetch('/api/feedback', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: feedbackId,
+                        status: newStatus
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Refresh the feedback list
+                    loadFeedback();
+                } else {
+                    alert('Error updating feedback status: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error updating feedback status:', error);
+                alert('Error updating feedback status. Please try again.');
+            }
         }
     </script>
 </body>

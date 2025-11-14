@@ -208,6 +208,47 @@
         <div id="searchResults"></div>
     </div>
 
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📝 Submit Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="feedbackForm">
+                    <div class="modal-body">
+                        <input type="hidden" id="feedbackFaqId">
+                        <input type="hidden" id="feedbackFaqQuestion">
+                        
+                        <div class="mb-3">
+                            <label class="form-label"><strong>FAQ:</strong></label>
+                            <div id="feedbackFaqDisplay" class="text-muted small"></div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="feedbackText" class="form-label">Your Feedback <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="feedbackText" rows="4" 
+                                      placeholder="Share corrections, additional information, or suggestions..." required></textarea>
+                            <div class="form-text">Please be specific about corrections or additions you'd like to suggest.</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="feedbackEmail" class="form-label">Email (Optional)</label>
+                            <input type="email" class="form-control" id="feedbackEmail" 
+                                   placeholder="your@email.com">
+                            <div class="form-text">Optional - only if you'd like us to follow up with you.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Global variables
         let currentCategories = [];
@@ -360,7 +401,10 @@
                                         <div class="faq-feedback-box">
                                             <small class="text-muted">
                                                 💡 Have additional info or corrections about this FAQ? 
-                                                <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0A" class="text-decoration-none">📧 Send feedback</a>
+                                                <button class="btn btn-link btn-sm p-0 text-decoration-none" 
+                                                        onclick="openFeedbackModal(${faq.id}, '${cleanQuestion.replace(/'/g, "\\'")}')">
+                                                    � Submit feedback
+                                                </button>
                                             </small>
                                         </div>
                                         <div class="card-body">
@@ -416,7 +460,10 @@
                                             <div class="faq-feedback-box">
                                                 <small class="text-muted">
                                                     💡 Have additional info or corrections about this FAQ? 
-                                                    <a href="mailto:submarine-faqs@example.com?subject=FAQ Feedback: ${encodeURIComponent(cleanQuestion)}&body=Regarding: '${encodeURIComponent(cleanQuestion)}'%0D%0A%0D%0A" class="text-decoration-none">📧 Send feedback</a>
+                                                    <button class="btn btn-link btn-sm p-0 text-decoration-none" 
+                                                            onclick="openFeedbackModal(${faq.id}, '${cleanQuestion.replace(/'/g, "\\'")}')">
+                                                        � Submit feedback
+                                                    </button>
                                                 </small>
                                             </div>
                                             <div class="card-body">
@@ -458,6 +505,68 @@
                 alert('Please navigate to: ' + window.location.origin + '/admin.html');
             }
         }
+
+        // Open feedback modal
+        function openFeedbackModal(faqId, faqQuestion) {
+            document.getElementById('feedbackFaqId').value = faqId;
+            document.getElementById('feedbackFaqQuestion').value = faqQuestion;
+            document.getElementById('feedbackFaqDisplay').textContent = faqQuestion;
+            
+            // Clear form
+            document.getElementById('feedbackText').value = '';
+            document.getElementById('feedbackEmail').value = '';
+            
+            // Show modal
+            new bootstrap.Modal(document.getElementById('feedbackModal')).show();
+        }
+
+        // Handle feedback form submission
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            try {
+                const faqId = document.getElementById('feedbackFaqId').value;
+                const faqQuestion = document.getElementById('feedbackFaqQuestion').value;
+                const feedbackText = document.getElementById('feedbackText').value;
+                const userEmail = document.getElementById('feedbackEmail').value;
+                
+                const response = await fetch('/api/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        faq_id: faqId,
+                        faq_question: faqQuestion,
+                        feedback_text: feedbackText,
+                        user_email: userEmail
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Close modal
+                    bootstrap.Modal.getInstance(document.getElementById('feedbackModal')).hide();
+                    
+                    // Show success message
+                    alert('Thank you for your feedback! We really appreciate your input.');
+                } else {
+                    alert('Error submitting feedback: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Feedback submission error:', error);
+                alert('Error submitting feedback. Please try again.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
