@@ -415,40 +415,6 @@
         });
 
         // (Removed duplicate editFaq function)
-                // Set textarea value again (paranoia)
-                document.getElementById('editAnswer').value = faq.answer;
-                // Now initialize TinyMCE and set content in init event
-                tinymce.init({
-                    selector: '#editAnswer',
-                    height: 300,
-                    menubar: false,
-                    plugins: [
-                        'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
-                        'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                        'media', 'table', 'help', 'wordcount'
-                    ],
-                    toolbar: 'undo redo | blocks | ' +
-                             'bold italic forecolor | alignleft aligncenter ' +
-                             'alignright alignjustify | bullist numlist outdent indent | ' +
-                             'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-                    branding: false,
-                    promotion: false,
-                    setup: function (editor) {
-                        editor.on('init', function () {
-                            editor.setContent(faq.answer || '');
-                            // Fallback: set content again after a short delay
-                            setTimeout(() => {
-                                editor.setContent(faq.answer || '');
-                            }, 200);
-                        });
-                    }
-                });
-                // Remove event listener after running once
-                modalEl.removeEventListener('shown.bs.modal', onModalShown);
-            };
-            modalEl.addEventListener('shown.bs.modal', onModalShown);
-        }
 
         // Update FAQ
         document.getElementById('editForm').addEventListener('submit', async (e) => {
