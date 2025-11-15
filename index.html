@@ -270,14 +270,13 @@
             </div>
         </div>
     </div>
-        // Open general feedback modal
+        // General Feedback Modal logic (moved from HTML)
         function openGeneralFeedbackModal() {
             document.getElementById('generalFeedbackText').value = '';
             document.getElementById('generalFeedbackEmail').value = '';
             new bootstrap.Modal(document.getElementById('generalFeedbackModal')).show();
         }
 
-        // Handle general feedback form submission
         document.getElementById('generalFeedbackForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
