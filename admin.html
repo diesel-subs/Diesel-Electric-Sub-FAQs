@@ -1,3 +1,23 @@
+        // Load FAQs and apply search/filter (must be global)
+        function loadFaqs() {
+            filterFaqs();
+        }
+
+        // Display filtered FAQs in the list (must be global)
+        function displayFaqs(faqs) {
+            const list = document.getElementById('faqList');
+            if (!faqs || faqs.length === 0) {
+                list.innerHTML = '<div class="alert alert-info">No FAQs found.</div>';
+                return;
+            }
+            list.innerHTML = faqs.map(faq => `
+                <div class="faq-item">
+                    <div><span class="category-badge">${faq.category_name || ''}</span></div>
+                    <strong>Q:</strong> ${faq.question}<br>
+                    <strong>A:</strong> ${faq.answer}
+                </div>
+            `).join('');
+        }
 <!DOCTYPE html>
 <html lang="en">
 <head>
