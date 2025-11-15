@@ -6,6 +6,30 @@
     <title>Diesel-Electric Submarine FAQs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Force SVG icon to be large inside card */
+        .category-card .category-icon {
+            width: 80px !important;
+            height: 80px !important;
+            min-width: 80px !important;
+            min-height: 80px !important;
+            max-width: 80px !important;
+            max-height: 80px !important;
+            font-size: 80px !important;
+            vertical-align: middle !important;
+            margin-right: 22px !important;
+            display: inline-block !important;
+        }
+        .category-icon {
+            width: 80px !important;
+            height: 80px !important;
+            min-width: 80px !important;
+            min-height: 80px !important;
+            max-width: 80px !important;
+            max-height: 80px !important;
+            vertical-align: middle !important;
+            margin-right: 22px !important;
+            display: inline-block !important;
+        }
         .hero {
             background: linear-gradient(135deg, rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)), 
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M50 120 L150 100 L350 95 L550 95 L650 100 L750 120 L750 140 L650 125 L550 120 L350 120 L150 125 L50 140 Z" fill="rgba(255,255,255,0.1)"/><circle cx="200" cy="80" r="15" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="80" r="10" fill="rgba(255,255,255,0.2)"/><rect x="300" y="70" width="200" height="20" fill="rgba(255,255,255,0.15)"/></svg>');
@@ -360,31 +384,34 @@
                     let icon = '';
                     switch (category.name) {
                         case 'Hull and Compartments':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><rect x="4" y="14" width="24" height="8" rx="4" fill="#1e3c72"/><rect x="10" y="10" width="12" height="12" rx="6" fill="#2a5298"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><rect x="0" y="30" width="80" height="20" rx="10" fill="#1976d2"/><rect x="16" y="10" width="48" height="60" rx="24" fill="#ffd600"/><rect x="36" y="0" width="8" height="30" rx="4" fill="#43a047"/></svg>`;
                             break;
                         case 'US WW2 Subs in General':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><ellipse cx="16" cy="20" rx="12" ry="6" fill="#2a5298"/><rect x="12" y="8" width="8" height="10" rx="4" fill="#1e3c72"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><ellipse cx="40" cy="60" rx="38" ry="18" fill="#2a5298"/><rect x="20" y="10" width="40" height="50" rx="20" fill="#ff7043"/><circle cx="40" cy="25" r="12" fill="#ffd600"/></svg>`;
                             break;
                         case 'Operating US Subs in WW2':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><rect x="6" y="16" width="20" height="6" rx="3" fill="#1e3c72"/><rect x="14" y="10" width="4" height="8" rx="2" fill="#2a5298"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><rect x="0" y="55" width="80" height="20" rx="10" fill="#1e88e5"/><rect x="36" y="10" width="8" height="45" rx="4" fill="#ff7043"/><circle cx="40" cy="25" r="8" fill="#ffd600"/></svg>`;
                             break;
                         case 'Who Were the Crews Aboard WW2 US Subs':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><circle cx="16" cy="14" r="6" fill="#2a5298"/><rect x="10" y="20" width="12" height="6" rx="3" fill="#1e3c72"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="24" fill="#ffd600"/><rect x="12" y="52" width="56" height="24" rx="12" fill="#43a047"/><rect x="28" y="10" width="24" height="12" rx="6" fill="#1e88e5"/></svg>`;
                             break;
                         case 'Life Aboard WW2 US Subs':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><rect x="8" y="16" width="16" height="8" rx="4" fill="#2a5298"/><circle cx="16" cy="14" r="4" fill="#1e3c72"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><rect x="10" y="50" width="60" height="20" rx="10" fill="#43a047"/><circle cx="40" cy="28" r="18" fill="#ffd600"/><rect x="36" y="10" width="8" height="18" rx="4" fill="#1e88e5"/></svg>`;
                             break;
                         case 'Attacks and Battles, Small and Large':
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><rect x="6" y="18" width="20" height="4" rx="2" fill="#1e3c72"/><polygon points="16,6 20,18 12,18" fill="#2a5298"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><rect x="0" y="60" width="80" height="15" rx="7.5" fill="#d32f2f"/><polygon points="40,5 75,60 5,60" fill="#ffd600"/><circle cx="40" cy="25" r="8" fill="#1e88e5"/></svg>`;
                             break;
                         default:
-                            icon = `<svg width="28" height="28" viewBox="0 0 32 32" fill="none" style="vertical-align:middle;margin-right:10px;"><rect x="4" y="14" width="24" height="8" rx="4" fill="#1e3c72"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 80 80" fill="none"><rect x="0" y="30" width="80" height="20" rx="10" fill="#1e3c72"/></svg>`;
                     }
                     html += `
                         <div class="col-md-4 mb-4">
                             <div class="card category-card h-100" onclick="loadFAQs(${category.id}, '${category.name}')">
                                 <div class="card-body">
-                                    <h5 class="card-title mb-1">${icon}${category.name}</h5>
+                                    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                                        <span style='flex-shrink:0;display:inline-block;'>${icon}</span>
+                                        <span style="font-size: 1.35rem; font-weight: bold;">${category.name}</span>
+                                    </div>
                                     <p class="card-text mb-1">${category.description}</p>
                                     <span class="badge bg-success">Click to Browse FAQs</span>
                                 </div>
