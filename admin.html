@@ -317,6 +317,11 @@
                     authToken = data.token;
                     document.getElementById('loginSection').style.display = 'none';
                     document.getElementById('adminPanel').style.display = 'block';
+                    // Focus the search input
+                    setTimeout(() => {
+                        const searchInput = document.getElementById('searchFaqs');
+                        if (searchInput) searchInput.focus();
+                    }, 100);
                     // Load FAQs from API and store in allFaqs, then show
                     fetch('/api/manage-faqs', {
                         headers: { 'Authorization': `Bearer ${authToken}` }
@@ -535,14 +540,18 @@
             // Hide all tabs
             document.getElementById('faqsTab').style.display = 'none';
             document.getElementById('feedbackTab').style.display = 'none';
-            
             // Show selected tab
             document.getElementById(tabId).style.display = 'block';
-            
             // Update active tab
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
-            
+            // Focus search input if FAQ tab
+            if (tabId === 'faqsTab') {
+                setTimeout(() => {
+                    const searchInput = document.getElementById('searchFaqs');
+                    if (searchInput) searchInput.focus();
+                }, 100);
+            }
             // Load appropriate data
             if (tabId === 'feedbackTab') {
                 loadFeedback();
