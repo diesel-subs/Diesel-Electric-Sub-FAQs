@@ -659,40 +659,43 @@
         // Initialize page
         document.addEventListener('DOMContentLoaded', function () {
 
-            document.getElementById('searchInput').addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') searchFAQs();
-            });
+    document.getElementById('searchInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') searchFAQs();
+    });
 
-            loadCategories();
-        });
-        // General Feedback Modal logic (moved from HTML)
-        function openGeneralFeedbackModal() {
-            document.getElementById('generalFeedbackText').value = '';
-            document.getElementById('generalFeedbackEmail').value = '';
-            new bootstrap.Modal(document.getElementById('generalFeedbackModal')).show();
+    // General Feedback Modal logic (moved from HTML)
+    function openGeneralFeedbackModal() {
+        document.getElementById('generalFeedbackText').value = '';
+        document.getElementById('generalFeedbackEmail').value = '';
+        new bootstrap.Modal(document.getElementById('generalFeedbackModal')).show();
+    }
+    window.openGeneralFeedbackModal = openGeneralFeedbackModal;
+
+    // Attach event listener only after DOM is loaded and element exists
+    document.getElementById('generalFeedbackForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+        try {
+            const feedbackText = document.getElementById('generalFeedbackText').value;
+            const userEmail = document.getElementById('generalFeedbackEmail').value;
+            // TODO: Replace with your actual feedback API endpoint or handling logic
+            // For now, just show a thank you message and close the modal
+            // Example: await fetch('/api/general-feedback', { ... })
+            bootstrap.Modal.getInstance(document.getElementById('generalFeedbackModal')).hide();
+            alert('Thank you for your feedback! We really appreciate your input.');
+        } catch (error) {
+            alert('Error submitting feedback. Please try again.');
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         }
+    });
 
-        document.getElementById('generalFeedbackForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            try {
-                const feedbackText = document.getElementById('generalFeedbackText').value;
-                const userEmail = document.getElementById('generalFeedbackEmail').value;
-                // TODO: Replace with your actual feedback API endpoint or handling logic
-                // For now, just show a thank you message and close the modal
-                // Example: await fetch('/api/general-feedback', { ... })
-                bootstrap.Modal.getInstance(document.getElementById('generalFeedbackModal')).hide();
-                alert('Thank you for your feedback! We really appreciate your input.');
-            } catch (error) {
-                alert('Error submitting feedback. Please try again.');
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
+    loadCategories();
+});
 
     </script>
 
