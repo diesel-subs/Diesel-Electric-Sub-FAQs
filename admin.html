@@ -307,7 +307,24 @@
                     authToken = data.token;
                     document.getElementById('loginSection').style.display = 'none';
                     document.getElementById('adminPanel').style.display = 'block';
-                    loadFaqs();
+                    // Load FAQs from API and store in allFaqs, then show
+                    fetch('/api/manage-faqs', {
+                        headers: { 'Authorization': `Bearer ${authToken}` }
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success && Array.isArray(data.faqs)) {
+                                allFaqs = data.faqs;
+                                loadFaqs();
+                            } else {
+                                allFaqs = [];
+                                loadFaqs();
+                            }
+                        })
+                        .catch(() => {
+                            allFaqs = [];
+                            loadFaqs();
+                        });
                 } else {
                     document.getElementById('loginError').textContent = data.message;
                     document.getElementById('loginError').style.display = 'block';
@@ -525,20 +542,19 @@
         function filterFaqs() {
             const searchTerm = document.getElementById('searchFaqs').value.toLowerCase();
             const selectedCategory = document.getElementById('filterCategory').value;
-            
             let filtered = allFaqs;
-            
             if (searchTerm) {
-                filtered = filtered.filter(faq => 
-                    faq.question.toLowerCase().includes(searchTerm) ||
-                    faq.answer.toLowerCase().includes(searchTerm)
+                filtered = filtered.filter(faq =>
+                    (faq.question && faq.question.toLowerCase().includes(searchTerm)) ||
+                    (faq.answer && faq.answer.toLowerCase().includes(searchTerm))
                 );
             }
-            
             if (selectedCategory) {
-                filtered = filtered.filter(faq => faq.category_name === selectedCategory);
+                // Try both category_name and category_id for robustness
+                filtered = filtered.filter(faq =>
+                    faq.category_name === selectedCategory || String(faq.category_id) === selectedCategory
+                );
             }
-            
             displayFaqs(filtered);
         }
 
