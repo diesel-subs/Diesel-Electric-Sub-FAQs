@@ -238,10 +238,67 @@
                             </div>
                         </div>
                         <div class="text-center mt-3">
-                                <a href="mailto:submarine-faqs@example.com?subject=Submarine FAQ Feedback&body=Please share your suggestions, corrections, or additional information:%0D%0A%0D%0A"
-                                class="btn btn-primary">
-                                    📧 Share Your Feedback
-                            </a>
+                            <button class="btn btn-primary" onclick="openGeneralFeedbackModal()">
+                                📧 Share Your Feedback
+                            </button>
+    <!-- General Feedback Modal -->
+    <div class="modal fade" id="generalFeedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📝 Share Your Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="generalFeedbackForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="generalFeedbackText" class="form-label">Your Feedback <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="generalFeedbackText" rows="4" placeholder="Share corrections, additional information, or suggestions..." required></textarea>
+                            <div class="form-text">Please be specific about corrections or additions you'd like to suggest.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="generalFeedbackEmail" class="form-label">Email (Optional)</label>
+                            <input type="email" class="form-control" id="generalFeedbackEmail" placeholder="your@email.com">
+                            <div class="form-text">Optional - only if you'd like us to follow up with you.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        // Open general feedback modal
+        function openGeneralFeedbackModal() {
+            document.getElementById('generalFeedbackText').value = '';
+            document.getElementById('generalFeedbackEmail').value = '';
+            new bootstrap.Modal(document.getElementById('generalFeedbackModal')).show();
+        }
+
+        // Handle general feedback form submission
+        document.getElementById('generalFeedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            try {
+                const feedbackText = document.getElementById('generalFeedbackText').value;
+                const userEmail = document.getElementById('generalFeedbackEmail').value;
+                // TODO: Replace with your actual feedback API endpoint or handling logic
+                // For now, just show a thank you message and close the modal
+                // Example: await fetch('/api/general-feedback', { ... })
+                bootstrap.Modal.getInstance(document.getElementById('generalFeedbackModal')).hide();
+                alert('Thank you for your feedback! We really appreciate your input.');
+            } catch (error) {
+                alert('Error submitting feedback. Please try again.');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
                         </div>
                         <hr class="mt-4">
                         <p class="text-center mb-0">
