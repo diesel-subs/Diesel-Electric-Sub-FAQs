@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
             margin-right: 14px !important;
             display: inline-block !important;
         }
+
         .category-icon {
             width: 40px !important;
             height: 40px !important;
@@ -30,9 +32,10 @@
             margin-right: 14px !important;
             display: inline-block !important;
         }
+
         .hero {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M50 120 L150 100 L350 95 L550 95 L650 100 L750 120 L750 140 L650 125 L550 120 L350 120 L150 125 L50 140 Z" fill="rgba(255,255,255,0.1)"/><circle cx="200" cy="80" r="15" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="80" r="10" fill="rgba(255,255,255,0.2)"/><rect x="300" y="70" width="200" height="20" fill="rgba(255,255,255,0.15)"/></svg>');
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M50 120 L150 100 L350 95 L550 95 L650 100 L750 120 L750 140 L650 125 L550 120 L350 120 L150 125 L50 140 Z" fill="rgba(255,255,255,0.1)"/><circle cx="200" cy="80" r="15" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="80" r="10" fill="rgba(255,255,255,0.2)"/><rect x="300" y="70" width="200" height="20" fill="rgba(255,255,255,0.15)"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -40,6 +43,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -52,34 +56,52 @@
             animation: bubbles 20s linear infinite;
             pointer-events: none;
         }
+
         @keyframes bubbles {
-            0% { transform: translateY(0px); opacity: 0.1; }
-            50% { opacity: 0.3; }
-            100% { transform: translateY(-100px); opacity: 0; }
+            0% {
+                transform: translateY(0px);
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
         }
-        
+
         /* Dolphins Insignia SVG */
         .dolphins-insignia {
             display: inline-block;
             vertical-align: middle;
             margin-right: 10px;
         }
+
         .category-card {
             transition: transform 0.3s;
             cursor: pointer;
         }
+
         .category-card:hover {
             transform: translateY(-5px);
         }
+
         .faq-item {
             margin-bottom: 20px;
         }
-        #faqsTitle, #searchTitle {
+
+        #faqsTitle,
+        #searchTitle {
             margin-bottom: 20px;
         }
+
         .faq-question {
             cursor: pointer;
         }
+
         .faq-feedback-box {
             background-color: #f8f9fa;
             border: 1px solid #dee2e6;
@@ -93,23 +115,29 @@
             display: inline-block;
             width: auto;
         }
+
         .faq-feedback-box a {
             color: #0d6efd;
             font-weight: 500;
         }
+
         #categoriesSection h2 {
             margin-top: 8px !important;
             padding-top: 8px;
         }
-        #faqsTitle, #searchTitle {
+
+        #faqsTitle,
+        #searchTitle {
             margin-top: 16px;
         }
+
         .faq-answer {
             display: none;
             padding: 15px;
             background: #f8f9fa;
             border-left: 4px solid #007bff;
         }
+
         .loading {
             text-align: center;
             padding: 40px;
@@ -131,17 +159,19 @@
     <div class="hero">
         <div class="container text-center">
             <h1>
-                <img src="/images/dolphins-insignia.png" alt="Submarine Dolphins Insignia" class="dolphins-insignia" width="60" height="24" style="filter: brightness(0) invert(1); opacity: 0.95; margin-right: 15px;">
+                <img src="/images/dolphins-insignia.png" alt="Submarine Dolphins Insignia" class="dolphins-insignia"
+                    width="60" height="24" style="filter: brightness(0) invert(1); opacity: 0.95; margin-right: 15px;">
                 Diesel-Electric Submarine FAQs
             </h1>
             <p class="lead">Navigate the depths of World War II submarine knowledge</p>
-            <p class="mb-3" style="opacity: 0.9; font-size: 1.1rem;">Explore expert answers about USS Pampanito and WWII submarine operations</p>
+            <p class="mb-3" style="opacity: 0.9; font-size: 1.1rem;">Explore expert answers about USS Pampanito and WWII
+                submarine operations</p>
             <div id="stats" class="mt-4">
                 <strong style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px;">
                     🎯 Loading submarine intelligence...
                 </strong>
             </div>
-            
+
             <!-- Search and Navigation Section -->
             <div class="row align-items-center mt-4 justify-content-center">
                 <div class="col-md-5 col-sm-8">
@@ -152,7 +182,8 @@
                 </div>
                 <div class="col-12 text-center mt-3">
                     <button class="btn btn-outline-light" onclick="showCategories()">
-                        <img src="/images/dolphins-insignia.png" alt="Dolphins" width="30" height="12" style="margin-right: 8px; vertical-align: middle; filter: brightness(0) invert(1); opacity: 0.8;">
+                        <img src="/images/dolphins-insignia.png" alt="Dolphins" width="30" height="12"
+                            style="margin-right: 8px; vertical-align: middle; filter: brightness(0) invert(1); opacity: 0.8;">
                         Browse Categories
                     </button>
                 </div>
@@ -170,46 +201,52 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Feedback Section -->
         <div class="row mt-5">
             <div class="col-12">
                 <div class="card border-primary">
                     <div class="card-header bg-primary text-white">
                         <h4 class="mb-0">
-                            <img src="/images/dolphins-insignia.png" alt="Dolphins" width="30" height="12" style="margin-right: 8px; vertical-align: middle; filter: brightness(0) invert(1); opacity: 0.9;">
+                            <img src="/images/dolphins-insignia.png" alt="Dolphins" width="30" height="12"
+                                style="margin-right: 8px; vertical-align: middle; filter: brightness(0) invert(1); opacity: 0.9;">
                             Help Improve Our Submarine Knowledge Base
                         </h4>
                     </div>
                     <div class="card-body">
                         <p class="card-text">
-                            <strong>Share Your Expertise!</strong> We welcome contributions from submarine veterans, naval historians, 
-                            technical experts, and enthusiasts. Your knowledge helps preserve submarine history and educates future generations.
+                            <strong>Share Your Expertise!</strong> We welcome contributions from submarine veterans,
+                            naval historians,
+                            technical experts, and enthusiasts. Your knowledge helps preserve submarine history and
+                            educates future generations.
                         </p>
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <h6><i class="bi bi-pencil-square"></i> 📝 Corrections & Updates</h6>
-                                <p class="small text-muted">Found an error or have additional information? Let us know!</p>
+                                <p class="small text-muted">Found an error or have additional information? Let us know!
+                                </p>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <h6><i class="bi bi-plus-circle"></i> ➕ New FAQ Suggestions</h6>
-                                <p class="small text-muted">Suggest questions that should be added to our collection.</p>
+                                <p class="small text-muted">Suggest questions that should be added to our collection.
+                                </p>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <h6><i class="bi bi-person-workspace"></i> 🔧 Technical Improvements</h6>
-                                <p class="small text-muted">Ideas for better organization, search, or user experience.</p>
+                                <p class="small text-muted">Ideas for better organization, search, or user experience.
+                                </p>
                             </div>
                         </div>
                         <div class="text-center mt-3">
-                            <a href="mailto:submarine-faqs@example.com?subject=Submarine FAQ Feedback&body=Please share your suggestions, corrections, or additional information:%0D%0A%0D%0A" 
-                               class="btn btn-primary">
+                            <a href="mailto:submarine-faqs@example.com?subject=Submarine FAQ Feedback&body=Please share your suggestions, corrections, or additional information:%0D%0A%0D%0A"
+                                class="btn btn-primary">
                                 📧 Send Email Feedback
                             </a>
                         </div>
                         <hr class="mt-4">
                         <p class="text-center mb-0">
                             <small class="text-muted">
-                                <strong>Veterans & Experts:</strong> Your firsthand knowledge is invaluable. 
+                                <strong>Veterans & Experts:</strong> Your firsthand knowledge is invaluable.
                                 <strong>Researchers:</strong> Citations and sources are always appreciated.
                                 <strong>Students:</strong> Questions help us identify gaps in our coverage.
                             </small>
@@ -244,23 +281,25 @@
                     <div class="modal-body">
                         <input type="hidden" id="feedbackFaqId">
                         <input type="hidden" id="feedbackFaqQuestion">
-                        
+
                         <div class="mb-3">
                             <label class="form-label"><strong>FAQ:</strong></label>
                             <div id="feedbackFaqDisplay" class="text-muted small"></div>
                         </div>
-                        
+
                         <div class="mb-3">
-                            <label for="feedbackText" class="form-label">Your Feedback <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="feedbackText" rows="4" 
-                                      placeholder="Share corrections, additional information, or suggestions..." required></textarea>
-                            <div class="form-text">Please be specific about corrections or additions you'd like to suggest.</div>
+                            <label for="feedbackText" class="form-label">Your Feedback <span
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control" id="feedbackText" rows="4"
+                                placeholder="Share corrections, additional information, or suggestions..."
+                                required></textarea>
+                            <div class="form-text">Please be specific about corrections or additions you'd like to
+                                suggest.</div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="feedbackEmail" class="form-label">Email (Optional)</label>
-                            <input type="email" class="form-control" id="feedbackEmail" 
-                                   placeholder="your@email.com">
+                            <input type="email" class="form-control" id="feedbackEmail" placeholder="your@email.com">
                             <div class="form-text">Optional - only if you'd like us to follow up with you.</div>
                         </div>
                     </div>
@@ -281,54 +320,54 @@
         // Enhanced markdown renderer for answers
         function renderMarkdown(text) {
             if (!text) return '';
-            
+
             // First, handle block-level elements
             let html = text
                 // Handle block quotes
                 .replace(/^> (.+)$/gm, '<blockquote class="blockquote border-start border-primary ps-3 ms-3 text-muted">$1</blockquote>')
-                
+
                 // Handle headers (h1-h6)
                 .replace(/^### (.+)$/gm, '<h5>$1</h5>')
                 .replace(/^## (.+)$/gm, '<h4>$1</h4>')
                 .replace(/^# (.+)$/gm, '<h3>$1</h3>')
-                
+
                 // Handle horizontal rules
                 .replace(/^---$/gm, '<hr>')
-                
+
                 // Handle unordered lists (- item)
                 .replace(/^- (.+)$/gm, '<li>$1</li>')
                 .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-                
+
                 // Handle ordered lists (1. item, 2. item, etc.)
                 .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
-                
+
                 // Handle code blocks (triple backticks)
                 .replace(/```([^`]+)```/g, '<pre class="bg-light p-2 rounded"><code>$1</code></pre>')
-                
+
                 // Handle inline code
                 .replace(/`([^`]+)`/g, '<code class="bg-light px-1 rounded">$1</code>')
-                
+
                 // Handle bold and italic
                 .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-                
+
                 // Handle links
                 .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-decoration-none">$1</a>')
-                
+
                 // Handle line breaks - convert double newlines to paragraphs, single newlines to <br>
                 .replace(/\n\n/g, '</p><p>')
                 .replace(/\n/g, '<br>');
-            
+
             // Wrap in paragraph tags if not already wrapped in block elements
             if (!html.includes('<p>') && !html.includes('<ul>') && !html.includes('<ol>') && !html.includes('<blockquote>')) {
                 html = '<p>' + html + '</p>';
             } else if (html.includes('</p><p>')) {
                 html = '<p>' + html + '</p>';
             }
-            
+
             // Clean up any empty paragraphs
             html = html.replace(/<p><\/p>/g, '');
-            
+
             return html;
         }
 
@@ -368,17 +407,17 @@
         async function loadCategories() {
             // Clear any existing error messages first
             document.getElementById('categories').innerHTML = '<div class="col-12"><div class="text-center">Loading categories...</div></div>';
-            
+
             try {
                 const response = await fetch('/api/corrected-faqs?action=categories');
-                
+
                 if (!response.ok) {
                     throw new Error(`API failed: ${response.status} ${response.statusText}`);
                 }
-                
+
                 const categories = await response.json();
                 currentCategories = categories;
-                
+
                 let html = '';
                 categories.forEach(category => {
                     let icon = '';
@@ -387,19 +426,19 @@
                             icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="0" y="15" width="40" height="10" rx="5" fill="#1976d2"/><rect x="8" y="5" width="24" height="30" rx="12" fill="#ffd600"/><rect x="18" y="0" width="4" height="15" rx="2" fill="#43a047"/></svg>`;
                             break;
                         case 'US WW2 Subs in General':
-                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="30" rx="19" ry="9" fill="#2a5298"/><rect x="10" y="5" width="20" height="25" rx="10" fill="#ff7043"/><circle cx="20" cy="12.5" r="6" fill="#ffd600"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="32" rx="18" ry="8" fill="#2a5298"/><rect x="10" y="5" width="20" height="25" rx="10" fill="#ff7043"/><circle cx="20" cy="13" r="6" fill="#ffd600"/></svg>`;
                             break;
                         case 'Operating US Subs in WW2':
-                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="0" y="27.5" width="40" height="10" rx="5" fill="#1e88e5"/><rect x="18" y="5" width="4" height="22.5" rx="2" fill="#ff7043"/><circle cx="20" cy="12.5" r="4" fill="#ffd600"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="2" y="28" width="36" height="8" rx="4" fill="#1e88e5"/><rect x="18" y="5" width="4" height="23" rx="2" fill="#ff7043"/><circle cx="20" cy="13" r="4" fill="#ffd600"/></svg>`;
                             break;
                         case 'Who Were the Crews Aboard WW2 US Subs':
-                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="12" fill="#ffd600"/><rect x="6" y="26" width="28" height="12" rx="6" fill="#43a047"/><rect x="14" y="5" width="12" height="6" rx="3" fill="#1e88e5"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="10" fill="#ffd600"/><rect x="8" y="26" width="24" height="10" rx="5" fill="#43a047"/><rect x="14" y="5" width="12" height="6" rx="3" fill="#1e88e5"/></svg>`;
                             break;
                         case 'Life Aboard WW2 US Subs':
-                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="5" y="25" width="30" height="10" rx="5" fill="#43a047"/><circle cx="20" cy="14" r="9" fill="#ffd600"/><rect x="18" y="5" width="4" height="9" rx="2" fill="#1e88e5"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="7" y="25" width="26" height="8" rx="4" fill="#43a047"/><circle cx="20" cy="14" r="8" fill="#ffd600"/><rect x="18" y="5" width="4" height="8" rx="2" fill="#1e88e5"/></svg>`;
                             break;
                         case 'Attacks and Battles, Small and Large':
-                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="0" y="30" width="40" height="7.5" rx="3.75" fill="#d32f2f"/><polygon points="20,2.5 37.5,30 2.5,30" fill="#ffd600"/><circle cx="20" cy="12.5" r="4" fill="#1e88e5"/></svg>`;
+                            icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="2" y="30" width="36" height="6" rx="3" fill="#d32f2f"/><polygon points="20,4 36,30 4,30" fill="#ffd600"/><circle cx="20" cy="12" r="4" fill="#1e88e5"/></svg>`;
                             break;
                         default:
                             icon = `<svg class='category-icon' viewBox="0 0 40 40" fill="none"><rect x="0" y="15" width="40" height="10" rx="5" fill="#1e3c72"/></svg>`;
@@ -419,7 +458,7 @@
                         </div>
                     `;
                 });
-                
+
                 document.getElementById('categories').innerHTML = html;
                 document.getElementById('stats').innerHTML = 'Ready! 166 FAQs across 6 categories';
             } catch (error) {
@@ -429,13 +468,13 @@
         }
 
         // Load FAQs for category
-        async function loadFAQs(categoryId, categoryName) {            
+        async function loadFAQs(categoryId, categoryName) {
             try {
                 const response = await fetch(`/api/corrected-faqs?action=faqs&category_id=${categoryId}`);
                 const faqs = await response.json();
-                
+
                 document.getElementById('faqsTitle').textContent = categoryName;
-                
+
                 let html = '';
                 faqs.forEach((faq, index) => {
                     if (faq.answer) {
@@ -466,7 +505,7 @@
                         `;
                     }
                 });
-                
+
                 document.getElementById('faqs').innerHTML = html;
                 showSection('faqsSection');
             } catch (error) {
@@ -484,13 +523,13 @@
         async function searchFAQs() {
             const query = document.getElementById('searchInput').value.trim();
             if (!query) return;
-            
+
             try {
                 const response = await fetch(`/api/corrected-faqs?action=search&q=${encodeURIComponent(query)}`);
                 const results = await response.json();
-                
+
                 document.getElementById('searchTitle').textContent = `Search Results for "${query}"`;
-                
+
                 if (results.length === 0) {
                     document.getElementById('searchResults').innerHTML = '<div class="alert alert-info">No results found</div>';
                 } else {
@@ -527,7 +566,7 @@
                     });
                     document.getElementById('searchResults').innerHTML = html;
                 }
-                
+
                 showSection('searchSection');
             } catch (error) {
                 alert('Search error: ' + error.message);
@@ -561,11 +600,11 @@
             document.getElementById('feedbackFaqId').value = faqId;
             document.getElementById('feedbackFaqQuestion').value = faqQuestion;
             document.getElementById('feedbackFaqDisplay').textContent = faqQuestion;
-            
+
             // Clear form
             document.getElementById('feedbackText').value = '';
             document.getElementById('feedbackEmail').value = '';
-            
+
             // Show modal
             new bootstrap.Modal(document.getElementById('feedbackModal')).show();
         }
@@ -573,18 +612,18 @@
         // Handle feedback form submission
         document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
-            
+
             try {
                 const faqId = document.getElementById('feedbackFaqId').value;
                 const faqQuestion = document.getElementById('feedbackFaqQuestion').value;
                 const feedbackText = document.getElementById('feedbackText').value;
                 const userEmail = document.getElementById('feedbackEmail').value;
-                
+
                 const response = await fetch('/api/feedback', {
                     method: 'POST',
                     headers: {
@@ -597,13 +636,13 @@
                         user_email: userEmail
                     })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     // Close modal
                     bootstrap.Modal.getInstance(document.getElementById('feedbackModal')).hide();
-                    
+
                     // Show success message
                     alert('Thank you for your feedback! We really appreciate your input.');
                 } else {
@@ -619,12 +658,12 @@
         });
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.getElementById('searchInput').addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') searchFAQs();
             });
-            
+
             loadCategories();
         });
     </script>
@@ -642,10 +681,12 @@
     <footer class="text-center py-4 mt-5" style="background: #f8f9fa; border-top: 1px solid #dee2e6;">
         <div class="container">
             <small class="text-muted">
-                Submarine Knowledge Base • 
-                <a href="./admin.html" class="text-muted" style="text-decoration: none;" target="_blank" title="Admin Panel">⚙️</a>
+                Submarine Knowledge Base •
+                <a href="./admin.html" class="text-muted" style="text-decoration: none;" target="_blank"
+                    title="Admin Panel">⚙️</a>
             </small>
         </div>
     </footer>
 </body>
+
 </html>
