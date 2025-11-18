@@ -1,204 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Diesel-Electric Submarine FAQs</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .welcome-hero {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95), rgba(42, 82, 152, 0.95)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M50 200 L150 180 L350 175 L550 175 L650 180 L750 200 L750 240 L650 225 L550 220 L350 220 L150 225 L50 240 Z" fill="rgba(255,255,255,0.1)"/><circle cx="200" cy="160" r="20" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="160" r="15" fill="rgba(255,255,255,0.2)"/><rect x="300" y="150" width="200" height="30" fill="rgba(255,255,255,0.15)"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .welcome-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="0.8" fill="rgba(255,255,255,0.12)"/></svg>');
-            background-size: 50px 50px;
-            animation: bubbles 20s linear infinite;
-            pointer-events: none;
-        }
-        @keyframes bubbles {
-            0% { transform: translateY(0px); opacity: 0.1; }
-            50% { opacity: 0.3; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-        .welcome-content {
-            position: relative;
-            z-index: 2;
-        }
-        .dolphins-badge {
-            width: 80px;
-            height: auto;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-        }
-        .credit-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-        .continue-btn {
-            background: linear-gradient(45deg, #ffc107, #ffb300) !important;
-            border: 2px solid #fff !important;
-            color: #1e3c72 !important;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-        .continue-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            background: linear-gradient(45deg, #ffb300, #ff8f00) !important;
-            color: #1e3c72 !important;
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Diesel-Electric Submarine FAQs</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .welcome-hero {
+      background: linear-gradient(135deg, rgba(30, 60, 114, 0.95), rgba(42, 82, 152, 0.95)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M50 200 L150 180 L350 175 L550 175 L650 180 L750 200 L750 240 L650 225 L550 220 L350 220 L150 225 L50 240 Z" fill="rgba(255,255,255,0.1)"/><circle cx="200" cy="160" r="20" fill="rgba(255,255,255,0.2)"/><circle cx="600" cy="160" r="15" fill="rgba(255,255,255,0.2)"/><rect x="300" y="150" width="200" height="30" fill="rgba(255,255,255,0.15)"/></svg>');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="0.8" fill="rgba(255,255,255,0.12)"/></svg>');
+      background-size: 50px 50px;
+      animation: bubbles 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes bubbles {
+      0% {
+        transform: translateY(0px);
+        opacity: 0.1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+    }
+
+    .welcome-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .dolphins-badge {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .credit-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+    }
+
+    .continue-btn {
+      background: linear-gradient(45deg, #ffc107, #ffb300) !important;
+      border: 2px solid #fff !important;
+      color: #1e3c72 !important;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .continue-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(45deg, #ffb300, #ff8f00) !important;
+      color: #1e3c72 !important;
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="welcome-hero">
-        <div class="container welcome-content">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center fade-in">
-                    <!-- Dolphins Insignia -->
-                    <img src="/images/dolphins-insignia-replacement.png" alt="Submarine Warfare Insignia" class="dolphins-badge">
-                    
-                    <h1 class="display-4 fw-bold mb-4">
-                        Welcome to the Diesel-Electric Submarine Knowledge Base
-                    </h1>
-                    
-                    <p class="lead mb-5">
-                        Your comprehensive guide to understanding World War II diesel-electric submarines, 
-                        their operations, crews, and the brave men who served beneath the waves.
-                    </p>
+  <div class="welcome-hero">
+    <div class="container welcome-content">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center fade-in">
+          <!-- Dolphins Insignia -->
+          <img src="/images/dolphins-insignia-replacement.png" alt="Sub Warfare Insignia" class="dolphins-badge">
 
-                    <!-- Purpose Section -->
-                    <div class="credit-card">
-                        <h3 class="mb-4">🎯 Our Mission</h3>
-                        <p class="mb-3">
-                            This knowledge base preserves and shares the rich history, technical details, and human stories 
-                            of diesel-electric submarines. From operational procedures to daily life aboard these vessels, 
-                            we provide authentic answers to the questions most asked by visitors and enthusiasts.
-                        </p>
-                        <p class="mb-0">
-                            Whether you're a student, researcher, veteran, or simply curious about submarine warfare, 
-                            this resource offers verified information gathered from historical records and firsthand accounts.
-                        </p>
-                    </div>
+          <h1 class="display-4 fw-bold mb-4">
+            Welcome to the Diesel-Electric Submarine Knowledge Base
+          </h1>
 
-                    <!-- Features -->
-                    <div class="row mt-4 mb-4">
-                        <div class="col-md-4 mb-3">
-                            <div class="feature-icon">⚓</div>
-                            <h5>166+ Expert FAQs</h5>
-                            <p>Comprehensive answers covering all aspects of submarine operations</p>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="feature-icon">🔍</div>
-                            <h5>Easy Search</h5>
-                            <p>Find specific information quickly with our powerful search system</p>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="feature-icon">📚</div>
-                            <h5>Organized Categories</h5>
-                            <p>Browse by topic: operations, crew life, combat, history, and more</p>
-                        </div>
-                    </div>
+          <p class="lead mb-5">
+            Your comprehensive guide to understanding World War II diesel-electric submarines,
+            their operations, crews, and the brave men who served beneath the waves.
+          </p>
 
-                    <!-- Credits Section -->
-                    <div class="credit-card">
-                        <h3 class="mb-4">🏛️ Acknowledgments</h3>
-                        <div class="row">
-                            <div class="col-md-6 text-start">
-                                <h5 class="text-warning">
-                                    <a href="https://www.nps.gov/safr/index.htm" target="_blank" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 8px;">
-                                        <img src="/public/nps-arrowhead.svg" alt="National Park Service" style="width: 24px; height: 28px; vertical-align: middle;">
-                                        <span style="text-decoration: underline;">San Francisco Maritime National Historical Park</span>
-                                    </a>
-                                </h5>
-                                <p class="mb-3">
-                                    This knowledge base is built upon the foundation of educational materials and exhibits 
-                                    from the <a href="https://www.nps.gov/safr/index.htm" target="_blank" style="color: #ffc107; text-decoration: underline;">San Francisco Maritime National Historical Park</a>, home to historic vessels 
-                                    including submarine exhibits that inspire and educate visitors about maritime history.
-                                </p>
-                            </div>
-                            <div class="col-md-6 text-start">
-                                <h5 class="text-warning">🎖️ Submarine Veterans</h5>
-                                <p class="mb-3">
-                                    We honor and thank the submarine veterans who have generously shared their knowledge, 
-                                    experiences, and expertise. Their firsthand accounts and technical insights make 
-                                    this resource authentic and invaluable for preserving submarine heritage.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-3 border-top border-light">
-                            <p class="mb-0">
-                                <strong>Special Recognition:</strong> To all the brave submariners who served with courage and dedication, 
-                                and to the institutions that preserve their legacy for future generations.
-                            </p>
-                        </div>
-                    </div>
+          <!-- Purpose Section -->
+          <div class="credit-card">
+            <h3 class="mb-4">🎯 Our Mission</h3>
+            <p class="mb-3">
+              This knowledge base preserves and shares the rich history, technical details, and human stories
+              of diesel-electric submarines. From operational procedures to daily life aboard these vessels,
+              we provide authentic answers to the questions most asked by visitors and enthusiasts.
+            </p>
+            <p class="mb-0">
+              Whether you're a student, researcher, veteran, or simply curious about submarine warfare,
+              this resource offers verified information gathered from historical records and firsthand accounts.
+            </p>
+          </div>
 
-                    <!-- Continue Button -->
-                    <div class="mt-5">
-                        <button class="btn btn-warning continue-btn" onclick="enterSite()">
-                            Explore the Knowledge Base
-                        </button>
-                    </div>
-                </div>
+          <!-- Features -->
+          <div class="row mt-4 mb-4">
+            <div class="col-md-4 mb-3">
+              <div class="feature-icon">⚓</div>
+              <h5>166+ Expert FAQs</h5>
+              <p>Comprehensive answers covering all aspects of submarine operations</p>
             </div>
+            <div class="col-md-4 mb-3">
+              <div class="feature-icon">🔍</div>
+              <h5>Easy Search</h5>
+              <p>Find specific information quickly with our powerful search system</p>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="feature-icon">📚</div>
+              <h5>Organized Categories</h5>
+              <p>Browse by topic: operations, crew life, combat, history, and more</p>
+            </div>
+          </div>
+
+          <!-- Credits Section -->
+          <div class="credit-card">
+            <h3 class="mb-4">🏛️ Acknowledgments</h3>
+            <div class="row">
+              <div class="col-md-6 text-start">
+                <h5 class="text-warning">
+                  <a href="https://www.nps.gov/safr/index.htm" target="_blank"
+                    style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 8px;">
+                    <img src="/public/nps-arrowhead.svg" alt="National Park Service"
+                      style="width: 24px; height: 28px; vertical-align: middle;">
+                    <span style="text-decoration: underline;">San Francisco Maritime National Historical Park</span>
+                  </a>
+                </h5>
+                <p class="mb-3">
+                  This knowledge base is built upon the foundation of educational materials and exhibits
+                  from the <a href="https://www.nps.gov/safr/index.htm" target="_blank"
+                    style="color: #ffc107; text-decoration: underline;">San Francisco Maritime National Historical
+                    Park</a>, home to historic vessels
+                  including submarine exhibits that inspire and educate visitors about maritime history.
+                </p>
+              </div>
+              <div class="col-md-6 text-start">
+                <h5 class="text-warning">🎖️ Submarine Veterans</h5>
+                <p class="mb-3">
+                  We honor and thank the submarine veterans who have generously shared their knowledge,
+                  experiences, and expertise. Their firsthand accounts and technical insights make
+                  this resource authentic and invaluable for preserving submarine heritage.
+                </p>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-top border-light">
+              <p class="mb-0">
+                <strong>Special Recognition:</strong> To all the brave submariners who served with courage and
+                dedication,
+                and to the institutions that preserve their legacy for future generations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Continue Button -->
+          <div class="mt-5">
+            <button class="btn btn-warning continue-btn" onclick="enterSite()">
+              Explore the Knowledge Base
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function enterSite() {
-            // Mark that the user has visited the site
-            localStorage.setItem('submarineFAQ_hasVisited', 'true');
-            
-            // Redirect to main site
-            window.location.href = 'index.html';
-        }
+  <script>
+    function enterSite() {
+      // Mark that the user has visited the site
+      localStorage.setItem('submarineFAQ_hasVisited', 'true');
 
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add stagger animation to feature cards
-            const features = document.querySelectorAll('.col-md-4');
-            features.forEach((feature, index) => {
-                feature.style.animationDelay = `${index * 0.2}s`;
-                feature.classList.add('fade-in');
-            });
-        });
-    </script>
+      // Redirect to main site
+      window.location.href = 'index.html';
+    }
+
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add stagger animation to feature cards
+      const features = document.querySelectorAll('.col-md-4');
+      features.forEach((feature, index) => {
+        feature.style.animationDelay = `${index * 0.2}s`;
+        feature.classList.add('fade-in');
+      });
+    });
+  </script>
 </body>
+
 </html>
