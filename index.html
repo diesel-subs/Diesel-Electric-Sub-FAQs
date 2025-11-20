@@ -721,19 +721,48 @@
                 submitBtn.textContent = 'Submitting...';
                 submitBtn.disabled = true;
                 try {
-                    const feedbackText = document.getElementById('generalFeedbackText').value;
-                    const userEmail = document.getElementById('generalFeedbackEmail').value;
-                    // TODO: Replace with your actual feedback API endpoint or handling logic
-                    // For now, just show a thank you message and close the modal
-                    // Example: await fetch('/api/general-feedback', { ... })
+                    const feedbackText = document.getElementById('generalFeedbackText').value.trim();
+                    const userEmail = document.getElementById('generalFeedbackEmail').value.trim();
+
+                    if (!feedbackText) {
+                        alert('Please enter your feedback before submitting.');
+                        return;
+                    }
+
+                    const payload = {
+                        // Use a sentinel FAQ id + label so you can distinguish these in the DB
+                        faq_id: null,
+                        faq_question: '[GENERAL-FEEDBACK]',
+                        feedback_text: feedbackText,
+                        user_email: userEmail
+                    };
+
+                    const response = await fetch('https://feedback.dieselsubs.com/api/submit.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const data = await response.json();
+                    console.log('generalFeedback submit.php response:', data);
+
+                    if (!response.ok || !data || !data.success) {
+                        throw new Error(data && data.message ? data.message : 'Server error');
+                    }
+
+                    // Close modal on success
                     bootstrap.Modal.getInstance(document.getElementById('generalFeedbackModal')).hide();
                     alert('Thank you for your feedback! We really appreciate your input.');
                 } catch (error) {
-                    alert('Error submitting feedback. Please try again.');
+                    console.error('General feedback submission error:', error);
+                    alert('Error submitting feedback: ' + (error.message || 'Please try again.'));
                 } finally {
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 }
+
             });
 
             loadCategories();
