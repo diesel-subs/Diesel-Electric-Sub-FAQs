@@ -66,6 +66,18 @@ The application includes:
 - Responsive design with Bootstrap 5
 - Admin interface for content management
 
+## Documentation (MkDocs)
+
+An organized documentation site now lives in `docs/` and is driven by `mkdocs.yml`. The navigation includes the WWII FAQ chapters, deployment and hosting runbooks, and markdown tooling demos.
+
+Preview or build the site:
+
+```bash
+pip install mkdocs mkdocs-material   # or pipx install ...
+mkdocs serve                        # live preview at http://127.0.0.1:8000
+mkdocs build                        # outputs static site to the site/ directory
+```
+
 ## Content Organization
 
 The application is organized around the existing categories found in your `categories/` folder:

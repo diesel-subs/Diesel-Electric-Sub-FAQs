@@ -1,0 +1,51 @@
+site_name: Diesel-Electric Submarine FAQs
+site_description: Documentation for the Diesel-Electric Submarine FAQ content and deployment guides.
+docs_dir: docs
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+plugins:
+  - search:
+      lang: en
+nav:
+  - Home: index.md
+  - FAQ Content:
+      - "Hull and Compartments": faqs/05-Hull-and-Compartments.md
+      - "US WW2 Subs in General": faqs/08-US-WW2-Subs-in-General.md
+      - "Operating US Subs in WW2": faqs/10-Operating-US-WW2-Subs.md
+      - "Crews Aboard WW2 US Subs": faqs/12-Crews-Aboard-US-WW2-Subs.md
+      - "Life Aboard WW2 US Subs": faqs/15-Life-Aboard-US-WW2-Subs.md
+      - "Attacks and Battles": faqs/20-Attacks-and-Battles-Small-and-Large.md
+  - Markdown & Content Tools:
+      - "Markdown Integration Guide": guides/MARKDOWN-INTEGRATION-GUIDE.md
+      - "Markdown Editor Demo": guides/editor-demo.md
+      - "Sample Markdown FAQ Entry": guides/sample-markdown-faq.md
+  - Operations & Deployment:
+      - "Deployment Status (Vercel)": ops/DEPLOYMENT_STATUS.md
+      - "Deployment Options Comparison": ops/DEPLOYMENT_COMPARISON.md
+      - "Construction Mode": ops/CONSTRUCTION-README.md
+      - "Database Setup": ops/DATABASE_SETUP.md
+      - "PlanetScale Setup": ops/PLANETSCALE_SETUP.md
+      - "HostGator Migration Guide": ops/HOSTGATOR-MIGRATION-GUIDE.md
+      - Railway:
+          - "Railway Setup": ops/RAILWAY_SETUP.md
+          - "Railway Deployment Guide": ops/RAILWAY_DEPLOYMENT.md
+          - "Railway Deployment Guide (Detailed)": ops/RAILWAY-DEPLOYMENT-GUIDE.md
+          - "Deploy to Railway - Quick Start": ops/RAILWAY_DEPLOY.md
+          - "Fresh Railway Setup - Nuclear Option": ops/FRESH_RAILWAY_PLAN.md
+          - "Railway Custom Domain Setup": ops/RAILWAY-CUSTOM-DOMAIN-SETUP.md
+          - "Railway Issue #4 Analysis": ops/RAILWAY_ISSUE_4_ANALYSIS.md
+          - "Railway 502 Troubleshooting": ops/RAILWAY_TROUBLESHOOTING.md
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
