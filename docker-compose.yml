@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  app:
+    image: php:8.2-apache
+    container_name: submarine-faqs-app
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      # These align with config/database.php fallbacks
+      MYSQLHOST: db
+      MYSQLPORT: 3306
+      MYSQLUSER: submarine_user
+      MYSQLPASSWORD: submarine2024!
+      MYSQLDATABASE: submarine_faqs
+    depends_on:
+      - db
+    command: >
+      bash -c "a2enmod rewrite &&
+               apache2-foreground"
+
+  db:
+    image: mariadb:11
+    container_name: submarine-faqs-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: submarine_faqs
+      MYSQL_USER: submarine_user
+      MYSQL_PASSWORD: submarine2024!
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    ports:
+      - "3307:3306" # optional host access
+
+volumes:
+  db_data:

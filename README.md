@@ -78,6 +78,19 @@ mkdocs serve                        # live preview at http://127.0.0.1:8000
 mkdocs build                        # outputs static site to the site/ directory
 ```
 
+## Local Development with Docker
+
+A Docker setup is available for local PHP/MySQL development.
+
+```bash
+docker compose up -d          # start PHP (port 8080) and MariaDB (port 3307)
+docker compose logs -f        # follow logs
+docker compose down           # stop containers
+```
+
+- App: http://127.0.0.1:8080
+- DB: mysql host `db`, user `submarine_user`, password `submarine2024!`, db `submarine_faqs` (schema auto-loaded from `database/schema.sql`).
+
 ## Content Organization
 
 The application is organized around the existing categories found in your `categories/` folder:
