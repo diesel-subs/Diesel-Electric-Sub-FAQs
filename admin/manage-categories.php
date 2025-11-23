@@ -58,36 +58,29 @@ $categories = $categoriesStmt->fetchAll();
 
     <div class="card">
         <div class="card-header">
-            <h5 class="mb-0"><i class="fas fa-arrows-alt-v"></i> Reorder Categories</h5>
-            <small class="text-muted">Lower numbers appear first. Update the numbers and save.</small>
+            <h5 class="mb-0"><i class="fas fa-arrows-alt"></i> Drag to Reorder Categories</h5>
+            <small class="text-muted">Drag rows with the handle to set order. Lower numbers appear first.</small>
         </div>
         <div class="card-body">
             <form method="POST">
                 <div class="table-responsive">
-                    <table class="table align-middle">
+                    <table class="table align-middle" id="category-table">
                         <thead>
                             <tr>
-                                <th style="width: 120px;">Sort</th>
+                                <th style="width: 60px;">Drag</th>
                                 <th>Name</th>
-                                <th>Description</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="category-rows">
                             <?php foreach ($categories as $cat): ?>
-                                <tr>
-                                    <td>
-                                        <input type="number" 
-                                               name="sort_order[<?php echo $cat['id']; ?>]" 
-                                               value="<?php echo (int)$cat['sort_order']; ?>" 
-                                               class="form-control form-control-sm" 
-                                               step="1">
+                                <tr data-id="<?php echo $cat['id']; ?>">
+                                    <td class="text-center">
+                                        <span class="drag-handle" title="Drag to reorder">
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </span>
                                     </td>
                                     <td class="fw-bold">
-                                        <i class="<?php echo htmlspecialchars($cat['icon'] ?: 'fas fa-folder'); ?>"></i>
                                         <?php echo htmlspecialchars($cat['name']); ?>
-                                    </td>
-                                    <td class="text-muted">
-                                        <?php echo htmlspecialchars($cat['description'] ?? ''); ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -95,7 +88,7 @@ $categories = $categoriesStmt->fetchAll();
                     </table>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-3">
-                    <small class="text-muted">Tip: use steps of 10 (10, 20, 30…) to leave room for future inserts.</small>
+                    <small class="text-muted">Tip: drag to set order; numbers will be saved automatically.</small>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> Save Order
                     </button>
@@ -104,5 +97,79 @@ $categories = $categoriesStmt->fetchAll();
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tbody = document.getElementById('category-rows');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.forEach(row => {
+        row.draggable = true;
+        row.addEventListener('dragstart', handleDragStart);
+        row.addEventListener('dragover', handleDragOver);
+        row.addEventListener('drop', handleDrop);
+        row.addEventListener('dragend', handleDragEnd);
+    });
+
+    let draggedRow = null;
+
+    function handleDragStart(e) {
+        draggedRow = this;
+        this.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const target = e.currentTarget;
+        if (target === draggedRow) return;
+
+        const bounding = target.getBoundingClientRect();
+        const offset = bounding.y + (bounding.height / 2);
+        if (e.clientY - offset > 0) {
+            target.after(draggedRow);
+        } else {
+            target.before(draggedRow);
+        }
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        updateOrderValues();
+    }
+
+    function handleDragEnd() {
+        this.classList.remove('dragging');
+        updateOrderValues();
+    }
+
+    function updateOrderValues() {
+        const newRows = Array.from(tbody.querySelectorAll('tr'));
+        newRows.forEach((row, index) => {
+            const orderValue = (index + 1) * 10; // leave gaps for future inserts
+            const input = row.querySelector('input[type="hidden"]');
+            input.value = orderValue;
+        });
+    }
+});
+</script>
+
+<style>
+#category-rows tr.dragging {
+    opacity: 0.6;
+    background: #f8f9fa;
+}
+.drag-handle {
+    cursor: grab;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+}
+.drag-handle:active {
+    cursor: grabbing;
+}
+</style>
 
 <?php require_once '../includes/footer.php'; ?>
