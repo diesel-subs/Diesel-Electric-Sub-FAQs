@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
     command: >
-      bash -c "a2enmod rewrite &&
+      bash -c "a2enmod rewrite headers &&
                apache2-foreground"
 
   db:
