@@ -86,6 +86,7 @@ A Docker setup is available for local PHP/MySQL development.
 docker compose up -d          # start PHP (port 8080) and MariaDB (port 3307)
 docker compose logs -f        # follow logs
 docker compose down           # stop containers
+# If you change database/schema.sql, rebuild: docker compose up -d --build
 ```
 
 - App: http://127.0.0.1:8080
