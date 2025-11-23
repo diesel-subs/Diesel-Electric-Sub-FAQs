@@ -59,7 +59,7 @@ $categories = $categoriesStmt->fetchAll();
     <div class="card">
         <div class="card-header">
             <h5 class="mb-0"><i class="fas fa-arrows-alt"></i> Drag to Reorder Categories</h5>
-            <small class="text-muted">Drag rows with the handle to set order. Lower numbers appear first.</small>
+            <small class="text-muted">Drag rows with the handle to set order.</small>
         </div>
         <div class="card-body">
             <form method="POST">
