@@ -1,6 +1,9 @@
 services:
   app:
-    image: php:8.2-apache
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    image: submarine-faqs-app
     container_name: submarine-faqs-app
     working_dir: /var/www/html
     volumes:
@@ -16,9 +19,6 @@ services:
       MYSQLDATABASE: submarine_faqs
     depends_on:
       - db
-    command: >
-      bash -c "a2enmod rewrite headers &&
-               apache2-foreground"
 
   db:
     build: ./database

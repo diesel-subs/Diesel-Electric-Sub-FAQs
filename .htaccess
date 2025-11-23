@@ -34,14 +34,6 @@ RewriteRule ^category/([^/]+)/?$ category.php?cat=$1 [L,QSA]
 RewriteRule ^faq/([0-9]+)/?$ faq.php?id=$1 [L,QSA]
 RewriteRule ^faq/([^/]+)/?$ faq.php?slug=$1 [L,QSA]
 
-# Admin section protection (basic)
-<Directory "admin/">
-    AuthType Basic
-    AuthName "Admin Area"
-    AuthUserFile /path/to/.htpasswd
-    Require valid-user
-</Directory>
-
 # Deny access to sensitive files
 <Files "config/database.php">
     Order Allow,Deny
