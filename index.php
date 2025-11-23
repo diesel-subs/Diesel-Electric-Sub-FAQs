@@ -1,6 +1,26 @@
 <?php
 require_once 'config/database.php';
 require_once 'includes/header.php';
+
+// Load categories ordered by sort_order
+$categoryCards = [];
+try {
+    $stmt = $pdo->query("SELECT name, description, icon FROM categories ORDER BY sort_order ASC, name ASC");
+    $categoryCards = $stmt->fetchAll();
+} catch (Exception $e) {
+    $categoryCards = [];
+}
+
+if (empty($categoryCards)) {
+    $categoryCards = [
+        ['name' => 'US WW2 Subs in General', 'description' => 'General information about US submarines in World War II', 'icon' => 'fas fa-ship'],
+        ['name' => 'Hull and Compartments', 'description' => 'Structure, design, and compartment layout of submarines', 'icon' => 'fas fa-cogs'],
+        ['name' => 'Operating US Subs in WW2', 'description' => 'Operational procedures and tactics used during WWII', 'icon' => 'fas fa-compass'],
+        ['name' => 'Life Aboard WW2 US Subs', 'description' => 'Daily life, conditions, and experiences of submarine crews', 'icon' => 'fas fa-users'],
+        ['name' => 'Who Were the Crews Aboard WW2 US Subs', 'description' => 'Learn about the brave men who served aboard submarines', 'icon' => 'fas fa-users'],
+        ['name' => 'Attacks and Battles, Small and Large', 'description' => 'Major naval engagements and submarine warfare tactics', 'icon' => 'fas fa-crosshairs'],
+    ];
+}
 ?>
 
 <div class="container">
@@ -20,46 +40,16 @@ require_once 'includes/header.php';
         <div class="col-md-12">
             <h2>Browse by Category</h2>
             <div class="category-grid">
-                <?php
-                $categories = [
-                    'US WW2 Subs in General' => [
-                        'description' => 'General information about US submarines in World War II',
-                        'icon' => 'fas fa-ship'
-                    ],
-                    'Hull and Compartments' => [
-                        'description' => 'Structure, design, and compartment layout of submarines',
-                        'icon' => 'fas fa-cogs'
-                    ],
-                    'Operating US Subs in WW2' => [
-                        'description' => 'Operational procedures and tactics used during WWII',
-                        'icon' => 'fas fa-compass'
-                    ],
-                    'Life Aboard WW2 US Subs' => [
-                        'description' => 'Daily life, conditions, and experiences of submarine crews',
-                        'icon' => 'fas fa-users'
-                    ],
-                                        'Who Were the Crews Aboard WW2 US Subs' => [
-                        'icon' => 'fa-users',
-                        'description' => 'Learn about the brave men who served aboard submarines'
-                    ],
-                    'Attacks and Battles, Small and Large' => [
-                        'icon' => 'fa-crosshairs',
-                        'description' => 'Major naval engagements and submarine warfare tactics'
-                    ]
-                ];
-
-                foreach ($categories as $name => $info): 
-                    $slug = str_replace([' ', '/'], ['-', '-'], strtolower($name));
-                ?>
+                <?php foreach ($categoryCards as $cat): ?>
                 <div class="category-card">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <i class="<?php echo $info['icon']; ?>"></i>
-                                <?php echo htmlspecialchars($name); ?>
+                                <i class="<?php echo htmlspecialchars($cat['icon'] ?: 'fas fa-folder'); ?>"></i>
+                                <?php echo htmlspecialchars($cat['name']); ?>
                             </h5>
-                            <p class="card-text"><?php echo htmlspecialchars($info['description']); ?></p>
-                            <a href="category.php?cat=<?php echo urlencode($name); ?>" class="btn btn-primary">
+                            <p class="card-text"><?php echo htmlspecialchars($cat['description'] ?? ''); ?></p>
+                            <a href="category.php?cat=<?php echo urlencode($cat['name']); ?>" class="btn btn-primary">
                                 Explore FAQs
                             </a>
                         </div>

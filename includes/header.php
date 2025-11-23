@@ -14,6 +14,27 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<?php
+$navCategories = [];
+if (isset($pdo)) {
+    try {
+        $navCategories = $pdo->query("SELECT name FROM categories ORDER BY sort_order ASC, name ASC")->fetchAll();
+    } catch (Exception $e) {
+        $navCategories = [];
+    }
+}
+
+if (empty($navCategories)) {
+    $navCategories = [
+        ['name' => 'US WW2 Subs in General'],
+        ['name' => 'Hull and Compartments'],
+        ['name' => 'Operating US Subs in WW2'],
+        ['name' => 'Life Aboard WW2 US Subs'],
+        ['name' => 'Who Were the Crews Aboard WW2 US Subs'],
+        ['name' => 'Attacks and Battles, Small and Large'],
+    ];
+}
+?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -33,12 +54,13 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="category.php?cat=US WW2 Subs in General">US WW2 Subs in General</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Hull and Compartments">Hull and Compartments</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Operating US Subs in WW2">Operating US Subs in WW2</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Life Aboard WW2 US Subs">Life Aboard WW2 US Subs</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Who Were the Crews Aboard WW2 US Subs">Who Were the Crews Aboard WW2 US Subs</a></li>
-                            <li><a class="dropdown-item" href="category.php?cat=Attacks and Battles, Small and Large">Attacks and Battles, Small and Large</a></li>
+                            <?php foreach ($navCategories as $cat): ?>
+                                <li>
+                                    <a class="dropdown-item" href="category.php?cat=<?php echo urlencode($cat['name']); ?>">
+                                        <?php echo htmlspecialchars($cat['name']); ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
                     <li class="nav-item">
