@@ -33,6 +33,8 @@ $faqs = $stmt->fetchAll();
 
 $page_title = $category['name'];
 $page_description = '';
+// Clear description to avoid showing legacy "Questions about ..." copy
+$category['description'] = '';
 require_once 'includes/header.php';
 
 function category_icon_fallback($name, $icon) {
