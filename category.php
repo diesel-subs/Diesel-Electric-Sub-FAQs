@@ -31,6 +31,19 @@ $stmt = $pdo->prepare("
 $stmt->execute([$category['id']]);
 $faqs = $stmt->fetchAll();
 
+// Preload contributions grouped by FAQ
+$contribMap = [];
+$contribStmt = $pdo->prepare("
+    SELECT faq_id, contributor_name, contributed_at, notes
+    FROM faq_contributions
+    WHERE faq_id IN (SELECT id FROM faqs WHERE category_id = ?)
+    ORDER BY contributed_at DESC, id DESC
+");
+$contribStmt->execute([$category['id']]);
+while ($row = $contribStmt->fetch()) {
+    $contribMap[$row['faq_id']][] = $row;
+}
+
 $page_title = $category['name'];
 $page_description = '';
 // Clear description to avoid showing legacy "Questions about ..." copy
@@ -155,6 +168,24 @@ function category_icon_fallback($name, $icon) {
                                             <?php if (!empty($faq['date_submitted'])): ?>
                                                 <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($faq['date_submitted'])); ?></span>
                                             <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($contribMap[$faq['id']])): ?>
+                                        <div class="mt-2">
+                                            <h6 class="mb-1"><i class="fas fa-hands-helping"></i> Contributions</h6>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($contribMap[$faq['id']] as $c): ?>
+                                                    <li class="mb-1">
+                                                        <strong><?php echo htmlspecialchars($c['contributor_name']); ?></strong>
+                                                        <?php if (!empty($c['contributed_at'])): ?>
+                                                            <span class="text-muted ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                                        <?php endif; ?>
+                                                        <?php if (!empty($c['notes'])): ?>
+                                                            <div class="text-muted small"><?php echo nl2br(htmlspecialchars($c['notes'])); ?></div>
+                                                        <?php endif; ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </div>
                                     <?php endif; ?>
                                     <?php if (!empty($faq['tags'])): ?>
