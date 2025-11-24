@@ -323,8 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
     border-bottom: none;
 }
 .contrib-label {
-    min-width: 150px;
     display: inline-block;
+    width: 210px;
     font-weight: 600;
 }
 </style>

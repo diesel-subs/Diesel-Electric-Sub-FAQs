@@ -393,8 +393,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <?php require_once 'includes/footer.php'; ?>
 <style>
 .contrib-label {
-    min-width: 150px;
     display: inline-block;
+    width: 210px;
     font-weight: 600;
 }
 </style>
