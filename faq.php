@@ -131,7 +131,7 @@ require_once 'includes/header.php';
                 </div>
 
                 <?php if (!empty($faq['author']) || !empty($faq['date_submitted'])): ?>
-                    <div class="text-muted mt-3">
+                    <div class="text-muted mt-2 mb-1">
                         <strong>Created by:</strong>
                         <?php if (!empty($faq['author'])): ?>
                             <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></span>
@@ -143,7 +143,7 @@ require_once 'includes/header.php';
                 <?php endif; ?>
 
                 <?php if (!empty($contributions)): ?>
-                    <div class="mt-4">
+                    <div class="mt-1">
                         <div class="text-muted">
                             <?php foreach ($contributions as $c): ?>
                                 <div>
