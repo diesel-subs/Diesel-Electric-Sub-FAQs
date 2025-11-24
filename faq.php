@@ -130,6 +130,18 @@ require_once 'includes/header.php';
                     </div>
                 </div>
 
+                <?php if (!empty($faq['author']) || !empty($faq['date_submitted'])): ?>
+                    <div class="text-muted mt-3">
+                        <strong>Created by:</strong>
+                        <?php if (!empty($faq['author'])): ?>
+                            <span class="ms-1"><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></span>
+                        <?php endif; ?>
+                        <?php if (!empty($faq['date_submitted'])): ?>
+                            <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($faq['date_submitted'])); ?></span>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
                 <?php if (!empty($contributions)): ?>
                     <div class="mt-4">
                         <h6><i class="fas fa-hands-helping"></i> Contributions</h6>
