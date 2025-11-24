@@ -96,12 +96,6 @@ function category_icon_fallback($name, $icon) {
                                     <div class="flex-grow-1">
                                         <h5 class="alert-heading mb-1">Help Us Improve This Category!</h5>
                                         <p class="mb-2">Your feedback makes our submarine knowledge base more accurate and helpful for everyone.</p>
-                                        <div class="feedback-stats">
-                                            <small class="text-muted">
-                                                📊 This category has <strong><?php echo count($faqs); ?> FAQs</strong> • 
-                                                Join <strong id="feedback-count">our community</strong> of submarine enthusiasts!
-                                            </small>
-                                        </div>
                                     </div>
                                     <div class="ms-2">
                                         <a href="feedback.php?category=<?php echo urlencode($category['name']); ?>" 
