@@ -171,20 +171,11 @@ function category_icon_fallback($name, $icon) {
                                         </div>
                                     <?php endif; ?>
                                     <?php if (!empty($contribMap[$faq['id']])): ?>
-                                        <?php
-                                            $firstC = $contribMap[$faq['id']][0];
-                                            $restC = array_slice($contribMap[$faq['id']], 1);
-                                        ?>
+                                        <?php $label = count($contribMap[$faq['id']]) > 1 ? 'Contributions by:' : 'Contribution by:'; ?>
                                         <div class="mt-2 text-muted">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <strong><?php echo count($contribMap[$faq['id']]) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
-                                                <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($firstC['contributor_name']); ?></span>
-                                                <?php if (!empty($firstC['contributed_at'])): ?>
-                                                    <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($firstC['contributed_at'])); ?></span>
-                                                <?php endif; ?>
-                                            </div>
-                                            <?php foreach ($restC as $c): ?>
-                                                <div class="d-flex align-items-center gap-3" style="padding-left: 170px;">
+                                            <?php foreach ($contribMap[$faq['id']] as $idx => $c): ?>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <span class="contrib-label"><?php echo $idx === 0 ? $label : ''; ?></span>
                                                     <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                                     <?php if (!empty($c['contributed_at'])): ?>
                                                         <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
