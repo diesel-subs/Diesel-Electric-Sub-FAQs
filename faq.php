@@ -44,6 +44,16 @@ try {
     
     // Get related FAQs
     $related_faqs = get_related_faqs($pdo, $faq['id'], 3);
+
+    // Get contributions
+    $contrib_stmt = $pdo->prepare("
+        SELECT contributor_name, contributed_at, notes
+        FROM faq_contributions
+        WHERE faq_id = ?
+        ORDER BY contributed_at DESC, id DESC
+    ");
+    $contrib_stmt->execute([$faq['id']]);
+    $contributions = $contrib_stmt->fetchAll();
     
 } catch (Exception $e) {
     header('Location: index.php');
@@ -119,6 +129,25 @@ require_once 'includes/header.php';
                         <?php echo render_content($faq['answer']); ?>
                     </div>
                 </div>
+
+                <?php if (!empty($contributions)): ?>
+                    <div class="mt-4">
+                        <h6><i class="fas fa-hands-helping"></i> Contributions</h6>
+                        <ul class="list-unstyled mb-0">
+                            <?php foreach ($contributions as $c): ?>
+                                <li class="mb-2">
+                                    <strong><?php echo htmlspecialchars($c['contributor_name']); ?></strong>
+                                    <?php if (!empty($c['contributed_at'])): ?>
+                                        <span class="text-muted ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                    <?php endif; ?>
+                                    <?php if (!empty($c['notes'])): ?>
+                                        <div class="text-muted small"><?php echo nl2br(htmlspecialchars($c['notes'])); ?></div>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Reading Engagement Tracker -->
                 <div id="reading-progress" class="mt-4 mb-3" style="display: none;">
