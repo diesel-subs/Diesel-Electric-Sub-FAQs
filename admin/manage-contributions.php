@@ -14,7 +14,8 @@ $success = null;
 $error = null;
 
 // Fetch FAQs for dropdown
-$faqs = $pdo->query("SELECT id, title FROM faqs ORDER BY title ASC")->fetchAll();
+$categories = $pdo->query("SELECT id, name FROM categories ORDER BY name ASC")->fetchAll();
+$faqs = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $faq_id = (int)($_POST['faq_id'] ?? 0);
@@ -74,19 +75,23 @@ $recent = $pdo->query("
             <h5 class="mb-0"><i class="fas fa-plus"></i> Add Contribution</h5>
         </div>
         <div class="card-body">
-            <form method="POST" class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">FAQ</label>
-                    <select name="faq_id" class="form-select" required>
-                        <option value="">Select FAQ</option>
-                        <?php foreach ($faqs as $faq): ?>
-                            <option value="<?php echo $faq['id']; ?>">
-                                <?php echo htmlspecialchars($faq['title']); ?>
-                            </option>
+            <form method="POST" class="row g-3" id="contribForm">
+                <div class="col-md-4">
+                    <label class="form-label">Category</label>
+                    <select name="category_id" id="category_id" class="form-select">
+                        <option value="">Select Category</option>
+                        <?php foreach ($categories as $cat): ?>
+                            <option value="<?php echo $cat['id']; ?>"><?php echo htmlspecialchars($cat['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <label class="form-label">FAQ</label>
+                    <select name="faq_id" id="faq_id" class="form-select" required>
+                        <option value="">Select FAQ</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
                     <label class="form-label">Contributor Name</label>
                     <input type="text" name="contributor_name" class="form-control" required>
                 </div>
@@ -143,3 +148,31 @@ $recent = $pdo->query("
 </div>
 
 <?php require_once '../includes/footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const categorySelect = document.getElementById('category_id');
+    const faqSelect = document.getElementById('faq_id');
+
+    async function loadFaqs(categoryId) {
+        faqSelect.innerHTML = '<option value="">Select FAQ</option>';
+        if (!categoryId) return;
+        const categoryName = categorySelect.options[categorySelect.selectedIndex].text || '';
+        try {
+            const res = await fetch(`../api/search.php?category=${encodeURIComponent(categoryName)}&limit=500&sort=title`);
+            const data = await res.json();
+            if (data.success && Array.isArray(data.results)) {
+                const options = data.results
+                    .sort((a, b) => a.title.localeCompare(b.title))
+                    .map(f => `<option value="${f.id}">${f.title}</option>`)
+                    .join('');
+                faqSelect.innerHTML = '<option value="">Select FAQ</option>' + options;
+            }
+        } catch (e) {
+            console.error('Failed to load FAQs', e);
+        }
+    }
+
+    categorySelect.addEventListener('change', () => loadFaqs(categorySelect.value));
+});
+</script>
