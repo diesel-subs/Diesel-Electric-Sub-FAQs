@@ -145,19 +145,16 @@ require_once 'includes/header.php';
                 <?php if (!empty($contributions)): ?>
                     <div class="mt-4">
                         <h6><i class="fas fa-hands-helping"></i> Contributions</h6>
-                        <ul class="list-unstyled mb-0">
+                        <div class="text-muted">
                             <?php foreach ($contributions as $c): ?>
-                                <li class="mb-2">
+                                <div>
                                     <strong><?php echo htmlspecialchars($c['contributor_name']); ?></strong>
                                     <?php if (!empty($c['contributed_at'])): ?>
-                                        <span class="text-muted ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                        <span class="ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
                                     <?php endif; ?>
-                                    <?php if (!empty($c['notes'])): ?>
-                                        <div class="text-muted small"><?php echo nl2br(htmlspecialchars($c['notes'])); ?></div>
-                                    <?php endif; ?>
-                                </li>
+                                </div>
                             <?php endforeach; ?>
-                        </ul>
+                        </div>
                     </div>
                 <?php endif; ?>
 
