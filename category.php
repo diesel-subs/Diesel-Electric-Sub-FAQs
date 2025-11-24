@@ -67,10 +67,7 @@ function category_icon_fallback($name, $icon) {
                 </ol>
             </nav>
 
-            <h1 class="mb-4">
-                <i class="<?php echo htmlspecialchars(category_icon_fallback($category['name'], $category['icon'] ?? '')); ?>"></i>
-                <?php echo htmlspecialchars($category['name']); ?>
-            </h1>
+            <!-- Category title intentionally hidden -->
 
             <?php if (empty($faqs)): ?>
                 <div class="alert alert-info">
