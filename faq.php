@@ -143,18 +143,18 @@ require_once 'includes/header.php';
                 <?php endif; ?>
 
                 <?php if (!empty($contributions)): ?>
-                    <div class="mt-1">
-                        <div class="text-muted">
+                    <div class="mt-1 text-muted">
+                        <strong><?php echo count($contributions) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
+                        <ul class="list-unstyled mb-0 ps-0 ms-0">
                             <?php foreach ($contributions as $c): ?>
-                                <div>
-                                    <strong><?php echo count($contributions) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
+                                <li class="d-flex align-items-center gap-3">
                                     <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                     <?php if (!empty($c['contributed_at'])): ?>
-                                        <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                        <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
                                     <?php endif; ?>
-                                </div>
+                                </li>
                             <?php endforeach; ?>
-                        </div>
+                        </ul>
                     </div>
                 <?php endif; ?>
 
