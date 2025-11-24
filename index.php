@@ -11,14 +11,31 @@ try {
     $categoryCards = [];
 }
 
+function category_icon_fallback($name, $icon) {
+    if (!empty($icon)) {
+        return $icon;
+    }
+    $map = [
+        'us ww2 subs in general' => 'fas fa-ship',
+        'hull and compartments' => 'fas fa-cogs',
+        'operating us subs in ww2' => 'fas fa-compass',
+        'life aboard ww2 us subs' => 'fas fa-users',
+        'who were the crews aboard ww2 us subs' => 'fas fa-user-friends',
+        'crews aboard ww2 us subs' => 'fas fa-user-friends',
+        'attacks and battles, small and large' => 'fas fa-crosshairs',
+    ];
+    $key = strtolower(trim($name));
+    return $map[$key] ?? 'fas fa-ship';
+}
+
 if (empty($categoryCards)) {
     $categoryCards = [
-        ['name' => 'US WW2 Subs in General', 'description' => 'General information about US submarines in World War II', 'icon' => 'fas fa-ship'],
-        ['name' => 'Hull and Compartments', 'description' => 'Structure, design, and compartment layout of submarines', 'icon' => 'fas fa-cogs'],
-        ['name' => 'Operating US Subs in WW2', 'description' => 'Operational procedures and tactics used during WWII', 'icon' => 'fas fa-compass'],
-        ['name' => 'Life Aboard WW2 US Subs', 'description' => 'Daily life, conditions, and experiences of submarine crews', 'icon' => 'fas fa-users'],
-        ['name' => 'Who Were the Crews Aboard WW2 US Subs', 'description' => 'Learn about the brave men who served aboard submarines', 'icon' => 'fas fa-users'],
-        ['name' => 'Attacks and Battles, Small and Large', 'description' => 'Major naval engagements and submarine warfare tactics', 'icon' => 'fas fa-crosshairs'],
+        ['name' => 'US WW2 Subs in General', 'description' => 'General information about US submarines in World War II', 'icon' => category_icon_fallback('US WW2 Subs in General', '')],
+        ['name' => 'Hull and Compartments', 'description' => 'Structure, design, and compartment layout of submarines', 'icon' => category_icon_fallback('Hull and Compartments', '')],
+        ['name' => 'Operating US Subs in WW2', 'description' => 'Operational procedures and tactics used during WWII', 'icon' => category_icon_fallback('Operating US Subs in WW2', '')],
+        ['name' => 'Life Aboard WW2 US Subs', 'description' => 'Daily life, conditions, and experiences of submarine crews', 'icon' => category_icon_fallback('Life Aboard WW2 US Subs', '')],
+        ['name' => 'Who Were the Crews Aboard WW2 US Subs', 'description' => 'Learn about the brave men who served aboard submarines', 'icon' => category_icon_fallback('Who Were the Crews Aboard WW2 US Subs', '')],
+        ['name' => 'Attacks and Battles, Small and Large', 'description' => 'Major naval engagements and submarine warfare tactics', 'icon' => category_icon_fallback('Attacks and Battles, Small and Large', '')],
     ];
 }
 ?>
@@ -45,7 +62,7 @@ if (empty($categoryCards)) {
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <i class="<?php echo htmlspecialchars($cat['icon'] ?: 'fas fa-folder'); ?>"></i>
+                                <i class="<?php echo htmlspecialchars(category_icon_fallback($cat['name'], $cat['icon'] ?? '')); ?>"></i>
                                 <?php echo htmlspecialchars($cat['name']); ?>
                             </h5>
                             <p class="card-text"><?php echo htmlspecialchars($cat['description'] ?? ''); ?></p>

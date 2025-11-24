@@ -34,6 +34,23 @@ $faqs = $stmt->fetchAll();
 $page_title = $category['name'];
 $page_description = $category['description'];
 require_once 'includes/header.php';
+
+function category_icon_fallback($name, $icon) {
+    if (!empty($icon)) {
+        return $icon;
+    }
+    $map = [
+        'us ww2 subs in general' => 'fas fa-ship',
+        'hull and compartments' => 'fas fa-cogs',
+        'operating us subs in ww2' => 'fas fa-compass',
+        'life aboard ww2 us subs' => 'fas fa-users',
+        'who were the crews aboard ww2 us subs' => 'fas fa-user-friends',
+        'crews aboard ww2 us subs' => 'fas fa-user-friends',
+        'attacks and battles, small and large' => 'fas fa-crosshairs',
+    ];
+    $key = strtolower(trim($name));
+    return $map[$key] ?? 'fas fa-ship';
+}
 ?>
 
 <div class="container mt-4">
@@ -50,11 +67,11 @@ require_once 'includes/header.php';
             <!-- Category Header -->
             <div class="category-header mb-4">
                 <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                        <h1>
-                            <i class="<?php echo htmlspecialchars($category['icon']); ?>"></i>
-                            <?php echo htmlspecialchars($category['name']); ?>
-                        </h1>
+                        <div>
+                            <h1>
+                                <i class="<?php echo htmlspecialchars(category_icon_fallback($category['name'], $category['icon'] ?? '')); ?>"></i>
+                                <?php echo htmlspecialchars($category['name']); ?>
+                            </h1>
                         <p class="lead"><?php echo htmlspecialchars($category['description']); ?></p>
                     </div>
                     <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']): ?>
