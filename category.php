@@ -132,62 +132,47 @@ function category_icon_fallback($name, $icon) {
                 </div>
 
                 <!-- FAQs List -->
-                <div class="faqs-container">
-                    <?php foreach ($faqs as $faq): ?>
-                        <div class="faq-item mb-4" data-faq-id="<?php echo $faq['id']; ?>">
-                            <div class="card">
-                                <div class="card-header" id="faq-heading-<?php echo $faq['id']; ?>">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" 
-                                                data-bs-toggle="collapse" 
-                                                data-bs-target="#faq-collapse-<?php echo $faq['id']; ?>"
-                                                aria-expanded="false">
-                                            <?php if ($faq['featured']): ?>
-                                                <i class="fas fa-star text-warning"></i>
-                                            <?php endif; ?>
-                                            <?php echo htmlspecialchars($faq['title']); ?>
-                                            <small class="text-muted">(<?php echo $faq['views']; ?> views)</small>
+                <ol class="faqs-list list-unstyled">
+                    <?php foreach ($faqs as $idx => $faq): ?>
+                        <?php $num = $idx + 1; ?>
+                        <li class="faq-row" data-faq-id="<?php echo $faq['id']; ?>">
+                            <div class="faq-row-header" data-bs-toggle="collapse" data-bs-target="#faq-collapse-<?php echo $faq['id']; ?>" aria-expanded="false">
+                                <span class="faq-number"><?php echo $num; ?></span>
+                                <span class="faq-question"><?php echo htmlspecialchars($faq['title']); ?></span>
+                                <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div id="faq-collapse-<?php echo $faq['id']; ?>" class="collapse">
+                                <div class="faq-body">
+                                    <div class="faq-content">
+                                        <?php echo render_content($faq['answer']); ?>
+                                    </div>
+                                    <?php if (!empty($faq['tags'])): ?>
+                                        <div class="faq-tags mt-3">
+                                            <small class="text-muted">Tags: </small>
+                                            <?php 
+                                            $tags = explode(',', $faq['tags']);
+                                            foreach ($tags as $tag): ?>
+                                                <span class="badge bg-secondary me-1"><?php echo trim(htmlspecialchars($tag)); ?></span>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php 
+                                    $current_faq = $faq;
+                                    include 'includes/feedback-widget.php'; 
+                                    ?>
+                                    <div class="faq-actions mt-3">
+                                        <a href="faq.php?id=<?php echo $faq['id']; ?>" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-link"></i> Direct Link
+                                        </a>
+                                        <button class="btn btn-sm btn-outline-secondary" onclick="copyLink(<?php echo $faq['id']; ?>)">
+                                            <i class="fas fa-copy"></i> Copy Link
                                         </button>
-                                    </h5>
-                                </div>
-                                <div id="faq-collapse-<?php echo $faq['id']; ?>" 
-                                     class="collapse" 
-                                     data-bs-parent=".faqs-container">
-                                    <div class="card-body">
-                                        <div class="faq-content">
-                                            <?php echo render_content($faq['answer']); ?>
-                                        </div>
-                                        <?php if (!empty($faq['tags'])): ?>
-                                            <div class="faq-tags mt-3">
-                                                <small class="text-muted">Tags: </small>
-                                                <?php 
-                                                $tags = explode(',', $faq['tags']);
-                                                foreach ($tags as $tag): ?>
-                                                    <span class="badge bg-secondary me-1"><?php echo trim(htmlspecialchars($tag)); ?></span>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        <?php endif; ?>
-                                        <!-- Feedback Widget -->
-                                        <?php 
-                                        // Set the current FAQ for the feedback widget
-                                        $current_faq = $faq;
-                                        include 'includes/feedback-widget.php'; 
-                                        ?>
-                                        
-                                        <div class="faq-actions mt-3">
-                                            <a href="faq.php?id=<?php echo $faq['id']; ?>" class="btn btn-sm btn-outline-primary">
-                                                <i class="fas fa-link"></i> Direct Link
-                                            </a>
-                                            <button class="btn btn-sm btn-outline-secondary" onclick="copyLink(<?php echo $faq['id']; ?>)">
-                                                <i class="fas fa-copy"></i> Copy Link
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </li>
                     <?php endforeach; ?>
-                </div>
+                </ol>
 
                 <!-- Back to Categories -->
                 <div class="text-center mt-5">
@@ -251,5 +236,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<style>
+.faqs-list {
+    counter-reset: faq-counter;
+}
+.faq-row {
+    border-bottom: 1px solid #e5e5e5;
+}
+.faq-row-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    user-select: none;
+}
+.faq-number {
+    font-weight: 700;
+    color: #444;
+    min-width: 22px;
+}
+.faq-question {
+    font-weight: 600;
+    flex: 1;
+    color: #111;
+}
+.faq-arrow {
+    color: #666;
+    transition: transform 0.2s ease;
+}
+.faq-row-header[aria-expanded="true"] .faq-arrow i {
+    transform: rotate(180deg);
+}
+.faq-body {
+    padding: 0 0 10px 34px;
+}
+.faq-row:last-child {
+    border-bottom: none;
+}
+</style>
 
 <?php require_once 'includes/footer.php'; ?>
