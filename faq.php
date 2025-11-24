@@ -144,7 +144,6 @@ require_once 'includes/header.php';
 
                 <?php if (!empty($contributions)): ?>
                     <div class="mt-4">
-                        <h6><i class="fas fa-hands-helping"></i> Contributions</h6>
                         <div class="text-muted">
                             <?php foreach ($contributions as $c): ?>
                                 <div>
