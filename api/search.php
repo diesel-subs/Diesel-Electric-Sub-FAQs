@@ -25,7 +25,7 @@ if (empty(trim($query)) && empty(trim($category))) {
 
 try {
     // Build dynamic search query
-    $selectFields = "f.id, f.title, f.slug, f.views, f.question, f.answer, f.short_answer, f.tags, c.name as category_name";
+    $selectFields = "f.id, f.title, f.slug, f.views, f.question, f.answer, f.tags, c.name as category_name";
     $fromClause = "FROM faqs f JOIN categories c ON f.category_id = c.id";
     $whereClause = "WHERE f.status = 'published'";
     $orderClause = "";
@@ -96,7 +96,7 @@ try {
 
     // Format results
     $formattedResults = array_map(function($row) {
-        $excerpt = $row['short_answer'] ?? $row['answer'] ?? '';
+        $excerpt = $row['answer'] ?? '';
         if (strlen($excerpt) > 200) {
             $excerpt = substr($excerpt, 0, 200) . '...';
         }
@@ -107,7 +107,6 @@ try {
             'slug' => $row['slug'],
             'question' => $row['question'],
             'answer' => $row['answer'],
-            'short_answer' => $row['short_answer'],
             'excerpt' => $excerpt,
             'category_name' => $row['category_name'],
             'views' => $row['views'],

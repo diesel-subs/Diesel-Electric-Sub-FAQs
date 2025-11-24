@@ -39,7 +39,6 @@ try {
         'slug' => generate_slug($title),
         'question' => $question,
         'category_id' => $category_id,
-        'short_answer' => '',
         'answer' => $main_answer,
         'display_order' => $display_order
     ];
@@ -51,7 +50,6 @@ try {
                 slug = :slug,
                 question = :question, 
                 category_id = :category_id, 
-                short_answer = :short_answer, 
                 answer = :answer, 
                 display_order = :display_order
                 WHERE id = :id";
@@ -77,8 +75,8 @@ try {
         
     } else {
         // Create new FAQ
-        $sql = "INSERT INTO faqs (title, slug, question, category_id, short_answer, answer, display_order) 
-                VALUES (:title, :slug, :question, :category_id, :short_answer, :answer, :display_order)";
+        $sql = "INSERT INTO faqs (title, slug, question, category_id, answer, display_order) 
+                VALUES (:title, :slug, :question, :category_id, :answer, :display_order)";
         
         $stmt = $pdo->prepare($sql);
         
