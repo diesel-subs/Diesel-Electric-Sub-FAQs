@@ -322,6 +322,11 @@ document.addEventListener('DOMContentLoaded', function() {
 .faq-row:last-child {
     border-bottom: none;
 }
+.contrib-label {
+    min-width: 150px;
+    display: inline-block;
+    font-weight: 600;
+}
 </style>
 
 <?php require_once 'includes/footer.php'; ?>

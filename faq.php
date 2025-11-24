@@ -144,19 +144,10 @@ require_once 'includes/header.php';
 
                 <?php if (!empty($contributions)): ?>
                     <div class="mt-1 text-muted">
-                        <?php
-                        $first = $contributions[0];
-                        $rest = array_slice($contributions, 1);
-                        ?>
-                        <div class="d-flex align-items-center gap-3">
-                            <strong><?php echo count($contributions) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
-                            <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($first['contributor_name']); ?></span>
-                            <?php if (!empty($first['contributed_at'])): ?>
-                                <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($first['contributed_at'])); ?></span>
-                            <?php endif; ?>
-                        </div>
-                        <?php foreach ($rest as $c): ?>
-                            <div class="d-flex align-items-center gap-3" style="padding-left: 170px;">
+                        <?php $label = count($contributions) > 1 ? 'Contributions by:' : 'Contribution by:'; ?>
+                        <?php foreach ($contributions as $idx => $c): ?>
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="contrib-label"><?php echo $idx === 0 ? $label : ''; ?></span>
                                 <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                 <?php if (!empty($c['contributed_at'])): ?>
                                     <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
@@ -400,3 +391,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php require_once 'includes/footer.php'; ?>
+<style>
+.contrib-label {
+    min-width: 150px;
+    display: inline-block;
+    font-weight: 600;
+}
+</style>
