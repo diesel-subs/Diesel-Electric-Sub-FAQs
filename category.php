@@ -32,7 +32,7 @@ $stmt->execute([$category['id']]);
 $faqs = $stmt->fetchAll();
 
 $page_title = $category['name'];
-$page_description = $category['description'];
+$page_description = '';
 require_once 'includes/header.php';
 
 function category_icon_fallback($name, $icon) {
