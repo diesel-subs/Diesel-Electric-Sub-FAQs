@@ -19,6 +19,19 @@ services:
       MYSQLDATABASE: submarine_faqs
     depends_on:
       - db
+  phpmyadmin:
+    image: phpmyadmin:5
+    container_name: submarine-faqs-pma
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: submarine_user
+      PMA_PASSWORD: submarine2024!
+    depends_on:
+      - db
 
   db:
     build: ./database

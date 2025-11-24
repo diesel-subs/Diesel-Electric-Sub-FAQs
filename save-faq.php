@@ -40,6 +40,7 @@ try {
     // Prepare data
     $data = [
         'title' => $title,
+        'slug' => generate_slug($title),
         'question' => $question,
         'category_id' => $category_id,
         'short_answer' => $short_answer,
@@ -51,6 +52,7 @@ try {
         // Update existing FAQ
         $sql = "UPDATE faqs SET 
                 title = :title,
+                slug = :slug,
                 question = :question, 
                 category_id = :category_id, 
                 short_answer = :short_answer, 
@@ -79,8 +81,8 @@ try {
         
     } else {
         // Create new FAQ
-        $sql = "INSERT INTO faqs (title, question, category_id, short_answer, answer, display_order) 
-                VALUES (:title, :question, :category_id, :short_answer, :answer, :display_order)";
+        $sql = "INSERT INTO faqs (title, slug, question, category_id, short_answer, answer, display_order) 
+                VALUES (:title, :slug, :question, :category_id, :short_answer, :answer, :display_order)";
         
         $stmt = $pdo->prepare($sql);
         
@@ -106,5 +108,12 @@ try {
 } catch (Exception $e) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+}
+
+function generate_slug($text) {
+    $text = strtolower(trim($text));
+    $text = preg_replace('/[^a-z0-9]+/i', '-', $text);
+    $text = trim($text, '-');
+    return $text ?: uniqid('faq-');
 }
 ?>
