@@ -218,18 +218,6 @@ if ($faq_id > 0) {
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <textarea class="form-control" id="short_answer" name="short_answer" style="height: 120px;" required><?php echo $faq ? htmlspecialchars($faq['short_answer']) : ''; ?></textarea>
-                        <label for="short_answer"><i class="fas fa-comment"></i> Short Answer (Plain Text)</label>
-                    </div>
-                    <div class="word-count">
-                        Words: <span id="shortAnswerCount">0</span> | Characters: <span id="shortAnswerChars">0</span>
-                    </div>
-                </div>
-            </div>
-
             <div class="quick-insert">
                 <h6><i class="fas fa-magic"></i> Quick Markdown Insert</h6>
                 <button type="button" class="btn btn-outline-primary btn-sm" onclick="insertMarkdown('**Bold Text**')">Bold</button>
