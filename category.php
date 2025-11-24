@@ -81,7 +81,7 @@ function category_icon_fallback($name, $icon) {
                     <span class="text-muted"><?php echo count($faqs); ?> FAQ(s) found</span>
                     <div class="category-search" style="width: calc(50% + 10px);">
                         <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" placeholder="Enter text to search within this category..." id="category-search">
+                            <input type="text" class="form-control" placeholder="Enter text to search category..." id="category-search">
                             <span class="input-group-text"><i class="fas fa-search"></i></span>
                         </div>
                     </div>
