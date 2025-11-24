@@ -147,7 +147,7 @@ require_once 'includes/header.php';
                         <div class="text-muted">
                             <?php foreach ($contributions as $c): ?>
                                 <div>
-                                    <strong>Contribution by:</strong>
+                                    <strong><?php echo count($contributions) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
                                     <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                     <?php if (!empty($c['contributed_at'])): ?>
                                         <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
