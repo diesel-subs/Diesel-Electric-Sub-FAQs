@@ -144,10 +144,21 @@ require_once 'includes/header.php';
                     <div class="faq-tags mt-4">
                         <h6>Related Topics:</h6>
                         <?php 
-                        $tags = explode(',', $faq['tags']);
-                        foreach ($tags as $tag): ?>
-                            <span class="badge bg-secondary me-1"><?php echo trim(htmlspecialchars($tag)); ?></span>
-                        <?php endforeach; ?>
+                        $tags = array_filter(array_map('trim', explode(',', $faq['tags'])));
+                        $seen = [];
+                        foreach ($tags as $tag) {
+                            $lower = strtolower($tag);
+                            $singular = rtrim($lower, 's');
+                            if (isset($seen[$lower])) {
+                                continue;
+                            }
+                            if ($lower !== $singular && isset($seen[$singular])) {
+                                continue;
+                            }
+                            $seen[$lower] = true;
+                            echo '<span class="badge bg-secondary me-1">' . htmlspecialchars($tag) . '</span>';
+                        }
+                        ?>
                     </div>
                 <?php endif; ?>
 
