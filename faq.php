@@ -134,7 +134,7 @@ require_once 'includes/header.php';
                     <div class="text-muted mt-3">
                         <strong>Created by:</strong>
                         <?php if (!empty($faq['author'])): ?>
-                            <span class="ms-1"><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></span>
+                            <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></span>
                         <?php endif; ?>
                         <?php if (!empty($faq['date_submitted'])): ?>
                             <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($faq['date_submitted'])); ?></span>
@@ -148,7 +148,7 @@ require_once 'includes/header.php';
                             <?php foreach ($contributions as $c): ?>
                                 <div>
                                     <strong>Contribution by:</strong>
-                                    <span class="ms-1"><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
+                                    <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                     <?php if (!empty($c['contributed_at'])): ?>
                                         <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
                                     <?php endif; ?>
