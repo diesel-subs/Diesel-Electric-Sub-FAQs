@@ -36,7 +36,8 @@ $page_description = $category['description'];
 require_once 'includes/header.php';
 
 function category_icon_fallback($name, $icon) {
-    if (!empty($icon)) {
+    $icon = trim((string)$icon);
+    if (!empty($icon) && stripos($icon, 'question-circle') === false) {
         return $icon;
     }
     $map = [

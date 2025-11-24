@@ -12,7 +12,9 @@ try {
 }
 
 function category_icon_fallback($name, $icon) {
-    if (!empty($icon)) {
+    // Treat empty or default question icon as missing
+    $icon = trim((string)$icon);
+    if (!empty($icon) && stripos($icon, 'question-circle') === false) {
         return $icon;
     }
     $map = [
