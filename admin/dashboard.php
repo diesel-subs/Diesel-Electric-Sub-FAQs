@@ -165,6 +165,9 @@ try {
                             <a href="settings.php" class="btn btn-dark btn-lg w-100 mb-2">
                                 <i class="fas fa-cog"></i><br>Settings
                             </a>
+                            <a href="reorder-faqs.php" class="btn btn-outline-secondary btn-lg w-100">
+                                <i class="fas fa-sort-amount-down"></i><br>Reorder FAQs
+                            </a>
                         </div>
                         <div class="col-md-2">
                             <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg w-100 mb-2">

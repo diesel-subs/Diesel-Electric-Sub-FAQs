@@ -26,7 +26,7 @@ if (!$category) {
 $stmt = $pdo->prepare("
     SELECT * FROM faqs 
     WHERE category_id = ? AND status = 'published' 
-    ORDER BY featured DESC, title ASC
+    ORDER BY display_order ASC, featured DESC, title ASC
 ");
 $stmt->execute([$category['id']]);
 $faqs = $stmt->fetchAll();
