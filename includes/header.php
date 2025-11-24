@@ -49,20 +49,6 @@ if (empty($navCategories)) {
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($navCategories as $cat): ?>
-                                <li>
-                                    <a class="dropdown-item" href="category.php?cat=<?php echo urlencode($cat['name']); ?>">
-                                        <?php echo htmlspecialchars($cat['name']); ?>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="search.php">Advanced Search</a>
                     </li>
@@ -92,34 +78,8 @@ if (empty($navCategories)) {
                         <li class="nav-item">
                             <a class="nav-link" href="admin/dashboard.php">Admin</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dbDropdown" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-database"></i> Database
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="simple-db-admin.php">
-                                    <i class="fas fa-table"></i> Database Manager
-                                </a></li>
-                                <li><a class="dropdown-item" href="phpmyadmin-direct.php" target="_blank">
-                                    <i class="fas fa-server"></i> phpMyAdmin
-                                </a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="test-db-connection.php">
-                                    <i class="fas fa-check-circle"></i> Connection Test
-                                </a></li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="admin-logout.php">Logout</a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin-login.php">Admin Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pma.php" target="_blank" title="Database Management">
-                                <i class="fas fa-database"></i> DB
-                            </a>
                         </li>
                     <?php endif; ?>
                 </ul>
