@@ -158,6 +158,23 @@ if ($faq_id > 0) {
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="author" name="author"
+                               value="<?php echo $faq ? htmlspecialchars($faq['author'] ?? '') : ''; ?>">
+                        <label for="author"><i class="fas fa-user"></i> Author (optional)</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="date" class="form-control" id="date_submitted" name="date_submitted"
+                               value="<?php echo $faq && !empty($faq['date_submitted']) ? date('Y-m-d', strtotime($faq['date_submitted'])) : ''; ?>">
+                        <label for="date_submitted"><i class="fas fa-calendar-alt"></i> Date Submitted (optional)</label>
+                    </div>
+                </div>
+            </div>
+
             <div class="quick-format">
                 <h6><i class="fas fa-palette"></i> Quick Insert Templates</h6>
                 <div class="btn-group-sm mb-2">

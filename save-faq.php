@@ -17,6 +17,8 @@ try {
     $category_id = (int)($_POST['category_id'] ?? 0);
     $main_answer = trim($_POST['main_answer'] ?? '');
     $display_order = (int)($_POST['display_order'] ?? 1);
+    $author = trim($_POST['author'] ?? '');
+    $date_submitted = trim($_POST['date_submitted'] ?? '');
     $is_draft = isset($_POST['save_draft']);
     
     // Validation
@@ -40,6 +42,8 @@ try {
         'question' => $question,
         'category_id' => $category_id,
         'answer' => $main_answer,
+        'author' => $author ?: null,
+        'date_submitted' => $date_submitted ?: null,
         'display_order' => $display_order
     ];
     
@@ -51,6 +55,8 @@ try {
                 question = :question, 
                 category_id = :category_id, 
                 answer = :answer, 
+                author = :author,
+                date_submitted = :date_submitted,
                 display_order = :display_order
                 WHERE id = :id";
         
@@ -75,8 +81,8 @@ try {
         
     } else {
         // Create new FAQ
-        $sql = "INSERT INTO faqs (title, slug, question, category_id, answer, display_order) 
-                VALUES (:title, :slug, :question, :category_id, :answer, :display_order)";
+        $sql = "INSERT INTO faqs (title, slug, question, category_id, answer, author, date_submitted, display_order) 
+                VALUES (:title, :slug, :question, :category_id, :answer, :author, :date_submitted, :display_order)";
         
         $stmt = $pdo->prepare($sql);
         

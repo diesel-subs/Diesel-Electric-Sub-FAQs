@@ -76,6 +76,12 @@ require_once 'includes/header.php';
                             <div class="faq-meta text-muted mb-3">
                                 <span class="badge bg-primary me-2"><?php echo htmlspecialchars($faq['category_name']); ?></span>
                                 <small><i class="fas fa-eye"></i> <?php echo number_format($faq['views']); ?> views</small>
+                                <?php if (!empty($faq['author'])): ?>
+                                    <small class="ms-2"><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></small>
+                                <?php endif; ?>
+                                <?php if (!empty($faq['date_submitted'])): ?>
+                                    <small class="ms-2"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($faq['date_submitted'])); ?></small>
+                                <?php endif; ?>
                                 <?php if ($faq['featured']): ?>
                                     <span class="badge bg-warning text-dark ms-2">
                                         <i class="fas fa-star"></i> Featured
