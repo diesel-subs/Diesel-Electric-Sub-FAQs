@@ -109,15 +109,6 @@ require_once 'includes/header.php';
                 </div>
 
                 <div class="faq-answer">
-                    <?php if ($faq['short_answer'] && $faq['short_answer'] !== $faq['answer']): ?>
-                        <div class="alert alert-info">
-                            <h5>Quick Answer:</h5>
-                            <div class="mb-0"><?php echo render_content($faq['short_answer']); ?></div>
-                        </div>
-                        
-                        <h5>Detailed Answer:</h5>
-                    <?php endif; ?>
-                    
                     <div class="answer-content" id="faq-content">
                         <?php echo render_content($faq['answer']); ?>
                     </div>
