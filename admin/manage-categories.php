@@ -162,7 +162,9 @@ $categories = $categoriesStmt->fetchAll();
                                         </span>
                                     </td>
                                     <td class="fw-bold">
-                                        <?php echo htmlspecialchars($cat['name']); ?>
+                                        <a href="../category.php?cat=<?php echo urlencode($cat['name']); ?>" class="text-decoration-none">
+                                            <?php echo htmlspecialchars($cat['name']); ?>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr class="edit-row d-none" id="edit-cat-<?php echo $cat['id']; ?>">
