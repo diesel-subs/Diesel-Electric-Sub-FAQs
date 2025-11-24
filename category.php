@@ -65,21 +65,10 @@ function category_icon_fallback($name, $icon) {
                 </ol>
             </nav>
 
-            <div class="d-flex justify-content-between align-items-start mb-4">
-                <div>
-                    <h1>
-                        <i class="<?php echo htmlspecialchars(category_icon_fallback($category['name'], $category['icon'] ?? '')); ?>"></i>
-                        <?php echo htmlspecialchars($category['name']); ?>
-                    </h1>
-                </div>
-                <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']): ?>
-                    <div class="admin-actions">
-                        <a href="edit-faq.php?category_id=<?php echo $category['id']; ?>" class="btn btn-success btn-sm">
-                            <i class="fas fa-plus"></i> Add New FAQ
-                        </a>
-                    </div>
-                <?php endif; ?>
-            </div>
+            <h1 class="mb-4">
+                <i class="<?php echo htmlspecialchars(category_icon_fallback($category['name'], $category['icon'] ?? '')); ?>"></i>
+                <?php echo htmlspecialchars($category['name']); ?>
+            </h1>
 
             <?php if (empty($faqs)): ?>
                 <div class="alert alert-info">
