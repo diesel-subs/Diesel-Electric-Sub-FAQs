@@ -67,7 +67,6 @@ if (empty($categoryCards)) {
                                 <i class="<?php echo htmlspecialchars(category_icon_fallback($cat['name'], $cat['icon'] ?? '')); ?>"></i>
                                 <?php echo htmlspecialchars($cat['name']); ?>
                             </h5>
-                            <p class="card-text"><?php echo htmlspecialchars($cat['description'] ?? ''); ?></p>
                             <a href="category.php?cat=<?php echo urlencode($cat['name']); ?>" class="btn btn-primary">
                                 Explore FAQs
                             </a>
