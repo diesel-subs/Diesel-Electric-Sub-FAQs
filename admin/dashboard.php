@@ -166,6 +166,11 @@ try {
                                 <i class="fas fa-cog"></i><br>Settings
                             </a>
                         </div>
+                        <div class="col-md-2">
+                            <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg w-100 mb-2">
+                                <i class="fas fa-hands-helping"></i><br>Contributors
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
