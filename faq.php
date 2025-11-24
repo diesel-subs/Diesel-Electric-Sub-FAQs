@@ -156,7 +156,7 @@ require_once 'includes/header.php';
                             <?php endif; ?>
                         </div>
                         <?php foreach ($rest as $c): ?>
-                            <div class="d-flex align-items-center gap-3 ms-5">
+                            <div class="d-flex align-items-center gap-3" style="padding-left: 170px;">
                                 <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                 <?php if (!empty($c['contributed_at'])): ?>
                                     <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
