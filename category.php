@@ -142,10 +142,20 @@ function category_icon_fallback($name, $icon) {
                                 <span class="faq-arrow"><i class="fas fa-chevron-down"></i></span>
                             </div>
                             <div id="faq-collapse-<?php echo $faq['id']; ?>" class="collapse">
-                                <div class="faq-body">
-                                    <div class="faq-content">
-                                        <?php echo render_content($faq['answer']); ?>
-                                    </div>
+                                    <div class="faq-body">
+                                        <div class="faq-content">
+                                            <?php echo render_content($faq['answer']); ?>
+                                        </div>
+                                    <?php if (!empty($faq['author']) || !empty($faq['date_submitted'])): ?>
+                                        <div class="text-muted mt-3">
+                                            <?php if (!empty($faq['author'])): ?>
+                                                <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($faq['author']); ?></span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($faq['date_submitted'])): ?>
+                                                <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($faq['date_submitted'])); ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <?php if (!empty($faq['tags'])): ?>
                                         <div class="faq-tags mt-3">
                                             <small class="text-muted">Tags: </small>
