@@ -148,9 +148,10 @@ require_once 'includes/header.php';
                         <div class="text-muted">
                             <?php foreach ($contributions as $c): ?>
                                 <div>
-                                    <strong><?php echo htmlspecialchars($c['contributor_name']); ?></strong>
+                                    <strong>Contribution by:</strong>
+                                    <span class="ms-1"><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
                                     <?php if (!empty($c['contributed_at'])): ?>
-                                        <span class="ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                        <span class="ms-3"><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
