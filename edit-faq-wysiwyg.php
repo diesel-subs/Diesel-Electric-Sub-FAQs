@@ -158,16 +158,6 @@ if ($faq_id > 0) {
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-12">
-                    <label for="short_answer" class="form-label"><i class="fas fa-comment"></i> Short Answer (Plain Text Summary)</label>
-                    <textarea class="form-control wysiwyg" id="short_answer" name="short_answer" rows="4" required><?php echo $faq ? htmlspecialchars($faq['short_answer']) : ''; ?></textarea>
-                    <div class="word-count">
-                        Words: <span id="shortAnswerCount">0</span> | Characters: <span id="shortAnswerChars">0</span>
-                    </div>
-                </div>
-            </div>
-
             <div class="quick-format">
                 <h6><i class="fas fa-palette"></i> Quick Insert Templates</h6>
                 <div class="btn-group-sm mb-2">
@@ -384,16 +374,10 @@ if ($faq_id > 0) {
             }
         }
 
-        // Initialize short answer textarea
-        const shortAnswer = document.getElementById('short_answer');
-        
         // Update word counts
         function updateWordCount() {
-            const shortText = shortAnswer.value;
             const mainContent = quill.getText();
             
-            document.getElementById('shortAnswerCount').textContent = shortText.trim() ? shortText.trim().split(/\s+/).length : 0;
-            document.getElementById('shortAnswerChars').textContent = shortText.length;
             document.getElementById('mainAnswerCount').textContent = mainContent.trim() ? mainContent.trim().split(/\s+/).length : 0;
         }
         
@@ -401,7 +385,6 @@ if ($faq_id > 0) {
         function previewContent() {
             const title = document.getElementById('title').value;
             const question = document.getElementById('question').value;
-            const shortAnswer = document.getElementById('short_answer').value;
             const mainContent = quill.root.innerHTML;
             
             const previewHtml = `
@@ -410,13 +393,6 @@ if ($faq_id > 0) {
                     <div class="alert alert-primary">
                         <h5><i class="fas fa-question-circle"></i> ${question || 'No question entered'}</h5>
                     </div>
-                    ${shortAnswer ? `
-                        <div class="alert alert-info">
-                            <h6>Quick Answer:</h6>
-                            <p>${shortAnswer.replace(/\n/g, '<br>')}</p>
-                        </div>
-                        <h6>Detailed Answer:</h6>
-                    ` : ''}
                     <div class="answer-content">
                         ${mainContent || '<p class="text-muted">No detailed answer entered</p>'}
                     </div>
@@ -480,7 +456,7 @@ if ($faq_id > 0) {
         });
         
         // Event listeners
-        shortAnswer.addEventListener('input', updateWordCount);
+        // No short answer; just track main answer length
         
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {

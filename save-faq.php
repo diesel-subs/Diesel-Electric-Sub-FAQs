@@ -15,7 +15,6 @@ try {
     $title = trim($_POST['title'] ?? '');
     $question = trim($_POST['question'] ?? '');
     $category_id = (int)($_POST['category_id'] ?? 0);
-    $short_answer = trim($_POST['short_answer'] ?? '');
     $main_answer = trim($_POST['main_answer'] ?? '');
     $display_order = (int)($_POST['display_order'] ?? 1);
     $is_draft = isset($_POST['save_draft']);
@@ -30,9 +29,6 @@ try {
     if (empty($category_id)) {
         throw new Exception('Category is required');
     }
-    if (empty($short_answer)) {
-        throw new Exception('Short answer is required');
-    }
     if (empty($main_answer)) {
         throw new Exception('Main answer is required');
     }
@@ -43,7 +39,7 @@ try {
         'slug' => generate_slug($title),
         'question' => $question,
         'category_id' => $category_id,
-        'short_answer' => $short_answer,
+        'short_answer' => '',
         'answer' => $main_answer,
         'display_order' => $display_order
     ];

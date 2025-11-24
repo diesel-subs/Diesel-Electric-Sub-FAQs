@@ -51,7 +51,7 @@ try {
 }
 
 $page_title = $faq['title'];
-$page_description = $faq['short_answer'] ? substr($faq['short_answer'], 0, 160) : substr($faq['answer'], 0, 160);
+$page_description = substr($faq['answer'], 0, 160);
 require_once 'includes/header.php';
 ?>
 

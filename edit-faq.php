@@ -293,7 +293,6 @@ if ($faq_id > 0) {
         // Initialize editor
         const editor = document.getElementById('main_answer');
         const preview = document.getElementById('previewContent');
-        const shortAnswer = document.getElementById('short_answer');
         
         let debounceTimer;
         
@@ -332,12 +331,9 @@ if ($faq_id > 0) {
         // Update word counts
         function updateWordCount() {
             const mainText = editor.value;
-            const shortText = shortAnswer.value;
             
             document.getElementById('mainAnswerCount').textContent = mainText.trim() ? mainText.trim().split(/\s+/).length : 0;
             document.getElementById('mainAnswerChars').textContent = mainText.length;
-            document.getElementById('shortAnswerCount').textContent = shortText.trim() ? shortText.trim().split(/\s+/).length : 0;
-            document.getElementById('shortAnswerChars').textContent = shortText.length;
         }
         
         // Insert Markdown syntax
@@ -441,7 +437,6 @@ if ($faq_id > 0) {
         
         // Event listeners
         editor.addEventListener('input', updatePreview);
-        shortAnswer.addEventListener('input', updateWordCount);
         
         // Keyboard shortcuts
         editor.addEventListener('keydown', function(e) {
