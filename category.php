@@ -171,21 +171,26 @@ function category_icon_fallback($name, $icon) {
                                         </div>
                                     <?php endif; ?>
                                     <?php if (!empty($contribMap[$faq['id']])): ?>
-                                        <div class="mt-2">
-                                            <h6 class="mb-1"><i class="fas fa-hands-helping"></i> Contributions</h6>
-                                            <ul class="list-unstyled mb-0">
-                                                <?php foreach ($contribMap[$faq['id']] as $c): ?>
-                                                    <li class="mb-1">
-                                                        <strong><?php echo htmlspecialchars($c['contributor_name']); ?></strong>
-                                                        <?php if (!empty($c['contributed_at'])): ?>
-                                                            <span class="text-muted ms-2"><?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
-                                                        <?php endif; ?>
-                                                        <?php if (!empty($c['notes'])): ?>
-                                                            <div class="text-muted small"><?php echo nl2br(htmlspecialchars($c['notes'])); ?></div>
-                                                        <?php endif; ?>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
+                                        <?php
+                                            $firstC = $contribMap[$faq['id']][0];
+                                            $restC = array_slice($contribMap[$faq['id']], 1);
+                                        ?>
+                                        <div class="mt-2 text-muted">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <strong><?php echo count($contribMap[$faq['id']]) > 1 ? 'Contributions by:' : 'Contribution by:'; ?></strong>
+                                                <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($firstC['contributor_name']); ?></span>
+                                                <?php if (!empty($firstC['contributed_at'])): ?>
+                                                    <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($firstC['contributed_at'])); ?></span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php foreach ($restC as $c): ?>
+                                                <div class="d-flex align-items-center gap-3 ms-5">
+                                                    <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($c['contributor_name']); ?></span>
+                                                    <?php if (!empty($c['contributed_at'])): ?>
+                                                        <span><i class="fas fa-calendar-alt"></i> <?php echo date('M j, Y', strtotime($c['contributed_at'])); ?></span>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     <?php endif; ?>
                                     <?php if (!empty($faq['tags'])): ?>
