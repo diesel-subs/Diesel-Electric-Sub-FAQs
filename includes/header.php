@@ -38,7 +38,6 @@ if (empty($navCategories)) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <i class="fas fa-ship"></i>
                 <?php echo SITE_NAME; ?>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -50,14 +49,11 @@ if (empty($navCategories)) {
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="search.php">Advanced Search</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="feedbackDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-comments"></i> Community
+                            Community
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="feedback.php">
@@ -72,16 +68,6 @@ if (empty($navCategories)) {
                             </a></li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <?php if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin/dashboard.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin-logout.php">Logout</a>
-                        </li>
-                    <?php endif; ?>
                 </ul>
             </div>
         </div>

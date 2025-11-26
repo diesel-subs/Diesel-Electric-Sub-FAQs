@@ -32,7 +32,7 @@
                     <p class="mb-0">&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <small class="text-muted">Last updated: <?php echo date('F j, Y'); ?></small>
+                    <small class="text-muted">Last updated<a class="text-muted" href="admin/login.php" style="text-decoration:none; cursor: default;">:</a> <?php echo date('F j, Y'); ?></small>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
                         <h5 class="modal-title">
-                            <i class="fas fa-hand-paper"></i> Wait! Before you go...
+                            Wait! Before you go...
                         </h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>

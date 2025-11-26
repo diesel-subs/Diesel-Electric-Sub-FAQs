@@ -8,15 +8,30 @@ require_once 'includes/header.php';
 $submitted = false;
 $error = null;
 
+// Capture context
+$faq_context_id = !empty($_GET['faq_id']) ? (int)$_GET['faq_id'] : null;
+$category_context_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
+// Allow legacy ?category=name to resolve to an id
+if (!$category_context_id && !empty($_GET['category'])) {
+    $stmt = $pdo->prepare("SELECT id FROM categories WHERE name = ? LIMIT 1");
+    $stmt->execute([$_GET['category']]);
+    $row = $stmt->fetch();
+    if ($row) {
+        $category_context_id = (int)$row['id'];
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $name = sanitize_input($_POST['name'] ?? '');
         $email = sanitize_input($_POST['email'] ?? '');
-        $feedback_type = $_POST['feedback_type'] ?? '';
-        $faq_id = !empty($_POST['faq_id']) ? (int)$_POST['faq_id'] : null;
-        $subject = sanitize_input($_POST['subject'] ?? '');
+        // Since we removed type/rating/subject selectors, use safe defaults
+        $feedback_type = 'general';
+        $faq_id = !empty($_POST['faq_id']) ? (int)$_POST['faq_id'] : $faq_context_id;
+        $category_id = !empty($_POST['category_id']) ? (int)$_POST['category_id'] : $category_context_id;
+        $subject = '';
         $message = sanitize_input($_POST['message'] ?? '');
-        $rating = !empty($_POST['rating']) ? (int)$_POST['rating'] : null;
+        $rating = null;
         
         if (empty($message)) {
             throw new Exception('Message is required');
@@ -24,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Insert feedback into database
         $stmt = $pdo->prepare("
-            INSERT INTO feedback (name, email, feedback_type, faq_id, subject, message, rating, status, created_at) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', NOW())
+            INSERT INTO feedback (name, email, feedback_type, faq_id, category_id, subject, message, rating, status, created_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW())
         ");
         
-        $stmt->execute([$name, $email, $feedback_type, $faq_id, $subject, $message, $rating]);
+        $stmt->execute([$name, $email, $feedback_type, $faq_id, $category_id, $subject, $message, $rating]);
         $submitted = true;
         
     } catch (Exception $e) {
@@ -98,68 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </div>
                         
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="feedback_type" class="form-label">Feedback Type *</label>
-                                <select class="form-select" id="feedback_type" name="feedback_type" required>
-                                    <option value="">Select type...</option>
-                                    <option value="correction" <?php echo (isset($_GET['type']) && $_GET['type'] === 'correction') ? 'selected' : ''; ?>>Factual Correction</option>
-                                    <option value="suggestion" <?php echo (isset($_GET['type']) && $_GET['type'] === 'suggestion') ? 'selected' : ''; ?>>Content Suggestion</option>
-                                    <option value="new_faq" <?php echo (isset($_GET['type']) && $_GET['type'] === 'new_faq') ? 'selected' : ''; ?>>Request New FAQ</option>
-                                    <option value="technical">Technical Issue</option>
-                                    <option value="general">General Feedback</option>
-                                    <option value="praise">Compliment/Praise</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="rating" class="form-label">Overall Rating</label>
-                                <select class="form-select" id="rating" name="rating">
-                                    <option value="">Rate your experience...</option>
-                                    <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
-                                    <option value="4">⭐⭐⭐⭐ Very Good</option>
-                                    <option value="3">⭐⭐⭐ Good</option>
-                                    <option value="2">⭐⭐ Fair</option>
-                                    <option value="1">⭐ Needs Improvement</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="related_faq" class="form-label">Related FAQ (Optional)</label>
-                            <select class="form-select" id="related_faq" name="faq_id">
-                                <option value="">Select if feedback relates to a specific FAQ...</option>
-                                <?php
-                                try {
-                                    $stmt = $pdo->query("
-                                        SELECT f.id, f.title, c.name as category_name 
-                                        FROM faqs f 
-                                        JOIN categories c ON f.category_id = c.id 
-                                        WHERE f.status = 'published' 
-                                        ORDER BY c.name, f.title
-                                    ");
-                                    $current_category = '';
-                                    while ($faq = $stmt->fetch()) {
-                                        if ($faq['category_name'] !== $current_category) {
-                                            if ($current_category !== '') echo '</optgroup>';
-                                            echo '<optgroup label="' . htmlspecialchars($faq['category_name']) . '">';
-                                            $current_category = $faq['category_name'];
-                                        }
-                                        echo '<option value="' . $faq['id'] . '">' . htmlspecialchars($faq['title']) . '</option>';
-                                    }
-                                    if ($current_category !== '') echo '</optgroup>';
-                                } catch (Exception $e) {
-                                    echo '<option value="">Error loading FAQs</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" 
-                                   placeholder="Brief summary of your feedback">
-                        </div>
-                        
+                        <?php if ($faq_context_id): ?>
+                            <input type="hidden" name="faq_id" value="<?php echo $faq_context_id; ?>">
+                        <?php endif; ?>
+                        <?php if ($category_context_id): ?>
+                            <input type="hidden" name="category_id" value="<?php echo $category_context_id; ?>">
+                        <?php endif; ?>
+
                         <div class="mb-3">
                             <label for="message" class="form-label">Your Message *</label>
                             <textarea class="form-control" id="message" name="message" rows="6" 

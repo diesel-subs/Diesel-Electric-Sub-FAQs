@@ -72,15 +72,23 @@ function category_icon_fallback($name, $icon) {
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
-            <!-- Breadcrumb -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active"><?php echo htmlspecialchars($category['name']); ?></li>
-                </ol>
-            </nav>
+            <!-- Breadcrumb and Search -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-2 gap-2">
+                <nav aria-label="breadcrumb" class="mb-0">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    </ol>
+                </nav>
+                <div class="category-search flex-grow-1" style="max-width: 640px;">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" placeholder="Enter text to search category..." id="category-search">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Category title intentionally hidden -->
+            <!-- Category name below breadcrumb -->
+            <h1 class="mb-4"><?php echo htmlspecialchars($category['name']); ?></h1>
 
             <?php if (empty($faqs)): ?>
                 <div class="alert alert-info">
@@ -89,56 +97,25 @@ function category_icon_fallback($name, $icon) {
                     <a href="index.php" class="btn btn-primary">Browse Other Categories</a>
                 </div>
             <?php else: ?>
-                <!-- FAQ Count and Search -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <span class="text-muted"><?php echo count($faqs); ?> FAQ(s) found</span>
-                    <div class="category-search" style="width: calc(50% - 25px);">
-                        <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" placeholder="Enter text to search category..." id="category-search">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        </div>
-                    </div>
-                </div>
+                <!-- Spacer after header/search -->
+                <div class="mb-4"></div>
 
                 <!-- Feedback Incentive Section -->
                 <div class="feedback-incentive mb-4">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="alert alert-info border-info">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-3">
-                                        <i class="fas fa-trophy fa-2x text-warning"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="alert-heading mb-1">Help Us Improve This Category!</h5>
-                                        <p class="mb-2">Your feedback makes our submarine knowledge base more accurate and helpful for everyone.</p>
-                                    </div>
-                                    <div class="ms-2">
-                                        <a href="feedback.php?category=<?php echo urlencode($category['name']); ?>" 
-                                           class="btn btn-warning btn-sm">
-                                            <i class="fas fa-star"></i> Share Feedback
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="alert alert-info border-info">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="fas fa-trophy fa-2x text-warning"></i>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-success">
-                                <div class="card-body text-center py-2">
-                                    <h6 class="card-title mb-1">
-                                        <i class="fas fa-lightbulb text-warning"></i> Quick Actions
-                                    </h6>
-                                    <div class="btn-group-vertical btn-group-sm w-100">
-                                        <a href="feedback.php?type=new_faq&category=<?php echo urlencode($category['name']); ?>" 
-                                           class="btn btn-outline-success btn-sm">
-                                            + Suggest New FAQ
-                                        </a>
-                                        <a href="feedback.php?type=correction&category=<?php echo urlencode($category['name']); ?>" 
-                                           class="btn btn-outline-warning btn-sm">
-                                            🔧 Report Issue
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="flex-grow-1">
+                                <h5 class="alert-heading mb-1">Help Us Improve This Category!</h5>
+                                <p class="mb-2">Your feedback really helps.</p>
+                            </div>
+                            <div class="ms-2">
+                                <a href="feedback.php?category_id=<?php echo (int)$category['id']; ?>&category=<?php echo urlencode($category['name']); ?>" 
+                                   class="btn btn-warning btn-sm">
+                                    <i class="fas fa-star"></i> Share Feedback
+                                </a>
                             </div>
                         </div>
                     </div>

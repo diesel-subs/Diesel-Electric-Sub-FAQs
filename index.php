@@ -51,6 +51,7 @@ if (empty($categoryCards)) {
         <div class="alert alert-info mt-3" role="alert">
             <i class="fas fa-lightbulb"></i> 
             <strong>Help us improve!</strong> Can't find what you're looking for? Have corrections or suggestions? 
+            <br>
             <a href="feedback.php" class="alert-link">Share your feedback</a> to help us make this resource better.
         </div>
     </div>

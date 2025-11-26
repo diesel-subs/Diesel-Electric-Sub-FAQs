@@ -18,6 +18,7 @@ $category_id = (int)($_GET['category_id'] ?? $_POST['category_id'] ?? 0);
 $categories = $pdo->query("SELECT id, name FROM categories ORDER BY name ASC")->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $category_id > 0 && isset($_POST['sort_order']) && is_array($_POST['sort_order'])) {
+    // AJAX autosave handled below; keep POST block for non-js fallback
     try {
         $pdo->beginTransaction();
         $stmt = $pdo->prepare("UPDATE faqs SET display_order = ? WHERE id = ? AND category_id = ?");
@@ -102,11 +103,6 @@ if ($category_id > 0) {
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary">
-                <i class="fas fa-save"></i> Save Order
-            </button>
-        </div>
     </form>
     <?php endif; ?>
 </div>
@@ -167,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleDragEnd() {
         this.classList.remove('dragging');
         updateOrderValues();
+        autoSave();
     }
 
     function updateOrderValues() {
@@ -175,6 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const input = row.querySelector('input[type=\"hidden\"]');
             input.value = (idx + 1) * 10;
         });
+    }
+    function autoSave() {
+        const form = document.getElementById('reorderForm');
+        const formData = new FormData(form);
+        fetch('reorder-faqs.php', { method: 'POST', body: formData }).catch(err => console.error('Autosave failed', err));
     }
 });
 </script>

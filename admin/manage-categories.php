@@ -16,6 +16,8 @@ $error = null;
 // Handle AJAX drag-save
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
     $data = json_decode(file_get_contents('php://input'), true);
+
+    // Category reordering
     if (isset($data['order']) && is_array($data['order'])) {
         try {
             $pdo->beginTransaction();
@@ -87,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && empty($_
 // Load categories
 $categoriesStmt = $pdo->query("SELECT id, name, description, icon, sort_order FROM categories ORDER BY sort_order ASC, name ASC");
 $categories = $categoriesStmt->fetchAll();
+
 ?>
 
 <?php require_once '../includes/header.php'; ?>

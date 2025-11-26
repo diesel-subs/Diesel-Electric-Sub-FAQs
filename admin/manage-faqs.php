@@ -5,6 +5,40 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once '../config/database.php';
 require_once '../includes/header.php';
 
+// Locale-aware date formatter (falls back to US-style if intl not available)
+if (!function_exists('formatLocalDate')) {
+    function formatLocalDate($datetime) {
+        // Fixed US-style numeric date
+        return date('m/d/Y', strtotime($datetime));
+    }
+}
+
+// AJAX reorder handler
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+    $data = json_decode(file_get_contents('php://input'), true);
+    if (isset($data['faq_order'], $data['category_id']) && is_array($data['faq_order'])) {
+        $catId = (int)$data['category_id'];
+        try {
+            $pdo->beginTransaction();
+            $stmt = $pdo->prepare("UPDATE faqs SET display_order = ? WHERE id = ? AND category_id = ?");
+            $pos = 10;
+            foreach ($data['faq_order'] as $faqId) {
+                $stmt->execute([$pos, (int)$faqId, $catId]);
+                $pos += 10;
+            }
+            $pdo->commit();
+            header('Content-Type: application/json');
+            echo json_encode(['success' => true]);
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            http_response_code(500);
+            header('Content-Type: application/json');
+            echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+        }
+        exit;
+    }
+}
+
 // Check authentication
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header('Location: login.php');
@@ -31,6 +65,15 @@ $search = $_GET['search'] ?? '';
 $category = $_GET['category'] ?? '';
 $status = $_GET['status'] ?? '';
 
+// Get categories for filter (needed to set default)
+$categoriesStmt = $pdo->query("SELECT id, name FROM categories ORDER BY sort_order ASC, name ASC");
+$categories = $categoriesStmt->fetchAll();
+
+// Default to first category if none selected
+if ($category === '' && !empty($categories)) {
+    $category = (string)$categories[0]['id'];
+}
+
 // Build query
 $whereConditions = [];
 $params = [];
@@ -42,7 +85,7 @@ if ($search) {
     $params[] = "%$search%";
 }
 
-if ($category) {
+if ($category !== '') {
     $whereConditions[] = "category_id = ?";
     $params[] = $category;
 }
@@ -68,9 +111,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $faqs = $stmt->fetchAll();
 
-// Get categories for filter
-$categoriesStmt = $pdo->query("SELECT id, name FROM categories ORDER BY name");
-$categories = $categoriesStmt->fetchAll();
 ?>
 
 <div class="container mt-4">
@@ -105,8 +145,7 @@ $categories = $categoriesStmt->fetchAll();
                 
                 <div class="col-md-3">
                     <label for="category" class="form-label">Category</label>
-                    <select class="form-select" id="category" name="category">
-                        <option value="">All Categories</option>
+                    <select class="form-select" id="category" name="category" required>
                         <?php foreach ($categories as $cat): ?>
                             <option value="<?php echo $cat['id']; ?>" 
                                     <?php echo $category == $cat['id'] ? 'selected' : ''; ?>>
@@ -154,26 +193,25 @@ $categories = $categoriesStmt->fetchAll();
                 </div>
             <?php else: ?>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped align-middle" id="faq-table">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Category</th>
+                                <th style="width:45px;"></th>
+                                <th>Question</th>
                                 <th>Status</th>
-                                <th>Views</th>
+                                <th class="text-center">Views</th>
                                 <th>Created</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="faq-table-rows">
                             <?php foreach ($faqs as $faq): ?>
-                                <tr>
-                                    <td>
-                                        <strong><?php echo htmlspecialchars($faq['title']); ?></strong>
-                                        <br><small class="text-muted"><?php echo htmlspecialchars(substr($faq['question'], 0, 100)); ?>...</small>
+                                <tr class="faq-row-table" draggable="true" data-id="<?php echo $faq['id']; ?>">
+                                    <td class="text-center">
+                                        <span class="drag-handle" title="Drag to reorder"><i class="fas fa-grip-vertical"></i></span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-secondary"><?php echo htmlspecialchars($faq['category_name']); ?></span>
+                                        <strong><?php echo htmlspecialchars($faq['title']); ?></strong>
                                     </td>
                                     <td>
                                         <?php if ($faq['is_published']): ?>
@@ -182,8 +220,12 @@ $categories = $categoriesStmt->fetchAll();
                                             <span class="badge bg-warning">Draft</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo $faq['view_count']; ?></td>
-                                    <td><?php echo date('M j, Y', strtotime($faq['created_at'])); ?></td>
+                                    <td class="text-center"><?php echo $faq['view_count']; ?></td>
+                                    <td>
+                                        <span class="created-date" data-date="<?php echo htmlspecialchars($faq['created_at']); ?>">
+                                            <?php echo htmlspecialchars(formatLocalDate($faq['created_at'])); ?>
+                                        </span>
+                                    </td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="../faq.php?id=<?php echo $faq['id']; ?>" 
@@ -221,5 +263,83 @@ $categories = $categoriesStmt->fetchAll();
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Table drag-drop reorder
+    const tableBody = document.getElementById('faq-table-rows');
+    const filterCategorySelect = document.getElementById('category');
+    if (tableBody && filterCategorySelect) {
+        let draggedRow = null;
+        const tableRows = Array.from(tableBody.querySelectorAll('.faq-row-table'));
+
+        tableRows.forEach(row => {
+            row.addEventListener('dragstart', tableDragStart);
+            row.addEventListener('dragover', tableDragOver);
+            row.addEventListener('drop', tableDrop);
+            row.addEventListener('dragend', tableDragEnd);
+        });
+
+        function tableDragStart(e) {
+            draggedRow = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function tableDragOver(e) {
+            e.preventDefault();
+            const target = e.currentTarget;
+            if (target === draggedRow) return;
+            const rect = target.getBoundingClientRect();
+            const offset = rect.y + rect.height / 2;
+            if (e.clientY - offset > 0) {
+                target.after(draggedRow);
+            } else {
+                target.before(draggedRow);
+            }
+        }
+
+        function tableDrop(e) {
+            e.preventDefault();
+            saveTableOrder();
+        }
+
+        function tableDragEnd() {
+            this.classList.remove('dragging');
+            saveTableOrder();
+        }
+
+        async function saveTableOrder() {
+            const ids = Array.from(tableBody.querySelectorAll('.faq-row-table')).map(r => r.dataset.id);
+            const catId = filterCategorySelect.value;
+            try {
+                await fetch('manage-faqs.php', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({ faq_order: ids, category_id: catId })
+                });
+            } catch (err) {
+                console.error('Failed to save FAQ order', err);
+            }
+        }
+    }
+});
+</script>
+
+<style>
+.drag-handle {
+    cursor: grab;
+}
+.drag-handle:active {
+    cursor: grabbing;
+}
+.faq-row-table.dragging {
+    opacity: 0.6;
+    background: #f8f9fa;
+}
+</style>
 
 <?php require_once '../includes/footer.php'; ?>

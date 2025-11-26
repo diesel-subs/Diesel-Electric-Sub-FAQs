@@ -4,7 +4,9 @@ $page_description = 'Review and manage visitor feedback and suggestions';
 require_once '../config/database.php';
 
 // Simple admin check (you can enhance this later)
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in']) {
     // For now, just show a login form
     if ($_POST['admin_password'] ?? '' === 'submarine_admin_2024') {
@@ -91,7 +93,10 @@ if ($_POST['action'] ?? '') {
             SELECT f.*, faq.title as faq_title, c.name as category_name
             FROM feedback f
             LEFT JOIN faqs faq ON f.faq_id = faq.id
-            LEFT JOIN categories c ON faq.category_id = c.id
+            LEFT JOIN categories c ON (
+                (f.category_id IS NOT NULL AND f.category_id = c.id) OR
+                (faq.category_id = c.id)
+            )
             ORDER BY f.created_at DESC
             LIMIT 50
         ");

@@ -137,41 +137,27 @@ try {
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="../edit-faq-wysiwyg.php" class="btn btn-primary btn-lg w-100 mb-2">
-                                <i class="fas fa-plus"></i><br>New FAQ
+                            <a href="manage-faqs.php" class="btn btn-success btn-lg w-100 mb-2 quick-action-btn">
+                                <i class="fas fa-list"></i>
+                                <span>FAQs</span>
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="manage-faqs.php" class="btn btn-success btn-lg w-100 mb-2">
-                                <i class="fas fa-list"></i><br>Manage FAQs
+                            <a href="manage-categories.php" class="btn btn-info btn-lg w-100 mb-2 quick-action-btn">
+                                <i class="fas fa-folder-open"></i>
+                                <span>Categories</span>
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="manage-categories.php" class="btn btn-info btn-lg w-100 mb-2">
-                                <i class="fas fa-folder-open"></i><br>Categories
+                            <a href="feedback-review.php" class="btn btn-warning btn-lg w-100 mb-2 quick-action-btn">
+                                <i class="fas fa-comments"></i>
+                                <span>Feedback</span>
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="manage-feedback.php" class="btn btn-warning btn-lg w-100 mb-2">
-                                <i class="fas fa-comments"></i><br>Feedback
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="../simple-db-admin.php" class="btn btn-secondary btn-lg w-100 mb-2" target="_blank">
-                                <i class="fas fa-database"></i><br>Database
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="settings.php" class="btn btn-dark btn-lg w-100 mb-2">
-                                <i class="fas fa-cog"></i><br>Settings
-                            </a>
-                            <a href="reorder-faqs.php" class="btn btn-outline-secondary btn-lg w-100">
-                                <i class="fas fa-sort-amount-down"></i><br>Reorder FAQs
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg w-100 mb-2">
-                                <i class="fas fa-hands-helping"></i><br>Contributors
+                            <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg w-100 mb-2 quick-action-btn">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Contributors</span>
                             </a>
                         </div>
                     </div>
@@ -243,5 +229,20 @@ try {
         </div>
     </div>
 </div>
+
+<style>
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 160px;
+    min-height: 120px;
+    padding: 14px 16px;
+    text-align: center;
+    white-space: normal;
+}
+</style>
 
 <?php require_once '../includes/footer.php'; ?>
