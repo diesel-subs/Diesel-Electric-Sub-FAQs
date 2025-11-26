@@ -10,20 +10,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
           server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT || 22 }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
-          local_path: './'
-          remote_path: ${{ secrets.REMOTE_PATH }}
-          sftp_only: true
+          port: ${{ secrets.SFTP_PORT || 21 }}
+          protocol: ftp
+          server-dir: ${{ secrets.REMOTE_PATH }}/
+          local-dir: ./
           exclude: |
-            .git*
-            .github*
-            node_modules
-            backups
-            vendor
-            *.sql
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/backups/**
+            **/vendor/**
+            **/*.sql
