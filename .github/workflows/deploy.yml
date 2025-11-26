@@ -10,16 +10,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      - name: Deploy via FTP/FTPS
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
           port: ${{ secrets.SFTP_PORT || 21 }}
-          protocol: ftp
+          protocol: ftps
           server-dir: ${{ secrets.REMOTE_PATH }}/
           local-dir: ./
+          timeout: 120000
           exclude: |
             **/.git*
             **/.github*
