@@ -1,16 +1,16 @@
 <?php
-// Database configuration - Railway environment variables
+// Database configuration
 define('DB_HOST', $_ENV['MYSQLHOST'] ?? 'localhost');
 define('DB_PORT', $_ENV['MYSQLPORT'] ?? '3306');
-define('DB_USERNAME', $_ENV['MYSQLUSER'] ?? 'submarine_user');
-define('DB_PASSWORD', $_ENV['MYSQLPASSWORD'] ?? 'submarine2024!');
-define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? 'submarine_faqs');
+define('DB_USERNAME', $_ENV['MYSQLUSER'] ?? 'dieselsu_user_faqs');
+define('DB_PASSWORD', $_ENV['MYSQLPASSWORD'] ?? 'qipCu9-ramwos-bubfoq');
+define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? 'dieselsu_faqs');
 define('DB_CHARSET', 'utf8mb4');
 
 // Site configuration
 define('SITE_NAME', 'Diesel-Electric Submarine FAQs');
 define('SITE_URL', 'http://localhost');
-define('ADMIN_EMAIL', 'admin@example.com');
+define('ADMIN_EMAIL', 'irving.greisman@gmail.com');
 
 // Database connection
 try {
