@@ -120,7 +120,7 @@ require_once 'includes/header.php';
                 <div class="faq-question mb-4">
                     <h2 class="h4 text-primary">
                         <i class="fas fa-question-circle"></i>
-                        <?php echo htmlspecialchars($faq['question']); ?>
+                        <?php echo render_content($faq['question']); ?>
                     </h2>
                 </div>
 

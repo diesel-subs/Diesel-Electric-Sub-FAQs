@@ -8,7 +8,6 @@ define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? 'dieselsu_faqs');
 define('DB_CHARSET', 'utf8mb4');
 // define('DB_USERNAME', $_ENV['MYSQLUSER'] ?? 'dieselsu_user_faqs');
 // define('DB_PASSWORD', $_ENV['MYSQLPASSWORD'] ?? 'qipCu9-ramwos-bubfoq');
-// define('DB_NAME', $_ENV['MYSQLDATABASE'] ?? 'dieselsu_faqs');
 
 // Site configuration
 define('SITE_NAME', 'Diesel-Electric Submarine FAQs');

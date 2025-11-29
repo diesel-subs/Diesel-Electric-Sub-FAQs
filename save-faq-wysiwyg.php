@@ -20,12 +20,13 @@ try {
     $author = trim($_POST['author'] ?? '');
     $date_submitted = trim($_POST['date_submitted'] ?? '');
     $is_draft = isset($_POST['save_draft']);
+    $question_plain = trim(strip_tags($question));
     
     // Validation
     if (empty($title)) {
         throw new Exception('Title is required');
     }
-    if (empty($question)) {
+    if (empty($question_plain)) {
         throw new Exception('Question is required');
     }
     if (empty($category_id)) {
@@ -36,6 +37,7 @@ try {
     }
     
     // Clean and validate HTML content
+    $question = cleanHtmlContent($question);
     $main_answer = cleanHtmlContent($main_answer);
     
     // Prepare data

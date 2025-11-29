@@ -1,10 +1,12 @@
 <?php
 require_once 'config/database.php';
 require_once 'includes/header.php';
+require_once 'includes/markdown-helper.php';
 
 $faq_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $preset_category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
 $faq = null;
+$display_title = '';
 
 if ($faq_id > 0) {
     $stmt = $pdo->prepare("SELECT * FROM faqs WHERE id = ?");
@@ -15,7 +17,24 @@ if ($faq_id > 0) {
         header("Location: index.php");
         exit;
     }
+    
+    $display_title = htmlspecialchars($faq['title'] ?? strip_tags($faq['question']));
 }
+
+$initial_answer = '';
+if ($faq && isset($faq['answer'])) {
+    // Show existing content as HTML so Markdown answers render correctly in the WYSIWYG editor
+    $initial_answer = render_content($faq['answer']);
+}
+
+$initial_title = $faq && isset($faq['title']) ? htmlspecialchars($faq['title']) : '';
+$initial_question = '';
+if ($faq && isset($faq['question'])) {
+    // Render stored question content so Quill shows formatted text instead of raw Markdown/HTML
+    $initial_question = render_content($faq['question']);
+}
+
+$display_order_value = $faq && isset($faq['display_order']) ? (int)$faq['display_order'] : 1;
 ?>
 
 <!DOCTYPE html>
@@ -53,26 +72,28 @@ if ($faq_id > 0) {
             right: 20px;
             z-index: 1050;
         }
-        
-        .quick-format {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
-            border-radius: 0.375rem;
-            padding: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .quick-format h6 {
-            color: #1565c0;
-            margin-bottom: 8px;
-        }
-        
         .editor-help {
             background: #f8f9fa;
             border: 1px solid #dee2e6;
             border-radius: 0.375rem;
             padding: 15px;
             margin-bottom: 20px;
+        }
+        .section-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6c757d;
+        }
+        /* Match editor text size to form fields (slightly reduced) */
+        #question-editor .ql-editor,
+        #quill-editor .ql-editor {
+            font-size: 0.9375rem;
+            line-height: 1.4;
+        }
+        .section-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6c757d;
         }
     </style>
 </head>
@@ -81,11 +102,8 @@ if ($faq_id > 0) {
         <div class="row mb-4">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1><i class="fas fa-edit text-primary"></i> <?php echo $faq ? 'Edit FAQ: ' . htmlspecialchars($faq['title'] ?? $faq['question']) : 'Create New FAQ'; ?></h1>
+                    <h1><i class="fas fa-edit text-primary"></i> <?php echo $faq ? 'Edit FAQ' : 'Create New FAQ'; ?></h1>
                     <div>
-                        <a href="edit-faq.php<?php echo $faq ? '?id=' . $faq['id'] : ($preset_category_id ? '?category_id=' . $preset_category_id : ''); ?>" class="btn btn-outline-secondary me-2">
-                            <i class="fas fa-code"></i> Markdown Editor
-                        </a>
                         <a href="<?php echo $faq ? 'faq.php?id=' . $faq['id'] : 'index.php'; ?>" class="btn btn-outline-secondary">
                             <i class="fas fa-arrow-left"></i> Back
                         </a>
@@ -94,30 +112,15 @@ if ($faq_id > 0) {
             </div>
         </div>
 
-        <div class="editor-help">
-            <h6><i class="fas fa-magic text-primary"></i> WYSIWYG Editor - True Visual Editing</h6>
-            <p class="mb-1">This is a <strong>What You See Is What You Get</strong> editor. Format your text exactly as you want it to appear:</p>
-            <ul class="mb-0">
-                <li>Use the toolbar buttons for <strong>bold</strong>, <em>italic</em>, headers, lists, and more</li>
-                <li>Insert tables, links, and images directly</li>
-                <li>No Markdown knowledge required - just click and type!</li>
-            </ul>
-        </div>
-
         <form id="faqForm" method="POST" action="save-faq-wysiwyg.php">
             <?php if ($faq): ?>
                 <input type="hidden" name="faq_id" value="<?php echo $faq['id']; ?>">
             <?php endif; ?>
+            <input type="hidden" name="display_order" value="<?php echo $display_order_value; ?>">
+            <input type="hidden" id="title-hidden" name="title" value="<?php echo $initial_title; ?>">
             
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="title" name="title" 
-                               value="<?php echo $faq ? htmlspecialchars($faq['title']) : ''; ?>" required>
-                        <label for="title"><i class="fas fa-heading"></i> Title</label>
-                    </div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <select class="form-select" id="category_id" name="category_id" required>
                             <option value="">Select Category</option>
@@ -139,34 +142,14 @@ if ($faq_id > 0) {
                         <label for="category_id"><i class="fas fa-folder"></i> Category</label>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-floating">
-                        <input type="number" class="form-control" id="display_order" name="display_order" 
-                               value="<?php echo $faq ? ($faq['display_order'] ?? 1) : '1'; ?>" min="1">
-                        <label for="display_order"><i class="fas fa-sort-numeric-up"></i> Display Order</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="question" name="question" 
-                               value="<?php echo $faq ? htmlspecialchars($faq['question']) : ''; ?>" required>
-                        <label for="question"><i class="fas fa-question-circle"></i> Question</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="author" name="author"
                                value="<?php echo $faq ? htmlspecialchars($faq['author'] ?? '') : ''; ?>">
                         <label for="author"><i class="fas fa-user"></i> Author (optional)</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <input type="date" class="form-control" id="date_submitted" name="date_submitted"
                                value="<?php echo $faq && !empty($faq['date_submitted']) ? date('Y-m-d', strtotime($faq['date_submitted'])) : ''; ?>">
@@ -175,50 +158,26 @@ if ($faq_id > 0) {
                 </div>
             </div>
 
-            <div class="quick-format">
-                <h6><i class="fas fa-palette"></i> Quick Insert Templates</h6>
-                <div class="btn-group-sm mb-2">
-                    <button type="button" class="btn btn-outline-primary btn-sm me-1" onclick="insertTemplate('basic_info')">
-                        <i class="fas fa-info"></i> Basic Info
-                    </button>
-                    <button type="button" class="btn btn-outline-primary btn-sm me-1" onclick="insertTemplate('tech_specs')">
-                        <i class="fas fa-cogs"></i> Tech Specs
-                    </button>
-                    <button type="button" class="btn btn-outline-primary btn-sm me-1" onclick="insertTemplate('comparison')">
-                        <i class="fas fa-table"></i> Comparison Table
-                    </button>
-                    <button type="button" class="btn btn-outline-primary btn-sm me-1" onclick="insertTemplate('timeline')">
-                        <i class="fas fa-clock"></i> Timeline
-                    </button>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <strong>Text Formatting:</strong><br>
-                        <small>Bold, Italic, Underline, Colors</small>
-                    </div>
-                    <div class="col-md-4">
-                        <strong>Structure:</strong><br>
-                        <small>Headers, Lists, Tables, Links</small>
-                    </div>
-                    <div class="col-md-4">
-                        <strong>Media:</strong><br>
-                        <small>Images, Code blocks, Quotes</small>
-                    </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="form-label section-label" for="question-editor">
+                        <i class="fas fa-question-circle"></i> Question
+                    </label>
+                    <div id="question-editor" style="height: 60px;"></div>
+                    <textarea id="question" name="question" style="display: none;"><?php echo $initial_question; ?></textarea>
                 </div>
             </div>
 
             <div class="row mb-4">
                 <div class="col-12">
-                    <label for="main_answer" class="form-label">
-                        <i class="fas fa-file-alt"></i> Detailed Answer - 
-                        <strong>WYSIWYG Editor</strong>
-                        <small class="text-muted">(Format text visually - no coding required)</small>
+                    <label for="main_answer" class="form-label section-label">
+                        <i class="fas fa-file-alt"></i> Answer
                     </label>
                     <div class="editor-container">
                         <!-- Quill Editor Container -->
                         <div id="quill-editor" style="height: 400px;"></div>
                         <!-- Hidden textarea for form submission -->
-                        <textarea id="main_answer" name="main_answer" style="display: none;"><?php echo $faq ? htmlspecialchars($faq['answer']) : ''; ?></textarea>
+                        <textarea id="main_answer" name="main_answer" style="display: none;"><?php echo $initial_answer; ?></textarea>
                     </div>
                     <div class="word-count mt-2">
                         Content Length: <span id="mainAnswerCount">0</span> words
@@ -273,6 +232,23 @@ if ($faq_id > 0) {
     
     <script>
         // Initialize Quill.js WYSIWYG Editor
+        const questionToolbarOptions = [
+            ['bold', 'italic', 'underline'],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['link']
+        ];
+
+        const questionQuill = new Quill('#question-editor', {
+            modules: { toolbar: questionToolbarOptions },
+            placeholder: 'Enter your question...',
+            theme: 'snow'
+        });
+        // Keep question editor compact (single-line feel)
+        questionQuill.root.style.minHeight = '32px';
+        questionQuill.root.style.height = '32px';
+        questionQuill.root.style.paddingTop = '6px';
+        questionQuill.root.style.paddingBottom = '6px';
+
         const toolbarOptions = [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
             ['blockquote', 'code-block'],
@@ -307,6 +283,16 @@ if ($faq_id > 0) {
             theme: 'snow'
         });
 
+        // Load existing question content if editing
+        const existingQuestion = document.getElementById('question').value;
+        if (existingQuestion) {
+            questionQuill.root.innerHTML = existingQuestion;
+        }
+        // Keep hidden question field in sync
+        questionQuill.on('text-change', function() {
+            document.getElementById('question').value = questionQuill.root.innerHTML;
+        });
+
         // Load existing content if editing
         const existingContent = document.getElementById('main_answer').value;
         if (existingContent) {
@@ -318,78 +304,6 @@ if ($faq_id > 0) {
             document.getElementById('main_answer').value = quill.root.innerHTML;
             updateWordCount();
         });
-
-        // Template insertion
-        function insertTemplate(templateType) {
-            let template = '';
-            
-            switch(templateType) {
-                case 'basic_info':
-                    template = `<h3>Basic Information</h3>
-                    <p><strong>Type:</strong> [Submarine Class]</p>
-                    <p><strong>Service Period:</strong> [Years]</p>
-                    <p><strong>Navy:</strong> [Country/Navy]</p>
-                    <p><strong>Primary Role:</strong> [Attack/Fleet/Coastal]</p>`;
-                    break;
-                    
-                case 'tech_specs':
-                    template = `<h3>Technical Specifications</h3>
-                    <ul>
-                        <li><strong>Length:</strong> [feet/meters]</li>
-                        <li><strong>Beam:</strong> [feet/meters]</li>
-                        <li><strong>Draft:</strong> [feet/meters]</li>
-                        <li><strong>Displacement:</strong> [tons surfaced/submerged]</li>
-                        <li><strong>Crew:</strong> [number of personnel]</li>
-                        <li><strong>Armament:</strong> [torpedoes, guns, etc.]</li>
-                    </ul>`;
-                    break;
-                    
-                case 'comparison':
-                    template = `<table>
-                        <thead>
-                            <tr>
-                                <th>Specification</th>
-                                <th>Class A</th>
-                                <th>Class B</th>
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Length</td>
-                                <td>[feet]</td>
-                                <td>[feet]</td>
-                                <td>Overall length</td>
-                            </tr>
-                            <tr>
-                                <td>Speed</td>
-                                <td>[knots]</td>
-                                <td>[knots]</td>
-                                <td>Maximum submerged</td>
-                            </tr>
-                        </tbody>
-                    </table>`;
-                    break;
-                    
-                case 'timeline':
-                    template = `<h3>Timeline</h3>
-                    <ul>
-                        <li><strong>[Date]:</strong> [Event description]</li>
-                        <li><strong>[Date]:</strong> [Event description]</li>
-                        <li><strong>[Date]:</strong> [Event description]</li>
-                    </ul>`;
-                    break;
-            }
-            
-            if (template) {
-                const range = quill.getSelection();
-                if (range) {
-                    quill.clipboard.dangerouslyPasteHTML(range.index, template);
-                } else {
-                    quill.clipboard.dangerouslyPasteHTML(template);
-                }
-            }
-        }
 
         // Update word counts
         function updateWordCount() {
@@ -425,7 +339,9 @@ if ($faq_id > 0) {
             showStatus('Saving draft...', 'info');
             
             // Update hidden textarea with current Quill content
+            document.getElementById('question').value = questionQuill.root.innerHTML;
             document.getElementById('main_answer').value = quill.root.innerHTML;
+            document.getElementById('title-hidden').value = questionQuill.getText().trim() || document.getElementById('title-hidden').value;
             
             const formData = new FormData(document.getElementById('faqForm'));
             formData.append('save_draft', '1');
@@ -469,7 +385,12 @@ if ($faq_id > 0) {
         // Form submission handler
         document.getElementById('faqForm').addEventListener('submit', function(e) {
             // Update the textarea with Quill content before submission
+            document.getElementById('question').value = questionQuill.root.innerHTML;
             document.getElementById('main_answer').value = quill.root.innerHTML;
+            const questionText = questionQuill.getText().trim();
+            if (questionText) {
+                document.getElementById('title-hidden').value = questionText;
+            }
         });
         
         // Event listeners

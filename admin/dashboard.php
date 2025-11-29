@@ -12,12 +12,16 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 }
 
 // Get statistics
+$totalFaqs = 0;
 try {
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM faqs WHERE is_published = 1");
     $publishedFaqs = $stmt->fetch()['count'];
     
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM faqs WHERE is_published = 0");
     $draftFaqs = $stmt->fetch()['count'];
+    
+    $stmt = $pdo->query("SELECT COUNT(*) as count FROM faqs");
+    $totalFaqs = $stmt->fetch()['count'];
     
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM categories");
     $totalCategories = $stmt->fetch()['count'];
@@ -60,102 +64,28 @@ try {
         </div>
     <?php endif; ?>
 
-    <!-- Statistics Cards -->
-    <div class="row mb-4">
-        <div class="col-md-3">
-            <div class="card text-white bg-primary">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title"><?php echo $publishedFaqs; ?></h4>
-                            <p class="card-text">Published FAQs</p>
-                        </div>
-                        <div class="align-self-center">
-                            <i class="fas fa-file-alt fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card text-white bg-success">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title"><?php echo $totalCategories; ?></h4>
-                            <p class="card-text">Categories</p>
-                        </div>
-                        <div class="align-self-center">
-                            <i class="fas fa-folder fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card text-white bg-info">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title"><?php echo number_format($totalViews); ?></h4>
-                            <p class="card-text">Total Views</p>
-                        </div>
-                        <div class="align-self-center">
-                            <i class="fas fa-eye fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card text-white bg-warning">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h4 class="card-title"><?php echo $pendingFeedback; ?></h4>
-                            <p class="card-text">Pending Feedback</p>
-                        </div>
-                        <div class="align-self-center">
-                            <i class="fas fa-comments fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Quick Actions -->
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a href="manage-faqs.php" class="btn btn-success btn-lg w-100 mb-2 quick-action-btn">
-                                <i class="fas fa-list"></i>
-                                <span>FAQs</span>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="manage-categories.php" class="btn btn-info btn-lg w-100 mb-2 quick-action-btn">
-                                <i class="fas fa-folder-open"></i>
-                                <span>Categories</span>
-                            </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="feedback-review.php" class="btn btn-warning btn-lg w-100 mb-2 quick-action-btn">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="quick-actions">
+                                    <a href="manage-faqs.php" class="btn btn-success btn-lg quick-action-btn">
+                                        <i class="fas fa-list"></i>
+                                        <span>FAQs (<?php echo number_format($totalFaqs); ?>)</span>
+                                    </a>
+                                    <a href="manage-categories.php" class="btn btn-info btn-lg quick-action-btn">
+                                        <i class="fas fa-folder-open"></i>
+                                        <span>Categories (<?php echo number_format($totalCategories); ?>)</span>
+                                    </a>
+                            <a href="feedback-review.php" class="btn btn-warning btn-lg quick-action-btn">
                                 <i class="fas fa-comments"></i>
                                 <span>Feedback</span>
                             </a>
-                        </div>
-                        <div class="col-md-2">
-                            <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg w-100 mb-2 quick-action-btn">
+                            <a href="manage-contributions.php" class="btn btn-outline-primary btn-lg quick-action-btn">
                                 <i class="fas fa-hands-helping"></i>
                                 <span>Contributors</span>
                             </a>
@@ -164,7 +94,6 @@ try {
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="row">
         <!-- Recent FAQs -->
@@ -231,15 +160,20 @@ try {
 </div>
 
 <style>
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 .quick-action-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    min-width: 160px;
-    min-height: 120px;
-    padding: 14px 16px;
+    min-width: 220px;
+    min-height: 140px;
+    padding: 20px 20px;
     text-align: center;
     white-space: normal;
 }
